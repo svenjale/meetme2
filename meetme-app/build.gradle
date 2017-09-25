@@ -135,4 +135,9 @@ dependencies {
     compile 'org.parceler:parceler:0.2.13'
     compile 'com.android.support:appcompat-v7:26.0.0'
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.google.firebase:firebase-auth:11.4.0'            //Firebase Authentification
+
+
 }
+apply plugin: 'com.google.gms.google-services'      //Firebase DB
