@@ -1,0 +1,4 @@
+WebView web = new WebView();
+web.loadUrl("file:///android_asset/sample.html");
+make sure you cast the web view before using loadUrl() function :
+web =(WebView)findViewById(R.id.webview);
