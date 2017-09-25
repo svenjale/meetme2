@@ -2,6 +2,7 @@ package de.meetme;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
@@ -89,8 +90,14 @@ public class HelloActivity extends Activity implements View.OnClickListener{
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {                                    //Benutzer ist erfolgreich mit Email und Passwort registriert und eingeloggt, öffne Profil Aktivität
+                    if(firebaseAuth.getCurrentUser()!=null){ //Profilseite kann geöffnet werden
+                        finish();
+                    startActivity(new Intent(getApplicationContext(), Profile_Activity.class));
+
+                }
                     Toast.makeText(HelloActivity.this, "Erfolgreich registriert", Toast.LENGTH_SHORT).show();
-                }else {
+                }
+                else {
                     Toast.makeText(HelloActivity.this, "Benutzer konnte nicht registriert werden", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -105,6 +112,7 @@ public class HelloActivity extends Activity implements View.OnClickListener{
        }
 
        if (view == textViewSignin) {
+           startActivity(new Intent(this, Login_Activity.class));
            //öffnet Signin Aktivität
        }
     }

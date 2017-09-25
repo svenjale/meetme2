@@ -44,10 +44,9 @@
             android:text="Noch nicht registriert? Hier anmelden"
             android:id="@+id/textViewRegister"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" /> auskommentiert, weil gehört auf andere Seite<!-->
+            android:layout_height="wrap_content" /> //auskommentiert, weil gehört auf andere Seite
 
     </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>
-

@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import de.meetme.app.*;
 import de.meetme.app.R;
 
 public class Login_Activity extends AppCompatActivity implements View.OnClickListener{
@@ -43,7 +44,10 @@ public class Login_Activity extends AppCompatActivity implements View.OnClickLis
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        if(firebaseAuth.getCurrentUser()!=null) {               //Profilseite kann geöffnet werden
+        if(firebaseAuth.getCurrentUser()!=null) //Profilseite kann geöffnet werden
+            finish();
+        startActivity(new Intent(getApplicationContext(), Profile_Activity.class));
+
     }
 
     private void userLogin(){
@@ -65,6 +69,8 @@ public class Login_Activity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){   //starte Profilseite
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), Profile_Activity.class));
 
                         }
                     }
