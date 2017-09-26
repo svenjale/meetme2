@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:599954137446:android:81315c32b1432ad9",
         "android_client_info": {
-          "package_name": "de.meetme.app"
+          "package_name": "de.meetme"
         }
       },
       "oauth_client": [
@@ -31,6 +31,50 @@
         "appinvite_service": {
           "status": 1,
           "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599954137446:android:ddace808dbed5887",
+        "android_client_info": {
+          "package_name": "de.meetme.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599954137446-m08jtuaf2c0t0ar4q1h4t8kd054jdfbf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "de.meetme.app",
+            "certificate_hash": "3831207a8ff5b0e66a3ba9bf7736d5b2ec38cd3e"
+          }
+        },
+        {
+          "client_id": "599954137446-n0mfdd9jp8d4vlfkj0p42j3ikgct99gm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEWZZX2_tqHqDoPMgO-MU5Vr_P4xcwUKk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599954137446-n0mfdd9jp8d4vlfkj0p42j3ikgct99gm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
