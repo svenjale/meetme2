@@ -31,13 +31,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-   <TextView
-        android:textAlignment="center"
-        android:text="Schon registriert? Hier einloggen"
+    <TextView
         android:id="@+id/textViewSignin"
-        android:layout_width="match_parent"
+        android:layout_width="301dp"
         android:layout_height="wrap_content"
-       android:onClick="onClick"
-       android:clickable="true"/>
+        android:clickable="true"
+        android:onClick="onClick"
+        android:text="Schon registriert? Hier einloggen"
+        android:textAlignment="center" />
 
 </LinearLayout>
