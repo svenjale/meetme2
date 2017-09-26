@@ -50,4 +50,15 @@
         android:layout_toRightOf="@+id/button2"
         android:layout_toEndOf="@+id/button2" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="Teilnehmer"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+
 </android.widget.RelativeLayout>
