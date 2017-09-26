@@ -6,6 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
+
+import com.google.android.gms.tasks.OnCompleteListener;
 
 public class eventlist extends Activity implements View.OnClickListener {
 
@@ -13,6 +17,7 @@ public class eventlist extends Activity implements View.OnClickListener {
     private Button button7;
     private Button button3;
     private Button button6;
+    private Button button12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,32 +28,38 @@ public class eventlist extends Activity implements View.OnClickListener {
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
+        button12 = (Button) findViewById(R.id.button12);
 
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
+
+        button12.setOnClickListener(this);
     }
-
-    public void onClick(View view) {
-        if (view == button2) {
-            Intent Profil = new Intent(eventlist.this, Profile_Activity.class);
-            startActivity(Profil);
+            @Override
+            public void onClick(View view) {
+                if (view == button2) {
+                    Intent Profil = new Intent(eventlist.this, Profile_Activity.class);
+                    startActivity(Profil);
+                }
+                if (view == button7) {
+                    Intent Walk = new Intent(eventlist.this, eventlist.class);
+                    startActivity(Walk);
+                }
+                if (view == button3) {
+                    Intent Map = new Intent(eventlist.this, map.class);
+                    startActivity(Map);
+                }
+                if (view == button6) {
+                    Intent Kontakte = new Intent(eventlist.this, kontakte.class);
+                    startActivity(Kontakte);
+                }
+                if (view == button12) {
+                    Intent Plus = new Intent(eventlist.this, createevent.class);            //Plus = Hinzufügen Button
+                    startActivity(Plus);
+                }
+            }
         }
-        if (view == button7) {
 
-            Intent Walk = new Intent(eventlist.this, eventlist.class);
-            startActivity(Walk);
-        }
-        if (view == button3) {
 
-            Intent Map = new Intent(eventlist.this, map.class);
-            startActivity(Map);
-        }
-        if (view == button6) {
-
-            Intent Kontakte = new Intent(eventlist.this, kontakte.class);
-            startActivity(Kontakte);
-        }
-    }
-}

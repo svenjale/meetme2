@@ -25,8 +25,7 @@ public class createevent extends Activity implements View.OnClickListener {
     private EditText editText13;            //Uhrzeit
 
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseEvents;               //WARUM IST ES ROT?!??????????????????
-
+    private DatabaseReference databaseEvents;
 
 
     @Override
@@ -36,12 +35,8 @@ public class createevent extends Activity implements View.OnClickListener {
 
         databaseEvents = FirebaseDatabase.getInstance().getReference("events");
 
-        button8.setOnClickListener(new View.OnClickListener() {                 //vorher nur mit this, jetzt auf einmal mit onclicklistener...??
-            @Override
-            public void onClick(View view) {
+        button8.setOnClickListener(this);
 
-            }
-        });
 
         editText5 = (EditText) findViewById(R.id.editText5);
         editText8 = (EditText) findViewById(R.id.editText8);
