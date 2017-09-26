@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import de.meetme.app.R;
+import de.meetme.R;
 
 public class Profile_Activity extends AppCompatActivity implements View.OnClickListener{
 

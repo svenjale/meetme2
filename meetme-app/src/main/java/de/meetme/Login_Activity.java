@@ -17,7 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import de.meetme.app.*;
-import de.meetme.app.R;
+import de.meetme.R;
 
 public class Login_Activity extends AppCompatActivity implements View.OnClickListener{
 
