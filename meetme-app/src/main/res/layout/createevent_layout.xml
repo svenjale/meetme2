@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,16 +8,16 @@
     tools:context="de.meetme.createevent">
 
     <RelativeLayout
-        android:layout_width="344dp"
-        android:layout_height="495dp"
-        android:layout_marginLeft="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="8dp"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.0">
 
         <EditText
             android:id="@+id/editText5"
@@ -34,12 +34,12 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageButton4"
             android:layout_marginLeft="22dp"
             android:layout_marginStart="22dp"
-            android:text="Eventname:"
-            android:layout_below="@+id/imageButton4"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:text="Eventname:" />
 
         <TextView
             android:id="@+id/textView9"
@@ -127,6 +127,7 @@
             android:ems="10"
             android:inputType="time"
             tools:layout_width="300dp" />
+
         <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="wrap_content"
@@ -142,13 +143,13 @@
             android:id="@+id/imageButton4"
             android:layout_width="2dp"
             android:layout_height="20dp"
+            android:layout_alignBottom="@+id/imageButton"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/editText5"
-            app:srcCompat="@android:drawable/ic_menu_help"
-            android:layout_alignBottom="@+id/imageButton"
-            android:layout_toRightOf="@+id/editText5" />
+            android:layout_toRightOf="@+id/editText5"
+            app:srcCompat="@android:drawable/ic_menu_help" />
 
         <Button
             android:id="@+id/button2"
@@ -159,6 +160,7 @@
             android:layout_alignRight="@+id/textView8"
             android:layout_marginEnd="11dp"
             android:layout_marginRight="11dp"
+            android:background="@android:color/holo_blue_dark"
             android:text="Profil" />
 
         <Button
@@ -170,6 +172,7 @@
             android:layout_marginStart="11dp"
             android:layout_toEndOf="@+id/textView12"
             android:layout_toRightOf="@+id/textView12"
+            android:background="@android:color/holo_blue_dark"
             android:text="Map" />
 
         <Button
@@ -179,27 +182,33 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:background="@android:color/holo_blue_dark"
             android:text="Kontakte" />
-
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="93dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="52dp"
-            android:layout_marginStart="52dp"
-            android:layout_toEndOf="@+id/textView9"
-            android:layout_toRightOf="@+id/textView9"
-            android:text="Walks"/>
 
         <Button
             android:id="@+id/button8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="SAVE"
             android:layout_above="@+id/button3"
             android:layout_centerHorizontal="true"
-            android:text="SAVE" />
+
+            android:layout_marginBottom="11dp" />
 
 
-    </RelativeLayout>
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="93dp"
+        android:layout_height="wrap_content"
+        android:text="Walks"
+        android:background="@android:color/holo_blue_dark"
+        tools:layout_editor_absoluteX="170dp"
+        tools:layout_editor_absoluteY="463dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/button6"
+        android:layout_toStartOf="@+id/button6" />
+
+
+</android.widget.RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
