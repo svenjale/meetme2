@@ -31,11 +31,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-   <!--> <TextView
+   <TextView
         android:textAlignment="center"
         android:text="Schon registriert? Hier einloggen"
         android:id="@+id/textViewSignin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" /> auskommentiert, weil gehört auf andere Seite<!-->
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

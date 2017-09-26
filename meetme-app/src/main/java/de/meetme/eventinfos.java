@@ -1,13 +1,15 @@
-package de.meetme.app;
+package de.meetme;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Profile_Activity extends AppCompatActivity {
+import de.meetme.app.R;
+
+public class eventinfos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_);
+        setContentView(R.layout.activity_eventinfos);
     }
 }
