@@ -20,7 +20,8 @@
         <activity android:name=".createevent" />
         <activity android:name=".eventlist" />
         <activity android:name=".eventinfos" />
-        <activity android:name=".teilnehmerlist"></activity>
+        <activity android:name=".teilnehmerlist" />
+        <activity android:name=".welcome"></activity>
     </application>
 
 </manifest>
