@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?android:attr/colorEdgeEffect"
     tools:context="de.meetme.eventinfos">
 
     <ImageButton
@@ -21,21 +22,23 @@
         android:id="@+id/button2"
         android:layout_width="94dp"
         android:layout_height="wrap_content"
-        android:text="Profil"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@android:color/holo_red_light"
+        android:text="Profil" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="93dp"
         android:layout_height="wrap_content"
-        android:text="Map"
         android:layout_alignParentBottom="true"
+        android:layout_marginEnd="82dp"
+        android:layout_marginRight="82dp"
         android:layout_toLeftOf="@+id/button6"
         android:layout_toStartOf="@+id/button6"
-        android:layout_marginRight="82dp"
-        android:layout_marginEnd="82dp" />
+        android:background="@android:color/holo_blue_dark"
+        android:text="Map" />
 
     <Button
         android:id="@+id/button6"
@@ -44,27 +47,32 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:background="@android:color/holo_blue_dark"
         android:text="Kontakte" />
 
     <Button
         android:id="@+id/button7"
         android:layout_width="93dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_marginLeft="84dp"
         android:layout_marginStart="84dp"
-        android:text="Walks"
-        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/button2"
         android:layout_toRightOf="@+id/button2"
-        android:layout_toEndOf="@+id/button2" />
+        android:background="@android:color/holo_blue_dark"
+        android:text="Walks" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="22dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp"
-        android:text="Eventname" />
+        android:autoText="false"
+        android:text="Eventname"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView20"
@@ -80,12 +88,12 @@
         android:id="@+id/textView22"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:maxLines="3"
-        android:lines="3"
         android:layout_alignLeft="@+id/textView20"
         android:layout_alignStart="@+id/textView20"
         android:layout_below="@+id/textView20"
-        android:layout_marginTop="11dp" />
+        android:layout_marginTop="11dp"
+        android:lines="3"
+        android:maxLines="3" />
 
     <TextView
         android:id="@+id/textView23"
@@ -161,5 +169,15 @@
         android:layout_alignStart="@+id/textView30"
         android:layout_below="@+id/textView30"
         android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView31"
+        android:layout_alignStart="@+id/textView31"
+        android:layout_below="@+id/textView31"
+        android:layout_marginTop="8dp"
+        android:text="TextView" />
 
 </android.widget.RelativeLayout>

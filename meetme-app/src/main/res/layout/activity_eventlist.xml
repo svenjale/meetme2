@@ -10,6 +10,7 @@
         android:layout_width="94dp"
         android:layout_height="wrap_content"
         android:text="Profil"
+        android:background="@android:color/holo_blue_dark"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -19,6 +20,7 @@
         android:layout_width="93dp"
         android:layout_height="wrap_content"
         android:text="Map"
+        android:background="@android:color/holo_blue_dark"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/button6"
         android:layout_toStartOf="@+id/button6"
@@ -32,18 +34,20 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:background="@android:color/holo_blue_dark"
         android:text="Kontakte" />
 
     <Button
         android:id="@+id/button7"
         android:layout_width="93dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_marginLeft="84dp"
         android:layout_marginStart="84dp"
-        android:text="Walks"
-        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/button2"
         android:layout_toRightOf="@+id/button2"
-        android:layout_toEndOf="@+id/button2" />
+        android:background="@android:color/holo_blue_dark"
+        android:text="Walks" />
 
     <TextView
         android:id="@+id/textView"
@@ -52,6 +56,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp"
-        android:text="Photowalks" />
+        android:text="Photowalks"
+        android:textSize="22dp"
+        android:textStyle="bold" />
 
 </android.widget.RelativeLayout>
