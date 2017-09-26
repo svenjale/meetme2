@@ -36,6 +36,8 @@
         android:text="Schon registriert? Hier einloggen"
         android:id="@+id/textViewSignin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+       android:onClick="onClick"
+       android:clickable="true"/>
 
 </LinearLayout>
