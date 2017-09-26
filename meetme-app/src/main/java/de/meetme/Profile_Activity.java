@@ -1,5 +1,6 @@
 package de.meetme;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import de.meetme.R;
 
-public class Profile_Activity extends AppCompatActivity implements View.OnClickListener{
+public class Profile_Activity extends Activity implements View.OnClickListener{
 
     private FirebaseAuth firebaseAuth;
 
@@ -25,7 +26,7 @@ public class Profile_Activity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+       /* firebaseAuth = FirebaseAuth.getInstance();
 
         if(firebaseAuth.getCurrentUser() == null){
             finish();
@@ -40,7 +41,7 @@ public class Profile_Activity extends AppCompatActivity implements View.OnClickL
        // textViewUserEmail.setText("Willkommen"+user.getEmail());
 
 
-
+*/
     }
 
     @Override

@@ -20,7 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-public class HelloActivity extends Activity implements View.OnClickListener{
+public class HelloActivity extends Activity implements View.OnClickListener {
 
     private static final String TAG = "HelloActivity";
     private static final String HOSTNAME = "<here your IP or hostname>";
@@ -40,7 +40,7 @@ public class HelloActivity extends Activity implements View.OnClickListener{
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        buttonRegister =(Button) findViewById(R.id.buttonRegister);
+        buttonRegister = (Button) findViewById(R.id.buttonRegister);
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
@@ -85,35 +85,39 @@ public class HelloActivity extends Activity implements View.OnClickListener{
             return;
         }
 
-        firebaseAuth.createUserWithEmailAndPassword(email,password)
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {                                    //Benutzer ist erfolgreich mit Email und Passwort registriert und eingeloggt, öffne Profil Aktivität
-                    if(firebaseAuth.getCurrentUser()!=null){ //Profilseite kann geöffnet werden
-                        finish();
-                    startActivity(new Intent(getApplicationContext(), Profile_Activity.class));
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(HelloActivity.this, "Erfolgreich registriert", Toast.LENGTH_SHORT).show();                                                 //Benutzer ist erfolgreich mit Email und Passwort registriert und eingeloggt, öffne Profil Aktivität
+                            if (firebaseAuth.getCurrentUser() != null) { //Profilseite kann geöffnet werden
+                                finish();
 
-                }
-                    Toast.makeText(HelloActivity.this, "Erfolgreich registriert", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(HelloActivity.this, "Benutzer konnte nicht registriert werden", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
+                            } else {
+                                Toast.makeText(HelloActivity.this, "Benutzer konnte nicht registriert werden", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+
+                    }
+
+                    });
     }
+
 
     @Override
     public void onClick(View view) {
-       if (view == buttonRegister) {
-           registerUser();
-       }
+        if (view == buttonRegister) {
+            registerUser();
+        }
+        Intent regisintent = new Intent(HelloActivity.this, Login_Activity.class);
+        startActivity(regisintent);
 
-       if (view == textViewSignin) {
-           startActivity(new Intent(this, Login_Activity.class));
-           //öffnet Signin Aktivität
-       }
     }
+
 }
+
+
+

@@ -1,9 +1,10 @@
 package de.meetme;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class createevent extends AppCompatActivity {
+public class createevent extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
