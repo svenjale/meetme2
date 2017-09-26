@@ -2,6 +2,7 @@ package de.meetme;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
 

@@ -104,7 +104,7 @@ public class HelloActivity extends Activity implements View.OnClickListener {
 
                     }
 
-                    });
+                });
     }
 
 
