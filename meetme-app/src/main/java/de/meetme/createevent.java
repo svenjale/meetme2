@@ -8,6 +8,6 @@ public class createevent extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_createevent);
+        setContentView(R.layout.createevent_layout);
     }
 }

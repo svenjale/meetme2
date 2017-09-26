@@ -164,13 +164,6 @@
         tools:layout_width="97dp" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="95dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Walks" />
-
-    <Button
         android:id="@+id/button6"
         android:layout_width="95dp"
         android:layout_height="wrap_content"
