@@ -16,6 +16,16 @@
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/smapicons"
+            android:layout_marginLeft="150dp"
+            android:layout_marginRight="150dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginBottom="5dp"/>
+
         <EditText
 
             android:inputType="textEmailAddress"
@@ -23,8 +33,9 @@
             android:id="@+id/editTextEmail"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="0dp"
             android:layout_marginBottom="0dp"
+            android:layout_marginLeft="15dp"
             />
 
         <EditText
@@ -34,14 +45,17 @@
             android:hint="Passwort eingeben"
             android:id="@+id/editTextPassword"
             android:layout_width="300dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"/>
 
         <Button
             android:layout_margin="15dp"
             android:id="@+id/buttonLogIn"
             android:text="Einloggen"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/mybutton"
+            android:layout_marginLeft="25dp"/>
 
         <TextView
             android:textAlignment="center"

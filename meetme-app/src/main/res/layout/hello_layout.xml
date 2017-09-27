@@ -8,6 +8,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     >
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/smapicons"
+        android:layout_marginLeft="150dp"
+        android:layout_marginRight="150dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="5dp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,8 +32,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginBottom="0dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="0dp"
             android:hint="Email eingeben"
+            android:layout_marginLeft="15dp"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -36,6 +46,7 @@
             android:layout_below="@+id/editTextEmail"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
             android:hint="Passwort eingeben"
             android:inputType="textPassword" />
 
@@ -50,7 +61,8 @@
         android:layout_alignEnd="@+id/textViewSignin"
         android:layout_alignRight="@+id/textViewSignin"
         android:layout_margin="15dp"
-        android:text="Benutzer registrieren" />
+        android:text="Benutzer registrieren"
+        android:background="@drawable/mybutton"/>
 
     <TextView
         android:id="@+id/textViewSignin"
