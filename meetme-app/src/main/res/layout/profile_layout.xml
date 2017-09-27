@@ -110,8 +110,10 @@
             android:layout_height="wrap_content"
             android:text="Fotograf"
             android:layout_below="@+id/textView5"
-            android:layout_alignLeft="@+id/checkBox4"
-            android:layout_alignStart="@+id/checkBox4" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="11dp"
+            android:layout_marginEnd="11dp" />
 
         <CheckBox
             android:id="@+id/checkBox3"
@@ -175,13 +177,11 @@
             android:id="@+id/button7"
             android:layout_width="93dp"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/button4"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/button4"
-            android:layout_marginLeft="35dp"
-            android:layout_marginStart="35dp"
             android:background="@android:color/holo_blue_dark"
-            android:text="Walks" />
+            android:text="Walks"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2" />
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -208,8 +208,8 @@
         android:layout_height="wrap_content"
         android:text="Visagist"
         android:layout_below="@+id/checkBox2"
-        android:layout_toRightOf="@+id/button7"
-        android:layout_toEndOf="@+id/button7" />
+        android:layout_alignLeft="@+id/checkBox2"
+        android:layout_alignStart="@+id/checkBox2" />
 
 
 </android.widget.RelativeLayout>
