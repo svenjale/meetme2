@@ -15,14 +15,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class createevent extends Activity implements View.OnClickListener {
-
+public class createevent extends Activity implements View.OnClickListener  {
+// implements View.OnClickListener wieder einfügen
     private Button button8;
     private EditText editText5;              //Eventname
     private EditText editText8;             //Beschreibung
     private EditText editText10;            //Ort
     private EditText editText11;            //Datum
-    private EditText editText13;            //Uhrzeit
+    private EditText editText13;//Uhrzeit
 
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseEvents;
@@ -33,9 +33,10 @@ public class createevent extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.createevent_layout);
 
-        databaseEvents = FirebaseDatabase.getInstance().getReference("events");
 
-        button8.setOnClickListener(this);
+      databaseEvents = FirebaseDatabase.getInstance().getReference("events");
+
+
 
 
         editText5 = (EditText) findViewById(R.id.editText5);
@@ -43,6 +44,10 @@ public class createevent extends Activity implements View.OnClickListener {
         editText10 = (EditText) findViewById(R.id.editText10);
         editText11 = (EditText) findViewById(R.id.editText11);
         editText13 = (EditText) findViewById(R.id.editText13);
+        button8 = (Button) findViewById(R.id.button8);
+
+
+        button8.setOnClickListener(this);
 
 
     }
@@ -91,7 +96,7 @@ public class createevent extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view == button8) {
-            createevent();
+            createevent(); 
         }
         Intent regisintent = new Intent(createevent.this, eventlist.class);
         startActivity(regisintent);
