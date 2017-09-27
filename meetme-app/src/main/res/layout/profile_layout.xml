@@ -7,20 +7,8 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="0dp"
     tools:context="de.meetme.createevent">
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="de.meetme.Profile_Activity">
 
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="1.0">
+
 
     <Button
         android:id="@+id/button12"
@@ -164,11 +152,11 @@
         android:id="@+id/button2"
         android:layout_width="94dp"
         android:layout_height="40dp"
+        android:background="#BFD2BF"
+        android:text="Profil"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#BFD2BF"
-        android:text="Profil" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/button3"
@@ -176,7 +164,7 @@
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/button2"
-        android:background="@android:color/holo_blue_dark"
+        android:background="#BFD2BF"
         android:text="Map" />
 
     <Button
@@ -186,7 +174,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:background="@android:color/holo_blue_dark"
+        android:background="#BFD2BF"
         android:text="Kontakte" />
 
     <Button
@@ -196,7 +184,7 @@
         android:layout_alignEnd="@+id/checkBox2"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/checkBox2"
-        android:background="@android:color/holo_blue_dark"
+        android:background="#BFD2BF"
         android:text="Walks" />
 
     <CheckBox

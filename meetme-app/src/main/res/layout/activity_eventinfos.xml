@@ -156,7 +156,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView30"
         android:layout_alignBottom="@+id/textView30"
-        android:layout_alignRight="20dp"
         android:layout_marginLeft="200dp"
         android:text="Uhrzeit:"
         android:textAppearance="@android:style/TextAppearance.Holo"
