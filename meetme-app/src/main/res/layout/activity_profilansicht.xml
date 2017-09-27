@@ -163,5 +163,15 @@
         android:layout_toLeftOf="@+id/button6"
         android:layout_toStartOf="@+id/button6" />
 
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView34"
+        android:layout_alignStart="@+id/textView34"
+        android:layout_below="@+id/textView34"
+        android:layout_marginTop="13dp"
+        android:text="Bearbeiten" />
+
 
 </android.widget.RelativeLayout>

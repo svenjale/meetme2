@@ -154,7 +154,7 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
         }
         if (view == button4) {
             saveprofile();
-            Intent Profil = new Intent(Profile_Activity.this, Profile_Activity.class);
+            Intent Profil = new Intent(Profile_Activity.this, profilansicht.class);
             startActivity(Profil);
         }
     }

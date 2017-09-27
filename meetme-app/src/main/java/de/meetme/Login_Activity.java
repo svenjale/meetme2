@@ -76,7 +76,7 @@ public class Login_Activity extends Activity implements View.OnClickListener {
                             //Intent ErfolgRegis = new Intent(Login_Activity.this, Profile_Activity.class);
                             //startActivity(ErfolgRegis);
                             Toast.makeText(Login_Activity.this, "Erfolgreich eingeloggt", Toast.LENGTH_SHORT).show();
-                            Intent loginintent = new Intent(Login_Activity.this, Profile_Activity.class); //switch zum Regis
+                            Intent loginintent = new Intent(Login_Activity.this, profilansicht.class); //switch zum Profil
                             startActivity(loginintent);
                         } else {
                             Toast.makeText(Login_Activity.this, "Es scheint etwas schief gelaufen zu sein.", Toast.LENGTH_SHORT).show();
