@@ -45,7 +45,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     public boolean teilnehmen (String eventID){
         boolean erfolg = false;
         String teilnehmerID = firebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseEventteilnehmer.child(eventID).child(teilnehmerID);
+        databaseEventteilnehmer.child(eventID).child("teilnehmer").setValue(teilnehmerID);
         return erfolg;
     }
     //Notiz Johann: https://stackoverflow.com/questions/37031222/firebase-add-new-child-with-specified-name
