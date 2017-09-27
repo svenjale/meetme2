@@ -55,4 +55,13 @@
         android:layout_toRightOf="@+id/buttonLogin2"
         android:layout_toEndOf="@+id/buttonLogin2" />
 
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Help"
+        android:layout_marginBottom="11dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
 </android.widget.RelativeLayout>

@@ -7,6 +7,15 @@
     tools:context="de.meetme.kontakte">
 
     <Button
+        android:id="@+id/button14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Help"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
         android:id="@+id/button2"
         android:layout_width="94dp"
         android:layout_height="wrap_content"

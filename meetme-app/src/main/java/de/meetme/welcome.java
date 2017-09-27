@@ -23,6 +23,7 @@ public class welcome extends Activity implements View.OnClickListener {
 
     private Button buttonLogin2;
     private Button buttonRegis2;
+    private Button button14;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,9 @@ public class welcome extends Activity implements View.OnClickListener {
 
       buttonLogin2 = (Button) findViewById(R.id.buttonLogin2);
       buttonRegis2 = (Button) findViewById(R.id.buttonRegis2);
+        button14 = (Button) findViewById(R.id.button14);
 
+        button14.setOnClickListener(this);
 
       buttonLogin2.setOnClickListener(this);
       buttonRegis2.setOnClickListener(this);
@@ -47,6 +50,9 @@ public class welcome extends Activity implements View.OnClickListener {
             Intent Regis2 = new Intent(welcome.this, HelloActivity.class);            //Plus = Hinzufügen Button
             startActivity(Regis2);
         }
-
+        if (view == button14) {
+            Intent gohelp2 = new Intent(welcome.this, help.class); //switch zur Registrierung
+            startActivity(gohelp2);
+        }
     }
 }
