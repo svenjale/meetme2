@@ -8,19 +8,6 @@
     android:layout_height="match_parent"
     tools:context="de.meetme.help">
 
-    <TextView
-        android:id="@+id/textViewRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:text="Hier findest du alle Hilfe, die du brauchst :)"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:textSize="18dp"/>
-
 
     <Button
         android:id="@+id/button2"
@@ -68,31 +55,56 @@
 
 
 
-    <TextView
-        android:id="@+id/textViewHelpRegistrierung"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Registrierung"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:layout_below="@+id/textViewRegister"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/textViewHelpLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="49dp"
-        android:text="Login"
+        android:text="
+        Willkommen auf unserer Hilfe - Seite
+        \n
+        \n --Registrierung--
+        \n
+\n Bitte füge hier deine Email Adresse und ein Wunschpasswort ein.
+\n Wenn du dich schon registriert hast, so gehe zurück auf die Login-Seite.
+\n
+\n --Login--
+\n
+\n Wenn du dich schon registriert hast, gebe bitte deine Email Adresse und dein Passwort ein.
+\n Du bist noch nicht registriert? Gehe zur Registrierungsseite.
+\n
+\n --Profil--
+\n
+\n Bitte gebe hier deinen Vor- und Nachnamen ein. Außerdem kannst du eine Rolle wählen (Mehrfachauswahl ist möglich). Im Feld Kontakt kannst du deine gewünschten Kontaktmöglichkeiten eingeben, damit andere Nutzer dich kontaktieren können, zum Beispiel Telefonnummer oder Email Adresse.
+\n
+\n --Event erstellen--
+\n
+\n Hier kannst du ein Event erstellen. Dafür musst du einen Eventnamen, eine Beschreibung, einen Ort sowie Datum und Uhrzeit eingeben. Die Beschreibung sollte kurz, aber aussagekräftig sein, damit andere Nutzer sich gerne zu deinem Event anmelden.
+\n
+\n --Event-Liste--
+\n
+\n Dies ist eine Übersicht über alle Events mit Ort und Datum. Wenn du mehr Informationen über ein Event erfahren möchtest, so klicke es einfach an. Dort findest du auch die Beschreibung.
+\n
+\n --Event Infos--
+\n
+\n Hier siehst du dein ausgewähltes Event und seine Beschreibung. Außerdem erfährst du hier wann und wo es stattfindet und wer es organisiert. Du kommst von hier auch zu den Teilnehmern und Anwesenden. Wenn dich das Event interessiert, kannst du dich hier dafür anmelden.
+\n Bist du schon vor Ort? Dann kannst du dies hier anderen mitteilen.
+\n
+\n --Teilnehmer-Liste--
+\n
+\n Dies ist eine Liste, in der du sehen kannst, wer alles plant an dem Event teilzunehmen.
+\n (Von hier kannst du auch Kontakte zu deiner Kontaktliste hinzufügen).
+\n
+\n --Profil eines anderen Nutzers--
+\n
+\n Hier findest du Informationen über einen anderen Nutzer, sowie seine Rolle und Kontaktdaten, über welche du ihn kontaktieren darfst.
+"
         android:textAlignment="center"
-        android:textStyle="bold"
         android:textSize="18dp"
-        android:layout_below="@+id/textViewHelpRegistrierung"
+        android:maxLines="40"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
 
 
 
