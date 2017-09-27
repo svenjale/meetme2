@@ -28,7 +28,9 @@
             android:layout_below="@+id/imageButton4"
             android:layout_marginLeft="22dp"
             android:layout_marginStart="22dp"
-            android:text="Eventname:" />
+            android:text="Eventname:"
+            android:textSize="17dp"
+            android:textAppearance="@android:style/TextAppearance.Holo"/>
 
         <TextView
             android:id="@+id/textView9"
@@ -38,7 +40,9 @@
             android:layout_alignStart="@+id/editText5"
             android:layout_below="@+id/editText5"
             android:layout_marginTop="5dp"
-            android:text="Beschreibung:" />
+            android:text="Beschreibung:"
+            android:textSize="17dp"
+            android:textAppearance="@android:style/TextAppearance.Holo"/>
 
         <EditText
             android:id="@+id/editText8"
@@ -60,7 +64,9 @@
             android:layout_alignStart="@+id/editText8"
             android:layout_below="@+id/editText8"
             android:layout_marginTop="5dp"
-            android:text="Ort:" />
+            android:text="Ort:"
+            android:textSize="17dp"
+            android:textAppearance="@android:style/TextAppearance.Holo"/>
 
         <EditText
             android:id="@+id/editText10"
@@ -81,7 +87,9 @@
             android:layout_alignStart="@+id/editText10"
             android:layout_below="@+id/editText10"
             android:layout_marginTop="5dp"
-            android:text="Datum:" />
+            android:text="Datum:"
+            android:textAppearance="@android:style/TextAppearance.Holo"/>
+    />
 
         <EditText
             android:id="@+id/editText11"
@@ -103,7 +111,9 @@
             android:layout_alignStart="@+id/editText11"
             android:layout_below="@+id/editText11"
             android:layout_marginTop="5dp"
-            android:text="Uhrzeit:" />
+            android:text="Uhrzeit:"
+            android:textAppearance="@android:style/TextAppearance.Holo"/>
+    />
 
         <EditText
             android:id="@+id/editText13"
