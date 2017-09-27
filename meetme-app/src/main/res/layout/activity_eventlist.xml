@@ -54,24 +54,26 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="66dp"
         android:text="Photowalks"
         android:textSize="22dp"
         android:textStyle="bold"
-        android:layout_below="@+id/textView14"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button2"
+        android:layout_toEndOf="@+id/button2"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
         android:text="Eventname"
-        android:layout_marginRight="11dp"
-        android:layout_marginEnd="11dp"
-        android:layout_below="@+id/imageButton8"
-        android:layout_toLeftOf="@+id/textView"
-        android:layout_toStartOf="@+id/textView" />
+        android:layout_below="@+id/imageButton6"
+        android:layout_toLeftOf="@+id/textView14"
+        android:layout_toStartOf="@+id/textView14"
+        android:layout_marginRight="47dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginTop="52dp" />
 
     <TextView
         android:id="@+id/textView14"
@@ -103,16 +105,15 @@
         app:srcCompat="@android:drawable/ic_menu_help"
         tools:layout_height="20dp"
         tools:layout_width="2dp"
-        android:layout_alignBottom="@+id/textView" />
+        android:layout_alignBottom="@+id/imageButton6" />
 
-    <Button
-        android:id="@+id/button12"
+    <ImageButton
+        android:id="@+id/imageButton6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="+"
-        android:layout_below="@+id/textView"
-        android:layout_toLeftOf="@+id/textView13"
-        android:layout_toStartOf="@+id/textView13"
-        android:layout_marginTop="45dp" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/button12"
+        android:layout_alignEnd="@+id/button12" />
 
 </android.widget.RelativeLayout>

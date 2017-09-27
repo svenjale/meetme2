@@ -17,7 +17,7 @@ public class eventlist extends Activity implements View.OnClickListener {
     private Button button7;
     private Button button3;
     private Button button6;
-    private Button button12;
+    private ImageButton imageButtonbutton6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +28,14 @@ public class eventlist extends Activity implements View.OnClickListener {
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
-        button12 = (Button) findViewById(R.id.button12);
+        imageButtonbutton6 = (ImageButton) findViewById(R.id.imageButton6);
 
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
 
-        button12.setOnClickListener(this);
+        imageButtonbutton6.setOnClickListener(this);
     }
             @Override
             public void onClick(View view) {
@@ -55,7 +55,7 @@ public class eventlist extends Activity implements View.OnClickListener {
                     Intent Kontakte = new Intent(eventlist.this, kontakte.class);
                     startActivity(Kontakte);
                 }
-                if (view == button12) {
+                if (view == imageButtonbutton6) {
                     Intent Plus = new Intent(eventlist.this, createevent.class);            //Plus = Hinzufügen Button
                     startActivity(Plus);
                 }
