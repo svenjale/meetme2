@@ -6,6 +6,29 @@
     android:layout_height="match_parent"
     tools:context="de.meetme.eventlist">
 
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView15"
+        android:layout_toRightOf="@+id/textView15"
+        app:srcCompat="@android:drawable/ic_menu_help"
+        tools:layout_height="20dp"
+        tools:layout_width="2dp"
+        android:layout_alignBottom="@+id/imageButton6" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/button12"
+        android:layout_alignEnd="@+id/button12" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="94dp"
@@ -93,27 +116,6 @@
         android:text="Datum"
         android:layout_alignBottom="@+id/textView14" />
 
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/textView15"
-        android:layout_toRightOf="@+id/textView15"
-        app:srcCompat="@android:drawable/ic_menu_help"
-        tools:layout_height="20dp"
-        tools:layout_width="2dp"
-        android:layout_alignBottom="@+id/imageButton6" />
 
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_input_add"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/button12"
-        android:layout_alignEnd="@+id/button12" />
 
 </android.widget.RelativeLayout>

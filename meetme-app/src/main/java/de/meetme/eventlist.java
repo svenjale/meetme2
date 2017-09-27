@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 
@@ -56,8 +57,9 @@ public class eventlist extends Activity implements View.OnClickListener {
                     startActivity(Kontakte);
                 }
                 if (view == imageButtonbutton6) {
-                    Intent Plus = new Intent(eventlist.this, createevent.class);            //Plus = Hinzufügen Button
-                    startActivity(Plus);
+                    Toast.makeText(eventlist.this, "Erfolgreich registriert", Toast.LENGTH_SHORT).show();
+                    // Intent Plus = new Intent(eventlist.this, createevent.class);            //Plus = Hinzufügen Button
+                    //startActivity(Plus);
                 }
             }
         }
