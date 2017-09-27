@@ -134,7 +134,7 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view == button2) {
-            Intent Profil = new Intent(Profile_Activity.this, Profile_Activity.class);
+            Intent Profil = new Intent(Profile_Activity.this, profilansicht.class);
             startActivity(Profil);
         }
         if (view == button7) {
