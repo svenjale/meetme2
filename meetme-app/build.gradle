@@ -132,8 +132,6 @@ dependencies {
     //Firebase Authentification
 
 
-    
-
     compile 'com.squareup.retrofit:retrofit:1.6.1'
     compile 'com.google.code.gson:gson:2.7'
     compile 'org.parceler:parceler:0.2.13'
