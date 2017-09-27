@@ -27,6 +27,7 @@ public class createevent extends Activity implements View.OnClickListener  {
 
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseEvents;
+    private DatabaseReference databaseEventteilnehmer;
 
 
     @Override
@@ -36,6 +37,7 @@ public class createevent extends Activity implements View.OnClickListener  {
 
 
       databaseEvents = FirebaseDatabase.getInstance().getReference("events");
+        databaseEventteilnehmer = FirebaseDatabase.getInstance().getReference("eventteilnehmer");
 
 
 
@@ -89,6 +91,7 @@ public class createevent extends Activity implements View.OnClickListener  {
             String id = databaseEvents.push().getKey();
             Event event = new Event(id, eventname, beschreibung, ort, datum, uhrzeit, organisatorID);
             databaseEvents.child(id).setValue(event);
+            databaseEventteilnehmer.child(id).setValue(organisatorID);
             Toast.makeText(this, "Das Event wurde erstellt", Toast.LENGTH_LONG).show();
 
         }
