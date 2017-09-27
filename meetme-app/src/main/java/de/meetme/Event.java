@@ -11,16 +11,18 @@ public class Event {
     String ort;
     String datum;
     String uhrzeit;
+    String organisatorID;
 
     public Event (){
     }
 
-    public Event(String id, String eventname, String beschreibung, String ort, String datum, String uhrzeit) {
+    public Event(String id, String eventname, String beschreibung, String ort, String datum, String uhrzeit, String organisatorID) {
         this.eventname = eventname;
         this.beschreibung = beschreibung;
         this.ort = ort;
         this.datum = datum;
         this.uhrzeit = uhrzeit;
+        this.organisatorID = organisatorID;
     }
 
     public String getEventname() {
@@ -42,4 +44,6 @@ public class Event {
     public String getUhrzeit() {
         return uhrzeit;
     }
+
+    public String getOrganisatorID() {return organisatorID;}
 }

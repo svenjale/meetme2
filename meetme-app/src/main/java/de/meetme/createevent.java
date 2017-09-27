@@ -59,6 +59,7 @@ public class createevent extends Activity implements View.OnClickListener  {
         String ort = editText10.getText().toString().trim();                    //Ort wird aus Editfeld geholt
         String datum = editText11.getText().toString().trim();                  //Datum wird aus Editfeld geholt
         String uhrzeit = editText13.getText().toString().trim();               //Uhrzeit wird aus Editfeld geholt
+        String organisatorID =  firebaseAuth.getCurrentUser().getUid();                                                // ID des aktuell eingeloggten Users wird als Organisator gespeichert;
 
         if (TextUtils.isEmpty(eventname)) {                                                          //Eventname Textfeld ist leer
             Toast.makeText(this, "Bitte Name des Events eintragen", Toast.LENGTH_SHORT).show();     //wenn Feld leer ist, wird Ausführung unterbrochen
@@ -85,7 +86,7 @@ public class createevent extends Activity implements View.OnClickListener  {
         if (!TextUtils.isEmpty(eventname)){
 
             String id = databaseEvents.push().getKey();
-            Event event = new Event(id, eventname, beschreibung, ort, datum, uhrzeit);
+            Event event = new Event(id, eventname, beschreibung, ort, datum, uhrzeit, organisatorID);
             databaseEvents.child(id).setValue(event);
             Toast.makeText(this, "Das Event wurde erstellt", Toast.LENGTH_LONG).show();
 
