@@ -1,19 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="de.meetme.help">
 
+    <ScrollView android:id="@+id/scrollView01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
     <TextView
         android:textAlignment="center"
-        android:text="You are smart! You don't really need any help."
+        android:text="Hier findest du alle Hilfe, die du brauchst :)"
         android:id="@+id/textViewRegister"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" /> //auskommentiert, weil gehört auf andere Seite
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="49dp" />
 
 
-    
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="94dp"
+        android:layout_height="40dp"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Profil"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="93dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="82dp"
+        android:layout_marginRight="82dp"
+        android:layout_toLeftOf="@+id/button6"
+        android:layout_toStartOf="@+id/button6"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Map" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="96dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Kontakte" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="93dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="84dp"
+        android:layout_marginStart="84dp"
+        android:layout_toEndOf="@+id/button2"
+        android:layout_toRightOf="@+id/button2"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Walks" />
+
+    <TextView
+        android:id="@+id/editText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:maxLines="40"
+        android:Lines="40"
+        android:inputType="textMultiLine"
+        android:text="Registrierung
+Bitte füge hier deine Email Adresse und ein Wunschpasswort ein.
+Wenn du dich schon registriert hast, so gehe zurück auf die Login-Seite.
+
+Login
+Wenn du dich schon registriert hast, gebe bitte deine Email Adresse und dein Passwort ein. Du bist noch nicht registriert? Gehe zur Registrierungsseite.
+
+Profil
+Bitte gebe hier deinen Vor- und Nachnamen ein. Außerdem kannst du eine Rolle wählen (Mehrfachauswahl ist möglich). Im Feld Kontakt kannst du deine gewünschten Kontaktmöglichkeiten eingeben, damit andere Nutzer dich kontaktieren können, zum Beispiel Telefonnummer oder Email Adresse.
+
+Event erstellen
+Hier kannst du ein Event erstellen. Dafür musst du einen Eventnamen, eine Beschreibung, einen Ort sowie Datum und Uhrzeit eingeben. Die Beschreibung sollte kurz, aber aussagekräftig sein, damit andere Nutzer sich gerne zu deinem Event anmelden.
+
+Eventliste
+Dies ist eine Übersicht über alle Events mit Ort und Datum. Wenn du mehr Informationen über ein Event erfahren möchtest, so klicke es einfach an. Dort findest du auch die Beschreibung.
+
+Event Infos
+Hier siehst du dein ausgewähltes Event und seine Beschreibung. Außerdem erfährst du hier wann und wo es stattfindet und wer es organisiert. Du kommst von hier auch zu den Teilnehmern und Anwesenden. Wenn dich das Event interessiert, kannst du dich hier dafür anmelden. Bist du schon vor Ort? Dann kannst du dies hier anderen mitteilen.
+
+Teilnehmerliste
+Dies ist eine Liste, in der du sehen kannst, wer alles plant an dem Event teilzunehmen. (Von hier kannst du auch Kontakte zu deiner Kontaktliste hinzufügen).
+
+(Anwesendenliste)
+Dies ist eine Liste, in der du sehen kannst, wer bereits vor Ort ist.
+
+Profil eines anderen Nutzers
+Hier findest du Informationen über einen anderen Nutzer, sowie seine Rolle und Kontaktdaten, über welche du ihn kontaktieren darfst.
+
+"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    </ScrollView>
 
 </android.widget.RelativeLayout>
