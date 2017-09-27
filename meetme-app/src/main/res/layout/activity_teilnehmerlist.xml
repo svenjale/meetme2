@@ -7,6 +7,16 @@
     tools:context="de.meetme.teilnehmerlist">
 
     <Button
+        android:id="@+id/button15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Help"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@+id/button3"
+        android:layout_toEndOf="@+id/button3" />
+
+    <Button
         android:id="@+id/button2"
         android:layout_width="94dp"
         android:layout_height="wrap_content"

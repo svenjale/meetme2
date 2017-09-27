@@ -8,36 +8,60 @@
     android:layout_height="wrap_content"
     >
 
-    <EditText
-        android:layout_margin="15dp"
-        android:inputType="textEmailAddress"
-        android:hint="Email eingeben"
-        android:id="@+id/editTextEmail"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:layout_margin="15dp"
-        android:inputType="textPassword"
-        android:hint="Passwort eingeben"
-        android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="137dp"
+            android:layout_marginBottom="1dp"
+            android:hint="Email eingeben"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editTextEmail"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="2dp"
+            android:hint="Passwort eingeben"
+            android:inputType="textPassword" />
+
+
+    </RelativeLayout>
 
     <Button
-        android:layout_margin="15dp"
         android:id="@+id/buttonRegister"
-        android:text="Benutzer registrieren"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textViewSignin"
+        android:layout_alignEnd="@+id/textViewSignin"
+        android:layout_alignRight="@+id/textViewSignin"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="6dp"
+        android:text="Benutzer registrieren" />
 
     <TextView
         android:id="@+id/textViewSignin"
-        android:layout_width="301dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="6dp"
         android:clickable="true"
         android:onClick="onClick"
         android:text="Schon registriert? Hier einloggen"
         android:textAlignment="center" />
-
 </LinearLayout>
