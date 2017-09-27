@@ -27,8 +27,7 @@
         <activity android:name=".teilnehmerlist" />
         <activity android:name=".kontakte" />
         <activity android:name=".map" />
-        <activity android:name=".help" />
-        <activity android:name=".user_infos"></activity>
+        <activity android:name=".help"></activity>
     </application>
 
 </manifest>

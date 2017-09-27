@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="de.meetme.Login_Activity">
-        <RelativeLayout
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -15,16 +16,16 @@
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp">
 
-
         <EditText
 
+            android:inputType="textEmailAddress"
+            android:hint="Email eingeben"
             android:id="@+id/editTextEmail"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
             android:layout_marginBottom="0dp"
-            android:layout_marginTop="18dp"
-            android:hint="Email eingeben"
-            android:inputType="textEmailAddress" />
+            />
 
         <EditText
             android:layout_marginTop="20dp"
@@ -49,9 +50,7 @@
             android:layout_margin="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+    </LinearLayout>
 
 
-   </RelativeLayout>
-
-
-</android.widget.RelativeLayout>
+</android.support.constraint.ConstraintLayout>
