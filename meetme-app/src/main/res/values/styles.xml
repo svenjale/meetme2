@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <color name="blue">#E36653</color>
         <!-- Base application theme. -->
         <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" >
             <!-- Customize your theme here. -->
+
+
+        <item name="android:background">@color/blue</item>
+        <item name="android:windowBackground">@color/blue</item>
+        <item name="android:colorBackground">@color/blue</item>
        
         </style>
 

@@ -8,34 +8,36 @@
 
     <Button
         android:id="@+id/button14"
-        android:layout_width="wrap_content"
+        android:layout_width="65dp"
         android:layout_height="wrap_content"
-        android:text="Help"
-        android:layout_below="@+id/textView"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginRight="8dp"
+        android:background="@drawable/mybutton"
+        android:text="Help" />
 
     <Button
         android:id="@+id/button11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Teilnehmerliste"
-        android:layout_below="@+id/textView30"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
         android:layout_alignLeft="@+id/textView30"
         android:layout_alignStart="@+id/textView30"
-        android:layout_alignRight="@+id/button3"
-        android:layout_alignEnd="@+id/button3" />
+        android:layout_below="@+id/textView17"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/mybutton"
+        android:text="Teilnehmerliste" />
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="interessiert"
-        android:layout_below="@+id/button10"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
         android:layout_alignLeft="@+id/button10"
         android:layout_alignStart="@+id/button10"
-        android:layout_marginTop="24dp" />
+        android:layout_below="@+id/button10"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/mybutton"
+        android:text="interessiert" />
 
     <Button
         android:id="@+id/button2"
@@ -51,13 +53,11 @@
         android:id="@+id/button3"
         android:layout_width="93dp"
         android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="82dp"
-        android:layout_marginRight="82dp"
-        android:layout_toLeftOf="@+id/button6"
-        android:layout_toStartOf="@+id/button6"
         android:background="@android:color/holo_blue_dark"
-        android:text="Map" />
+        android:text="Map"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/button2"
+        android:layout_toEndOf="@+id/button2" />
 
     <Button
         android:id="@+id/button6"
@@ -97,11 +97,14 @@
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Beschreibung:"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/textView22"
         android:layout_alignLeft="@+id/textView30"
-        android:layout_alignStart="@+id/textView30" />
+        android:layout_alignStart="@+id/textView30"
+        android:layout_below="@+id/textView22"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="17dp"
+        android:text="Beschreibung:"
+        android:textAppearance="@android:style/TextAppearance.Holo"
+        android:textSize="17dp" />
 
     <TextView
         android:id="@+id/textView22"
@@ -123,7 +126,9 @@
         android:layout_alignRight="@+id/textView20"
         android:layout_alignEnd="@+id/textView20"
         android:layout_alignLeft="@+id/textView24"
-        android:layout_alignStart="@+id/textView24" />
+        android:layout_alignStart="@+id/textView24"
+        android:textSize="17dp"
+        android:textAppearance="@android:style/TextAppearance.Holo"/>
 
     <TextView
         android:id="@+id/textView24"
@@ -141,26 +146,31 @@
         android:layout_below="@+id/textView24"
         android:layout_alignLeft="@+id/textView24"
         android:layout_alignStart="@+id/textView24"
-        android:layout_marginTop="14dp" />
+        android:layout_marginTop="14dp"
+        android:textSize="17dp"
+        android:textAppearance="@android:style/TextAppearance.Holo"/>
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Uhrzeit:"
         android:layout_alignBaseline="@+id/textView30"
         android:layout_alignBottom="@+id/textView30"
-        android:layout_alignRight="@+id/button7"
-        android:layout_alignEnd="@+id/button7" />
+        android:layout_alignRight="20dp"
+        android:layout_marginLeft="200dp"
+        android:text="Uhrzeit:"
+        android:textAppearance="@android:style/TextAppearance.Holo"
+        android:textSize="17dp" />
 
     <TextView
         android:id="@+id/textView30"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="Organisator:"
         android:layout_below="@+id/textView19"
-        android:layout_toLeftOf="@+id/button3"
-        android:layout_toStartOf="@+id/button3" />
+        android:layout_marginLeft="8dp"
+        android:text="Organisator:"
+        android:textAppearance="@android:style/TextAppearance.Holo"
+        android:textSize="17dp" />
 
     <TextView
         android:id="@+id/textView31"
@@ -181,24 +191,25 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bin da "
-        android:layout_alignBaseline="@+id/button9"
-        android:layout_alignBottom="@+id/button9"
-        android:layout_alignLeft="@+id/textView26"
-        android:layout_alignStart="@+id/textView26" />
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/button9"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/mybutton"
+        android:text="Bin da " />
 
     <Button
         android:id="@+id/button10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Anwesendenliste"
-        android:layout_below="@+id/button11"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
         android:layout_alignLeft="@+id/button11"
         android:layout_alignStart="@+id/button11"
-        android:layout_alignRight="@+id/button11"
-        android:layout_alignEnd="@+id/button11" />
+        android:layout_below="@+id/button11"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/mybutton"
+        android:text="Anwesendenliste" />
 
     <TextView
         android:id="@+id/textView17"
@@ -208,8 +219,7 @@
         android:layout_alignLeft="@+id/textView25"
         android:layout_alignRight="@+id/button11"
         android:layout_alignStart="@+id/textView25"
-        android:layout_below="@+id/textView30"
-        android:layout_toStartOf="@+id/button7" />
+        android:layout_below="@+id/textView30" />
 
     <TextView
         android:id="@+id/textView19"

@@ -190,12 +190,12 @@
     <Button
         android:id="@+id/button8"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button3"
-
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="11dp"
-        android:text="SAVE" />
+        android:layout_height="34dp"
+        android:background="@drawable/mybutton"
+        android:layout_marginBottom="31dp"
+        android:text="SAVE"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true" />
 
 
 </android.widget.RelativeLayout>
