@@ -178,7 +178,7 @@
         android:layout_alignParentRight="true"
         android:background="#4A1D"
         android:text="Kontakte"
-        android:layout_toEndOf="@+id/checkBox4" />
+     />
 
     <Button
         android:id="@+id/button7"
