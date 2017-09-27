@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context="de.meetme.profilansicht">
 
+
+
     <TextView
         android:id="@+id/textView34"
         android:layout_width="333dp"
@@ -130,5 +132,6 @@
         android:text="Walks"
         tools:layout_editor_absoluteY="529dp"
         tools:layout_editor_absoluteX="177dp" />
+
 
 </android.support.constraint.ConstraintLayout>

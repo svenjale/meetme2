@@ -143,13 +143,11 @@
             android:id="@+id/button2"
             android:layout_width="94dp"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/textView8"
-            android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/textView8"
-            android:layout_marginEnd="11dp"
-            android:layout_marginRight="11dp"
             android:background="@android:color/holo_blue_dark"
-            android:text="Profil" />
+            android:text="Profil"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <Button
             android:id="@+id/button3"

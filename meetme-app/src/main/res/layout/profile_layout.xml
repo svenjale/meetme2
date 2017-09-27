@@ -152,7 +152,7 @@
         android:id="@+id/button2"
         android:layout_width="94dp"
         android:layout_height="40dp"
-        android:background="#BFD2BF"
+        android:background="#4A1D3B"
         android:text="Profil"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -164,7 +164,7 @@
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/button2"
-        android:background="#BFD2BF"
+        android:background="#4A1D"
         android:text="Map" />
 
     <Button
