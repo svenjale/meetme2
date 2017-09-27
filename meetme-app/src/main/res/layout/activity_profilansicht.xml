@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="de.meetme.profilansicht">
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="333dp"
+        android:layout_height="31dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="247dp" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="204dp"
+        android:layout_height="55dp"
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="41dp" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="137dp"
+        android:textSize="17dp"
+        android:textAppearance="@android:style/TextAppearance.Holo" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vorname:"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="216dp"
+        android:textSize="17dp"
+        android:textAppearance="@android:style/TextAppearance.Holo"/>
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="333dp"
+        android:layout_height="31dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="166dp" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rolle:"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="299dp"
+        android:textSize="17dp"
+        android:textAppearance="@android:style/TextAppearance.Holo"/>
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView"
+        android:layout_width="333dp"
+        android:layout_height="31dp"
+        android:text="CheckedTextView"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="328dp" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kontakt:"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="383dp"
+        android:textSize="17dp"
+        android:textAppearance="@android:style/TextAppearance.Holo"/>
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="333dp"
+        android:layout_height="31dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteY="413dp"
+        tools:layout_editor_absoluteX="14dp" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="94dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Profil"
+        tools:layout_editor_absoluteY="529dp"
+        tools:layout_editor_absoluteX="-5dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="93dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/button2"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Map"
+        tools:layout_editor_absoluteY="529dp"
+        tools:layout_editor_absoluteX="89dp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="96dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Kontakte"
+        tools:layout_editor_absoluteY="529dp"
+        tools:layout_editor_absoluteX="270dp" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="93dp"
+        android:layout_height="40dp"
+        android:layout_alignEnd="@+id/checkBox2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/checkBox2"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Walks"
+        tools:layout_editor_absoluteY="529dp"
+        tools:layout_editor_absoluteX="177dp" />
+
+</android.support.constraint.ConstraintLayout>
