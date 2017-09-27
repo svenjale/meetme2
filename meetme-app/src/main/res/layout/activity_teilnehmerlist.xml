@@ -7,19 +7,18 @@
     tools:context="de.meetme.teilnehmerlist">
 
     <Button
-        android:id="@+id/button15"
+        android:id="@+id/button14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Help"
-        android:layout_marginTop="16dp"
         android:layout_below="@+id/textView"
-        android:layout_toRightOf="@+id/button3"
-        android:layout_toEndOf="@+id/button3" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="94dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:text="Profil"
         android:background="@android:color/holo_blue_dark"
         android:layout_alignParentBottom="true"
@@ -29,7 +28,7 @@
     <Button
         android:id="@+id/button3"
         android:layout_width="93dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:text="Map"
         android:background="@android:color/holo_blue_dark"
         android:layout_alignParentBottom="true"
@@ -41,7 +40,7 @@
     <Button
         android:id="@+id/button6"
         android:layout_width="96dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -51,7 +50,7 @@
     <Button
         android:id="@+id/button7"
         android:layout_width="93dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginLeft="84dp"
         android:layout_marginStart="84dp"
         android:text="Walks"

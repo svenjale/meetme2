@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true"
     android:orientation="vertical"
@@ -10,29 +11,31 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:defaultFocusHighlightEnabled="false">
 
         <EditText
             android:id="@+id/editTextEmail"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="137dp"
-            android:layout_marginBottom="1dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="200dp"
             android:hint="Email eingeben"
             android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/editTextPassword"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/editTextEmail"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="2dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
             android:hint="Passwort eingeben"
             android:inputType="textPassword" />
 
@@ -46,8 +49,7 @@
         android:layout_alignBottom="@+id/textViewSignin"
         android:layout_alignEnd="@+id/textViewSignin"
         android:layout_alignRight="@+id/textViewSignin"
-        android:layout_marginBottom="3dp"
-        android:layout_marginTop="6dp"
+        android:layout_margin="15dp"
         android:text="Benutzer registrieren" />
 
     <TextView
@@ -57,9 +59,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/editTextPassword"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="6dp"
+        android:layout_margin="15dp"
         android:clickable="true"
         android:onClick="onClick"
         android:text="Schon registriert? Hier einloggen"
