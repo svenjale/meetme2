@@ -6,43 +6,53 @@
     android:layout_height="match_parent"
     tools:context="de.meetme.welcome">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="93dp"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:layout_width="344dp"
         android:layout_height="wrap_content"
-        android:text="Profil"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:id="@+id/linearLayout">
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="154dp"
+        android:layout_height="187dp"
+        android:src="@drawable/smapicon"
+        android:layout_marginBottom="19dp"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:layout_marginRight="88dp"
+        android:layout_marginEnd="88dp" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="91dp"
+        android:id="@+id/buttonLogin2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Map"
-        tools:layout_width="97dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/button7"
-        android:layout_toEndOf="@+id/button7" />
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_alignStart="@+id/linearLayout"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginLeft="58dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="18dp"
+        android:text="Einloggen" />
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="96dp"
+        android:id="@+id/buttonRegis2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kontakte"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="91dp"
-        android:layout_height="wrap_content"
-        android:text="Walks"
-        tools:layout_width="95dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/button2"
-        android:layout_toEndOf="@+id/button2" />
-
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:text="Registrieren"
+        android:layout_alignBaseline="@+id/buttonLogin2"
+        android:layout_alignBottom="@+id/buttonLogin2"
+        android:layout_toRightOf="@+id/buttonLogin2"
+        android:layout_toEndOf="@+id/buttonLogin2" />
 
 </android.widget.RelativeLayout>

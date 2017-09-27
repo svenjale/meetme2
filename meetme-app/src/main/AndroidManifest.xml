@@ -7,21 +7,26 @@
 
     <application android:label="MeetMe" android:theme="@style/AppTheme">
         <activity
-            android:name=".Login_Activity"
-            android:label="MeetMe">
+            android:name=".welcome"
+            android:label="MeetMe"
+            android:largeHeap="true"
+            >
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Login_Activity" />
         <activity android:name=".HelloActivity" />
         <activity android:name=".Profile_Activity" />
         <activity android:name=".createevent" />
         <activity android:name=".eventlist" />
         <activity android:name=".eventinfos" />
         <activity android:name=".teilnehmerlist" />
-        <activity android:name=".welcome" />
         <activity android:name=".kontakte" />
         <activity android:name=".map"></activity>
     </application>
