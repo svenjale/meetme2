@@ -8,22 +8,18 @@
     android:layout_height="match_parent"
     tools:context="de.meetme.help">
 
-    <ScrollView android:id="@+id/scrollView01"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-
     <TextView
-        android:textAlignment="center"
-        android:text="Hier findest du alle Hilfe, die du brauchst :)"
         android:id="@+id/textViewRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="49dp" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:text="Hier findest du alle Hilfe, die du brauchst :)"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="18dp"/>
 
 
     <Button
@@ -70,49 +66,35 @@
         android:background="@android:color/holo_blue_dark"
         android:text="Walks" />
 
+
+
     <TextView
-        android:id="@+id/editText4"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewHelpRegistrierung"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:maxLines="40"
-        android:Lines="40"
-        android:inputType="textMultiLine"
-        android:text="Registrierung
-Bitte füge hier deine Email Adresse und ein Wunschpasswort ein.
-Wenn du dich schon registriert hast, so gehe zurück auf die Login-Seite.
-
-Login
-Wenn du dich schon registriert hast, gebe bitte deine Email Adresse und dein Passwort ein. Du bist noch nicht registriert? Gehe zur Registrierungsseite.
-
-Profil
-Bitte gebe hier deinen Vor- und Nachnamen ein. Außerdem kannst du eine Rolle wählen (Mehrfachauswahl ist möglich). Im Feld Kontakt kannst du deine gewünschten Kontaktmöglichkeiten eingeben, damit andere Nutzer dich kontaktieren können, zum Beispiel Telefonnummer oder Email Adresse.
-
-Event erstellen
-Hier kannst du ein Event erstellen. Dafür musst du einen Eventnamen, eine Beschreibung, einen Ort sowie Datum und Uhrzeit eingeben. Die Beschreibung sollte kurz, aber aussagekräftig sein, damit andere Nutzer sich gerne zu deinem Event anmelden.
-
-Eventliste
-Dies ist eine Übersicht über alle Events mit Ort und Datum. Wenn du mehr Informationen über ein Event erfahren möchtest, so klicke es einfach an. Dort findest du auch die Beschreibung.
-
-Event Infos
-Hier siehst du dein ausgewähltes Event und seine Beschreibung. Außerdem erfährst du hier wann und wo es stattfindet und wer es organisiert. Du kommst von hier auch zu den Teilnehmern und Anwesenden. Wenn dich das Event interessiert, kannst du dich hier dafür anmelden. Bist du schon vor Ort? Dann kannst du dies hier anderen mitteilen.
-
-Teilnehmerliste
-Dies ist eine Liste, in der du sehen kannst, wer alles plant an dem Event teilzunehmen. (Von hier kannst du auch Kontakte zu deiner Kontaktliste hinzufügen).
-
-(Anwesendenliste)
-Dies ist eine Liste, in der du sehen kannst, wer bereits vor Ort ist.
-
-Profil eines anderen Nutzers
-Hier findest du Informationen über einen anderen Nutzer, sowie seine Rolle und Kontaktdaten, über welche du ihn kontaktieren darfst.
-
-"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="15dp"
+        android:text="Registrierung"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_below="@+id/textViewRegister"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true" />
 
-    </ScrollView>
+    <TextView
+        android:id="@+id/textViewHelpLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="49dp"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_below="@+id/textViewHelpRegistrierung"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+
 
 </android.widget.RelativeLayout>
