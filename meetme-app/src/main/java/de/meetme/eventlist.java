@@ -60,7 +60,6 @@ public class eventlist extends Activity implements View.OnClickListener {
             startActivity(Kontakte);
         }
         if (view == button13) {
-            Toast.makeText(eventlist.this, "Erfolgreich registriert", Toast.LENGTH_SHORT).show();
              Intent Plus = new Intent(eventlist.this, createevent.class);            //Plus = Hinzufügen Button
             startActivity(Plus);
         }

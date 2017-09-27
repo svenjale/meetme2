@@ -96,7 +96,7 @@ public class createevent extends Activity implements View.OnClickListener  {
     @Override
     public void onClick(View view) {
         if (view == button8) {
-            createevent(); 
+            createevent();
         }
         Intent regisintent = new Intent(createevent.this, eventlist.class);
         startActivity(regisintent);
