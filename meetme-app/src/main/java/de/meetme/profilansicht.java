@@ -30,6 +30,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
     private Button button3;
     private Button button6;
     private Button button4;
+    private Button button16;
 
 
 
@@ -46,6 +47,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
+        button16 = (Button) findViewById(R.id.button16);
 
 
         button15.setOnClickListener(this);
@@ -53,6 +55,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
+        button16.setOnClickListener(this);
 
 
 
@@ -125,6 +128,12 @@ public class profilansicht extends Activity implements View.OnClickListener {
             Intent Kontakte = new Intent(profilansicht.this, kontakte.class);
             startActivity(Kontakte);
 
+        }
+
+        if (view == button16) {
+
+            Intent Hilfe = new Intent(profilansicht.this, help.class);
+            startActivity(Hilfe);
         }
     }
 }
