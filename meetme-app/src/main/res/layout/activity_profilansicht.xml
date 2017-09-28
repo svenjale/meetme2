@@ -10,13 +10,12 @@
         android:id="@+id/textView34"
         android:layout_width="300dp"
         android:layout_height="31dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="247dp"
-        android:layout_marginTop="9dp"
-        android:layout_below="@+id/textView36"
         android:layout_alignLeft="@+id/textView36"
-        android:layout_alignStart="@+id/textView36" />
+        android:layout_alignStart="@+id/textView36"
+        android:layout_below="@+id/textView36"
+        android:layout_marginTop="9dp"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="247dp" />
 
     <TextView
         android:id="@+id/textView27"
@@ -59,13 +58,12 @@
         android:id="@+id/textView33"
         android:layout_width="300dp"
         android:layout_height="31dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="166dp"
-        android:layout_marginTop="16dp"
-        android:layout_below="@+id/textView28"
         android:layout_alignLeft="@+id/textView28"
-        android:layout_alignStart="@+id/textView28" />
+        android:layout_alignStart="@+id/textView28"
+        android:layout_below="@+id/textView28"
+        android:layout_marginTop="16dp"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="166dp" />
 
     <TextView
         android:id="@+id/textView35"
@@ -85,14 +83,14 @@
         android:id="@+id/checkedTextView"
         android:layout_width="300dp"
         android:layout_height="31dp"
-        android:text="CheckedTextView"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="328dp"
-
-        android:layout_marginTop="9dp"
-        android:layout_below="@+id/textView27"
         android:layout_alignLeft="@+id/textView35"
-        android:layout_alignStart="@+id/textView35" />
+        android:layout_alignStart="@+id/textView35"
+
+        android:layout_below="@+id/textView27"
+        android:layout_marginTop="9dp"
+        android:text="***Anzeige der Rolle folgt***"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="328dp" />
 
     <TextView
         android:id="@+id/textView36"
@@ -113,13 +111,12 @@
         android:id="@+id/textView37"
         android:layout_width="300dp"
         android:layout_height="31dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteY="413dp"
-        tools:layout_editor_absoluteX="14dp"
-        android:layout_marginTop="10dp"
+        android:layout_alignEnd="@+id/button15"
+        android:layout_alignRight="@+id/button15"
         android:layout_below="@+id/textView29"
-        android:layout_alignLeft="@+id/textView29"
-        android:layout_alignStart="@+id/textView29" />
+        android:layout_marginTop="11dp"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="413dp" />
     <Button
         android:id="@+id/button2"
         android:layout_width="94dp"

@@ -129,8 +129,9 @@ public class eventinfos extends Activity implements View.OnClickListener{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String organisatorID = dataSnapshot.getValue(String.class);
-                String nameorg = getOrganisatorName(organisatorID);
-                textView17.setText(nameorg);
+                //String nameorg = getOrganisatorName(organisatorID);
+                //textView17.setText(nameorg);
+                textView17.setText(organisatorID);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {

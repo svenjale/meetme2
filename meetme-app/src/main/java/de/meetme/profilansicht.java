@@ -40,7 +40,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
 
         button15.setOnClickListener(this);
 
-/*
+
         databaseProfiles = FirebaseDatabase.getInstance().getReference("profiles");
 
         DatabaseReference nameWert = databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).child("name");
@@ -81,7 +81,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-*/
+
     }
 
     @Override
