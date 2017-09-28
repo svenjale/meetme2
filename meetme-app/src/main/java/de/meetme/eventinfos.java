@@ -44,6 +44,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private Button button6;
     private Button button11;
 
+    static String vollerName="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,13 +79,13 @@ public class eventinfos extends Activity implements View.OnClickListener{
     }
 
     public void onClick(View view) {
-        /*if (view == button9) {
-           if (teilnehmen(hierEventIDübergeben)==true){
+        if (view == button9) {
+           if (teilnehmen(Event.aktuelleEventID)==true){
                 Toast.makeText(this, "Erfolgreich angemeldet. See you soon!", Toast.LENGTH_LONG).show();
             }else{
                 Toast.makeText(this, "Ups. Da hat etwas nicht geklappt.", Toast.LENGTH_LONG).show();
             }
-        }*/
+        }
         if (view == button2) {
             Intent Profil = new Intent(eventinfos.this, profilansicht.class);
             startActivity(Profil);
@@ -115,7 +117,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         boolean erfolg = false;
         String teilnehmerID = firebaseAuth.getInstance().getCurrentUser().getUid();
         databaseEventteilnehmer.child(eventID).child("teilnehmer").setValue(teilnehmerID);
-        return erfolg;
+        return true; // hier return erfolg
     }
     //Notiz Johann: https://stackoverflow.com/questions/37031222/firebase-add-new-child-with-specified-name
     // if Abfrage prüft nicht wirklich den Erfolg, Code einfügen!
@@ -172,9 +174,10 @@ public class eventinfos extends Activity implements View.OnClickListener{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String organisatorID = dataSnapshot.getValue(String.class);
-                //String nameorg = getOrganisatorName(organisatorID);
-                //textView17.setText(nameorg);
-                textView17.setText(organisatorID);
+                String nameorg = getOrganisatorName(organisatorID);
+                textView17.setText(nameorg);
+                eventinfos.vollerName="";
+                //textView17.setText(organisatorID);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -204,9 +207,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String vorname = dataSnapshot.getValue(String.class);
-                Person.vollerName=Person.vollerName+vorname;
+                eventinfos.vollerName =eventinfos.vollerName+vorname;
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
@@ -216,14 +218,14 @@ public class eventinfos extends Activity implements View.OnClickListener{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.getValue(String.class);
-                Person.vollerName=Person.vollerName+" "+name;
+                eventinfos.vollerName=eventinfos.vollerName+" "+name;
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
 
-        return Person.vollerName;
+        return eventinfos.vollerName;
 
     }
 

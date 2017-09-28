@@ -68,35 +68,53 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="30dp" />
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="15dp"
+        android:layout_toStartOf="@+id/button6" />
 
     <TextView
         android:id="@+id/textView43"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/textView46"
+        android:layout_alignLeft="@+id/textView46"
+        android:layout_alignRight="@+id/textView46"
+        android:layout_alignStart="@+id/textView46"
         android:layout_below="@+id/textView46"
-        android:layout_marginTop="38dp" />
+        android:layout_marginTop="15dp" />
 
     <TextView
         android:id="@+id/textView44"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/textView43"
+        android:layout_alignLeft="@+id/textView43"
+        android:layout_alignRight="@+id/textView43"
+        android:layout_alignStart="@+id/textView43"
         android:layout_below="@+id/textView43"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="16dp" />
 
     <TextView
         android:id="@+id/textView45"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/textView44"
+        android:layout_alignLeft="@+id/textView44"
+        android:layout_alignRight="@+id/textView44"
+        android:layout_alignStart="@+id/textView44"
         android:layout_below="@+id/textView44"
-        android:layout_marginTop="53dp" />
+        android:layout_marginTop="19dp" />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView45"
+        android:layout_alignLeft="@+id/textView45"
+        android:layout_alignRight="@+id/textView45"
+        android:layout_alignStart="@+id/textView45"
+        android:layout_below="@+id/textView45"
+        android:layout_marginTop="19dp" />
 
 </android.widget.RelativeLayout>
