@@ -110,9 +110,9 @@ public class createevent extends Activity implements View.OnClickListener  {
         }
         if (view == button8) {
             createevent();
-        }
         Intent regisintent = new Intent(createevent.this, eventinfos.class);
         startActivity(regisintent);
+        }
     }
 
 }

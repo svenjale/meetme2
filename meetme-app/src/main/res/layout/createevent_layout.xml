@@ -179,7 +179,8 @@
         android:layout_marginBottom="31dp"
         android:text="SAVE"
         android:layout_above="@+id/button2"
-        android:layout_centerHorizontal="true" />
+        android:layout_toRightOf="@+id/textView10"
+        android:layout_toEndOf="@+id/textView10" />
 
     <Button
         android:id="@+id/button17"
