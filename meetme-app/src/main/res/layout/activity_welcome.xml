@@ -29,9 +29,8 @@
         android:layout_height="50dp"
         android:text="Einloggen"
         android:background="@drawable/mybutton"
-        android:layout_alignBottom="@+id/linearLayout"
-        android:layout_alignLeft="@+id/buttonRegis2"
-        android:layout_alignStart="@+id/buttonRegis2" />
+        android:layout_above="@+id/linearLayout"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/buttonRegis2"
@@ -39,25 +38,20 @@
         android:layout_height="50dp"
         android:text="Registrieren"
         android:background="@drawable/mybutton"
-        android:layout_marginRight="83dp"
-        android:layout_marginEnd="83dp"
+        android:layout_marginTop="27dp"
         android:layout_below="@+id/linearLayout"
-        android:layout_alignRight="@+id/linearLayout"
-        android:layout_alignEnd="@+id/linearLayout"
-        android:layout_marginTop="29dp" />
+        android:layout_alignLeft="@+id/buttonLogin2"
+        android:layout_alignStart="@+id/buttonLogin2" />
 
     <Button
         android:id="@+id/button14"
         android:layout_width="75dp"
         android:layout_height="25dp"
         android:text="Help"
-        android:layout_marginBottom="11dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/mybutton"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/buttonRegis2"
-        android:layout_alignStart="@+id/buttonRegis2"
-        android:layout_marginLeft="36dp"
-        android:layout_marginStart="36dp" />
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/imageView"
