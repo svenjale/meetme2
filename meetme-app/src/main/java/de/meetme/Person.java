@@ -9,6 +9,8 @@ public class Person {
     boolean visagist = false;
     String kontakt;
 
+    public static String vollerName="";
+
 
     public Person (String name, String vorname, boolean model, boolean fotograf, boolean organisator, boolean visagist, String kontakt){
         this.name = name;

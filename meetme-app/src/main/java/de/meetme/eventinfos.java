@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-import de.meetme.R;
+import de.meetme.*;
 
 public class eventinfos extends Activity implements View.OnClickListener{
 
@@ -31,7 +31,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private DatabaseReference databaseProfiles;
     private DatabaseReference databaseEvents;
     private Button button9;
-    private TextView textView22;
+    private TextView textView7;
     private TextView textView31;
     private TextView textView24;
     private TextView textView19;
@@ -48,7 +48,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
 
         button9 = (Button) findViewById(R.id.button9);
         button9.setOnClickListener(this);
-        textView22 = (TextView) findViewById(R.id.textView22);
+        textView7 = (TextView) findViewById(R.id.textView7);
         textView31 = (TextView) findViewById(R.id.textView31);
         textView24 = (TextView) findViewById(R.id.textView24);
         textView19 = (TextView) findViewById(R.id.textView19);
@@ -85,7 +85,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.getValue(String.class);
-                textView22.setText(name);
+                textView7.setText(name);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -128,8 +128,9 @@ public class eventinfos extends Activity implements View.OnClickListener{
         organisatorWert.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String organisator = dataSnapshot.getValue(String.class);
-                textView17.setText(organisator);
+                String organisatorID = dataSnapshot.getValue(String.class);
+                String nameorg = getOrganisatorName(organisatorID);
+                textView17.setText(nameorg);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -146,6 +147,36 @@ public class eventinfos extends Activity implements View.OnClickListener{
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+    }
+
+    public String getOrganisatorName (String organisatorID){
+
+        DatabaseReference vornameWert = databaseProfiles.child(organisatorID).child("vorname");
+        vornameWert.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String vorname = dataSnapshot.getValue(String.class);
+                Person.vollerName=Person.vollerName+vorname;
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        DatabaseReference nachnameWert = databaseProfiles.child(organisatorID).child("name");
+        nachnameWert.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String name = dataSnapshot.getValue(String.class);
+                Person.vollerName=Person.vollerName+" "+name;
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        return Person.vollerName;
+
     }
 
 

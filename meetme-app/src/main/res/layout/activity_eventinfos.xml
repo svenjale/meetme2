@@ -20,13 +20,12 @@
         android:id="@+id/button11"
         android:layout_width="250dp"
         android:layout_height="45dp"
-        android:layout_alignLeft="@+id/textView30"
-        android:layout_alignStart="@+id/textView30"
-        android:layout_below="@+id/textView17"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="26dp"
         android:background="@drawable/mybutton"
-        android:text="Teilnehmerliste" />
+        android:text="Teilnehmerliste"
+        android:layout_below="@+id/textView17"
+        android:layout_alignLeft="@+id/textView30"
+        android:layout_alignStart="@+id/textView30" />
 
     <Button
         android:id="@+id/button9"
@@ -98,14 +97,12 @@
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView30"
-        android:layout_alignStart="@+id/textView30"
-        android:layout_below="@+id/textView22"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="17dp"
         android:text="Beschreibung:"
         android:textAppearance="@android:style/TextAppearance.Holo"
-        android:textSize="17dp" />
+        android:textSize="17dp"
+        android:layout_below="@+id/button14"
+        android:layout_alignLeft="@+id/textView23"
+        android:layout_alignStart="@+id/textView23" />
 
     <TextView
         android:id="@+id/textView22"
@@ -123,33 +120,31 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Ort:"
-        android:layout_below="@+id/textView16"
-        android:layout_alignRight="@+id/textView20"
-        android:layout_alignEnd="@+id/textView20"
-        android:layout_alignLeft="@+id/textView24"
-        android:layout_alignStart="@+id/textView24"
         android:textSize="17dp"
-        android:textAppearance="@android:style/TextAppearance.Holo"/>
+        android:textAppearance="@android:style/TextAppearance.Holo"
+        android:layout_below="@+id/textView16"
+        android:layout_alignLeft="@+id/textView25"
+        android:layout_alignStart="@+id/textView25" />
 
     <TextView
         android:id="@+id/textView24"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView23"
-        android:layout_alignLeft="@+id/textView16"
-        android:layout_alignStart="@+id/textView16" />
+        android:layout_alignLeft="@+id/textView23"
+        android:layout_alignStart="@+id/textView23" />
 
     <TextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Datum:"
-        android:layout_below="@+id/textView24"
-        android:layout_alignLeft="@+id/textView24"
-        android:layout_alignStart="@+id/textView24"
         android:layout_marginTop="14dp"
         android:textSize="17dp"
-        android:textAppearance="@android:style/TextAppearance.Holo"/>
+        android:textAppearance="@android:style/TextAppearance.Holo"
+        android:layout_below="@+id/textView24"
+        android:layout_alignLeft="@+id/textView30"
+        android:layout_alignStart="@+id/textView30" />
 
     <TextView
         android:id="@+id/textView26"
@@ -166,11 +161,15 @@
         android:id="@+id/textView30"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView19"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="18dp"
         android:text="Organisator:"
         android:textAppearance="@android:style/TextAppearance.Holo"
-        android:textSize="17dp" />
+        android:textSize="17dp"
+        android:layout_marginStart="18dp"
+        android:layout_below="@+id/textView19"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:id="@+id/textView31"
@@ -227,8 +226,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView25"
         android:layout_alignLeft="@+id/textView25"
-        android:layout_alignStart="@+id/textView25"
-        android:layout_marginTop="8dp" />
+        android:layout_alignStart="@+id/textView25" />
 
     <TextView
         android:id="@+id/textView21"
