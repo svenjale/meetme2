@@ -112,6 +112,9 @@ public class teilnehmerlist extends Activity {
 
     }
 
+
+    // folgende Methode noch unverwendet und noch nicht fertig
+
     public String getName (String teilnehmerID){
 
         DatabaseReference vornameWert = databaseProfiles.child(teilnehmerID).child("vorname");
