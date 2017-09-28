@@ -43,7 +43,7 @@
             android:layout_marginBottom="0dp"
             android:layout_marginTop="0dp"
             android:hint="Email eingeben"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="25dp"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -55,7 +55,7 @@
             android:layout_below="@+id/editTextEmail"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="25dp"
             android:hint="Passwort eingeben"
             android:inputType="textPassword" />
 

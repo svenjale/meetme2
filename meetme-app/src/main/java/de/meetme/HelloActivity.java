@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +46,8 @@ public class HelloActivity extends Activity implements View.OnClickListener {
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextEmail.setGravity(Gravity.CENTER);
+        editTextPassword.setGravity(Gravity.CENTER);
 
         textViewSignin = (TextView) findViewById(R.id.textViewSignin);
 

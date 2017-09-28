@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,7 +37,10 @@ public class Login_Activity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_login_);       //???
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextEmail.setGravity(Gravity.CENTER);
+        editTextPassword.setGravity(Gravity.CENTER);
         buttonLogIn = (Button) findViewById(R.id.buttonLogIn);
         textViewRegister = (TextView) findViewById(R.id.textViewRegister);
 
