@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import de.meetme.eventinfos;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -93,6 +94,7 @@ public class createevent extends Activity implements View.OnClickListener  {
             databaseEvents.child(id).setValue(event);
             databaseEventteilnehmer.child(id).child("organisator").setValue(organisatorID); // Johann: wahrscheinlich Problem, sobald mehrere Teilnehmer --> prüfen, sobald Eventinfos getestet werden kann
             Toast.makeText(this, "Das Event wurde erstellt", Toast.LENGTH_LONG).show();
+            Event.aktuelleEventID=id;
 
         }
     }
@@ -103,7 +105,12 @@ public class createevent extends Activity implements View.OnClickListener  {
         if (view == button8) {
             createevent();
         }
-        Intent regisintent = new Intent(createevent.this, eventlist.class);
+       Intent regisintent = new Intent(createevent.this, eventinfos.class);
         startActivity(regisintent);
     }
-}
+
+    //public void eventinfosAnzeigen(String eventID){
+
+    }
+
+
