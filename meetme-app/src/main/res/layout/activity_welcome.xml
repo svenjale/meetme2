@@ -15,10 +15,7 @@
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp"
         android:id="@+id/linearLayout">
-        
-        <ImageView
-            android:layout_width=""
-            android:layout_height="" />
+
 
 
     </LinearLayout>

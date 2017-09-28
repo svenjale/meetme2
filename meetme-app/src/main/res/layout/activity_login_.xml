@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="de.meetme.Login_Activity"
-    android:background="@drawable/testbildlogin">
+    android:background="@drawable/testbildregis">
 
     <LinearLayout
 
@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
-            android:layout_marginLeft="150dp"
+            android:layout_marginLeft="170dp"
             android:layout_marginRight="150dp"
             android:layout_marginTop="100dp"
             android:background="@drawable/smapicons" />
@@ -64,7 +64,8 @@
             android:id="@+id/textViewRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="57dp"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="30dp"
             android:text="Noch nicht registriert? Hier anmelden"
             android:textAlignment="center" />
     </LinearLayout>
