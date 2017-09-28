@@ -6,8 +6,24 @@
     android:layout_height="match_parent"
     tools:context="de.meetme.profilansicht">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView34"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView33"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView37"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button15"/>
 
-
+<!-->
     <TextView
         android:id="@+id/textView34"
         android:layout_width="300dp"
@@ -41,8 +57,7 @@
         android:layout_marginLeft="22dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="137dp"
-        android:layout_alignParentTop="true"
- />
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:id="@+id/textView29"
@@ -186,5 +201,5 @@
         android:layout_alignParentTop="true"
         android:text="HELP" />
 
-
+<-->
 </android.widget.RelativeLayout>
