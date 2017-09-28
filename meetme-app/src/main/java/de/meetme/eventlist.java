@@ -65,13 +65,17 @@ public class eventlist extends Activity implements View.OnClickListener {
         textView38 = (TextView) findViewById(R.id.textView38);
         textView39 = (TextView) findViewById(R.id.textView39);
         textView40 = (TextView) findViewById(R.id.textView40);
-        textView40 = (TextView) findViewById(R.id.textView41);
+        textView41 = (TextView) findViewById(R.id.textView41);
 
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
         button13.setOnClickListener(this);
+        textView38.setOnClickListener(this);
+        textView39.setOnClickListener(this);
+        textView40.setOnClickListener(this);
+        textView41.setOnClickListener(this);
 
         eventlisteAnzeigen();
 
@@ -165,7 +169,7 @@ public class eventlist extends Activity implements View.OnClickListener {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.getValue(String.class);
-                textView40.setText(name);
+                textView41.setText(name);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
