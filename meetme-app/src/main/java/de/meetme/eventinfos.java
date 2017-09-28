@@ -124,7 +124,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-        DatabaseReference organisatorWert = databaseEvents.child(eventID).child("organisatorID");
+       DatabaseReference organisatorWert = databaseEvents.child(eventID).child("organisatorID");
         organisatorWert.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -136,6 +136,10 @@ public class eventinfos extends Activity implements View.OnClickListener{
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+
+
+
+
         DatabaseReference uhrzeitWert = databaseEvents.child(eventID).child("uhrzeit");
         uhrzeitWert.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

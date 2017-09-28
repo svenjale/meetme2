@@ -161,15 +161,15 @@
         android:id="@+id/textView30"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
         android:text="Organisator:"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="17dp"
-        android:layout_marginStart="18dp"
+        android:layout_marginTop="31dp"
         android:layout_below="@+id/textView19"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp" />
 
     <TextView
         android:id="@+id/textView31"
@@ -192,12 +192,12 @@
         android:id="@+id/button5"
         android:layout_width="150dp"
         android:layout_height="45dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/button9"
-        android:layout_marginRight="8dp"
         android:background="@drawable/mybutton"
-        android:text="Bin da " />
+        android:text="Bin da "
+        android:layout_alignBaseline="@+id/button9"
+        android:layout_alignBottom="@+id/button9"
+        android:layout_toRightOf="@+id/button3"
+        android:layout_toEndOf="@+id/button3" />
 
     <Button
         android:id="@+id/button10"
