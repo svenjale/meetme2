@@ -10,19 +10,19 @@
 
     <TextView
         android:id="@+id/textView34"
-        android:layout_width="333dp"
+        android:layout_width="300dp"
         android:layout_height="31dp"
         android:text="TextView"
         tools:layout_editor_absoluteX="14dp"
         tools:layout_editor_absoluteY="247dp"
-
+        android:layout_marginTop="9dp"
         android:layout_below="@+id/textView36"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp" />
+        android:layout_alignLeft="@+id/textView36"
+        android:layout_alignStart="@+id/textView36" />
 
     <TextView
         android:id="@+id/textView27"
-        android:layout_width="333dp"
+        android:layout_width="300dp"
         android:layout_height="31dp"
         tools:layout_editor_absoluteX="78dp"
         tools:layout_editor_absoluteY="41dp"
@@ -34,15 +34,15 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="62dp"
         android:text="Name:"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="17dp"
+        android:layout_marginLeft="22dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="137dp"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/textView33"
-        android:layout_alignStart="@+id/textView33" />
+ />
 
     <TextView
         android:id="@+id/textView29"
@@ -53,21 +53,22 @@
         tools:layout_editor_absoluteY="216dp"
         android:textSize="17dp"
         android:textAppearance="@android:style/TextAppearance.Holo"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="14dp"
         android:layout_below="@+id/textView33"
         android:layout_alignLeft="@+id/textView33"
         android:layout_alignStart="@+id/textView33" />
 
     <TextView
         android:id="@+id/textView33"
-        android:layout_width="333dp"
+        android:layout_width="300dp"
         android:layout_height="31dp"
         android:text="TextView"
         tools:layout_editor_absoluteX="14dp"
         tools:layout_editor_absoluteY="166dp"
+        android:layout_marginTop="16dp"
         android:layout_below="@+id/textView28"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_alignLeft="@+id/textView28"
+        android:layout_alignStart="@+id/textView28" />
 
     <TextView
         android:id="@+id/textView35"
@@ -77,23 +78,24 @@
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="299dp"
         android:textSize="17dp"
+
         android:textAppearance="@android:style/TextAppearance.Holo"
-        android:layout_below="@+id/textView37"
-        android:layout_alignLeft="@+id/textView29"
-        android:layout_alignStart="@+id/textView29" />
+        android:layout_alignBottom="@+id/textView27"
+        android:layout_alignLeft="@+id/textView37"
+        android:layout_alignStart="@+id/textView37" />
 
     <CheckedTextView
         android:id="@+id/checkedTextView"
-        android:layout_width="333dp"
+        android:layout_width="300dp"
         android:layout_height="31dp"
         android:text="CheckedTextView"
         tools:layout_editor_absoluteX="14dp"
         tools:layout_editor_absoluteY="328dp"
 
+        android:layout_marginTop="9dp"
         android:layout_below="@+id/textView27"
         android:layout_alignLeft="@+id/textView35"
-        android:layout_alignStart="@+id/textView35"
-        android:layout_marginTop="16dp" />
+        android:layout_alignStart="@+id/textView35" />
 
     <TextView
         android:id="@+id/textView36"
@@ -105,21 +107,22 @@
         android:textSize="17dp"
         android:textAppearance="@android:style/TextAppearance.Holo"
 
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/textView27"
         android:layout_alignLeft="@+id/checkedTextView"
-        android:layout_alignStart="@+id/checkedTextView" />
+        android:layout_alignStart="@+id/checkedTextView"
+        android:layout_marginTop="55dp" />
 
     <TextView
         android:id="@+id/textView37"
-        android:layout_width="333dp"
+        android:layout_width="300dp"
         android:layout_height="31dp"
         android:text="TextView"
         tools:layout_editor_absoluteY="413dp"
         tools:layout_editor_absoluteX="14dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/textView29"
-        android:layout_alignLeft="@+id/textView35"
-        android:layout_alignStart="@+id/textView35" />
+        android:layout_alignLeft="@+id/textView29"
+        android:layout_alignStart="@+id/textView29" />
     <Button
         android:id="@+id/button2"
         android:layout_width="94dp"
@@ -167,11 +170,11 @@
         android:id="@+id/button15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView34"
-        android:layout_alignStart="@+id/textView34"
+        android:layout_marginTop="43dp"
+        android:text="Bearbeiten"
         android:layout_below="@+id/textView34"
-        android:layout_marginTop="13dp"
-        android:text="Bearbeiten" />
+        android:layout_alignLeft="@+id/textView34"
+        android:layout_alignStart="@+id/textView34" />
 
 
 </android.widget.RelativeLayout>
