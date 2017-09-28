@@ -24,6 +24,7 @@ public class createevent extends Activity implements View.OnClickListener  {
     private EditText editText10;            //Ort
     private EditText editText11;            //Datum
     private EditText editText13;//Uhrzeit
+    private Button button17;
 
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseEvents;
@@ -48,9 +49,11 @@ public class createevent extends Activity implements View.OnClickListener  {
         editText11 = (EditText) findViewById(R.id.editText11);
         editText13 = (EditText) findViewById(R.id.editText13);
         button8 = (Button) findViewById(R.id.button8);
+        button17 = (Button) findViewById(R.id.button17);
 
 
         button8.setOnClickListener(this);
+        button17.setOnClickListener(this);
 
 
     }
@@ -100,10 +103,16 @@ public class createevent extends Activity implements View.OnClickListener  {
 
     @Override
     public void onClick(View view) {
+        if (view == button17) {
+
+            Intent Hilfe = new Intent(createevent.this, help.class);
+            startActivity(Hilfe);
+        }
         if (view == button8) {
             createevent();
         }
         Intent regisintent = new Intent(createevent.this, eventinfos.class);
         startActivity(regisintent);
     }
+
 }
