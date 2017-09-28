@@ -1,6 +1,7 @@
 package de.meetme;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,6 +38,10 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private TextView textView19;
     private TextView textView17;
     private TextView textView21;
+    private Button button2;
+    private Button button7;
+    private Button button3;
+    private Button button6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +60,18 @@ public class eventinfos extends Activity implements View.OnClickListener{
         textView17 = (TextView) findViewById(R.id.textView17);
         textView21 = (TextView) findViewById(R.id.textView21);
 
+        button7 = (Button) findViewById(R.id.button7);
+        button3 = (Button) findViewById(R.id.button3);
+        button6 = (Button) findViewById(R.id.button6);
+        button2 = (Button) findViewById(R.id.button2);
+
+
+
+        button7.setOnClickListener(this);
+        button3.setOnClickListener(this);
+        button6.setOnClickListener(this);
+        button2.setOnClickListener(this);
+
         eventinfosAnzeigen(Event.aktuelleEventID);
     }
 
@@ -66,6 +83,26 @@ public class eventinfos extends Activity implements View.OnClickListener{
                 Toast.makeText(this, "Ups. Da hat etwas nicht geklappt.", Toast.LENGTH_LONG).show();
             }
         }*/
+        if (view == button2) {
+            Intent Profil = new Intent(eventinfos.this, profilansicht.class);
+            startActivity(Profil);
+        }
+        if (view == button7) {
+
+            Intent Walk = new Intent(eventinfos.this, eventlist.class);
+            startActivity(Walk);
+        }
+        if (view == button3) {
+
+            Intent Map = new Intent(eventinfos.this, map.class);
+            startActivity(Map);
+        }
+        if (view == button6) {
+
+            Intent Kontakte = new Intent(eventinfos.this, kontakte.class);
+            startActivity(Kontakte);
+
+        }
     }
 
     public boolean teilnehmen (String eventID){

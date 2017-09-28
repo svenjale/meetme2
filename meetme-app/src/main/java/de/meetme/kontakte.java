@@ -12,6 +12,10 @@ import de.meetme.R;
 public class kontakte extends Activity implements View.OnClickListener {
 
     private Button button14;
+    private Button button2;
+    private Button button7;
+    private Button button3;
+    private Button button6;
 
 
     @Override
@@ -21,6 +25,17 @@ public class kontakte extends Activity implements View.OnClickListener {
 
         button14 = (Button) findViewById(R.id.button14);
 
+        button7 = (Button) findViewById(R.id.button7);
+        button3 = (Button) findViewById(R.id.button3);
+        button6 = (Button) findViewById(R.id.button6);
+        button2 = (Button) findViewById(R.id.button2);
+
+
+
+        button7.setOnClickListener(this);
+        button3.setOnClickListener(this);
+        button6.setOnClickListener(this);
+        button2.setOnClickListener(this);
         button14.setOnClickListener(this);
     }
 
@@ -28,6 +43,29 @@ public class kontakte extends Activity implements View.OnClickListener {
         if (view == button14) {
             Intent gohelp = new Intent(kontakte.this, help.class); //switch zur Registrierung
             startActivity(gohelp);
+
+
+            }
+            if (view == button2) {
+                Intent Profil = new Intent(kontakte.this, profilansicht.class);
+                startActivity(Profil);
+            }
+            if (view == button7) {
+
+                Intent Walk = new Intent(kontakte.this, eventlist.class);
+                startActivity(Walk);
+            }
+            if (view == button3) {
+
+                Intent Map = new Intent(kontakte.this, map.class);
+                startActivity(Map);
+            }
+            if (view == button6) {
+
+                Intent Kontakte = new Intent(kontakte.this, kontakte.class);
+                startActivity(Kontakte);
+
+            }
         }
     }
-}
+
