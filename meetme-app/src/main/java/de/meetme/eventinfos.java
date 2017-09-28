@@ -42,6 +42,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private Button button7;
     private Button button3;
     private Button button6;
+    private Button button11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,12 @@ public class eventinfos extends Activity implements View.OnClickListener{
         databaseProfiles = FirebaseDatabase.getInstance().getReference("profiles");
 
         button9 = (Button) findViewById(R.id.button9);
-        button9.setOnClickListener(this);
+        button11 = (Button) findViewById(R.id.button11);
+        button7 = (Button) findViewById(R.id.button7);
+        button3 = (Button) findViewById(R.id.button3);
+        button6 = (Button) findViewById(R.id.button6);
+        button2 = (Button) findViewById(R.id.button2);
+
         textView7 = (TextView) findViewById(R.id.textView7);
         textView31 = (TextView) findViewById(R.id.textView31);
         textView24 = (TextView) findViewById(R.id.textView24);
@@ -60,17 +66,12 @@ public class eventinfos extends Activity implements View.OnClickListener{
         textView17 = (TextView) findViewById(R.id.textView17);
         textView21 = (TextView) findViewById(R.id.textView21);
 
-        button7 = (Button) findViewById(R.id.button7);
-        button3 = (Button) findViewById(R.id.button3);
-        button6 = (Button) findViewById(R.id.button6);
-        button2 = (Button) findViewById(R.id.button2);
-
-
-
+        button11.setOnClickListener(this);
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
+        button9.setOnClickListener(this);
 
         eventinfosAnzeigen(Event.aktuelleEventID);
     }
@@ -102,6 +103,11 @@ public class eventinfos extends Activity implements View.OnClickListener{
             Intent Kontakte = new Intent(eventinfos.this, kontakte.class);
             startActivity(Kontakte);
 
+        }
+        if (view == button11) {
+
+            Intent Teilnehmerliste = new Intent(eventinfos.this, teilnehmerlist.class);
+            startActivity(Teilnehmerliste);
         }
     }
 
