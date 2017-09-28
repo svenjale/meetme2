@@ -25,7 +25,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
     private TextView textView37;
     private TextView textView34;
     private Button button15;
-    private Button button12;
+
 
 
     @Override
@@ -37,10 +37,10 @@ public class profilansicht extends Activity implements View.OnClickListener {
         textView37 = (TextView) findViewById(R.id.textView37);
         textView34 = (TextView) findViewById(R.id.textView34);
         button15 = (Button) findViewById(R.id.button15);
-        button12 = (Button) findViewById(R.id.button12);
-        button15.setOnClickListener(this);
-        button12.setOnClickListener(this);
 
+        button15.setOnClickListener(this);
+
+/*
         databaseProfiles = FirebaseDatabase.getInstance().getReference("profiles");
 
         DatabaseReference nameWert = databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).child("name");
@@ -81,7 +81,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-
+*/
     }
 
     @Override
@@ -89,10 +89,8 @@ public class profilansicht extends Activity implements View.OnClickListener {
         if (view == button15) {
             Intent switchregisintent = new Intent(profilansicht.this, Profile_Activity.class); //switch zur Registrierung
             startActivity(switchregisintent);
-            if (view == button12) {
-                Intent gohelp2 = new Intent(profilansicht.this, help.class); //switch zur Registrierung
-                startActivity(gohelp2);
+
             }
         }
     }
-}
+//}
