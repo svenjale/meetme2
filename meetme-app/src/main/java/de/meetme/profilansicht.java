@@ -25,6 +25,11 @@ public class profilansicht extends Activity implements View.OnClickListener {
     private TextView textView37;
     private TextView textView34;
     private Button button15;
+    private Button button2;
+    private Button button7;
+    private Button button3;
+    private Button button6;
+    private Button button4;
 
 
 
@@ -37,10 +42,20 @@ public class profilansicht extends Activity implements View.OnClickListener {
         textView37 = (TextView) findViewById(R.id.textView37);
         textView34 = (TextView) findViewById(R.id.textView34);
         button15 = (Button) findViewById(R.id.button15);
+        button7 = (Button) findViewById(R.id.button7);
+        button3 = (Button) findViewById(R.id.button3);
+        button6 = (Button) findViewById(R.id.button6);
+        button2 = (Button) findViewById(R.id.button2);
+
 
         button15.setOnClickListener(this);
+        button7.setOnClickListener(this);
+        button3.setOnClickListener(this);
+        button6.setOnClickListener(this);
+        button2.setOnClickListener(this);
 
 
+/*
         databaseProfiles = FirebaseDatabase.getInstance().getReference("profiles");
 
         DatabaseReference nameWert = databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).child("name");
@@ -81,7 +96,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-
+*/
     }
 
     @Override
@@ -90,7 +105,28 @@ public class profilansicht extends Activity implements View.OnClickListener {
             Intent switchregisintent = new Intent(profilansicht.this, Profile_Activity.class); //switch zur Registrierung
             startActivity(switchregisintent);
 
-            }
+        }
+        if (view == button2) {
+            Intent Profil = new Intent(profilansicht.this, profilansicht.class);
+            startActivity(Profil);
+        }
+        if (view == button7) {
+
+            Intent Walk = new Intent(profilansicht.this, eventlist.class);
+            startActivity(Walk);
+        }
+        if (view == button3) {
+
+            Intent Map = new Intent(profilansicht.this, map.class);
+            startActivity(Map);
+        }
+        if (view == button6) {
+
+            Intent Kontakte = new Intent(profilansicht.this, kontakte.class);
+            startActivity(Kontakte);
+
         }
     }
-//}
+}
+
+
