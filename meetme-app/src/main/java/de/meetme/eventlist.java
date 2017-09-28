@@ -44,7 +44,7 @@ public class eventlist extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view == button2) {
-            Intent Profil = new Intent(eventlist.this, profilansicht.class);
+            Intent Profil = new Intent(eventlist.this, Profile_Activity.class);
             startActivity(Profil);
         }
         if (view == button7) {
