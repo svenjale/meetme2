@@ -11,6 +11,7 @@
         android:layout_width="300dp"
         android:layout_height="31dp"
         android:layout_alignLeft="@+id/textView36"
+        android:layout_alignParentLeft="true"
         android:layout_alignStart="@+id/textView36"
         android:layout_below="@+id/textView36"
         android:layout_marginTop="9dp"
@@ -31,34 +32,36 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="62dp"
+        android:layout_alignEnd="@+id/textView29"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/textView29"
+        android:layout_below="@+id/button16"
         android:text="Name:"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="17dp"
-        android:layout_marginLeft="22dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="137dp"
-        android:layout_alignParentTop="true" />
+        tools:layout_editor_absoluteY="137dp" />
 
     <TextView
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Vorname:"
+        android:textAppearance="@android:style/TextAppearance.Holo"
+        android:textSize="17dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="216dp"
-        android:textSize="17dp"
-        android:textAppearance="@android:style/TextAppearance.Holo"
-        android:layout_marginTop="14dp"
         android:layout_below="@+id/textView33"
-        android:layout_alignLeft="@+id/textView33"
-        android:layout_alignStart="@+id/textView33" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/textView33"
         android:layout_width="300dp"
         android:layout_height="31dp"
         android:layout_alignLeft="@+id/textView28"
+        android:layout_alignParentLeft="true"
         android:layout_alignStart="@+id/textView28"
         android:layout_below="@+id/textView28"
         android:layout_marginTop="16dp"
@@ -69,23 +72,25 @@
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rolle:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="299dp"
-        android:textSize="17dp"
-
-        android:textAppearance="@android:style/TextAppearance.Holo"
         android:layout_alignBottom="@+id/textView27"
         android:layout_alignLeft="@+id/textView37"
-        android:layout_alignStart="@+id/textView37" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignStart="@+id/textView37"
+
+        android:text="Rolle:"
+        android:textAppearance="@android:style/TextAppearance.Holo"
+        android:textSize="17dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="299dp" />
 
     <CheckedTextView
         android:id="@+id/checkedTextView"
         android:layout_width="300dp"
         android:layout_height="31dp"
         android:layout_alignLeft="@+id/textView35"
-        android:layout_alignStart="@+id/textView35"
+        android:layout_alignParentLeft="true"
 
+        android:layout_alignStart="@+id/textView35"
         android:layout_below="@+id/textView27"
         android:layout_marginTop="9dp"
         android:text="***Anzeige der Rolle folgt***"
@@ -96,22 +101,24 @@
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kontakt:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="383dp"
-        android:textSize="17dp"
-        android:textAppearance="@android:style/TextAppearance.Holo"
-
-        android:layout_below="@+id/textView27"
         android:layout_alignLeft="@+id/checkedTextView"
+        android:layout_alignParentLeft="true"
         android:layout_alignStart="@+id/checkedTextView"
-        android:layout_marginTop="55dp" />
+        android:layout_below="@+id/textView27"
+        android:layout_marginTop="55dp"
+
+        android:text="Kontakt:"
+        android:textAppearance="@android:style/TextAppearance.Holo"
+        android:textSize="17dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="383dp" />
 
     <TextView
         android:id="@+id/textView37"
         android:layout_width="300dp"
         android:layout_height="31dp"
         android:layout_alignEnd="@+id/button15"
+        android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/button15"
         android:layout_below="@+id/textView29"
         android:layout_marginTop="11dp"
