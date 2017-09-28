@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.meetme.Login_Activity">
+    tools:context="de.meetme.Login_Activity"
+    android:background="@drawable/testbildlogin">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
 
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -20,50 +21,52 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/smapicons"
+            android:layout_marginBottom="0dp"
             android:layout_marginLeft="150dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="75dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginTop="100dp"
+            android:background="@drawable/smapicons" />
+
+
 
         <EditText
 
-            android:inputType="textEmailAddress"
-            android:hint="Email eingeben"
             android:id="@+id/editTextEmail"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
             android:layout_marginBottom="0dp"
-            android:layout_marginLeft="15dp"
-            />
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="0dp"
+            android:hint="Email eingeben"
+            android:inputType="textEmailAddress" />
 
         <EditText
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:inputType="textPassword"
-            android:hint="Passwort eingeben"
             android:id="@+id/editTextPassword"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"/>
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:hint="Passwort eingeben"
+            android:inputType="textPassword" />
+
 
         <Button
-            android:layout_margin="15dp"
             android:id="@+id/buttonLogIn"
-            android:text="Einloggen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginLeft="25dp"
             android:background="@drawable/mybutton"
-            android:layout_marginLeft="25dp"/>
+            android:text="Einloggen" />
 
         <TextView
-            android:textAlignment="center"
-            android:text="Noch nicht registriert? Hier anmelden"
             android:id="@+id/textViewRegister"
-            android:layout_margin="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="57dp"
+            android:text="Noch nicht registriert? Hier anmelden"
+            android:textAlignment="center" />
     </LinearLayout>
 
 
