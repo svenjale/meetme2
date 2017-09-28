@@ -6,11 +6,12 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:label="MeetMe"
+        android:label="Smap"
+        android:icon="@drawable/smapicon"
         android:theme="@style/AppTheme">
         <activity
             android:name=".welcome"
-            android:label="MeetMe"
+            android:label="Smap"
             android:largeHeap="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
