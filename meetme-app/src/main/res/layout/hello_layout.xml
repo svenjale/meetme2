@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="de.meetme.HelloActivity"
-    android:background="@drawable/testbildlogin">
+    android:background="@drawable/testbildregis">
 
     <LinearLayout
 
@@ -43,7 +43,7 @@
             android:layout_marginBottom="0dp"
             android:layout_marginTop="0dp"
             android:hint="Email eingeben"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="35dp"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -55,26 +55,31 @@
             android:layout_below="@+id/editTextEmail"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="35dp"
             android:hint="Passwort eingeben"
             android:inputType="textPassword" />
 
 
+
+
+
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/buttonRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textViewSignin"
-        android:layout_alignEnd="@+id/textViewSignin"
-        android:layout_alignRight="@+id/textViewSignin"
-        android:layout_margin="15dp"
-        android:layout_marginLeft="40dp"
-        android:text="Benutzer registrieren"
-        android:background="@drawable/mybutton"/>
+        <Button
+            android:id="@+id/buttonRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textViewSignin"
+            android:layout_alignEnd="@+id/textViewSignin"
+            android:layout_alignRight="@+id/textViewSignin"
+            android:layout_margin="15dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="35dp"
+            android:background="@drawable/mybutton"
+            android:text="Benutzer registrieren" />
 
-    <TextView
+
+        <TextView
         android:id="@+id/textViewSignin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
