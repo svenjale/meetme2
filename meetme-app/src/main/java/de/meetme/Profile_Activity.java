@@ -42,6 +42,7 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
     private Button button3;
     private Button button6;
     private Button button4;
+    private Button button12;
 
     private EditText editText;             //Name
     private EditText editText2;            //Vorname
@@ -65,6 +66,7 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
         button4 = (Button) findViewById(R.id.button4);
+        button12 = (Button) findViewById(R.id.button12);
 
         editText = (EditText) findViewById(R.id.editText);
         editText2 = (EditText) findViewById(R.id.editText2);
@@ -80,6 +82,7 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
         button4.setOnClickListener(this);
+        button12.setOnClickListener(this);
 
 
        /* firebaseAuth = FirebaseAuth.getInstance();
@@ -156,6 +159,11 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
             saveprofile();
             Intent Profil = new Intent(Profile_Activity.this, profilansicht.class);
             startActivity(Profil);
+        }
+
+        if (view == button12) {
+            Intent helpintent = new Intent (Profile_Activity.this, help.class);
+            startActivity(helpintent);
         }
     }
 }
