@@ -37,7 +37,7 @@ public class EventListAdapter extends FirebaseListAdapter<Event> {
         // Map a Chat object to an entry in our listview
         String name = event.getEventname();
         TextView authorText = (TextView) view.findViewById(R.id.eventname);
-        authorText.setText(name + ": ");
+        authorText.setText(name);
 
         ((TextView) view.findViewById(R.id.eventdatum)).setText(event.getDatum());
         ((TextView) view.findViewById(R.id.eventort)).setText(event.getOrt());

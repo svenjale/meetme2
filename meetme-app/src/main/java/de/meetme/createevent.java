@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.firebase.client.Firebase;
 
 
 
@@ -27,8 +28,10 @@ public class createevent extends Activity implements View.OnClickListener  {
     private Button button17;
 
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseEvents;
-    private DatabaseReference databaseEventteilnehmer;
+    private Firebase databaseEvents;
+    private Firebase databaseEventteilnehmer;
+
+    private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
 
 
     @Override
@@ -37,8 +40,8 @@ public class createevent extends Activity implements View.OnClickListener  {
         setContentView(R.layout.createevent_layout);
 
 
-      databaseEvents = FirebaseDatabase.getInstance().getReference("events");
-        databaseEventteilnehmer = FirebaseDatabase.getInstance().getReference("eventteilnehmer");
+      databaseEvents = new Firebase(FIREBASE_URL).child("events");
+        databaseEventteilnehmer = new Firebase(FIREBASE_URL).child("eventteilnehmer");
 
 
 
