@@ -17,9 +17,8 @@ import com.firebase.client.ValueEventListener;
 public class eventinfos extends Activity implements View.OnClickListener{
 
     private FirebaseAuth firebaseAuth;
-    private Firebase databaseEventteilnehmer;
-    private Firebase databaseProfiles;
     private Firebase databaseEvents;
+    private Firebase databaseEventteilnehmer;
     private Button button9;
     private TextView textView7;
     private TextView textView31;
@@ -36,8 +35,6 @@ public class eventinfos extends Activity implements View.OnClickListener{
 
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
 
-    // public static final String EXTRA_EVENT_KEY = "event_key";
-
     private String uebergebeneID;
 
     @Override
@@ -49,8 +46,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         uebergebeneID = intent.getStringExtra("ID");
 
         databaseEvents = new Firebase(FIREBASE_URL).child("events").child(uebergebeneID);
-
-        databaseProfiles = new Firebase(FIREBASE_URL).child("profiles");
+        databaseEventteilnehmer = new Firebase(FIREBASE_URL).child("eventteilnehmer");
 
         button9 = (Button) findViewById(R.id.button9);
         button11 = (Button) findViewById(R.id.button11);
@@ -97,6 +93,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
         };
         databaseEvents.addValueEventListener(eventListener);
 
+        // Hilfe: https://github.com/firebase/quickstart-android/blob/master/database/app/src/main/java/com/google/firebase/quickstart/database/PostDetailActivity.java#L84-L106
+
     }
     //teilnehmen überarbeiten
 
@@ -126,6 +124,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         }
         if (view == button11) {
             Intent Teilnehmerliste = new Intent(eventinfos.this, teilnehmerlist.class);
+            Teilnehmerliste.putExtra("ID", uebergebeneID);
             startActivity(Teilnehmerliste);
         }
     }
@@ -134,6 +133,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         boolean erfolg = false;
         String teilnehmerID = firebaseAuth.getInstance().getCurrentUser().getUid();
         databaseEventteilnehmer.child(eventID).child("teilnehmer").setValue(teilnehmerID);
+        // in der obigen Zeile: Funktion für mehrere Teinehmer einbinden
         return true; // hier return erfolg
     }
     //Notiz Johann: https://stackoverflow.com/questions/37031222/firebase-add-new-child-with-specified-name
@@ -142,81 +142,6 @@ public class eventinfos extends Activity implements View.OnClickListener{
 
    // public String getProfilName (String organisatorID){
     //}
-
-/*
-    public void eventinfosAnzeigen(String eventID){
-
-        DatabaseReference nameWert = databaseEvents.child(eventID).child("eventname");
-        nameWert.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.getValue(String.class);
-                textView7.setText(name);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-        DatabaseReference beschreibungWert = databaseEvents.child(eventID).child("beschreibung");
-        beschreibungWert.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String beschreibung = dataSnapshot.getValue(String.class);
-                textView31.setText(beschreibung);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-        DatabaseReference ortWert = databaseEvents.child(eventID).child("ort");
-        ortWert.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String ort = dataSnapshot.getValue(String.class);
-                textView24.setText(ort);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-        DatabaseReference datumWert = databaseEvents.child(eventID).child("datum");
-        datumWert.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String datum = dataSnapshot.getValue(String.class);
-                textView19.setText(datum);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-       DatabaseReference organisatorWert = databaseEvents.child(eventID).child("organisatorID");
-        organisatorWert.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String organisatorID = dataSnapshot.getValue(String.class);
-                //String nameorg = getOrganisatorName(organisatorID);
-                //textView17.setText(nameorg);
-                //eventinfos.vollerName="";
-                textView17.setText(organisatorID);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-
-        DatabaseReference uhrzeitWert = databaseEvents.child(eventID).child("uhrzeit");
-        uhrzeitWert.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String uhrzeit = dataSnapshot.getValue(String.class);
-                textView21.setText(uhrzeit);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-    }*/
 
 /*
     public String getOrganisatorName (String organisatorID){
@@ -245,9 +170,6 @@ public class eventinfos extends Activity implements View.OnClickListener{
         });
 
         return eventinfos.vollerName;
-
     }
     */
-
-
 }

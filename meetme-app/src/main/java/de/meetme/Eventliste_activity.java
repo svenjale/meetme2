@@ -45,7 +45,6 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
 
         mFirebaseRef = new Firebase(FIREBASE_URL).child("events");
 
-
         button7 = (Button) findViewById(R.id.button7);
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
@@ -57,7 +56,6 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
         button13.setOnClickListener(this);
-
     }
 
     @Override
@@ -93,6 +91,18 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
                 // No-op
             }
         });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected item text from ListView
+                Event item = (Event) parent.getItemAtPosition(position);
+                Intent details = new Intent (Eventliste_activity.this, eventinfos.class);
+                details.putExtra("ID", item.getEventID());
+                startActivity(details);
+            }
+        });
+
     }
 
     @Override
@@ -101,10 +111,6 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
         mFirebaseRef.getRoot().child(".info/connected").removeEventListener(mConnectedListener);
         mChatListAdapter.cleanup();
     }
-
-    //@Override
-    //public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-    //}
 
     public void onClick(View view) {
         if (view == button2) {
@@ -127,11 +133,7 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
             Intent Plus = new Intent(Eventliste_activity.this, createevent.class);            //Plus = Hinzufügen Button
             startActivity(Plus);
         }
-       // if (view == textView38) {
-       //     Event.aktuelleEventID="-Kv6lECK3OPqzlTWeHbl";
-        //    Intent switchregisintent = new Intent(eventlist.this, eventinfos.class);
-         //   startActivity(switchregisintent);
-        }
+    }
 
 
 }

@@ -44,9 +44,9 @@ public class teilnehmerlist extends Activity {
         textView49 = (TextView) findViewById(R.id.textView49);
 
 
-        teilnehmerlisteAnzeigen();
+        //teilnehmerlisteAnzeigen();
     }
-
+/*
     public void teilnehmerlisteAnzeigen (){
 
         DatabaseReference orgateilnehmer = databaseEventteilnehmer.child(Event.aktuelleEventID).child("organisator");
@@ -60,57 +60,15 @@ public class teilnehmerlist extends Activity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-
-        DatabaseReference teilnehmer1 = databaseEventteilnehmer.child(Event.aktuelleEventID).child("teilnehmer1");
-        teilnehmer1.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.getValue(String.class);
-                textView43.setText(name);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-        DatabaseReference teilnehmer2 = databaseEventteilnehmer.child(Event.aktuelleEventID).child("teilnehmer2");
-        teilnehmer2.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.getValue(String.class);
-                textView44.setText(name);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-        DatabaseReference teilnehmer3 = databaseEventteilnehmer.child(Event.aktuelleEventID).child("teilnehmer3");
-        teilnehmer3.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.getValue(String.class);
-                textView45.setText(name);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-        DatabaseReference teilnehmerDEMO = databaseEventteilnehmer.child(Event.aktuelleEventID).child("teilnehmer");
-        teilnehmerDEMO.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.getValue(String.class);
-                textView49.setText(name);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-
-
     }
 
+*/
 
-    // folgende Methode noch unverwendet und noch nicht fertig
+
+
+
+
+// folgende Methode noch unverwendet und noch nicht fertig
 
     public String getName (String teilnehmerID){
 

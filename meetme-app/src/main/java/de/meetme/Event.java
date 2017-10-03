@@ -15,16 +15,18 @@ public class Event {
     String datum;
     String uhrzeit;
     String organisatorID;
+    String eventID;
 
     public Event (){
     }
-    public Event(String id, String eventname, String beschreibung, String ort, String datum, String uhrzeit, String organisatorID) {
+    public Event(String eventID, String eventname, String beschreibung, String ort, String datum, String uhrzeit, String organisatorID) {
         this.eventname = eventname;
         this.beschreibung = beschreibung;
         this.ort = ort;
         this.datum = datum;
         this.uhrzeit = uhrzeit;
         this.organisatorID = organisatorID;
+        this.eventID=eventID;
     }
 
     public String getEventname() {
@@ -48,4 +50,6 @@ public class Event {
     }
 
     public String getOrganisatorID() {return organisatorID;}
+
+    public String getEventID() {return eventID;}
 }
