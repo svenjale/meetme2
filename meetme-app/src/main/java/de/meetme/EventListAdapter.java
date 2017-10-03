@@ -19,9 +19,8 @@ public class EventListAdapter extends FirebaseListAdapter<Event> {
     // The mUsername for this client. We use this to indicate which messages originated from this user
     private String mUsername;
 
-    public EventListAdapter(Query ref, Activity activity, int layout, String mUsername) {
+    public EventListAdapter(Query ref, Activity activity, int layout) {
         super(ref, Event.class, layout, activity);
-        this.mUsername = mUsername;
     }
 
     /**

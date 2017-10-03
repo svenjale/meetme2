@@ -8,20 +8,18 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.FirebaseError;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
+import com.firebase.client.Firebase;
+import com.firebase.client.ValueEventListener;
 
 
 public class eventinfos extends Activity implements View.OnClickListener{
 
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseEventteilnehmer;
-    private DatabaseReference databaseProfiles;
-    private DatabaseReference databaseEvents;
+    private Firebase databaseEventteilnehmer;
+    private Firebase databaseProfiles;
+    private Firebase databaseEvents;
     private Button button9;
     private TextView textView7;
     private TextView textView31;
@@ -34,16 +32,25 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private Button button3;
     private Button button6;
     private Button button11;
+    private ValueEventListener eventListener;
 
-    static String vollerName="";
+    private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
+
+    // public static final String EXTRA_EVENT_KEY = "event_key";
+
+    private String uebergebeneID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventinfos);
-        databaseEventteilnehmer = FirebaseDatabase.getInstance().getReference("eventteilnehmer");
-        databaseEvents = FirebaseDatabase.getInstance().getReference("events");
-        databaseProfiles = FirebaseDatabase.getInstance().getReference("profiles");
+
+        Intent intent = getIntent();
+        uebergebeneID = intent.getStringExtra("ID");
+
+        databaseEvents = new Firebase(FIREBASE_URL).child("events").child(uebergebeneID);
+
+        databaseProfiles = new Firebase(FIREBASE_URL).child("profiles");
 
         button9 = (Button) findViewById(R.id.button9);
         button11 = (Button) findViewById(R.id.button11);
@@ -66,12 +73,36 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button2.setOnClickListener(this);
         button9.setOnClickListener(this);
 
-        eventinfosAnzeigen(Event.aktuelleEventID);
     }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
+                Event event = dataSnapshot.getValue(Event.class);
+                ((TextView) findViewById(R.id.textView7)).setText(event.getEventname());
+                ((TextView) findViewById(R.id.textView31)).setText(event.getBeschreibung());
+                ((TextView) findViewById(R.id.textView24)).setText(event.getOrt());
+                ((TextView) findViewById(R.id.textView19)).setText(event.getDatum());
+                ((TextView) findViewById(R.id.textView21)).setText(event.getUhrzeit());
+                ((TextView) findViewById(R.id.textView17)).setText(event.getOrganisatorID());
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                Toast.makeText(eventinfos.this, "Fehler beim Laden der Eventdetails.", Toast.LENGTH_SHORT).show();
+            }
+        };
+        databaseEvents.addValueEventListener(eventListener);
+
+    }
+    //teilnehmen überarbeiten
 
     public void onClick(View view) {
         if (view == button9) {
-           if (teilnehmen(Event.aktuelleEventID)==true){
+           if (teilnehmen(uebergebeneID)==true){
                 Toast.makeText(this, "Erfolgreich angemeldet. See you soon!", Toast.LENGTH_LONG).show();
             }else{
                 Toast.makeText(this, "Da hat etwas nicht geklappt.", Toast.LENGTH_LONG).show();
@@ -82,23 +113,18 @@ public class eventinfos extends Activity implements View.OnClickListener{
             startActivity(Profil);
         }
         if (view == button7) {
-
             Intent Walk = new Intent(eventinfos.this, Eventliste_activity.class);
             startActivity(Walk);
         }
         if (view == button3) {
-
             Intent Map = new Intent(eventinfos.this, map.class);
             startActivity(Map);
         }
         if (view == button6) {
-
             Intent Kontakte = new Intent(eventinfos.this, kontakte.class);
             startActivity(Kontakte);
-
         }
         if (view == button11) {
-
             Intent Teilnehmerliste = new Intent(eventinfos.this, teilnehmerlist.class);
             startActivity(Teilnehmerliste);
         }
@@ -114,6 +140,10 @@ public class eventinfos extends Activity implements View.OnClickListener{
     // if Abfrage prüft nicht wirklich den Erfolg, Code einfügen!
 
 
+   // public String getProfilName (String organisatorID){
+    //}
+
+/*
     public void eventinfosAnzeigen(String eventID){
 
         DatabaseReference nameWert = databaseEvents.child(eventID).child("eventname");
@@ -175,9 +205,6 @@ public class eventinfos extends Activity implements View.OnClickListener{
             }
         });
 
-
-
-
         DatabaseReference uhrzeitWert = databaseEvents.child(eventID).child("uhrzeit");
         uhrzeitWert.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -189,8 +216,9 @@ public class eventinfos extends Activity implements View.OnClickListener{
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-    }
+    }*/
 
+/*
     public String getOrganisatorName (String organisatorID){
 
         DatabaseReference vornameWert = databaseProfiles.child(organisatorID).child("vorname");
@@ -219,6 +247,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         return eventinfos.vollerName;
 
     }
+    */
 
 
 }

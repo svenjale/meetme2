@@ -16,11 +16,8 @@ public class Event {
     String uhrzeit;
     String organisatorID;
 
-    public static String aktuelleEventID ="-Kv6lECK3OPqzlTWeHbl";
-
     public Event (){
     }
-
     public Event(String id, String eventname, String beschreibung, String ort, String datum, String uhrzeit, String organisatorID) {
         this.eventname = eventname;
         this.beschreibung = beschreibung;
@@ -28,10 +25,6 @@ public class Event {
         this.datum = datum;
         this.uhrzeit = uhrzeit;
         this.organisatorID = organisatorID;
-    }
-
-    public static void eventinfosAnzeigen (String eventID){
-
     }
 
     public String getEventname() {

@@ -1,8 +1,3 @@
-
-
-// **** alte Klasse, nicht mehr in Benutzung ***
-
-
 package de.meetme;
 
 import android.app.ListActivity;
@@ -48,33 +43,8 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventlist);
 
-        // Make sure we have a mUsername
-        //setupUsername();
-
-        //setTitle("Chatting as " + mUsername);
-
-        // Setup our Firebase mFirebaseRef
         mFirebaseRef = new Firebase(FIREBASE_URL).child("events");
 
-        // Setup our input methods. Enter key on the keyboard or pushing the send button
-        /*
-        EditText inputText = (EditText) findViewById(R.id.messageInput);
-        inputText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if (actionId == EditorInfo.IME_NULL && keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
-                    sendMessage();
-                }
-                return true;
-            }
-        });
-
-        findViewById(R.id.sendButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendMessage();
-            }
-        });*/
 
         button7 = (Button) findViewById(R.id.button7);
         button3 = (Button) findViewById(R.id.button3);
@@ -96,7 +66,7 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
         final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
-        mChatListAdapter = new EventListAdapter(mFirebaseRef.limit(50), this, R.layout.activity_eventlist_element, mUsername);
+        mChatListAdapter = new EventListAdapter(mFirebaseRef.limit(50), this, R.layout.activity_eventlist_element);
         listView.setAdapter(mChatListAdapter);
         mChatListAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
@@ -163,28 +133,5 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
          //   startActivity(switchregisintent);
         }
 
-    /*
-    private void setupUsername() {
-        SharedPreferences prefs = getApplication().getSharedPreferences("ChatPrefs", 0);
-        mUsername = prefs.getString("username", null);
-        if (mUsername == null) {
-            Random r = new Random();
-            // Assign a random user name if we don't have one saved.
-            mUsername = "JavaUser" + r.nextInt(100000);
-            prefs.edit().putString("username", mUsername).commit();
-        }
-    }
 
-    private void sendMessage() {
-        EditText inputText = (EditText) findViewById(R.id.messageInput);
-        String input = inputText.getText().toString();
-        if (!input.equals("")) {
-            // Create our 'model', a Chat object
-            Event chat = new Event(input,  "eventname",  "beschreibung",  "ort",  "datum", "uhrzeit", "organisatorID");
-            // Create a new, auto-generated child of that chat location, and save our chat data there
-            mFirebaseRef.push().setValue(chat);
-            inputText.setText("");
-        }
-    }
-   */
 }

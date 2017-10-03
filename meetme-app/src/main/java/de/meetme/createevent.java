@@ -10,9 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.firebase.client.Firebase;
 
 
@@ -32,6 +29,8 @@ public class createevent extends Activity implements View.OnClickListener  {
     private Firebase databaseEventteilnehmer;
 
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
+
+    private String IDuebergabe ="";
 
 
     @Override
@@ -99,7 +98,7 @@ public class createevent extends Activity implements View.OnClickListener  {
             databaseEvents.child(id).setValue(event);
             databaseEventteilnehmer.child(id).child("organisator").setValue(organisatorID); // Johann: wahrscheinlich Problem, sobald mehrere Teilnehmer --> prüfen, sobald Eventinfos getestet werden kann
             Toast.makeText(this, "Das Event wurde erstellt", Toast.LENGTH_LONG).show();
-            Event.aktuelleEventID=id;
+            IDuebergabe=id;
         }
     }
 
@@ -113,8 +112,9 @@ public class createevent extends Activity implements View.OnClickListener  {
         }
         if (view == button8) {
             createevent();
-        Intent regisintent = new Intent(createevent.this, eventinfos.class);
-        startActivity(regisintent);
+            Intent infointent = new Intent(createevent.this, eventinfos.class);
+            infointent.putExtra("ID", IDuebergabe);
+            startActivity(infointent);
         }
     }
 
