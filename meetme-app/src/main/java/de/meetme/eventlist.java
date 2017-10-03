@@ -1,17 +1,15 @@
 package de.meetme;
 
+import android.app.ListActivity;
 import android.app.Activity;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.database.DataSetObserver;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.view.View.OnClickListener;
-import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.firebase.client.FirebaseError;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -24,9 +22,149 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.firebase.client.Firebase;
+//import com.firebase.client.ValueEventListener;
+
 
 
 import com.google.android.gms.tasks.OnCompleteListener;
+
+import java.util.Random;
+
+
+public class eventlist extends ListActivity {
+
+    // TODO: change this to your own Firebase URL
+    private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com/";
+
+    private String mEventname;
+    private DatabaseReference mFirebaseRef;
+    private ValueEventListener mConnectedListener;
+    private EventListAdapter mEventListAdapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_eventlist);
+
+        // Make sure we have a mUsername
+       // setupUsername();
+
+      //  setTitle("Chatting as " + mEventname);
+
+        // Setup our Firebase mFirebaseRef
+        mFirebaseRef = FirebaseDatabase.getInstance().getReference("events");
+
+/*
+        // Setup our input methods. Enter key on the keyboard or pushing the send button
+        EditText inputText = (EditText) findViewById(R.id.messageInput);
+        inputText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                if (actionId == EditorInfo.IME_NULL && keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
+                    sendMessage();
+                }
+                return true;
+            }
+        });
+
+        findViewById(R.id.sendButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendMessage();
+            }
+        });
+*/
+    }
+
+    @Override
+    public void onStart() {
+
+        super.onStart();
+        // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
+        //final ListView listView = getListView();
+        final ListView listView = getListView();
+        // Tell our list adapter that we only want 50 messages at a time
+        //mEventListAdapter = new EventListAdapter(mFirebaseRef.limit(50), this, R.layout.activity_eventinfos, mEventname);
+        //mEventListAdapter = new EventListAdapter(mFirebaseRef, this, R.layout.activity_eventinfos, mEventname);
+        listView.setAdapter(mEventListAdapter);
+        mEventListAdapter.registerDataSetObserver(new DataSetObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                listView.setSelection(mEventListAdapter.getCount() - 1);
+            }
+        });
+
+
+        /*
+        // Finally, a little indication of connection status
+        mConnectedListener = mFirebaseRef.getRoot().child(".events").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
+                boolean connected = (Boolean) dataSnapshot.getValue();
+                if (connected) {
+                    Toast.makeText(eventlist.this, "Connected to Firebase", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(eventlist.this, "Disconnected from Firebase", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError firebaseError) {
+                //No-op
+            }
+
+        });
+        */
+    }
+/*
+    @Override
+    public void onStop() {
+        super.onStop();
+        mFirebaseRef.getRoot().child(".info/connected").removeEventListener(mConnectedListener);
+        mEventListAdapter.cleanup();
+    }
+
+    private void setupUsername() {
+        SharedPreferences prefs = getApplication().getSharedPreferences("ChatPrefs", 0);
+        mUsername = prefs.getString("username", null);
+        if (mUsername == null) {
+            Random r = new Random();
+            // Assign a random user name if we don't have one saved.
+            mUsername = "JavaUser" + r.nextInt(100000);
+            prefs.edit().putString("username", mUsername).commit();
+        }
+    }
+
+    private void sendMessage() {
+        EditText inputText = (EditText) findViewById(R.id.messageInput);
+        String input = inputText.getText().toString();
+        if (!input.equals("")) {
+            // Create our 'model', a Chat object
+            Chat chat = new Chat(input, mUsername);
+            // Create a new, auto-generated child of that chat location, and save our chat data there
+            mFirebaseRef.push().setValue(chat);
+            inputText.setText("");
+        }
+    }
+    */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* alte Eventlist Klasse
 
 public class eventlist extends Activity implements View.OnClickListener {
 
@@ -179,4 +317,4 @@ public class eventlist extends Activity implements View.OnClickListener {
 
 }
 
-
+*/

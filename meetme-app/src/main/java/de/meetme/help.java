@@ -1,14 +1,10 @@
 package de.meetme;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.view.View;
 import android.widget.TextView;
 
-
-import de.meetme.R;
 
 public class help extends Activity {
 

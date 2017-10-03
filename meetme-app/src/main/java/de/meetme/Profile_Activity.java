@@ -2,7 +2,6 @@ package de.meetme;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,24 +10,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import de.meetme.R;
 
 public class Profile_Activity extends Activity implements View.OnClickListener {
 
@@ -142,7 +131,7 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
         }
         if (view == button7) {
 
-            Intent Walk = new Intent(Profile_Activity.this, eventlist.class);
+            Intent Walk = new Intent(Profile_Activity.this, Eventliste_activity.class);
             startActivity(Walk);
         }
         if (view == button3) {

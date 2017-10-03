@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import de.meetme.R;
 
 public class map extends Activity implements View.OnClickListener{
 
@@ -42,7 +41,7 @@ public class map extends Activity implements View.OnClickListener{
         }
         if (view == button7) {
 
-            Intent Walk = new Intent(map.this, eventlist.class);
+            Intent Walk = new Intent(map.this, Eventliste_activity.class);
             startActivity(Walk);
         }
         if (view == button3) {

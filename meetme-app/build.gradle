@@ -23,6 +23,14 @@ android {
      * download the build tools using the SDK Manager.
      */
 
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+    dexOptions {
+        javaMaxHeapSize "2g"
+    }
+
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
 
@@ -59,6 +67,8 @@ android {
 
         // Defines a user-friendly version name for your app.
         versionName "1.0"
+
+        multiDexEnabled = true
     }
 
     /**
@@ -141,5 +151,19 @@ dependencies {
     compile 'com.google.firebase:firebase-core:11.4.0'
     compile 'com.google.firebase:firebase-database:11.4.0'
     compile 'com.google.android.gms:play-services-maps:11.4.0'
+    compile 'com.firebase:firebase-client-android:2.5.0'
+    compile 'com.android.support:support-v4:26.+'
+    compile 'com.android.support:recyclerview-v7:26.+'
+
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion '26.0.0'
+                }
+            }
+        }
+    }
 }
 apply plugin: 'com.google.gms.google-services'      //Firebase DB

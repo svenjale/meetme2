@@ -2,7 +2,6 @@ package de.meetme;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,18 +11,10 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
-import de.meetme.*;
 
 public class eventinfos extends Activity implements View.OnClickListener{
 
@@ -83,7 +74,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
            if (teilnehmen(Event.aktuelleEventID)==true){
                 Toast.makeText(this, "Erfolgreich angemeldet. See you soon!", Toast.LENGTH_LONG).show();
             }else{
-                Toast.makeText(this, "Ups. Da hat etwas nicht geklappt.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Da hat etwas nicht geklappt.", Toast.LENGTH_LONG).show();
             }
         }
         if (view == button2) {
@@ -92,7 +83,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         }
         if (view == button7) {
 
-            Intent Walk = new Intent(eventinfos.this, eventlist.class);
+            Intent Walk = new Intent(eventinfos.this, Eventliste_activity.class);
             startActivity(Walk);
         }
         if (view == button3) {
