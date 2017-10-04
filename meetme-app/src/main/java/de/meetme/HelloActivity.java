@@ -105,6 +105,7 @@ public class HelloActivity extends Activity implements View.OnClickListener {
                             //Benutzer ist erfolgreich mit Email und Passwort registriert und eingeloggt, öffne Profil Aktivität
                             if (firebaseAuth.getCurrentUser() != null) { //Profilseite kann geöffnet werden
                                 login();
+                                finish();
                             } else {
                                 Toast.makeText(HelloActivity.this, "Benutzer konnte nicht registriert werden", Toast.LENGTH_SHORT).show();
                             }
@@ -114,16 +115,16 @@ public class HelloActivity extends Activity implements View.OnClickListener {
                 });
     }
 
-    private void login (){
+   private void login (){
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {   //starte Profilseite
                             Toast.makeText(HelloActivity.this, "Erfolgreich eingeloggt", Toast.LENGTH_SHORT).show();
-                            finish();
-                            //Intent ErfolgRegis = new Intent(Login_Activity.this, Profile_Activity.class);
-                            //startActivity(ErfolgRegis);
+                            Intent regisintent = new Intent(HelloActivity.this, Profile_Activity.class);
+                            startActivity(regisintent);
+
                         } else {
                             Toast.makeText(HelloActivity.this, "Es scheint etwas schief gelaufen zu sein.", Toast.LENGTH_SHORT).show();
                         }
@@ -138,9 +139,6 @@ public class HelloActivity extends Activity implements View.OnClickListener {
             //Person profil = new Person ("name", "vorname", "rolle", "kontakt");
             //databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
         }
-        Intent regisintent = new Intent(HelloActivity.this, Profile_Activity.class);
-        startActivity(regisintent);
-
     }
 
 }
