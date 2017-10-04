@@ -30,6 +30,9 @@ public class HelloActivity extends Activity implements View.OnClickListener {
     private EditText editTextPassword;
     private TextView textViewSignin;
 
+    private String email = "";
+    private String password = "";
+
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
 
     private FirebaseAuth firebaseAuth;
@@ -79,8 +82,8 @@ public class HelloActivity extends Activity implements View.OnClickListener {
     }
 
     private void registerUser() {
-        String email = editTextEmail.getText().toString().trim();        //Email wird aus Editfeld geholt
-        String password = editTextPassword.getText().toString().trim();  //Passwort wird aus Editfeld geholt
+        email = editTextEmail.getText().toString().trim();        //Email wird aus Editfeld geholt
+        password = editTextPassword.getText().toString().trim();  //Passwort wird aus Editfeld geholt
 
         if (TextUtils.isEmpty(email)) {                                    //Email Textfeld ist leer
             Toast.makeText(this, "Bitte Email eintragen", Toast.LENGTH_SHORT).show();     //wenn Feld leer ist, wird Ausführung unterbrochen
@@ -96,21 +99,35 @@ public class HelloActivity extends Activity implements View.OnClickListener {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if (task.isSuccessful()) {
                             Toast.makeText(HelloActivity.this, "Erfolgreich registriert", Toast.LENGTH_SHORT).show();
-                            Person profil = new Person ("", "", "", "");
-                            databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
                             //Benutzer ist erfolgreich mit Email und Passwort registriert und eingeloggt, öffne Profil Aktivität
                             if (firebaseAuth.getCurrentUser() != null) { //Profilseite kann geöffnet werden
-                                finish();
+                                login();
                             } else {
                                 Toast.makeText(HelloActivity.this, "Benutzer konnte nicht registriert werden", Toast.LENGTH_SHORT).show();
                             }
-
                         }
-
                     }
 
+                });
+    }
+
+    private void login (){
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {   //starte Profilseite
+                            Toast.makeText(HelloActivity.this, "Erfolgreich eingeloggt", Toast.LENGTH_SHORT).show();
+                            finish();
+                            //Intent ErfolgRegis = new Intent(Login_Activity.this, Profile_Activity.class);
+                            //startActivity(ErfolgRegis);
+                        } else {
+                            Toast.makeText(HelloActivity.this, "Es scheint etwas schief gelaufen zu sein.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 });
     }
 
@@ -118,8 +135,10 @@ public class HelloActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         if (view == buttonRegister) {
             registerUser();
+            //Person profil = new Person ("name", "vorname", "rolle", "kontakt");
+            //databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
         }
-        Intent regisintent = new Intent(HelloActivity.this, Login_Activity.class);
+        Intent regisintent = new Intent(HelloActivity.this, Profile_Activity.class);
         startActivity(regisintent);
 
     }
