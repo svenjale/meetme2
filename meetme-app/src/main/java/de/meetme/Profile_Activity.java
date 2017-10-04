@@ -95,6 +95,10 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
             Toast.makeText(this, "Bitte Vorname eintragen", Toast.LENGTH_SHORT).show();     //wenn Feld leer ist, wird Ausführung unterbrochen
             return;
         }
+        if (!checkBox.isChecked()&&!checkBox2.isChecked()&&!checkBox3.isChecked()&&!checkBox4.isChecked()) {                                                          //Eventname Textfeld ist leer
+            Toast.makeText(this, "Wähle bitte mindestens eine Rolle", Toast.LENGTH_SHORT).show();     //wenn keine Rolle, wird Ausführung unterbrochen
+            return;
+        }
         if (!TextUtils.isEmpty(kontakt)&&!(TextUtils.isEmpty(vorname))){
 
             Person profil = new Person (name, vorname, rolle, kontakt);
