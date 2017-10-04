@@ -95,23 +95,24 @@ public class HelloActivity extends Activity implements View.OnClickListener {
             return;
         }
 
+
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
+                        Person profil = new Person ("name", "vorname", "rolle", "kontakt");
+                        databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
                         if (task.isSuccessful()) {
                             Toast.makeText(HelloActivity.this, "Erfolgreich registriert", Toast.LENGTH_SHORT).show();
                             //Benutzer ist erfolgreich mit Email und Passwort registriert und eingeloggt, öffne Profil Aktivität
                             if (firebaseAuth.getCurrentUser() != null) { //Profilseite kann geöffnet werden
                                 login();
-                                finish();
+                                // finish();
                             } else {
                                 Toast.makeText(HelloActivity.this, "Benutzer konnte nicht registriert werden", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
-
                 });
     }
 
@@ -136,8 +137,6 @@ public class HelloActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         if (view == buttonRegister) {
             registerUser();
-            //Person profil = new Person ("name", "vorname", "rolle", "kontakt");
-            //databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
         }
     }
 
