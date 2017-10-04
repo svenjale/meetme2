@@ -106,8 +106,11 @@ public class HelloActivity extends Activity implements View.OnClickListener {
                             Toast.makeText(HelloActivity.this, "Erfolgreich registriert", Toast.LENGTH_SHORT).show();
                             //Benutzer ist erfolgreich mit Email und Passwort registriert und eingeloggt, öffne Profil Aktivität
                             if (firebaseAuth.getCurrentUser() != null) { //Profilseite kann geöffnet werden
-                                login();
-                                // finish();
+                                finish();
+                                Toast.makeText(HelloActivity.this, "Erfolgreich eingeloggt", Toast.LENGTH_SHORT).show();
+                                Intent regisintent = new Intent(HelloActivity.this, Profile_Activity.class);
+                                startActivity(regisintent);
+
                             } else {
                                 Toast.makeText(HelloActivity.this, "Benutzer konnte nicht registriert werden", Toast.LENGTH_SHORT).show();
                             }
@@ -116,7 +119,7 @@ public class HelloActivity extends Activity implements View.OnClickListener {
                 });
     }
 
-   private void login (){
+   /* private void login (){
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -131,7 +134,7 @@ public class HelloActivity extends Activity implements View.OnClickListener {
                         }
                     }
                 });
-    }
+    } */
 
     @Override
     public void onClick(View view) {

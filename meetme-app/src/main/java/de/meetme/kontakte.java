@@ -39,7 +39,7 @@ public class kontakte extends Activity implements View.OnClickListener {
 
     public void onClick(View view) {
         if (view == button14) {
-            Intent gohelp = new Intent(kontakte.this, help.class); //switch zur Registrierung
+            Intent gohelp = new Intent(kontakte.this, helpkontakte.class); //switch zur Registrierung
             startActivity(gohelp);
 
 

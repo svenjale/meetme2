@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="de.meetme.help">
+
+
+
+    <TextView
+        android:id="@+id/textViewHelpLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="
+        Willkommen auf unserer Hilfe - Seite
+        \n
+
+
+
+\n --Event erstellen--
+\n
+\n Hier kannst du ein Event erstellen. Dafür musst du einen Eventnamen, eine Beschreibung, einen Ort sowie Datum und Uhrzeit eingeben. Die Beschreibung sollte kurz, aber aussagekräftig sein, damit andere Nutzer sich gerne zu deinem Event anmelden.
+\n
+\n --Event-Liste--
+\n
+\n Dies ist eine Übersicht über alle Events mit Ort und Datum. Wenn du mehr Informationen über ein Event erfahren möchtest, so klicke es einfach an. Dort findest du auch die Beschreibung.
+\n
+\n --Event Infos--
+\n
+\n Hier siehst du dein ausgewähltes Event und seine Beschreibung. Außerdem erfährst du hier wann und wo es stattfindet und wer es organisiert. Du kommst von hier auch zu den Teilnehmern und Anwesenden. Wenn dich das Event interessiert, kannst du dich hier dafür anmelden.
+\n Bist du schon vor Ort? Dann kannst du dies hier anderen mitteilen.
+\n
+\n --Teilnehmer-Liste--
+\n
+\n Dies ist eine Liste, in der du sehen kannst, wer alles plant an dem Event teilzunehmen.
+\n (Von hier kannst du auch Kontakte zu deiner Kontaktliste hinzufügen).
+\n
+
+"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:maxLines="40"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+
+
+
+</android.widget.RelativeLayout>
