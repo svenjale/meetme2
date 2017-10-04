@@ -71,7 +71,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
                 // Person person = dataSnapshot.getValue(Person.class);//Toast.makeText(profilansicht.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
                 textView33.setText(dataSnapshot.child("name").getValue().toString());
                 textView37.setText(dataSnapshot.child("vorname").getValue().toString());
-                textView39.setText(dataSnapshot.child("rolle").getValue().toString());
+                textView39.setText(dataSnapshot.child("rolle").getValue().toString().trim());
                 textView34.setText(dataSnapshot.child("kontakt").getValue().toString());
                 // nicht die eleganteste Lösung, Lösung bei Eventinfos funktionierte leider nicht
             }
