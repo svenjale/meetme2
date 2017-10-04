@@ -58,7 +58,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
 
         String userID = firebaseAuth.getInstance().getCurrentUser().getUid();
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(userID);
-        Toast.makeText(profilansicht.this, databaseProfiles.getKey(), Toast.LENGTH_SHORT).show();
+        //Test: Toast.makeText(profilansicht.this, databaseProfiles.getKey(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

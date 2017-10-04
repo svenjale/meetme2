@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,7 +30,10 @@ public class HelloActivity extends Activity implements View.OnClickListener {
     private EditText editTextPassword;
     private TextView textViewSignin;
 
+    private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
+
     private FirebaseAuth firebaseAuth;
+    private Firebase databaseProfiles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,8 @@ public class HelloActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.hello_layout);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        databaseProfiles = new Firebase(FIREBASE_URL).child("profiles");
+
 
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
 
@@ -91,11 +97,12 @@ public class HelloActivity extends Activity implements View.OnClickListener {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(HelloActivity.this, "Erfolgreich registriert", Toast.LENGTH_SHORT).show();                                                 //Benutzer ist erfolgreich mit Email und Passwort registriert und eingeloggt, öffne Profil Aktivität
+                            Toast.makeText(HelloActivity.this, "Erfolgreich registriert", Toast.LENGTH_SHORT).show();
+                            Person profil = new Person ("", "", "", "");
+                            databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
+                            //Benutzer ist erfolgreich mit Email und Passwort registriert und eingeloggt, öffne Profil Aktivität
                             if (firebaseAuth.getCurrentUser() != null) { //Profilseite kann geöffnet werden
                                 finish();
-
-
                             } else {
                                 Toast.makeText(HelloActivity.this, "Benutzer konnte nicht registriert werden", Toast.LENGTH_SHORT).show();
                             }
@@ -106,7 +113,6 @@ public class HelloActivity extends Activity implements View.OnClickListener {
 
                 });
     }
-
 
     @Override
     public void onClick(View view) {
