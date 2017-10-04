@@ -15,14 +15,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import android.text.TextUtils;
 import android.widget.EditText;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.firebase.client.Firebase;
 
 
 public class Profile_Activity extends Activity implements View.OnClickListener {
 
+    private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
+
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseProfiles;
+    private Firebase databaseProfiles;
 
     private TextView textViewUserEmail;
     private Button buttonLogOut;
@@ -48,7 +49,7 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_layout);
 
-        databaseProfiles = FirebaseDatabase.getInstance().getReference("profiles");
+        databaseProfiles = new Firebase(FIREBASE_URL).child("profiles");
 
         button7 = (Button) findViewById(R.id.button7);
         button3 = (Button) findViewById(R.id.button3);
@@ -72,39 +73,17 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
         button2.setOnClickListener(this);
         button4.setOnClickListener(this);
         button12.setOnClickListener(this);
-
-
-       /* firebaseAuth = FirebaseAuth.getInstance();
-
-        if(firebaseAuth.getCurrentUser() == null){
-            finish();
-            startActivity(new Intent(this, Login_Activity.class));
-        }
-
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-
-
-        // textViewUserEmail= (TextView) findViewById(R.id.textViewUserEmail);
-        // textViewUserEmail ist nicht vorhanden
-       // textViewUserEmail.setText("Willkommen"+user.getEmail());
-
-
-*/
     }
-
 
     public void saveprofile(){
         String name = editText.getText().toString().trim();
         String vorname = editText2.getText().toString().trim();
 
-        boolean model = false;
-        if(checkBox.isChecked()) model = true;
-        boolean fotograf = false;
-        if(checkBox2.isChecked()) fotograf = true;
-        boolean organisator = false;
-        if(checkBox3.isChecked()) organisator = true;
-        boolean visagist = false;
-        if(checkBox4.isChecked()) visagist = true;
+        String rolle ="";
+        if(checkBox.isChecked()) rolle = rolle+"Model";
+        if(checkBox2.isChecked()) rolle = rolle+" Fotograf";
+        if(checkBox3.isChecked()) rolle = rolle+" Organisator";
+        if(checkBox4.isChecked()) rolle = rolle+" Visagist";;
 
         String kontakt = editText3.getText().toString().trim();
 
@@ -117,7 +96,8 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
             return;
         }
         if (!TextUtils.isEmpty(kontakt)&&!(TextUtils.isEmpty(vorname))){
-            Person profil = new Person (name, vorname, model, fotograf, organisator, visagist, kontakt);
+
+            Person profil = new Person (name, vorname, rolle, kontakt);
             databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
             Toast.makeText(this, "Profil wurde aktualisiert", Toast.LENGTH_LONG).show();
         }

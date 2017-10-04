@@ -78,6 +78,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
             @Override
             public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
                 Event event = dataSnapshot.getValue(Event.class);
+                Toast.makeText(eventinfos.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
                 ((TextView) findViewById(R.id.textView7)).setText(event.getEventname());
                 ((TextView) findViewById(R.id.textView31)).setText(event.getBeschreibung());
                 ((TextView) findViewById(R.id.textView24)).setText(event.getOrt());

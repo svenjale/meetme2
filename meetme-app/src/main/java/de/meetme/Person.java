@@ -1,24 +1,35 @@
 package de.meetme;
 
 public class Person {
-    String name;
     String vorname;
-    boolean model = false;
-    boolean fotograf = false;
-    boolean organisator = false;
-    boolean visagist = false;
     String kontakt;
+    String rolle;
+    String name;
+   /* boolean model;
+    boolean fotograf;
+    boolean organisator;
+    boolean visagist;*/
 
-    public static String vollerName="";
-
-
-    public Person (String name, String vorname, boolean model, boolean fotograf, boolean organisator, boolean visagist, String kontakt){
-        this.name = name;
+    public Person (String name, String vorname, String rolle, String kontakt){
         this.vorname = vorname;
-        this.model=model;
-        this.fotograf=fotograf;
-        this.organisator=organisator;
-        this.visagist=visagist;
         this.kontakt=kontakt;
+        this.rolle=rolle;
+        this.name = name;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getVorname() {
+        return this.vorname;
+    }
+
+    public String getKontakt() {
+        return this.kontakt;
+    }
+    public String getRolle (){
+        return this.rolle;
+    }
+
 }

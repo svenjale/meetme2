@@ -6,22 +6,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.firebase.client.FirebaseError;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.firebase.client.Firebase;
+import com.firebase.client.ValueEventListener;
 
 
 public class profilansicht extends Activity implements View.OnClickListener {
 
+    private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
+
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseProfiles;
+    private Firebase databaseProfiles;
     private TextView textView33;
     private TextView textView37;
     private TextView textView34;
+    private TextView textView39;
     private Button button15;
     private Button button2;
     private Button button7;
@@ -29,8 +31,6 @@ public class profilansicht extends Activity implements View.OnClickListener {
     private Button button6;
     private Button button4;
     private Button button16;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +40,14 @@ public class profilansicht extends Activity implements View.OnClickListener {
         textView33 = (TextView) findViewById(R.id.textView33);
         textView37 = (TextView) findViewById(R.id.textView37);
         textView34 = (TextView) findViewById(R.id.textView34);
+        textView39 = (TextView) findViewById(R.id.textView39);
+
         button15 = (Button) findViewById(R.id.button15);
         button7 = (Button) findViewById(R.id.button7);
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
         button16 = (Button) findViewById(R.id.button16);
-
 
         button15.setOnClickListener(this);
         button7.setOnClickListener(this);
@@ -55,49 +56,32 @@ public class profilansicht extends Activity implements View.OnClickListener {
         button2.setOnClickListener(this);
         button16.setOnClickListener(this);
 
+        String userID = firebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(userID);
+        Toast.makeText(profilansicht.this, databaseProfiles.getKey(), Toast.LENGTH_SHORT).show();
+    }
 
-
-        databaseProfiles = FirebaseDatabase.getInstance().getReference("profiles");
-
-        DatabaseReference nameWert = databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).child("name");
-        nameWert.addListenerForSingleValueEvent(new ValueEventListener() {
+    @Override
+        public void onStart (){
+        super.onStart();
+        ValueEventListener profilListener = new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.getValue(String.class);
-                textView33.setText(name);
+            public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
+                // String name = dataSnapshot.child("name").getValue().toString();
+                // Person person = dataSnapshot.getValue(Person.class);//Toast.makeText(profilansicht.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
+                textView33.setText(dataSnapshot.child("name").getValue().toString());
+                textView37.setText(dataSnapshot.child("vorname").getValue().toString());
+                textView39.setText(dataSnapshot.child("rolle").getValue().toString());
+                textView34.setText(dataSnapshot.child("kontakt").getValue().toString());
+                // nicht die eleganteste Lösung, Lösung bei Eventinfos funktionierte leider nicht
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+            public void onCancelled(FirebaseError firebaseError) {
 
-        DatabaseReference vornameWert = databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).child("vorname");
-        vornameWert.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String vorname = dataSnapshot.getValue(String.class);
-                textView37.setText(vorname);
             }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-
-        DatabaseReference kontaktWert = databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).child("kontakt");
-        kontaktWert.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String kontakt = dataSnapshot.getValue(String.class);
-                textView34.setText(kontakt);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-
+        };
+        databaseProfiles.addValueEventListener(profilListener);
     }
 
     @Override
@@ -105,14 +89,12 @@ public class profilansicht extends Activity implements View.OnClickListener {
         if (view == button15) {
             Intent switchregisintent = new Intent(profilansicht.this, Profile_Activity.class); //switch zur Registrierung
             startActivity(switchregisintent);
-
         }
         if (view == button2) {
             Intent Profil = new Intent(profilansicht.this, profilansicht.class);
             startActivity(Profil);
         }
         if (view == button7) {
-
             Intent Walk = new Intent(profilansicht.this, Eventliste_activity.class);
             startActivity(Walk);
         }
@@ -122,18 +104,12 @@ public class profilansicht extends Activity implements View.OnClickListener {
             startActivity(Map);
         }
         if (view == button6) {
-
             Intent Kontakte = new Intent(profilansicht.this, kontakte.class);
             startActivity(Kontakte);
-
         }
-
         if (view == button16) {
-
             Intent Hilfe = new Intent(profilansicht.this, help.class);
             startActivity(Hilfe);
         }
     }
 }
-
-
