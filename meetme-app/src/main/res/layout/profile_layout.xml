@@ -126,13 +126,13 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Kontakt:"
-        android:textSize="17dp"
-        android:textAppearance="@android:style/TextAppearance.Holo"
-        android:layout_below="@+id/checkBox3"
         android:layout_alignLeft="@+id/checkBox3"
-        android:layout_alignStart="@+id/checkBox3" />
+        android:layout_alignStart="@+id/checkBox3"
+        android:layout_below="@+id/checkBox3"
+        android:layout_marginTop="20dp"
+        android:text="Telefonnummer:"
+        android:textAppearance="@android:style/TextAppearance.Holo"
+        android:textSize="17dp" />
 
     <EditText
         android:id="@+id/editText3"
