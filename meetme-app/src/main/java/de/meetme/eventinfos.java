@@ -116,7 +116,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
             startActivity(Walk);
         }
         if (view == button3) {
-            Intent Map = new Intent(eventinfos.this, map.class);
+            Intent Map = new Intent(eventinfos.this, MapsActivity.class);
             startActivity(Map);
         }
         if (view == button6) {

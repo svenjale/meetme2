@@ -116,7 +116,7 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
         }
         if (view == button3) {
 
-            Intent Map = new Intent(Profile_Activity.this, map.class);
+            Intent Map = new Intent(Profile_Activity.this, MapsActivity.class);
             startActivity(Map);
         }
         if (view == button6) {
