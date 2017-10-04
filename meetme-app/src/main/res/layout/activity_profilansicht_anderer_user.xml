@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.meetme.profilansicht">
+    tools:context="de.meetme.profilansicht"
+   >
 
     <TextView
         android:id="@+id/textView34"
@@ -163,12 +164,12 @@
         android:id="@+id/button15"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="45dp"
         android:text="Zu Kontakten"
         android:background="@drawable/mybutton"
         android:layout_below="@+id/textView34"
-        android:layout_alignLeft="@+id/textView34"
-        android:layout_alignStart="@+id/textView34" />
+        android:layout_alignRight="@+id/textView34"
+        android:layout_alignEnd="@+id/textView34" />
 
 
     <Button
@@ -195,12 +196,25 @@
         android:id="@+id/button18"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/mybutton"
         android:text="Nachricht senden"
         android:layout_below="@+id/button15"
+        android:layout_centerHorizontal="true"
         android:layout_alignLeft="@+id/button15"
         android:layout_alignStart="@+id/button15" />
+
+    <Button
+        android:id="@+id/button19"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:text="Eventteilnahmen"
+        android:background="@drawable/mybutton"
+        android:layout_below="@+id/button18"
+        android:layout_alignLeft="@+id/button18"
+        android:layout_alignStart="@+id/button18"
+        android:layout_marginTop="10dp" />
+
 
 </android.widget.RelativeLayout>
 
