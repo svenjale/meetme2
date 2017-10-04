@@ -46,6 +46,17 @@
             android:layout_marginLeft="35dp"
             android:inputType="textEmailAddress" />
 
+        <TextView
+            android:id="@+id/TextView-Mindestanzahl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextEmail"
+            android:layout_marginLeft="40dp"
+            android:textAlignment="center"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="10dp"
+            android:text="Mindestens 8 Zeichen" />
+
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="300dp"
