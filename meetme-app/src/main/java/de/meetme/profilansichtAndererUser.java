@@ -3,7 +3,7 @@ package de.meetme;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import de.meetme.app.R;
+import de.meetme.R;
 
 public class profilansichtAndererUser extends AppCompatActivity {
 
