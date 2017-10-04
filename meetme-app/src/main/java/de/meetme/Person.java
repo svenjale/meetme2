@@ -39,4 +39,10 @@ public class Person {
     public String getName() {
         return name;
     }
+
+    public static Person idPersonAbfrage (String id){
+        Person person = new Person();
+        // Code zur DB Abfrage
+        return person;
+    }
 }

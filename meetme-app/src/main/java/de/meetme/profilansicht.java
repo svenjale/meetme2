@@ -33,7 +33,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
     private Button button16;
 
     public static Person aktuellerUser;
-    public String userID = firebaseAuth.getInstance().getCurrentUser().getUid();
+    public String aktuelleUserID = firebaseAuth.getInstance().getCurrentUser().getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
         button2.setOnClickListener(this);
         button16.setOnClickListener(this);
 
-        databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(userID);
+        databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(aktuelleUserID);
         //Test: Toast.makeText(profilansicht.this, databaseProfiles.getKey(), Toast.LENGTH_SHORT).show();
     }
 

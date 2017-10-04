@@ -96,12 +96,11 @@ public class eventinfos extends Activity implements View.OnClickListener{
         // Hilfe: https://github.com/firebase/quickstart-android/blob/master/database/app/src/main/java/com/google/firebase/quickstart/database/PostDetailActivity.java#L84-L106
 
     }
-    //teilnehmen überarbeiten
 
     public void onClick(View view) {
         if (view == button9) {
-           teilnehmen(uebergebeneID); // Success Abfrage einbauen
-           Toast.makeText(this, "Erfolgreich angemeldet. See you soon!", Toast.LENGTH_LONG).show();
+            databaseEventteilnehmer.child(uebergebeneID).child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profilansicht.aktuellerUser);
+            Toast.makeText(this, "Erfolgreich angemeldet. See you soon!", Toast.LENGTH_LONG).show();
         }
         if (view == button2) {
             Intent Profil = new Intent(eventinfos.this, profilansicht.class);
@@ -125,17 +124,6 @@ public class eventinfos extends Activity implements View.OnClickListener{
             startActivity(Teilnehmerliste);
         }
     }
-
-    public void teilnehmen (String eventID){
-       // String teilnehmerID = firebaseAuth.getInstance().getCurrentUser().getUid();
-        // hier Code Zugriff auf Teilnehmeranzahl, auslesen, in String einfügen und erhöhen
-       // databaseEventteilnehmer.child(eventID).child(teilnehmerID).setValue(teilnehmerID);
-        // in der obigen Zeile: Funktion für mehrere Teinehmer einbinden
-    }
-
-
-
-
 
 
     //Notiz Johann: https://stackoverflow.com/questions/37031222/firebase-add-new-child-with-specified-name

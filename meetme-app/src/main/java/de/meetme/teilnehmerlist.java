@@ -37,12 +37,17 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
     private Button button3;
     private Button button6;
 
+    private String uebergebeneID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teilnehmerlist);
 
-        databaseEventteilnehmer = new Firebase(FIREBASE_URL).child("profiles");
+        Intent intent = getIntent();
+        uebergebeneID = intent.getStringExtra("ID");
+
+        databaseEventteilnehmer = new Firebase(FIREBASE_URL).child("eventteilnehmer").child(uebergebeneID);
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles");
 
         button7 = (Button) findViewById(R.id.button7);
@@ -59,9 +64,9 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
     public void onStart() {
         super.onStart();
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
-        //final ListView listView = getListView();
+        final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
-       /* mTeilnehmerListAdapter = new TeilnehmerListAdapter(databaseEventteilnehmer.limit(50), this, R.layout.activity_teilnehmerlist_element);
+        mTeilnehmerListAdapter = new TeilnehmerListAdapter(databaseEventteilnehmer.limit(50), this, R.layout.activity_teilnehmerlist_element);
         listView.setAdapter(mTeilnehmerListAdapter);
         mTeilnehmerListAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
@@ -79,7 +84,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
                 if (connected) {
                     //Toast.makeText(Eventliste_activity.this, "Connected to Firebase", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(teilnehmerlist.this, "Disconnected from Firebase", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(teilnehmerlist.this, "Disconnected from Firebase", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -87,7 +92,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
             public void onCancelled(FirebaseError firebaseError) {
                 // No-op
             }
-        });*/
+        });
 
 /*
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -102,7 +107,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
         });*/
 
     }
-/*
+
     @Override
     public void onStop() {
         super.onStop();
@@ -110,7 +115,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
        // mTeilnehmerListAdapter.cleanup();
     }
 
-*/
+
 
         //teilnehmerlisteAnzeigen();
 
