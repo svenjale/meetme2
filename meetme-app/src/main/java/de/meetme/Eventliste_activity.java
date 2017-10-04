@@ -82,7 +82,7 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
                 if (connected) {
                     //Toast.makeText(Eventliste_activity.this, "Connected to Firebase", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(Eventliste_activity.this, "Disconnected from Firebase", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(Eventliste_activity.this, "Disconnected from Firebase", Toast.LENGTH_SHORT).show();
                 }
             }
 
