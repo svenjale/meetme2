@@ -16,6 +16,7 @@ public class Event {
     String uhrzeit;
     String organisatorID;
     String eventID;
+    public int teilnehmerAnzahl=0;
 
     public Event (){
     }
@@ -52,4 +53,6 @@ public class Event {
     public String getOrganisatorID() {return organisatorID;}
 
     public String getEventID() {return eventID;}
+
+    public int getTeilnehmerAnzahl () {return teilnehmerAnzahl;}
 }

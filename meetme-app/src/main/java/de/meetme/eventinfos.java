@@ -101,11 +101,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
 
     public void onClick(View view) {
         if (view == button9) {
-           if (teilnehmen(uebergebeneID)==true){
-                Toast.makeText(this, "Erfolgreich angemeldet. See you soon!", Toast.LENGTH_LONG).show();
-            }else{
-                Toast.makeText(this, "Da hat etwas nicht geklappt.", Toast.LENGTH_LONG).show();
-            }
+           teilnehmen(uebergebeneID); // Success Abfrage einbauen
+           Toast.makeText(this, "Erfolgreich angemeldet. See you soon!", Toast.LENGTH_LONG).show();
         }
         if (view == button2) {
             Intent Profil = new Intent(eventinfos.this, profilansicht.class);
@@ -130,15 +127,20 @@ public class eventinfos extends Activity implements View.OnClickListener{
         }
     }
 
-    public boolean teilnehmen (String eventID){
-        boolean erfolg = false;
+    public void teilnehmen (String eventID){
         String teilnehmerID = firebaseAuth.getInstance().getCurrentUser().getUid();
+        // hier Code Zugriff auf Teilnehmeranzahl, auslesen, in String einfügen und erhöhen
         databaseEventteilnehmer.child(eventID).child("teilnehmer").setValue(teilnehmerID);
         // in der obigen Zeile: Funktion für mehrere Teinehmer einbinden
-        return true; // hier return erfolg
     }
+
+
+
+
+
+
     //Notiz Johann: https://stackoverflow.com/questions/37031222/firebase-add-new-child-with-specified-name
-    // if Abfrage prüft nicht wirklich den Erfolg, Code einfügen!
+    // evtl if Abfrage für Erfolg?!
 
 
    // public String getProfilName (String organisatorID){
