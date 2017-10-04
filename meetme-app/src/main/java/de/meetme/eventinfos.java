@@ -78,7 +78,6 @@ public class eventinfos extends Activity implements View.OnClickListener{
             @Override
             public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
                 Event event = dataSnapshot.getValue(Event.class);
-                Toast.makeText(eventinfos.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
                 ((TextView) findViewById(R.id.textView7)).setText(event.getEventname());
                 ((TextView) findViewById(R.id.textView31)).setText(event.getBeschreibung());
                 ((TextView) findViewById(R.id.textView24)).setText(event.getOrt());
@@ -128,9 +127,9 @@ public class eventinfos extends Activity implements View.OnClickListener{
     }
 
     public void teilnehmen (String eventID){
-        String teilnehmerID = firebaseAuth.getInstance().getCurrentUser().getUid();
+       // String teilnehmerID = firebaseAuth.getInstance().getCurrentUser().getUid();
         // hier Code Zugriff auf Teilnehmeranzahl, auslesen, in String einfügen und erhöhen
-        databaseEventteilnehmer.child(eventID).child("teilnehmer").setValue(teilnehmerID);
+       // databaseEventteilnehmer.child(eventID).child(teilnehmerID).setValue(teilnehmerID);
         // in der obigen Zeile: Funktion für mehrere Teinehmer einbinden
     }
 

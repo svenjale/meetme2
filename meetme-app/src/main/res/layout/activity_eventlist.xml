@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignParentRight="true"
-    tools:context="de.meetme.eventlist">
+    tools:context="de.meetme.Eventliste_activity">
 
     <Button
         android:id="@+id/button2"
@@ -85,23 +85,19 @@
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="17dp"
         android:layout_above="@+id/@android:id/list"
-        android:layout_toLeftOf="@+id/textView15"
-        android:layout_toStartOf="@+id/textView15"
-        android:layout_marginRight="12dp"
-        android:layout_marginEnd="12dp" />
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView14"
-        android:layout_alignBottom="@+id/textView14"
-        android:layout_toLeftOf="@+id/button14"
         android:text="Datum"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="17dp"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView" />
+        android:layout_above="@+id/@android:id/list"
+        android:layout_toRightOf="@+id/button7"
+        android:layout_toEndOf="@+id/button7" />
 
     <Button
         android:id="@+id/button13"
@@ -135,7 +131,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView13"
         android:layout_alignLeft="@+id/textView13"
-        android:layout_alignStart="@+id/textView13" />
+        android:layout_alignStart="@+id/textView13"
+        android:layout_alignRight="@+id/button14"
+        android:layout_alignEnd="@+id/button14"
+        android:layout_above="@+id/button2" />
 
 
 </android.widget.RelativeLayout>

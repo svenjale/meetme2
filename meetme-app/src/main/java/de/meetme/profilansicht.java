@@ -32,6 +32,9 @@ public class profilansicht extends Activity implements View.OnClickListener {
     private Button button4;
     private Button button16;
 
+    public static Person aktuellerUser;
+    public String userID = firebaseAuth.getInstance().getCurrentUser().getUid();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +59,6 @@ public class profilansicht extends Activity implements View.OnClickListener {
         button2.setOnClickListener(this);
         button16.setOnClickListener(this);
 
-        String userID = firebaseAuth.getInstance().getCurrentUser().getUid();
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(userID);
         //Test: Toast.makeText(profilansicht.this, databaseProfiles.getKey(), Toast.LENGTH_SHORT).show();
     }
@@ -67,13 +69,15 @@ public class profilansicht extends Activity implements View.OnClickListener {
         ValueEventListener profilListener = new ValueEventListener() {
             @Override
             public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
-                // String name = dataSnapshot.child("name").getValue().toString();
-                // Person person = dataSnapshot.getValue(Person.class);//Toast.makeText(profilansicht.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
-                textView33.setText(dataSnapshot.child("name").getValue().toString());
-                textView37.setText(dataSnapshot.child("vorname").getValue().toString());
-                textView39.setText(dataSnapshot.child("rolle").getValue().toString().trim());
-                textView34.setText(dataSnapshot.child("kontakt").getValue().toString());
-                // nicht die eleganteste Lösung, Lösung bei Eventinfos funktionierte leider nicht
+                aktuellerUser = dataSnapshot.getValue(Person.class);//Toast.makeText(profilansicht.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
+                //textView33.setText(dataSnapshot.child("name").getValue().toString());
+                //textView37.setText(dataSnapshot.child("vorname").getValue().toString());
+                //textView39.setText(dataSnapshot.child("rolle").getValue().toString().trim());
+                //textView34.setText(dataSnapshot.child("kontakt").getValue().toString());
+                ((TextView) findViewById(R.id.textView33)).setText(aktuellerUser.getName());
+                ((TextView) findViewById(R.id.textView37)).setText(aktuellerUser.getVorname());
+                ((TextView) findViewById(R.id.textView39)).setText(aktuellerUser.getRolle().trim());
+                ((TextView) findViewById(R.id.textView34)).setText(aktuellerUser.getKontakt());
             }
 
             @Override

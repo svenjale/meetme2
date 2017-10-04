@@ -30,7 +30,7 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
     private String mUsername;
     private Firebase mFirebaseRef;
     private ValueEventListener mConnectedListener;
-    private EventListAdapter mChatListAdapter;
+    private EventListAdapter mEventListAdapter;
 
     private Button button2;
     private Button button7;
@@ -64,13 +64,13 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
         final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
-        mChatListAdapter = new EventListAdapter(mFirebaseRef.limit(50), this, R.layout.activity_eventlist_element);
-        listView.setAdapter(mChatListAdapter);
-        mChatListAdapter.registerDataSetObserver(new DataSetObserver() {
+        mEventListAdapter = new EventListAdapter(mFirebaseRef.limit(50), this, R.layout.activity_eventlist_element);
+        listView.setAdapter(mEventListAdapter);
+        mEventListAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
             public void onChanged() {
                 super.onChanged();
-                listView.setSelection(mChatListAdapter.getCount() - 1);
+                listView.setSelection(mEventListAdapter.getCount() - 1);
             }
         });
 
@@ -80,7 +80,7 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
             public void onDataChange(DataSnapshot dataSnapshot) {
                 boolean connected = (Boolean) dataSnapshot.getValue();
                 if (connected) {
-                    Toast.makeText(Eventliste_activity.this, "Connected to Firebase", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(Eventliste_activity.this, "Connected to Firebase", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(Eventliste_activity.this, "Disconnected from Firebase", Toast.LENGTH_SHORT).show();
                 }
@@ -109,7 +109,7 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
     public void onStop() {
         super.onStop();
         mFirebaseRef.getRoot().child(".info/connected").removeEventListener(mConnectedListener);
-        mChatListAdapter.cleanup();
+        mEventListAdapter.cleanup();
     }
 
     public void onClick(View view) {

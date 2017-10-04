@@ -1,5 +1,9 @@
 package de.meetme;
 
+/**
+ * Created by kortsch on 04.10.2017.
+ */
+
 public class Person {
     String vorname;
     String kontakt;
@@ -10,6 +14,9 @@ public class Person {
     boolean organisator;
     boolean visagist;*/
 
+   public Person(){
+   }
+
     public Person (String name, String vorname, String rolle, String kontakt){
         this.vorname = vorname;
         this.kontakt=kontakt;
@@ -17,19 +24,19 @@ public class Person {
         this.name = name;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
     public String getVorname() {
-        return this.vorname;
+        return vorname;
     }
 
     public String getKontakt() {
-        return this.kontakt;
-    }
-    public String getRolle (){
-        return this.rolle;
+        return kontakt;
     }
 
+    public String getRolle() {
+        return rolle;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
