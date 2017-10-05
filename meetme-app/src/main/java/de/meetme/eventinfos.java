@@ -19,8 +19,10 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private FirebaseAuth firebaseAuth;
     private Firebase databaseEvents;
     private Firebase databaseEventteilnehmer;
+    private Firebase databaseEventanwesende;
     private Firebase databaseProfiles;
     private Button button9;
+    private Button button5;
     private TextView textView7;
     private TextView textView31;
     private TextView textView24;
@@ -32,11 +34,14 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private Button button3;
     private Button button6;
     private Button button11;
+    private Button button10;
+
     private ValueEventListener eventListener;
 
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
 
     private String uebergebeneID;
+    //private String uebergebenerName;
     public static String orgaID = "";
 
     @Override
@@ -49,13 +54,16 @@ public class eventinfos extends Activity implements View.OnClickListener{
 
         databaseEvents = new Firebase(FIREBASE_URL).child("events").child(uebergebeneID);
         databaseEventteilnehmer = new Firebase(FIREBASE_URL).child("eventteilnehmer");
+        databaseEventanwesende = new Firebase(FIREBASE_URL).child("eventanwesende");
 
         button9 = (Button) findViewById(R.id.button9);
         button11 = (Button) findViewById(R.id.button11);
+        button10 = (Button) findViewById(R.id.button10);
         button7 = (Button) findViewById(R.id.button7);
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
+        button5 = (Button) findViewById(R.id.button5);
 
         textView7 = (TextView) findViewById(R.id.textView7);
         textView31 = (TextView) findViewById(R.id.textView31);
@@ -72,6 +80,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
         button9.setOnClickListener(this);
+        button10.setOnClickListener(this);
+        button5.setOnClickListener(this);
 
     }
 
@@ -90,6 +100,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
                     ((TextView) findViewById(R.id.textView19)).setText(event.getDatum());
                     ((TextView) findViewById(R.id.textView21)).setText(event.getUhrzeit());
                     orgaID = event.getOrganisatorID();
+                    //uebergebenerName=event.getEventname();
                     // Profil laden
                     databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(orgaID);
                     ValueEventListener organisatorListener = new ValueEventListener() {
@@ -120,7 +131,11 @@ public class eventinfos extends Activity implements View.OnClickListener{
     public void onClick(View view) {
         if (view == button9) {
             databaseEventteilnehmer.child(uebergebeneID).child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profilansicht.aktuellerUser);
-            Toast.makeText(this, "Erfolgreich angemeldet. See you soon!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Erfolgreich angemeldet. Bis bald!", Toast.LENGTH_LONG).show();
+        }
+        if (view == button5) {
+            databaseEventanwesende.child(uebergebeneID).child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profilansicht.aktuellerUser);
+            Toast.makeText(this, "Check-In erfolgreich. Viel Spaß beim Event!", Toast.LENGTH_LONG).show();
         }
         if (view == button2) {
             Intent Profil = new Intent(eventinfos.this, profilansicht.class);
@@ -142,6 +157,11 @@ public class eventinfos extends Activity implements View.OnClickListener{
             Intent Teilnehmerliste = new Intent(eventinfos.this, teilnehmerlist.class);
             Teilnehmerliste.putExtra("ID", uebergebeneID);
             startActivity(Teilnehmerliste);
+        }
+        if (view == button10) {
+            Intent Anwesendeliste = new Intent(eventinfos.this, anwesendelist.class);
+            Anwesendeliste.putExtra("ID", uebergebeneID);
+            startActivity(Anwesendeliste);
         }
         if (view == textView17) {
             if (orgaID.equals(profilansicht.aktuellerUser.getPersonID())){

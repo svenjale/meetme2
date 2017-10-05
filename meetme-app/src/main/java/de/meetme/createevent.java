@@ -27,6 +27,8 @@ public class createevent extends Activity implements View.OnClickListener  {
     private FirebaseAuth firebaseAuth;
     private Firebase databaseEvents;
     private Firebase databaseEventteilnehmer;
+    private Firebase databaseEventanwesende;
+
 
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
 
@@ -41,6 +43,7 @@ public class createevent extends Activity implements View.OnClickListener  {
 
       databaseEvents = new Firebase(FIREBASE_URL).child("events");
         databaseEventteilnehmer = new Firebase(FIREBASE_URL).child("eventteilnehmer");
+        databaseEventanwesende = new Firebase(FIREBASE_URL).child("eventanwesende");
 
 
 
@@ -97,6 +100,7 @@ public class createevent extends Activity implements View.OnClickListener  {
             Event event = new Event(id, eventname, beschreibung, ort, datum, uhrzeit, organisatorID);
             databaseEvents.child(id).setValue(event);
             databaseEventteilnehmer.child(id).child(organisatorID).setValue(profilansicht.aktuellerUser); // Johann: wahrscheinlich Problem, sobald mehrere Teilnehmer --> prüfen, sobald Eventinfos getestet werden kann
+            databaseEventanwesende.child(id).child(organisatorID).setValue(profilansicht.aktuellerUser);
             Toast.makeText(this, "Das Event wurde erstellt", Toast.LENGTH_LONG).show();
             IDuebergabe=id;
         }

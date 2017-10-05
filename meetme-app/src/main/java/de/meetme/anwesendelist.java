@@ -1,6 +1,5 @@
 package de.meetme;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.DataSetObserver;
@@ -10,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -19,9 +17,7 @@ import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-
-
-public class teilnehmerlist extends ListActivity implements View.OnClickListener{
+public class anwesendelist extends ListActivity implements View.OnClickListener{
 
 
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
@@ -48,7 +44,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
         Intent intent = getIntent();
         uebergebeneID = intent.getStringExtra("ID");
 
-        databaseEventteilnehmer = new Firebase(FIREBASE_URL).child("eventteilnehmer").child(uebergebeneID);
+        databaseEventteilnehmer = new Firebase(FIREBASE_URL).child("eventanwesende").child(uebergebeneID);
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles");
 
         button7 = (Button) findViewById(R.id.button7);
@@ -66,7 +62,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
 
     public void onStart() {
         super.onStart();
-        titelView.setText("Teilnehmer");
+        titelView.setText("Anwesende");
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
         final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
@@ -105,10 +101,10 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
                 // Get the selected item text from ListView
                 Person item = (Person) parent.getItemAtPosition(position);
                 if (item.getPersonID().equals(profilansicht.aktuellerUser.getPersonID())){
-                    Intent Profil = new Intent(teilnehmerlist.this, profilansicht.class);
+                    Intent Profil = new Intent(anwesendelist.this, profilansicht.class);
                     startActivity(Profil);
                 }else {
-                    Intent profile = new Intent(teilnehmerlist.this, profilansichtAndererUser.class);
+                    Intent profile = new Intent(anwesendelist.this, profilansichtAndererUser.class);
                     profile.putExtra("ID", item.getPersonID());
                     startActivity(profile);
                }
@@ -181,19 +177,19 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
     @Override
     public void onClick(View view) {
         if (view == button2) {
-            Intent Profil = new Intent(teilnehmerlist.this, profilansicht.class);
+            Intent Profil = new Intent(anwesendelist.this, profilansicht.class);
             startActivity(Profil);
         }
         if (view == button7) {
-            Intent Walk = new Intent(teilnehmerlist.this, Eventliste_activity.class);
+            Intent Walk = new Intent(anwesendelist.this, Eventliste_activity.class);
             startActivity(Walk);
         }
         if (view == button3) {
-            Intent Map = new Intent(teilnehmerlist.this, map.class);
+            Intent Map = new Intent(anwesendelist.this, map.class);
             startActivity(Map);
         }
         if (view == button6) {
-            Intent Kontakte = new Intent(teilnehmerlist.this, kontakte.class);
+            Intent Kontakte = new Intent(anwesendelist.this, kontakte.class);
             startActivity(Kontakte);
         }
 

@@ -36,7 +36,7 @@
         android:layout_below="@+id/button10"
         android:layout_marginTop="24dp"
         android:background="@drawable/mybutton"
-        android:text="interessiert" />
+        android:text="teilnehmen" />
 
     <Button
         android:id="@+id/button2"
@@ -191,11 +191,11 @@
         android:id="@+id/button5"
         android:layout_width="150dp"
         android:layout_height="45dp"
-        android:background="@drawable/mybutton"
-        android:text="Bin da"
         android:layout_alignTop="@+id/button9"
+        android:layout_toEndOf="@+id/button3"
         android:layout_toRightOf="@+id/button3"
-        android:layout_toEndOf="@+id/button3" />
+        android:background="@drawable/mybutton"
+        android:text="Check-In" />
 
     <Button
         android:id="@+id/button10"
