@@ -144,7 +144,6 @@ public class eventinfos extends Activity implements View.OnClickListener{
             startActivity(Teilnehmerliste);
         }
         if (view == textView17) {
-            Toast.makeText(eventinfos.this,orgaID, Toast.LENGTH_SHORT).show();
             if (orgaID.equals(profilansicht.aktuellerUser.getPersonID())){
                 Intent Profil = new Intent(eventinfos.this, profilansicht.class);
                 startActivity(Profil);
