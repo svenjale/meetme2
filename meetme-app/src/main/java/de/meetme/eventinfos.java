@@ -19,6 +19,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private FirebaseAuth firebaseAuth;
     private Firebase databaseEvents;
     private Firebase databaseEventteilnehmer;
+    private Firebase databaseProfiles;
     private Button button9;
     private TextView textView7;
     private TextView textView31;
@@ -36,6 +37,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
 
     private String uebergebeneID;
+    public static String orgaID = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
         textView17 = (TextView) findViewById(R.id.textView17);
         textView21 = (TextView) findViewById(R.id.textView21);
 
+        textView17.setOnClickListener(this);
+
         button11.setOnClickListener(this);
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
@@ -74,28 +78,44 @@ public class eventinfos extends Activity implements View.OnClickListener{
     @Override
     public void onStart(){
         super.onStart();
+        //Event Laden
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
                 Event event = dataSnapshot.getValue(Event.class);
-                ((TextView) findViewById(R.id.textView7)).setText(event.getEventname());
-                ((TextView) findViewById(R.id.textView31)).setText(event.getBeschreibung());
-                ((TextView) findViewById(R.id.textView24)).setText(event.getOrt());
-                ((TextView) findViewById(R.id.textView19)).setText(event.getDatum());
-                ((TextView) findViewById(R.id.textView21)).setText(event.getUhrzeit());
-                ((TextView) findViewById(R.id.textView17)).setText(event.getOrganisatorID());
+                if (event != null) {
+                    ((TextView) findViewById(R.id.textView7)).setText(event.getEventname());
+                    ((TextView) findViewById(R.id.textView31)).setText(event.getBeschreibung());
+                    ((TextView) findViewById(R.id.textView24)).setText(event.getOrt());
+                    ((TextView) findViewById(R.id.textView19)).setText(event.getDatum());
+                    ((TextView) findViewById(R.id.textView21)).setText(event.getUhrzeit());
+                    orgaID = event.getOrganisatorID();
+                    // Profil laden
+                    databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(orgaID);
+                    ValueEventListener organisatorListener = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
+                            Person organisator = dataSnapshot.getValue(Person.class);
+                            String organisatorName=organisator.getVorname()+" "+organisator.getName()+" ("+organisator.getRolle()+")";
+                            ((TextView) findViewById(R.id.textView17)).setText(organisatorName);
+                        }
+                        @Override
+                        public void onCancelled(FirebaseError firebaseError) {
+                            Toast.makeText(eventinfos.this, "Fehler beim Laden der Eventdetails.", Toast.LENGTH_SHORT).show();
+                        }
+                    };
+                    databaseProfiles.addValueEventListener(organisatorListener);
+                }
             }
-
             @Override
             public void onCancelled(FirebaseError firebaseError) {
                 Toast.makeText(eventinfos.this, "Fehler beim Laden der Eventdetails.", Toast.LENGTH_SHORT).show();
             }
         };
         databaseEvents.addValueEventListener(eventListener);
-
-        // Hilfe: https://github.com/firebase/quickstart-android/blob/master/database/app/src/main/java/com/google/firebase/quickstart/database/PostDetailActivity.java#L84-L106
-
     }
+    // Hilfe: https://github.com/firebase/quickstart-android/blob/master/database/app/src/main/java/com/google/firebase/quickstart/database/PostDetailActivity.java#L84-L106
+
 
     public void onClick(View view) {
         if (view == button9) {
@@ -122,6 +142,17 @@ public class eventinfos extends Activity implements View.OnClickListener{
             Intent Teilnehmerliste = new Intent(eventinfos.this, teilnehmerlist.class);
             Teilnehmerliste.putExtra("ID", uebergebeneID);
             startActivity(Teilnehmerliste);
+        }
+        if (view == textView17) {
+            Toast.makeText(eventinfos.this,orgaID, Toast.LENGTH_SHORT).show();
+            if (orgaID.equals(profilansicht.aktuellerUser.getPersonID())){
+                Intent Profil = new Intent(eventinfos.this, profilansicht.class);
+                startActivity(Profil);
+            }else {
+                Intent profile = new Intent(eventinfos.this, profilansichtAndererUser.class);
+                profile.putExtra("ID", orgaID);
+                startActivity(profile);
+            }
         }
     }
 

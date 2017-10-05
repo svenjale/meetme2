@@ -85,7 +85,8 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
         if(checkBox.isChecked()) rolle = rolle+"Model";
         if(checkBox2.isChecked()) rolle = rolle+" Fotograf";
         if(checkBox3.isChecked()) rolle = rolle+" Organisator";
-        if(checkBox4.isChecked()) rolle = rolle+" Visagist";;
+        if(checkBox4.isChecked()) rolle = rolle+" Visagist";
+        rolle=rolle.trim();
 
         String kontakt = editText3.getText().toString().trim();
 
