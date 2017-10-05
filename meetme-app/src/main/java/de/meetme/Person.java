@@ -9,6 +9,7 @@ public class Person {
     String kontakt;
     String rolle;
     String name;
+    String personID;
    /* boolean model;
     boolean fotograf;
     boolean organisator;
@@ -17,11 +18,12 @@ public class Person {
    public Person(){
    }
 
-    public Person (String name, String vorname, String rolle, String kontakt){
+    public Person (String name, String vorname, String rolle, String kontakt, String personID){
         this.vorname = vorname;
         this.kontakt=kontakt;
         this.rolle=rolle;
         this.name = name;
+        this.personID = personID;
     }
 
     public String getVorname() {
@@ -40,9 +42,11 @@ public class Person {
         return name;
     }
 
+    public String getPersonID() { return personID;}
+
     public static Person idPersonAbfrage (String id){
         Person person = new Person();
-        // Code zur DB Abfrage
+        // ***Code zur DB Abfrage***
         return person;
     }
 }

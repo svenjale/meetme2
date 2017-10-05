@@ -94,25 +94,30 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
             }
         });
 
-/*
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Get the selected item text from ListView
-                Event item = (Event) parent.getItemAtPosition(position);
-                Intent details = new Intent (teilnehmerlist.this, .class);
-                details.putExtra("ID", item.getEventID());
-                startActivity(details);
+                Person item = (Person) parent.getItemAtPosition(position);
+                if (item.getPersonID().equals(profilansicht.aktuellerUser.getPersonID())){
+                    Intent Profil = new Intent(teilnehmerlist.this, profilansicht.class);
+                    startActivity(Profil);
+                }else {
+                    Intent profile = new Intent(teilnehmerlist.this, profilansichtAndererUser.class);
+                    profile.putExtra("ID", item.getPersonID());
+                    startActivity(profile);
+               }
             }
-        });*/
+        });
 
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //databaseEventteilnehmer.getRoot().child(".info/connected").removeEventListener(mConnectedListener);
-       // mTeilnehmerListAdapter.cleanup();
+        databaseEventteilnehmer.getRoot().child(".info/connected").removeEventListener(mConnectedListener);
+        mTeilnehmerListAdapter.cleanup();
     }
 
 

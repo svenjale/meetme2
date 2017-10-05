@@ -24,6 +24,7 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
 
     private FirebaseAuth firebaseAuth;
     private Firebase databaseProfiles;
+    private Firebase databaseEventteilnehmer;
 
     private TextView textViewUserEmail;
     private Button buttonLogOut;
@@ -50,6 +51,7 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
         setContentView(R.layout.profile_layout);
 
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles");
+        databaseEventteilnehmer = new Firebase(FIREBASE_URL).child("eventteilnehmer");
 
         button7 = (Button) findViewById(R.id.button7);
         button3 = (Button) findViewById(R.id.button3);
@@ -101,9 +103,10 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
         }
         if (!TextUtils.isEmpty(kontakt)&&!(TextUtils.isEmpty(vorname))){
 
-            Person profil = new Person (name, vorname, rolle, kontakt);
+            Person profil = new Person (name, vorname, rolle, kontakt,firebaseAuth.getInstance().getCurrentUser().getUid());
             databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
             Toast.makeText(this, "Profil wurde aktualisiert", Toast.LENGTH_LONG).show();
+            //databaseEventteilnehmer.orderByChild("personID").equalTo(firebaseAuth.getInstance().getCurrentUser().getUid()).
         }
     }
 

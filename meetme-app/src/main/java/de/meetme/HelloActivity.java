@@ -100,7 +100,7 @@ public class HelloActivity extends Activity implements View.OnClickListener {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Person profil = new Person ("--", "--", "--", "--");
+                        Person profil = new Person ("--", "--", "--", "--", firebaseAuth.getInstance().getCurrentUser().getUid());
                         databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
                         if (task.isSuccessful()) {
                             Toast.makeText(HelloActivity.this, "Erfolgreich registriert", Toast.LENGTH_SHORT).show();
