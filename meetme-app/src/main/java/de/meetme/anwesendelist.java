@@ -27,7 +27,7 @@ public class anwesendelist extends ListActivity implements View.OnClickListener{
     private Firebase databaseProfiles;
 
     private ValueEventListener mConnectedListener;
-    private ReferenzListAdapter mTeilnehmerListAdapter;
+    private PersonReferenzListAdapter mTeilnehmerListAdapter;
     private Button button2;
     private Button button7;
     private Button button3;
@@ -68,7 +68,7 @@ public class anwesendelist extends ListActivity implements View.OnClickListener{
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
         final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
-        mTeilnehmerListAdapter = new ReferenzListAdapter(databaseEventteilnehmer.limit(50), this, R.layout.activity_teilnehmerlist_element);
+        mTeilnehmerListAdapter = new PersonReferenzListAdapter(databaseEventteilnehmer.limit(50), this, R.layout.activity_teilnehmerlist_element);
         listView.setAdapter(mTeilnehmerListAdapter);
         mTeilnehmerListAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override

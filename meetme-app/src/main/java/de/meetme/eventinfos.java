@@ -23,6 +23,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private Firebase databaseEvents;
     private Firebase databaseEventteilnehmer;
     private Firebase databaseEventanwesende;
+    private Firebase databaseTeilnahmen;
     private Firebase databaseProfiles;
     private Button button9;
     private Button button5;
@@ -67,6 +68,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         databaseEvents = new Firebase(FIREBASE_URL).child("events").child(uebergebeneID);
         databaseEventteilnehmer = new Firebase(FIREBASE_URL).child("eventteilnehmer");
         databaseEventanwesende = new Firebase(FIREBASE_URL).child("eventanwesende");
+        databaseTeilnahmen = new Firebase(FIREBASE_URL).child("teilnahmen");
 
         button9 = (Button) findViewById(R.id.button9);
         button11 = (Button) findViewById(R.id.button11);
@@ -152,6 +154,9 @@ public class eventinfos extends Activity implements View.OnClickListener{
     public void onClick(View view) {
         if (view == button9) {
             databaseEventteilnehmer.child(uebergebeneID).child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(firebaseAuth.getInstance().getCurrentUser().getUid());
+            databaseTeilnahmen.child(firebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
+            databaseEventanwesende.child(uebergebeneID).child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(firebaseAuth.getInstance().getCurrentUser().getUid());
+            // wenn anwesend, dann auch Teilnehmer
             Toast.makeText(this, "Erfolgreich angemeldet. Bis bald!", Toast.LENGTH_LONG).show();
         }
         if (view == button5) {

@@ -32,6 +32,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
     private Button button4;
     private Button button16;
     private Button button22;
+    private Button button20;
 
     public static Person aktuellerUser;
     public String aktuelleUserID = firebaseAuth.getInstance().getCurrentUser().getUid();
@@ -53,6 +54,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
         button2 = (Button) findViewById(R.id.button2);
         button16 = (Button) findViewById(R.id.button16);
         button22 = (Button) findViewById(R.id.button22);
+        button20 = (Button) findViewById(R.id.button20);
 
 
         button15.setOnClickListener(this);
@@ -62,6 +64,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
         button2.setOnClickListener(this);
         button16.setOnClickListener(this);
         button22.setOnClickListener(this);
+        button20.setOnClickListener(this);
 
 
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(aktuelleUserID);
@@ -123,7 +126,20 @@ public class profilansicht extends Activity implements View.OnClickListener {
         if (view == button22) {
             Intent logout = new Intent(profilansicht.this, welcome.class);
             FirebaseAuth.getInstance().signOut();
+            aktuellerUser=new Person("","","","","+49");
+            aktuelleUserID="";
             startActivity(logout);
+        }
+        if (view == button20) {
+            try {
+                Intent teilnahmen = new Intent(profilansicht.this, teilnahmenlist.class);
+                teilnahmen.putExtra("Name", aktuellerUser.getVorname()+" "+aktuellerUser.getName());
+                teilnahmen.putExtra("ID", aktuelleUserID);
+                startActivity(teilnahmen);
+            }catch (NullPointerException exception) {
+                Toast.makeText(profilansicht.this, "Du hast bisher an keinen Photowalks teilgenommen.", Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 }

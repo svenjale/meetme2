@@ -44,6 +44,8 @@
         <activity android:name=".help" />
         <activity android:name=".Eventliste_activity" />
         <activity android:name=".profilansichtAndererUser" />
+        <activity android:name=".teilnahmenlist" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

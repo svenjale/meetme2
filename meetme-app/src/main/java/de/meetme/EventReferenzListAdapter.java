@@ -16,13 +16,13 @@ import com.firebase.client.ValueEventListener;
  * This class is an example of how to use FirebaseListAdapter. It uses the <code>Chat</code> class to encapsulate the
  * data for each individual chat message
  */
-public class ReferenzListAdapter extends FirebaseListAdapter<String> {
+public class EventReferenzListAdapter extends FirebaseListAdapter<String> {
 
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
-    private Firebase databaseProfiles;
-    public static Person aktuellerUser2;
+    private Firebase databaseEvents;
+    public static Event aktuellesEvent;
 
-    public ReferenzListAdapter(Query ref, Activity activity, int layout) {
+    public EventReferenzListAdapter(Query ref, Activity activity, int layout) {
         super(ref, String.class, layout, activity);
     }
 
@@ -32,25 +32,25 @@ public class ReferenzListAdapter extends FirebaseListAdapter<String> {
      * to the constructor, as well as a single <code>Chat</code> instance that represents the current data to bind.
      *
      * @param view A view instance corresponding to the layout we passed to the constructor.
-     * @param teilnehmer An instance representing the current state of a chat message
+     * @param event An instance representing the current state of a chat message
      */
     @Override
-    protected void populateView(final View view, String teilnehmer) {
+    protected void populateView(final View view, String event) {
         // Map a Person object to an entry in our listview
-        databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(teilnehmer);
-        ValueEventListener profilListener = new ValueEventListener() {
+        databaseEvents = new Firebase(FIREBASE_URL).child("events").child(event);
+        ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
-                aktuellerUser2 = dataSnapshot.getValue(Person.class);//Toast.makeText(profilansicht.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
-                ((TextView) view.findViewById(R.id.teilnehmervorname)).setText(aktuellerUser2.getVorname());
-                ((TextView) view.findViewById(R.id.teilnehmername)).setText(aktuellerUser2.getName());
-                ((TextView) view.findViewById(R.id.teilnehmerrolle)).setText(aktuellerUser2.getRolle());}
+                aktuellesEvent = dataSnapshot.getValue(Event.class);//Toast.makeText(profilansicht.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
+                ((TextView) view.findViewById(R.id.eventname)).setText(aktuellesEvent.getEventname());
+                ((TextView) view.findViewById(R.id.eventort)).setText(aktuellesEvent.getDatum());
+                ((TextView) view.findViewById(R.id.eventdatum)).setText(aktuellesEvent.getOrt());}
             @Override
             public void onCancelled(FirebaseError firebaseError) {
 
             }
         };
-        databaseProfiles.addValueEventListener(profilListener);
+        databaseEvents.addValueEventListener(eventListener);
 
     }
 }

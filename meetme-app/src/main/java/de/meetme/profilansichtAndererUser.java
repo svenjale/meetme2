@@ -41,6 +41,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
     private Button button4;
     private Button button16;
     private Button button18;
+    private Button button19;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         button2 = (Button) findViewById(R.id.button2);
         button16 = (Button) findViewById(R.id.button16);
         button18 = (Button) findViewById(R.id.button18);
+        button19 = (Button) findViewById(R.id.button19);
 
         button15.setOnClickListener(this);
         button7.setOnClickListener(this);
@@ -71,6 +73,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         button16.setOnClickListener(this);
         textView34.setOnClickListener(this);
         button18.setOnClickListener(this);
+        button19.setOnClickListener(this);
 
 
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(uebergebeneID);
@@ -132,6 +135,17 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         }
         if (view == button18) {
             mitWhatsAppTeilen(button18);
+        }
+        if (view == button19) {
+            try {
+                Intent teilnahmen = new Intent(profilansichtAndererUser.this, teilnahmenlist.class);
+                teilnahmen.putExtra("Name", aktuellerName);
+                teilnahmen.putExtra("ID", uebergebeneID);
+                startActivity(teilnahmen);
+            }catch (NullPointerException exception) {
+                Toast.makeText(profilansichtAndererUser.this, aktuellerName+" hat bisher an keinen Photowalks teilgenommen.", Toast.LENGTH_SHORT).show();
+            }
+
         }
 
         if (view == textView34) {
