@@ -82,10 +82,10 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
         editText.setText(profilansicht.aktuellerUser.getName());
         editText2.setText(profilansicht.aktuellerUser.getVorname());
         editText3.setText(profilansicht.aktuellerUser.getKontakt());
-        if (profilansicht.aktuellerUser.getRolle().contains("Model")) checkBox.setSelected(true);
-        if (profilansicht.aktuellerUser.getRolle().contains("Fotograf")) checkBox2.setSelected(true);
-        if (profilansicht.aktuellerUser.getRolle().contains("Organisator")) checkBox3.setSelected(true);
-        if (profilansicht.aktuellerUser.getRolle().contains("Visagist")) checkBox4.setSelected(true);
+        if (profilansicht.aktuellerUser.getRolle().contains("Model")) checkBox.setChecked(true);
+        if (profilansicht.aktuellerUser.getRolle().contains("Fotograf")) checkBox2.setChecked(true);
+        if (profilansicht.aktuellerUser.getRolle().contains("Organisator")) checkBox3.setChecked(true);
+        if (profilansicht.aktuellerUser.getRolle().contains("Visagist")) checkBox4.setChecked(true);
     }
 
     public void saveprofile(){
