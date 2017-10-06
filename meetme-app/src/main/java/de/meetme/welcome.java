@@ -28,6 +28,11 @@ public class welcome extends Activity implements View.OnClickListener {
       buttonRegis2.setOnClickListener(this);
     }
 
+    @Override
+    public void onBackPressed() {
+        // verhindert Back nach Logout
+    }
+
 
     public void onClick(View view) {
 

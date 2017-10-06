@@ -31,6 +31,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
     private Button button6;
     private Button button4;
     private Button button16;
+    private Button button22;
 
     public static Person aktuellerUser;
     public String aktuelleUserID = firebaseAuth.getInstance().getCurrentUser().getUid();
@@ -51,6 +52,8 @@ public class profilansicht extends Activity implements View.OnClickListener {
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
         button16 = (Button) findViewById(R.id.button16);
+        button22 = (Button) findViewById(R.id.button22);
+
 
         button15.setOnClickListener(this);
         button7.setOnClickListener(this);
@@ -58,6 +61,8 @@ public class profilansicht extends Activity implements View.OnClickListener {
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
         button16.setOnClickListener(this);
+        button22.setOnClickListener(this);
+
 
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(aktuelleUserID);
         //Test: Toast.makeText(profilansicht.this, databaseProfiles.getKey(), Toast.LENGTH_SHORT).show();
@@ -114,6 +119,11 @@ public class profilansicht extends Activity implements View.OnClickListener {
         if (view == button16) {
             Intent Hilfe = new Intent(profilansicht.this, help.class);
             startActivity(Hilfe);
+        }
+        if (view == button22) {
+            Intent logout = new Intent(profilansicht.this, welcome.class);
+            FirebaseAuth.getInstance().signOut();
+            startActivity(logout);
         }
     }
 }
