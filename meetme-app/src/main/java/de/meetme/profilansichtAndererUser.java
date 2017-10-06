@@ -133,7 +133,11 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         }
 
         if (view == textView34) {
-        // Anruf implementieren
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:"+whatsappKontakt));
+            startActivity(intent);
+            // hier evtl TELEFONANRUF implementieren
         }
     }
 
