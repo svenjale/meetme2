@@ -207,7 +207,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         try {
             Intent waIntent = new Intent(Intent.ACTION_SEND); // hier sendto eingefügt
             waIntent.setType("text/plain");
-            String text = "Ich habe diesen Photowalk auf Smap gefunden. Komm doch auch Vorbei!"+"\n\n"+whatsappName+"\n"+"am "+whatsappDatum+" um "+whatsappUhrzeit+" Uhr\n"+"hier: "+whatsappOrt+"\n\n"+"Beschreibung: "+whatsappBeschreibung+"\n\n"+"Viele Grüße"+"\n"+profilansicht.aktuellerUser.getVorname()+" "+profilansicht.aktuellerUser.getName();
+            String text = "Hi! Ich habe diesen Photowalk auf Smap gefunden. Komm doch auch vorbei!"+"\n\n"+whatsappName+"\n"+"am "+whatsappDatum+" um "+whatsappUhrzeit+" Uhr\n"+"hier: "+whatsappOrt+"\n\n"+"Beschreibung: "+whatsappBeschreibung+"\n\n"+"Viele Grüße"+"\n"+profilansicht.aktuellerUser.getVorname()+" "+profilansicht.aktuellerUser.getName();
             PackageInfo info = pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
             //Check if package exists or not. If not then code
             //in catch block will be called
@@ -219,7 +219,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
             Toast.makeText(this, "WhatsApp nicht installiert", Toast.LENGTH_SHORT).show();
             Uri uri = Uri.parse("smsto:");
             Intent it = new Intent(Intent.ACTION_SENDTO, uri);
-            String text = "Ich habe diesen Photowalk auf Smap gefunden. Komm doch auch Vorbei!"+"\n\n"+whatsappName+"\n"+"am "+whatsappDatum+" um "+whatsappUhrzeit+" Uhr\n"+"hier: "+whatsappOrt+"\n\n"+"Beschreibung: "+whatsappBeschreibung+"\n\n"+"Viele Grüße"+"\n"+profilansicht.aktuellerUser.getVorname()+" "+profilansicht.aktuellerUser.getName();
+            String text = "Hi! Ich habe diesen Photowalk auf Smap gefunden. Komm doch auch vorbei!"+"\n\n"+whatsappName+"\n"+"am "+whatsappDatum+" um "+whatsappUhrzeit+" Uhr\n"+"hier: "+whatsappOrt+"\n\n"+"Beschreibung: "+whatsappBeschreibung+"\n\n"+"Viele Grüße"+"\n"+profilansicht.aktuellerUser.getVorname()+" "+profilansicht.aktuellerUser.getName();
             it.putExtra("sms_body",text);
             startActivity(it);
         }
