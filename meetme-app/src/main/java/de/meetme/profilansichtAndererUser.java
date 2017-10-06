@@ -25,6 +25,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
     private String uebergebeneID;
     String whatsappKontakt = "";
+    String aktuellerName="";
 
     private FirebaseAuth firebaseAuth;
     private Firebase databaseProfiles;
@@ -92,6 +93,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
                 ((TextView) findViewById(R.id.textView39)).setText(ansicht.getRolle().trim());
                 ((TextView) findViewById(R.id.textView34)).setText(ansicht.getKontakt());
                 whatsappKontakt = ansicht.getKontakt();
+                aktuellerName=ansicht.getVorname()+" "+ansicht.getName();
             }
 
             @Override
@@ -158,8 +160,11 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
             startActivity(Intent.createChooser(waIntent, uri.toString()));
 
         } catch (PackageManager.NameNotFoundException e) {
-            Toast.makeText(this, "WhatsApp nicht installiert", Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(this, "WhatsApp nicht installiert", Toast.LENGTH_SHORT).show();
+            Uri uri = Uri.parse("smsto:"+whatsappKontakt);
+            Intent it = new Intent(Intent.ACTION_SENDTO, uri);
+            it.putExtra("sms_body", "Gib hier deine Nachricht an "+aktuellerName+" ein.");
+            startActivity(it);
         }
 
     }
