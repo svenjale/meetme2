@@ -177,15 +177,18 @@ public class eventinfos extends Activity implements View.OnClickListener{
         if (view == button11) {
             Intent Teilnehmerliste = new Intent(eventinfos.this, teilnehmerlist.class);
             Teilnehmerliste.putExtra("ID", uebergebeneID);
+            Teilnehmerliste.putExtra("Name", whatsappName);
             startActivity(Teilnehmerliste);
         }
         if (view == button21) {
             mitWhatsAppTeilen(button21);
         }
         if (view == button10) {
-        Intent Anwesendeliste = new Intent(eventinfos.this, anwesendelist.class);
-        Anwesendeliste.putExtra("ID", uebergebeneID);
-        startActivity(Anwesendeliste);
+            Intent Anwesendeliste = new Intent(eventinfos.this, anwesendelist.class);
+            Anwesendeliste.putExtra("ID", uebergebeneID);
+            Anwesendeliste.putExtra("Name", whatsappName);
+
+            startActivity(Anwesendeliste);
     }
         if (view == textView17) {
             if (orgaID.equals(profilansicht.aktuellerUser.getPersonID())){

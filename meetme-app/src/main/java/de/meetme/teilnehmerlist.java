@@ -39,6 +39,8 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
     private TextView titelView;
 
     private String uebergebeneID;
+    String uebergebenerName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
 
         Intent intent = getIntent();
         uebergebeneID = intent.getStringExtra("ID");
+        uebergebenerName=intent.getStringExtra("Name");
 
         databaseEventteilnehmer = new Firebase(FIREBASE_URL).child("eventteilnehmer").child(uebergebeneID);
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles");
@@ -66,7 +69,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
 
     public void onStart() {
         super.onStart();
-        titelView.setText("Teilnehmer");
+        titelView.setText(uebergebenerName+" - Teilnehmer");
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
         final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
