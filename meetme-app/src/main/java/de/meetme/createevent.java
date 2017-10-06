@@ -99,8 +99,8 @@ public class createevent extends Activity implements View.OnClickListener  {
             String id = databaseEvents.push().getKey();
             Event event = new Event(id, eventname, beschreibung, ort, datum, uhrzeit, organisatorID);
             databaseEvents.child(id).setValue(event);
-            databaseEventteilnehmer.child(id).child(organisatorID).setValue(profilansicht.aktuellerUser); // Johann: wahrscheinlich Problem, sobald mehrere Teilnehmer --> prüfen, sobald Eventinfos getestet werden kann
-            databaseEventanwesende.child(id).child(organisatorID).setValue(profilansicht.aktuellerUser);
+            databaseEventteilnehmer.child(id).child(organisatorID).setValue(organisatorID); // Johann: wahrscheinlich Problem, sobald mehrere Teilnehmer --> prüfen, sobald Eventinfos getestet werden kann
+            databaseEventanwesende.child(id).child(organisatorID).setValue(organisatorID);
             Toast.makeText(this, "Das Event wurde erstellt", Toast.LENGTH_LONG).show();
             IDuebergabe=id;
         }

@@ -1,6 +1,5 @@
 package de.meetme;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.DataSetObserver;
@@ -10,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -31,7 +29,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
     private Firebase databaseProfiles;
 
     private ValueEventListener mConnectedListener;
-    private TeilnehmerListAdapter mTeilnehmerListAdapter;
+    private ReferenzListAdapter mTeilnehmerListAdapter;
     private Button button2;
     private Button button7;
     private Button button3;
@@ -73,7 +71,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
         final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
-        mTeilnehmerListAdapter = new TeilnehmerListAdapter(databaseEventteilnehmer.limit(50), this, R.layout.activity_teilnehmerlist_element);
+        mTeilnehmerListAdapter = new ReferenzListAdapter(databaseEventteilnehmer.limit(50), this, R.layout.activity_teilnehmerlist_element);
         listView.setAdapter(mTeilnehmerListAdapter);
         mTeilnehmerListAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
@@ -106,13 +104,13 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Get the selected item text from ListView
-                Person item = (Person) parent.getItemAtPosition(position);
-                if (item.getPersonID().equals(profilansicht.aktuellerUser.getPersonID())){
+                String item = (String) parent.getItemAtPosition(position);
+                if (item.equals(profilansicht.aktuellerUser.getPersonID())){
                     Intent Profil = new Intent(teilnehmerlist.this, profilansicht.class);
                     startActivity(Profil);
                 }else {
                     Intent profile = new Intent(teilnehmerlist.this, profilansichtAndererUser.class);
-                    profile.putExtra("ID", item.getPersonID());
+                    profile.putExtra("ID", item);
                     startActivity(profile);
                }
             }
@@ -127,61 +125,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
         mTeilnehmerListAdapter.cleanup();
     }
 
-
-
-        //teilnehmerlisteAnzeigen();
-
-/*
-    public void teilnehmerlisteAnzeigen (){
-
-        DatabaseReference orgateilnehmer = databaseEventteilnehmer.child(Event.aktuelleEventID).child("organisator");
-        orgateilnehmer.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.getValue(String.class);
-                textView46.setText(name);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-    }
-
-*/
-
-
-// folgende Methode noch unverwendet und noch nicht fertig
-/*
-    public String getName (String teilnehmerID){
-
-        DatabaseReference vornameWert = databaseProfiles.child(teilnehmerID).child("vorname");
-        vornameWert.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String vorname = dataSnapshot.getValue(String.class);
-                teilnehmerlist.vollerTeilnehmerName = teilnehmerlist.vollerTeilnehmerName+vorname;
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-        DatabaseReference nachnameWert = databaseProfiles.child(teilnehmerID).child("name");
-        nachnameWert.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.getValue(String.class);
-                teilnehmerlist.vollerTeilnehmerName= teilnehmerlist.vollerTeilnehmerName+" "+name;
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-
-        return  teilnehmerlist.vollerTeilnehmerName;
-
-    }*/
-
-    @Override
+        @Override
     public void onClick(View view) {
         if (view == button2) {
             Intent Profil = new Intent(teilnehmerlist.this, profilansicht.class);

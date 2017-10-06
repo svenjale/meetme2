@@ -27,7 +27,7 @@ public class anwesendelist extends ListActivity implements View.OnClickListener{
     private Firebase databaseProfiles;
 
     private ValueEventListener mConnectedListener;
-    private TeilnehmerListAdapter mTeilnehmerListAdapter;
+    private ReferenzListAdapter mTeilnehmerListAdapter;
     private Button button2;
     private Button button7;
     private Button button3;
@@ -68,7 +68,7 @@ public class anwesendelist extends ListActivity implements View.OnClickListener{
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
         final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
-        mTeilnehmerListAdapter = new TeilnehmerListAdapter(databaseEventteilnehmer.limit(50), this, R.layout.activity_teilnehmerlist_element);
+        mTeilnehmerListAdapter = new ReferenzListAdapter(databaseEventteilnehmer.limit(50), this, R.layout.activity_teilnehmerlist_element);
         listView.setAdapter(mTeilnehmerListAdapter);
         mTeilnehmerListAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
@@ -101,15 +101,15 @@ public class anwesendelist extends ListActivity implements View.OnClickListener{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Get the selected item text from ListView
-                Person item = (Person) parent.getItemAtPosition(position);
-                if (item.getPersonID().equals(profilansicht.aktuellerUser.getPersonID())){
+                String item = (String) parent.getItemAtPosition(position);
+                if (item.equals(profilansicht.aktuellerUser.getPersonID())){
                     Intent Profil = new Intent(anwesendelist.this, profilansicht.class);
                     startActivity(Profil);
                 }else {
                     Intent profile = new Intent(anwesendelist.this, profilansichtAndererUser.class);
-                    profile.putExtra("ID", item.getPersonID());
+                    profile.putExtra("ID", item);
                     startActivity(profile);
-               }
+                }
             }
         });
 
