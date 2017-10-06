@@ -151,12 +151,12 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
             Uri uri = Uri.parse("smsto:" + whatsappKontakt);
             Intent waIntent = new Intent(Intent.ACTION_SENDTO, uri); // hier sendto eingefügt
             //waIntent.setType("text/plain");
-            String text = "Hi! Ich habe dich auf Smap gefunden und würde dich gern auf einen Photowalk treffen!";
+            String text = "Gib hier deine Nachricht an"+aktuellerName+" ein.";
             PackageInfo info = pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
             //Check if package exists or not. If not then code
             //in catch block will be called
             waIntent.setPackage("com.whatsapp");
-            waIntent.putExtra(Intent.EXTRA_TEXT, text);
+            waIntent.putExtra("sms_body", text);
             startActivity(Intent.createChooser(waIntent, uri.toString()));
 
         } catch (PackageManager.NameNotFoundException e) {
