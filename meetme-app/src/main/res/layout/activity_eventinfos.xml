@@ -17,6 +17,16 @@
         android:text="Help" />
 
     <Button
+        android:id="@+id/button21"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mybutton"
+        android:text="teilen"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textView17"
+        android:layout_toEndOf="@+id/textView17" />
+
+    <Button
         android:id="@+id/button11"
         android:layout_width="250dp"
         android:layout_height="45dp"
@@ -104,16 +114,6 @@
         android:layout_alignLeft="@+id/textView23"
         android:layout_alignStart="@+id/textView23"
         android:layout_marginTop="13dp" />
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:lines="3"
-        android:maxLines="3"
-        android:layout_below="@+id/textView32"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/textView23"
@@ -212,11 +212,11 @@
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/button11"
         android:layout_alignLeft="@+id/textView25"
-        android:layout_alignRight="@+id/button11"
         android:layout_alignStart="@+id/textView25"
-        android:layout_below="@+id/textView30" />
+        android:layout_below="@+id/textView30"
+        android:layout_alignRight="@+id/textView7"
+        android:layout_alignEnd="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView19"

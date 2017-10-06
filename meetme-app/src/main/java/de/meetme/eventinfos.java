@@ -2,6 +2,9 @@ package de.meetme;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +38,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private Button button6;
     private Button button11;
     private Button button10;
+    private Button button21;
+
 
     private ValueEventListener eventListener;
 
@@ -44,6 +49,12 @@ public class eventinfos extends Activity implements View.OnClickListener{
     //private String uebergebenerName;
     public static String orgaID = "";
 
+    String whatsappName="";
+    String whatsappOrt="";
+    String whatsappDatum="";
+    String whatsappUhrzeit="";
+    String whatsappBeschreibung="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +62,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
 
         Intent intent = getIntent();
         uebergebeneID = intent.getStringExtra("ID");
+
 
         databaseEvents = new Firebase(FIREBASE_URL).child("events").child(uebergebeneID);
         databaseEventteilnehmer = new Firebase(FIREBASE_URL).child("eventteilnehmer");
@@ -64,6 +76,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
         button5 = (Button) findViewById(R.id.button5);
+        button21 = (Button) findViewById(R.id.button21);
+
 
         textView7 = (TextView) findViewById(R.id.textView7);
         textView31 = (TextView) findViewById(R.id.textView31);
@@ -82,6 +96,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button9.setOnClickListener(this);
         button10.setOnClickListener(this);
         button5.setOnClickListener(this);
+        button21.setOnClickListener(this);
+
 
     }
 
@@ -95,10 +111,15 @@ public class eventinfos extends Activity implements View.OnClickListener{
                 Event event = dataSnapshot.getValue(Event.class);
                 if (event != null) {
                     ((TextView) findViewById(R.id.textView7)).setText(event.getEventname());
+                    whatsappName=event.getEventname();
                     ((TextView) findViewById(R.id.textView31)).setText(event.getBeschreibung());
+                    whatsappBeschreibung=event.getBeschreibung();
                     ((TextView) findViewById(R.id.textView24)).setText(event.getOrt());
+                    whatsappOrt=event.getOrt();
                     ((TextView) findViewById(R.id.textView19)).setText(event.getDatum());
+                    whatsappDatum=event.getDatum();
                     ((TextView) findViewById(R.id.textView21)).setText(event.getUhrzeit());
+                    whatsappUhrzeit=event.getUhrzeit();
                     orgaID = event.getOrganisatorID();
                     //uebergebenerName=event.getEventname();
                     // Profil laden
@@ -158,11 +179,14 @@ public class eventinfos extends Activity implements View.OnClickListener{
             Teilnehmerliste.putExtra("ID", uebergebeneID);
             startActivity(Teilnehmerliste);
         }
-        if (view == button10) {
-            Intent Anwesendeliste = new Intent(eventinfos.this, anwesendelist.class);
-            Anwesendeliste.putExtra("ID", uebergebeneID);
-            startActivity(Anwesendeliste);
+        if (view == button21) {
+            mitWhatsAppTeilen(button21);
         }
+        if (view == button10) {
+        Intent Anwesendeliste = new Intent(eventinfos.this, anwesendelist.class);
+        Anwesendeliste.putExtra("ID", uebergebeneID);
+        startActivity(Anwesendeliste);
+    }
         if (view == textView17) {
             if (orgaID.equals(profilansicht.aktuellerUser.getPersonID())){
                 Intent Profil = new Intent(eventinfos.this, profilansicht.class);
@@ -173,6 +197,29 @@ public class eventinfos extends Activity implements View.OnClickListener{
                 startActivity(profile);
             }
         }
+    }
+
+
+
+    public void mitWhatsAppTeilen(View view) {
+
+        PackageManager pm = getPackageManager();
+        try {
+            Intent waIntent = new Intent(Intent.ACTION_SEND); // hier sendto eingefügt
+            waIntent.setType("text/plain");
+            String text = "Ich habe diesen Photowalk auf Smap gefunden. Komm doch auch Vorbei!"+"\n\n"+whatsappName+"\n"+"am "+whatsappDatum+" um "+whatsappUhrzeit+" Uhr\n"+"hier: "+whatsappOrt+"\n\n"+"Beschreibung: "+whatsappBeschreibung;
+            PackageInfo info = pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
+            //Check if package exists or not. If not then code
+            //in catch block will be called
+            waIntent.setPackage("com.whatsapp");
+            waIntent.putExtra(Intent.EXTRA_TEXT, text);
+            startActivity(Intent.createChooser(waIntent, "Share with"));
+
+        } catch (PackageManager.NameNotFoundException e) {
+            Toast.makeText(this, "WhatsApp nicht installiert", Toast.LENGTH_SHORT)
+                    .show();
+        }
+
     }
 
 
