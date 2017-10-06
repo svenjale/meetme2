@@ -8,16 +8,17 @@
     tools:context="de.meetme.createevent">
 
 
-        <EditText
-            android:id="@+id/editText5"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView8"
-            android:layout_alignStart="@+id/textView8"
-            android:layout_below="@+id/textView8"
-            android:layout_marginTop="3dp"
-            android:ems="10"
-            android:inputType="text" />
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView8"
+        android:layout_alignStart="@+id/textView8"
+        android:layout_below="@+id/textView8"
+        android:layout_marginTop="3dp"
+        android:ems="10"
+        android:hint="Wähle einen Eventnamen"
+        android:inputType="text" />
 
         <TextView
             android:id="@+id/textView8"
@@ -45,40 +46,41 @@
             android:textSize="17dp"
             android:textAppearance="@android:style/TextAppearance.Holo"/>
 
-        <EditText
-            android:id="@+id/editText8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView9"
-            android:layout_alignStart="@+id/textView9"
-            android:layout_below="@+id/textView9"
-            android:layout_marginTop="3dp"
-            android:ems="10"
-            android:inputType="text"
-            tools:layout_width="300dp" />
+    <EditText
+        android:id="@+id/editText8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView9"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_below="@+id/textView9"
+        android:layout_marginTop="3dp"
+        android:ems="10"
+        android:hint="Gib deinem Event eine Beschreibung"
+        android:inputType="textMultiLine"
+        tools:layout_width="300dp" />
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editText8"
-            android:layout_alignStart="@+id/editText8"
-            android:layout_below="@+id/editText8"
-            android:layout_marginTop="5dp"
-            android:text="Ort:"
-            android:textSize="17dp"
-            android:textAppearance="@android:style/TextAppearance.Holo"/>
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText8"
+        android:layout_alignStart="@+id/editText8"
+        android:layout_below="@+id/editText8"
+        android:layout_marginTop="5dp"
+        android:text="Adresse:"
+        android:textAppearance="@android:style/TextAppearance.Holo"
+        android:textSize="17dp" />
 
-        <EditText
-            android:id="@+id/editText10"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView10"
-            android:layout_alignStart="@+id/textView10"
-            android:layout_below="@+id/textView10"
-            android:layout_marginTop="3dp"
-            android:ems="10"
-            android:inputType="text" />
+    <EditText
+        android:id="@+id/editText10"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView10"
+        android:layout_alignStart="@+id/textView10"
+        android:layout_below="@+id/textView10"
+        android:ems="10"
+        android:hint="Musterstraße 1, 12345 Musterstadt"
+        android:inputType="textPostalAddress" />
 
         <TextView
             android:id="@+id/textView11"
@@ -92,17 +94,20 @@
             android:textAppearance="@android:style/TextAppearance.Holo"/>
     />
 
-        <EditText
-            android:id="@+id/editText11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView11"
-            android:layout_alignStart="@+id/textView11"
-            android:layout_below="@+id/textView11"
-            android:layout_marginTop="3dp"
-            android:ems="10"
-            android:inputType="date"
-            tools:layout_width="300dp" />
+    <EditText
+        android:id="@+id/editText11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView11"
+        android:layout_alignStart="@+id/textView11"
+        android:layout_below="@+id/textView11"
+        android:layout_marginTop="3dp"
+        android:ems="10"
+        android:hint="dd.mm.yyy"
+        android:inputType="date"
+        android:selectAllOnFocus="false"
+        android:singleLine="false"
+        tools:layout_width="300dp" />
 
         <TextView
             android:id="@+id/textView12"
@@ -116,17 +121,18 @@
             android:textAppearance="@android:style/TextAppearance.Holo"/>
     />
 
-        <EditText
-            android:id="@+id/editText13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView12"
-            android:layout_alignStart="@+id/textView12"
-            android:layout_below="@+id/textView12"
-            android:layout_marginTop="3dp"
-            android:ems="10"
-            android:inputType="time"
-            tools:layout_width="300dp" />
+    <EditText
+        android:id="@+id/editText13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView12"
+        android:layout_alignStart="@+id/textView12"
+        android:layout_below="@+id/textView12"
+        android:layout_marginTop="3dp"
+        android:ems="10"
+        android:hint="hh:mm"
+        android:inputType="time"
+        tools:layout_width="300dp" />
 
     <Button
         android:id="@+id/button2"
