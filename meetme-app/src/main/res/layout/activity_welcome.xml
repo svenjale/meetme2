@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.meetme.welcome"
-    android:background="@drawable/camera">
+    tools:context="de.meetme.welcome">
+    <!-->android:background="@drawable/camera"<-->
 
 
 
@@ -55,14 +55,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/smapicons"
-        android:layout_marginTop="11dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/button14"
-        android:layout_alignStart="@+id/button14"
-        android:layout_marginLeft="7dp"
-        android:layout_marginStart="7dp" />
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/smaplogo"
+        android:layout_marginBottom="9dp"
+        android:layout_above="@+id/buttonLogin2"
+        android:layout_centerHorizontal="true" />
 
 </android.widget.RelativeLayout>

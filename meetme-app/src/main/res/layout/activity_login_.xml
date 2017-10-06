@@ -1,75 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.meetme.Login_Activity"
-    android:background="@drawable/testbildregis">
+    tools:context="de.meetme.Login_Activity" >
+    <!-->android:background=""<-->
 
     <LinearLayout
 
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:orientation="vertical"
-        android:layout_width="344dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp">
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="275dp"
+        android:id="@+id/linearLayout2">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="165dp"
-            android:layout_marginRight="150dp"
-            android:layout_marginTop="100dp"
-            android:background="@drawable/smapicons" />
-
-
+    </LinearLayout>
 
         <EditText
 
             android:id="@+id/editTextEmail"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="0dp"
             android:hint="Email eingeben"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            tools:layout_editor_absoluteY="295dp"
+            tools:layout_editor_absoluteX="44dp"
+            android:layout_marginBottom="10dp"
+            android:layout_above="@+id/linearLayout2"
+            android:layout_alignLeft="@+id/editTextPassword"
+            android:layout_alignStart="@+id/editTextPassword" />
 
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="20dp"
             android:hint="Passwort eingeben"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            tools:layout_editor_absoluteY="232dp"
+            tools:layout_editor_absoluteX="44dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_centerHorizontal="true" />
 
 
         <Button
             android:id="@+id/buttonLogIn"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginLeft="50dp"
             android:layout_gravity="center"
             android:background="@drawable/mybutton"
-            android:text="Einloggen" />
+            android:text="Einloggen"
+            tools:layout_editor_absoluteY="357dp"
+            tools:layout_editor_absoluteX="136dp"
+            android:layout_marginTop="83dp"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_centerHorizontal="true" />
 
         <TextView
             android:id="@+id/textViewRegister"
-            android:layout_width="match_parent"
+            android:layout_width="235dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="65dp"
-            android:layout_marginTop="30dp"
             android:text="Noch nicht registriert? Hier anmelden"
-            android:textAlignment="center" />
-    </LinearLayout>
+            android:textAlignment="center"
+            android:layout_marginTop="14dp"
+            android:layout_below="@+id/buttonLogIn"
+            android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/smapicons"
+        tools:layout_editor_absoluteX="165dp"
+        tools:layout_editor_absoluteY="240dp"
+        android:layout_above="@+id/editTextEmail"
+        android:layout_centerHorizontal="true" />
 
 
-</android.support.constraint.ConstraintLayout>
+</android.widget.RelativeLayout>
