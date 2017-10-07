@@ -1,11 +1,16 @@
 package de.meetme;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.icu.util.Calendar;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -40,7 +45,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private Button button11;
     private Button button10;
     private Button button21;
-
+    private Button button23;
 
     private ValueEventListener eventListener;
 
@@ -79,7 +84,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button2 = (Button) findViewById(R.id.button2);
         button5 = (Button) findViewById(R.id.button5);
         button21 = (Button) findViewById(R.id.button21);
-
+        button23 = (Button) findViewById(R.id.button23);
 
         textView7 = (TextView) findViewById(R.id.textView7);
         textView31 = (TextView) findViewById(R.id.textView31);
@@ -99,6 +104,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button10.setOnClickListener(this);
         button5.setOnClickListener(this);
         button21.setOnClickListener(this);
+        button23.setOnClickListener(this);
 
 
     }
@@ -155,12 +161,13 @@ public class eventinfos extends Activity implements View.OnClickListener{
         if (view == button9) {
             databaseEventteilnehmer.child(uebergebeneID).child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(firebaseAuth.getInstance().getCurrentUser().getUid());
             databaseTeilnahmen.child(firebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
-            databaseEventanwesende.child(uebergebeneID).child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(firebaseAuth.getInstance().getCurrentUser().getUid());
-            // wenn anwesend, dann auch Teilnehmer
             Toast.makeText(this, "Erfolgreich angemeldet. Bis bald!", Toast.LENGTH_LONG).show();
         }
         if (view == button5) {
             databaseEventanwesende.child(uebergebeneID).child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(firebaseAuth.getInstance().getCurrentUser().getUid());
+            databaseEventteilnehmer.child(uebergebeneID).child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(firebaseAuth.getInstance().getCurrentUser().getUid());
+            databaseTeilnahmen.child(firebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
+            // wenn anwesend, dann auch Teilnehmer
             Toast.makeText(this, "Check-In erfolgreich. Viel Spaß beim Event!", Toast.LENGTH_LONG).show();
         }
         if (view == button2) {
@@ -205,6 +212,13 @@ public class eventinfos extends Activity implements View.OnClickListener{
                 startActivity(profile);
             }
         }
+        if (view == button23) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                alarmStellen();
+            }else{
+                Toast.makeText(this, "Leider unterstützt deine Android Version diese Funktion nicht.", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
 
@@ -242,33 +256,23 @@ public class eventinfos extends Activity implements View.OnClickListener{
    // public String getProfilName (String organisatorID){
     //}
 
-/*
-    public String getOrganisatorName (String organisatorID){
+@RequiresApi(api = Build.VERSION_CODES.N)
+public void alarmStellen (){
+    Calendar calendar = Calendar.getInstance();
+    calendar.set(Calendar.MONTH, 9);
+    calendar.set(Calendar.YEAR, 2017);
+    calendar.set(Calendar.DAY_OF_MONTH, 07);
 
-        DatabaseReference vornameWert = databaseProfiles.child(organisatorID).child("vorname");
-        vornameWert.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String vorname = dataSnapshot.getValue(String.class);
-                eventinfos.vollerName =eventinfos.vollerName+vorname;
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-        DatabaseReference nachnameWert = databaseProfiles.child(organisatorID).child("name");
-        nachnameWert.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.getValue(String.class);
-                eventinfos.vollerName=eventinfos.vollerName+" "+name;
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+    calendar.set(Calendar.HOUR_OF_DAY, 17);
+    calendar.set(Calendar.MINUTE, 45);
+    calendar.set(Calendar.SECOND, 00);
 
-        return eventinfos.vollerName;
-    }
-    */
+    calendar.set(Calendar.AM_PM, Calendar.PM);
+
+    Intent myIntent = new Intent(eventinfos.this, MyReceiver.class);
+    PendingIntent pendingIntent = PendingIntent.getBroadcast(eventinfos.this, 0,myIntent, 0);
+
+    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+    alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
+}
 }

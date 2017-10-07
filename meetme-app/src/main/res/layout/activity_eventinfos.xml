@@ -20,11 +20,22 @@
         android:id="@+id/button21"
         android:layout_width="65dp"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button23"
+        android:layout_alignBottom="@+id/button23"
+        android:layout_toEndOf="@+id/textView26"
+        android:layout_toRightOf="@+id/textView26"
         android:background="@drawable/mybutton"
-        android:text="teilen"
+        android:text="teilen" />
+
+    <Button
+        android:id="@+id/button23"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/textView17"
         android:layout_toRightOf="@+id/textView17"
-        android:layout_toEndOf="@+id/textView17" />
+        android:background="@drawable/mybutton"
+        android:text="alarm" />
 
     <Button
         android:id="@+id/button11"

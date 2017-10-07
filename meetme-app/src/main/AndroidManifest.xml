@@ -46,6 +46,10 @@
         <activity android:name=".profilansichtAndererUser" />
         <activity android:name=".teilnahmenlist" />
 
+        <service android:name=".MyAlarmService"
+            android:enabled="true"></service>
+        <receiver  android:name=".MyReceiver"></receiver>
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
