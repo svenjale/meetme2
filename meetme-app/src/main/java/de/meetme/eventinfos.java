@@ -215,6 +215,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
         if (view == button23) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 alarmStellen();
+                Toast.makeText(this, "Wir werden dich erinnern!", Toast.LENGTH_SHORT).show();
+
             }else{
                 Toast.makeText(this, "Leider unterstützt deine Android Version diese Funktion nicht.", Toast.LENGTH_SHORT).show();
             }
@@ -264,7 +266,7 @@ public void alarmStellen (){
     calendar.set(Calendar.DAY_OF_MONTH, 07);
 
     calendar.set(Calendar.HOUR_OF_DAY, 17);
-    calendar.set(Calendar.MINUTE, 45);
+    calendar.set(Calendar.MINUTE, 50);
     calendar.set(Calendar.SECOND, 00);
 
     calendar.set(Calendar.AM_PM, Calendar.PM);
