@@ -21,29 +21,19 @@
         tools:layout_editor_absoluteY="247dp" />
 
     <TextView
-        android:id="@+id/textView27"
-        android:layout_width="300dp"
-        android:layout_height="31dp"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="41dp"
-        android:layout_below="@+id/textView37"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView29"
         android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/textView29"
         android:layout_below="@+id/button16"
         android:layout_marginLeft="8dp"
         android:text="Nachname:"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="17dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="137dp" />
+        tools:layout_editor_absoluteY="137dp"
+        android:layout_toLeftOf="@+id/button3"
+        android:layout_toStartOf="@+id/button3" />
 
     <TextView
         android:id="@+id/textView29"
@@ -77,17 +67,16 @@
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView27"
-        android:layout_alignLeft="@+id/textView37"
-        android:layout_alignParentLeft="true"
-        android:layout_alignStart="@+id/textView37"
 
-        android:layout_marginLeft="8dp"
         android:text="Rolle:"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="17dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="299dp" />
+        tools:layout_editor_absoluteY="299dp"
+        android:layout_below="@+id/textView37"
+        android:layout_alignLeft="@+id/textView39"
+        android:layout_alignStart="@+id/textView39"
+        android:layout_marginTop="11dp" />
 
     <TextView
         android:id="@+id/textView36"
@@ -109,14 +98,12 @@
         android:id="@+id/textView37"
         android:layout_width="300dp"
         android:layout_height="31dp"
-        android:layout_alignEnd="@+id/button15"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/button15"
-        android:layout_below="@+id/textView29"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="11dp"
         tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="413dp" />
+        tools:layout_editor_absoluteY="413dp"
+        android:layout_below="@+id/textView29"
+        android:layout_alignLeft="@+id/textView29"
+        android:layout_alignStart="@+id/textView29" />
     <Button
         android:id="@+id/button2"
         android:layout_width="94dp"
@@ -164,12 +151,11 @@
         android:id="@+id/button15"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="29dp"
         android:text="Zu Kontakten"
         android:background="@drawable/mybutton"
         android:layout_below="@+id/textView34"
-        android:layout_alignRight="@+id/textView34"
-        android:layout_alignEnd="@+id/textView34" />
+        android:layout_centerHorizontal="true" />
 
 
     <Button
@@ -186,11 +172,10 @@
         android:id="@+id/textView39"
         android:layout_width="300dp"
         android:layout_height="31dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView27"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="14dp" />
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/textView35"
+        android:layout_alignLeft="@+id/textView36"
+        android:layout_alignStart="@+id/textView36" />
 
     <Button
         android:id="@+id/button18"
@@ -207,12 +192,12 @@
         android:id="@+id/button19"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:text="Eventteilnahmen"
-        android:background="@drawable/mybutton"
-        android:layout_below="@+id/button18"
         android:layout_alignLeft="@+id/button18"
         android:layout_alignStart="@+id/button18"
-        android:layout_marginTop="10dp" />
+        android:layout_below="@+id/button18"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/mybutton"
+        android:text="Photowalk teilnahmen" />
 
 
 </android.widget.RelativeLayout>

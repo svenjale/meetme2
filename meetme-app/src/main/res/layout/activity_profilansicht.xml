@@ -191,14 +191,14 @@
         android:id="@+id/button20"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
+        android:layout_alignEnd="@+id/button15"
+        android:layout_alignLeft="@+id/button15"
+        android:layout_alignRight="@+id/button15"
+        android:layout_alignStart="@+id/button15"
+        android:layout_below="@+id/button15"
         android:layout_marginTop="9dp"
         android:background="@drawable/mybutton"
-        android:text="Eventteilnahmen"
-        android:layout_below="@+id/button15"
-        android:layout_alignLeft="@+id/button15"
-        android:layout_alignStart="@+id/button15"
-        android:layout_alignRight="@+id/button15"
-        android:layout_alignEnd="@+id/button15" />
+        android:text="Photowalk teilnahmen" />
 
     <Button
         android:id="@+id/button22"
