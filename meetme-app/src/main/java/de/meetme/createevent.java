@@ -3,18 +3,28 @@ package de.meetme;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.firebase.client.Firebase;
 
+import java.text.DateFormat;
+import java.text.FieldPosition;
+import java.text.ParseException;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
-public class createevent extends Activity implements View.OnClickListener  {
+public class createevent extends FragmentActivity implements View.OnClickListener  {
 // implements View.OnClickListener wieder einfügen
     private Button button8;
     private EditText editText5;              //Eventname
@@ -23,6 +33,8 @@ public class createevent extends Activity implements View.OnClickListener  {
     private EditText editText11;            //Datum
     private EditText editText13;//Uhrzeit
     private Button button17;
+    private TextView textView12;
+    private TextView textView11;
 
     private FirebaseAuth firebaseAuth;
     private Firebase databaseEvents;
@@ -56,22 +68,70 @@ public class createevent extends Activity implements View.OnClickListener  {
         editText13 = (EditText) findViewById(R.id.editText13);
         button8 = (Button) findViewById(R.id.button8);
         button17 = (Button) findViewById(R.id.button17);
+        textView12=(TextView) findViewById(R.id.textView12);
+        textView11=(TextView) findViewById(R.id.textView11);
+
+
+
+        /*editText13.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                    showTimePickerDialog(editText13);
+            }
+        });
+        editText11.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog(editText11);
+            }
+        });*/
+        editText13.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    showTimePickerDialog(editText13);
+                }
+            }
+        });
+        editText11.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    showDatePickerDialog(editText11);
+                }
+            }
+        });
+
 
 
         button8.setOnClickListener(this);
         button17.setOnClickListener(this);
+        textView12.setOnClickListener(this);
+        textView11.setOnClickListener(this);
 
 
     }
 
 
-    private void createevent() {
+    private void createevent()  {
         String eventname = editText5.getText().toString().trim();               //Eventname wird aus Editfeld geholt
         String beschreibung = editText8.getText().toString().trim();            //Beschreibung wird aus Editfeld geholt
         String ort = editText10.getText().toString().trim();                    //Ort wird aus Editfeld geholt
         String datum = editText11.getText().toString().trim();                  //Datum wird aus Editfeld geholt
         String uhrzeit = editText13.getText().toString().trim();               //Uhrzeit wird aus Editfeld geholt
         String organisatorID = firebaseAuth.getInstance().getCurrentUser().getUid(); // ID des aktuell eingeloggten Users wird als Organisator gespeichert;
+
+        /*String d = datum+" "+uhrzeit;
+        DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+        Date date = new Date();
+        try{
+            date = df.parse(d);
+        }catch (ParseException pe){
+            pe.printStackTrace();
+        }*/
 
         if (TextUtils.isEmpty(eventname)) {                                                          //Eventname Textfeld ist leer
             Toast.makeText(this, "Bitte Name des Events eintragen", Toast.LENGTH_SHORT).show();     //wenn Feld leer ist, wird Ausführung unterbrochen
@@ -105,7 +165,7 @@ public class createevent extends Activity implements View.OnClickListener  {
             databaseTeilnahmen.child(organisatorID).child(id).setValue(id);
             Toast.makeText(this, "Das Event wurde erstellt", Toast.LENGTH_LONG).show();
             IDuebergabe=id;
-        }
+        }else return;
     }
 
 
@@ -122,6 +182,20 @@ public class createevent extends Activity implements View.OnClickListener  {
             infointent.putExtra("ID", IDuebergabe);
             startActivity(infointent);
         }
+        if (view==textView12){
+            showTimePickerDialog(textView12);
+        }
+        if (view==textView11){
+            showDatePickerDialog(textView11);
+        }
     }
 
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "timePicker");
+    }
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
 }

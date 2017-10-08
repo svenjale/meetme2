@@ -5,6 +5,8 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.RequiresApi;
@@ -32,16 +34,23 @@ public class MyAlarmService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         // TODO Auto-generated method stub
         super.onStartCommand(intent, flags, startId);
+        Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         mManager = (NotificationManager) this.getApplicationContext().getSystemService(this.getApplicationContext().NOTIFICATION_SERVICE);
         Intent intent1 = new Intent(this.getApplicationContext(), eventinfos.class);
-        Notification notification = new Notification.Builder(this.getApplicationContext()).
-                setContentTitle("Texter").setContentText("OK").setSmallIcon(R.drawable.camera).build();
-        intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent1.putExtra("ID",intent.getStringExtra("ID"));
         PendingIntent pendingNotificationIntent = PendingIntent.getActivity(this.getApplicationContext(), 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
+        Notification notification = new Notification.Builder(this.getApplicationContext())
+                .setContentTitle("Photowalk beginnt!")
+                .setContentText(intent.getStringExtra("name")+" startet um "+intent.getStringExtra("uhrzeit")+" Uhr")
+                .setSmallIcon(R.drawable.camera)
+                .setSound(soundUri)
+                .setPriority(Notification.PRIORITY_HIGH)
+                .addAction(0, "Details anzeigen", pendingNotificationIntent)
+                .build();
+        intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         notification.flags |= Notification.FLAG_AUTO_CANCEL;
 
         mManager.notify(0, notification);
-
         return startId;
 
     }

@@ -1,7 +1,7 @@
 package de.meetme;
 
 
-
+import java.util.Date;
 
 /**
  * Created by lebenhag on 26.09.2017.
@@ -42,7 +42,7 @@ public class Event {
         return ort;
     }
 
-    public String getDatum() {
+   public String getDatum() {
         return datum;
     }
 

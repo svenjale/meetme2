@@ -6,7 +6,6 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.icu.util.Calendar;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,6 +19,13 @@ import com.firebase.client.FirebaseError;
 import com.google.firebase.auth.FirebaseAuth;
 import com.firebase.client.Firebase;
 import com.firebase.client.ValueEventListener;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.StringTokenizer;
 
 
 public class eventinfos extends Activity implements View.OnClickListener{
@@ -55,11 +61,12 @@ public class eventinfos extends Activity implements View.OnClickListener{
     //private String uebergebenerName;
     public static String orgaID = "";
 
-    String whatsappName="";
+    public String whatsappName="";
     String whatsappOrt="";
     String whatsappDatum="";
-    String whatsappUhrzeit="";
+    public String whatsappUhrzeit="";
     String whatsappBeschreibung="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +98,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         textView24 = (TextView) findViewById(R.id.textView24);
         textView19 = (TextView) findViewById(R.id.textView19);
         textView17 = (TextView) findViewById(R.id.textView17);
-        textView21 = (TextView) findViewById(R.id.textView21);
+        //textView21 = (TextView) findViewById(R.id.textView21);
 
         textView17.setOnClickListener(this);
 
@@ -112,6 +119,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     @Override
     public void onStart(){
         super.onStart();
+
         //Event Laden
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
@@ -124,9 +132,9 @@ public class eventinfos extends Activity implements View.OnClickListener{
                     whatsappBeschreibung=event.getBeschreibung();
                     ((TextView) findViewById(R.id.textView24)).setText(event.getOrt());
                     whatsappOrt=event.getOrt();
-                    ((TextView) findViewById(R.id.textView19)).setText(event.getDatum());
+                    ((TextView) findViewById(R.id.textView19)).setText("am "+event.getDatum()+" um "+event.getUhrzeit()+" Uhr");
                     whatsappDatum=event.getDatum();
-                    ((TextView) findViewById(R.id.textView21)).setText(event.getUhrzeit());
+                    //((TextView) findViewById(R.id.textView21)).setText(event.getUhrzeit());
                     whatsappUhrzeit=event.getUhrzeit();
                     orgaID = event.getOrganisatorID();
                     //uebergebenerName=event.getEventname();
@@ -153,6 +161,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
             }
         };
         databaseEvents.addValueEventListener(eventListener);
+
     }
     // Hilfe: https://github.com/firebase/quickstart-android/blob/master/database/app/src/main/java/com/google/firebase/quickstart/database/PostDetailActivity.java#L84-L106
 
@@ -213,13 +222,10 @@ public class eventinfos extends Activity implements View.OnClickListener{
             }
         }
         if (view == button23) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                alarmStellen();
-                Toast.makeText(this, "Wir werden dich erinnern!", Toast.LENGTH_SHORT).show();
+            alarmStellen();
+            Toast.makeText(this, "Wir werden dich 15 Min. vor Beginn erinnern", Toast.LENGTH_SHORT).show();
 
-            }else{
-                Toast.makeText(this, "Leider unterstützt deine Android Version diese Funktion nicht.", Toast.LENGTH_SHORT).show();
-            }
+
         }
     }
 
@@ -258,20 +264,33 @@ public class eventinfos extends Activity implements View.OnClickListener{
    // public String getProfilName (String organisatorID){
     //}
 
-@RequiresApi(api = Build.VERSION_CODES.N)
 public void alarmStellen (){
-    Calendar calendar = Calendar.getInstance();
-    calendar.set(Calendar.MONTH, 9);
-    calendar.set(Calendar.YEAR, 2017);
-    calendar.set(Calendar.DAY_OF_MONTH, 07);
+    StringBuffer date = new StringBuffer(whatsappDatum);
+    int d = Integer.parseInt(date.substring(0,2));
+    int m = Integer.parseInt(date.substring(3,5));
+    int y = Integer.parseInt(date.substring(6,10));
+    StringBuffer time = new StringBuffer(whatsappUhrzeit);
+    int h =  Integer.parseInt(time.substring(0,2));
+    int mm =  Integer.parseInt(time.substring(3,5));
 
-    calendar.set(Calendar.HOUR_OF_DAY, 17);
-    calendar.set(Calendar.MINUTE, 50);
+    Calendar calendar = Calendar.getInstance();
+    calendar.set(Calendar.MONTH, m-1);
+    calendar.set(Calendar.YEAR, y);
+    calendar.set(Calendar.DAY_OF_MONTH, d);
+
+
+    calendar.set(Calendar.HOUR_OF_DAY, h);
+    calendar.set(Calendar.MINUTE, mm);
     calendar.set(Calendar.SECOND, 00);
+
+    calendar.add (Calendar.MINUTE, -15); // hier einstellen, wann Benachrichtigung erscheinen soll, z.B. 15 Min
 
     calendar.set(Calendar.AM_PM, Calendar.PM);
 
     Intent myIntent = new Intent(eventinfos.this, MyReceiver.class);
+    myIntent.putExtra("ID", uebergebeneID);
+    myIntent.putExtra("name", whatsappName);
+    myIntent.putExtra("uhrzeit", whatsappUhrzeit);
     PendingIntent pendingIntent = PendingIntent.getBroadcast(eventinfos.this, 0,myIntent, 0);
 
     AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
