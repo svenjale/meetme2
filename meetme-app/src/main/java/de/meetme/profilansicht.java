@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
     private Button button6;
     private Button button4;
     private Button button16;
-    private Button button22;
+    private ImageButton button22;
     private Button button20;
 
     public static Person aktuellerUser;
@@ -53,7 +54,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
         button16 = (Button) findViewById(R.id.button16);
-        button22 = (Button) findViewById(R.id.button22);
+        button22 = (ImageButton) findViewById(R.id.button22);
         button20 = (Button) findViewById(R.id.button20);
 
 

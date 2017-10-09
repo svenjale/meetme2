@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">MeetMe</string>
     <string name="title_activity_maps">Map</string>
+    <string name="zu_kontakten_hinzuf_gen">Zu Kontakten hinzufügen</string>
+    <string name="Hinzuf_gen" />
 </resources>

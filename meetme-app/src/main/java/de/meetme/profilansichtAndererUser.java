@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.firebase.client.Firebase;
@@ -33,7 +34,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
     private TextView textView37;
     private TextView textView34;
     private TextView textView39;
-    private Button button15;
+    private ImageButton button15;
     private Button button2;
     private Button button7;
     private Button button3;
@@ -56,7 +57,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         textView34 = (TextView) findViewById(R.id.textView34);
         textView39 = (TextView) findViewById(R.id.textView39);
 
-        button15 = (Button) findViewById(R.id.button15);
+        button15 = (ImageButton) findViewById(R.id.button15);
         button7 = (Button) findViewById(R.id.button7);
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);

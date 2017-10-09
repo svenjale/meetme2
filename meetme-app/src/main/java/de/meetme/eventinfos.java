@@ -37,8 +37,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private Firebase databaseEventanwesende;
     private Firebase databaseTeilnahmen;
     private Firebase databaseProfiles;
-    private Button button9;
-    private Button button5;
+    private ImageButton button9;
+    private ImageButton button5;
     private TextView textView7;
     private TextView textView31;
     private TextView textView24;
@@ -51,8 +51,9 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private Button button6;
     private Button button11;
     private Button button10;
-    private Button button21;
+    private ImageButton button21;
     private ImageButton button23;
+    private ImageButton button14;
 
     private ValueEventListener eventListener;
 
@@ -83,22 +84,23 @@ public class eventinfos extends Activity implements View.OnClickListener{
         databaseEventanwesende = new Firebase(FIREBASE_URL).child("eventanwesende");
         databaseTeilnahmen = new Firebase(FIREBASE_URL).child("teilnahmen");
 
-        button9 = (Button) findViewById(R.id.button9);
-        button11 = (Button) findViewById(R.id.button11);
-        button10 = (Button) findViewById(R.id.button10);
-        button7 = (Button) findViewById(R.id.button7);
-        button3 = (Button) findViewById(R.id.button3);
-        button6 = (Button) findViewById(R.id.button6);
-        button2 = (Button) findViewById(R.id.button2);
-        button5 = (Button) findViewById(R.id.button5);
-        button21 = (Button) findViewById(R.id.button21);
-        button23 = (ImageButton) findViewById(R.id.button23);
+        button9 = findViewById(R.id.button9);
+        button11 = findViewById(R.id.button11);
+        button10 = findViewById(R.id.button10);
+        button7 = findViewById(R.id.button7);
+        button3 = findViewById(R.id.button3);
+        button6 = findViewById(R.id.button6);
+        button2 = findViewById(R.id.button2);
+        button5 = findViewById(R.id.button5);
+        button21 = findViewById(R.id.button21);
+        button23 = findViewById(R.id.button23);
+        button14 = findViewById(R.id.button14);
 
-        textView7 = (TextView) findViewById(R.id.textView7);
-        textView31 = (TextView) findViewById(R.id.textView31);
-        textView24 = (TextView) findViewById(R.id.textView24);
-        textView19 = (TextView) findViewById(R.id.textView19);
-        textView17 = (TextView) findViewById(R.id.textView17);
+        textView7 = findViewById(R.id.textView7);
+        textView31 = findViewById(R.id.textView31);
+        textView24 = findViewById(R.id.textView24);
+        textView19 = findViewById(R.id.textView19);
+        textView17 = findViewById(R.id.textView17);
         //textView21 = (TextView) findViewById(R.id.textView21);
 
         textView17.setOnClickListener(this);
@@ -169,14 +171,14 @@ public class eventinfos extends Activity implements View.OnClickListener{
 
     public void onClick(View view) {
         if (view == button9) {
-            databaseEventteilnehmer.child(uebergebeneID).child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(firebaseAuth.getInstance().getCurrentUser().getUid());
-            databaseTeilnahmen.child(firebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
+            databaseEventteilnehmer.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            databaseTeilnahmen.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
             Toast.makeText(this, "Erfolgreich angemeldet. Bis bald!", Toast.LENGTH_LONG).show();
         }
         if (view == button5) {
-            databaseEventanwesende.child(uebergebeneID).child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(firebaseAuth.getInstance().getCurrentUser().getUid());
-            databaseEventteilnehmer.child(uebergebeneID).child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(firebaseAuth.getInstance().getCurrentUser().getUid());
-            databaseTeilnahmen.child(firebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
+            databaseEventanwesende.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            databaseEventteilnehmer.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            databaseTeilnahmen.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
             // wenn anwesend, dann auch Teilnehmer
             Toast.makeText(this, "Check-In erfolgreich. Viel Spaß beim Event!", Toast.LENGTH_LONG).show();
         }
@@ -191,6 +193,10 @@ public class eventinfos extends Activity implements View.OnClickListener{
         if (view == button3) {
             Intent Map = new Intent(eventinfos.this, MapsActivity.class);
             startActivity(Map);
+        }
+        if(view == button14) {
+            Intent EventHelp = new Intent(eventinfos.this, helpevent.class);
+            startActivity(EventHelp);
         }
         if (view == button6) {
             Intent Kontakte = new Intent(eventinfos.this, kontakte.class);
@@ -226,8 +232,9 @@ public class eventinfos extends Activity implements View.OnClickListener{
             alarmStellen();
             Toast.makeText(this, "Wir werden dich 15 Min. vor Beginn erinnern", Toast.LENGTH_SHORT).show();
 
-
         }
+
+
     }
 
 

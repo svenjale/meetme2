@@ -18,6 +18,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
+import java.lang.Throwable;
+import java.lang.Object;
+
 
 
 public class HelloActivity extends Activity implements View.OnClickListener {
@@ -112,7 +116,9 @@ public class HelloActivity extends Activity implements View.OnClickListener {
                                 startActivity(regisintent);
 
                             } else {
-                                Toast.makeText(HelloActivity.this, "Benutzer konnte nicht registriert werden", Toast.LENGTH_SHORT).show();
+                                if (password.length() < 6) {
+                                    Toast.makeText(HelloActivity.this, "Bitte gebe ein Passwort mit mindestens 6 Zeichen ein", Toast.LENGTH_SHORT).show();
+                                }
                             }
                         }
                     }
@@ -142,6 +148,7 @@ public class HelloActivity extends Activity implements View.OnClickListener {
             registerUser();
         }
     }
+
 
 }
 
