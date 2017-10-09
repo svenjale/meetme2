@@ -82,7 +82,9 @@ public class MyAlarmService extends Service {
                     .setContentTitle("Photowalk beginnt!")
                     .setContentText(intent.getStringExtra("name")+" startet um "+intent.getStringExtra("uhrzeit")+" Uhr")
                     .setSmallIcon(R.drawable.camera)
-                    .addAction(action);
+                    .addAction(action)
+                    .setContentIntent(pendingNotificationIntent);
+
 
 
 
@@ -98,9 +100,11 @@ public class MyAlarmService extends Service {
                     .setContentTitle("Photowalk beginnt!")
                     .setContentText(intent.getStringExtra("name")+" startet um "+intent.getStringExtra("uhrzeit")+" Uhr")
                     .setSmallIcon(R.drawable.camera)
+                    .setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400})
                     .setSound(soundUri)
                     .setPriority(4)
                     .addAction(0, "Details anzeigen", pendingNotificationIntent)
+                    .setContentIntent(pendingNotificationIntent)
                     .build();
 
             intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
