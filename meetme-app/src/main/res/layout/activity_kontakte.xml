@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/schloss"
     tools:context="de.meetme.kontakte">
 
     <Button
@@ -20,6 +21,7 @@
         android:id="@+id/button2"
         android:layout_width="94dp"
         android:layout_height="40dp"
+        android:layout_weight="1"
         android:background="#4A1D"
         android:text="Profil"
         android:layout_alignParentBottom="true"
@@ -30,6 +32,7 @@
         android:id="@+id/button3"
         android:layout_width="92dp"
         android:layout_height="40dp"
+        android:layout_weight="1"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/button2"
         android:background="#4A1D"
@@ -41,6 +44,7 @@
         android:id="@+id/button6"
         android:layout_width="96dp"
         android:layout_height="40dp"
+        android:layout_weight="1"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -52,6 +56,7 @@
         android:id="@+id/button7"
         android:layout_width="92dp"
         android:layout_height="40dp"
+        android:layout_weight="1"
         android:background="#4A1D"
         android:text="Walks"
         android:layout_alignParentBottom="true"
@@ -70,5 +75,6 @@
         android:text="Kontakte"
         android:textSize="22dp"
         android:textStyle="bold" />
+
 
 </android.widget.RelativeLayout>
