@@ -85,13 +85,19 @@ public class Login_Activity extends Activity implements View.OnClickListener {
                         } else {
                             ErrorMessage = task.getException().getLocalizedMessage();
                             if (ErrorMessage.equals("There is no user record corresponding to this identifier. The user may have been deleted.")){
-                                Toast.makeText(Login_Activity.this, "Dieser Account wurde noch nicht angelegt. Bitte Account anlegen.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login_Activity.this, "Dieser Account ist uns nicht bekannt. Bitte wechsle zur Registrierung..", Toast.LENGTH_SHORT).show();
                             }
                             else {
-                                Toast.makeText(Login_Activity.this, ErrorMessage, Toast.LENGTH_SHORT).show();
+                                if (ErrorMessage.equals("The password is invalid or the user does not have a password.")) {
+                                    Toast.makeText(Login_Activity.this, "Passwort falsch - überprüfe deine Eingabe.", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    if (ErrorMessage.equals("We have blocked all requests from this device due to unusual activity. Try again later.")) {
+                                        Toast.makeText(Login_Activity.this, "Passwort zu oft falsch eingegeben. Das Gerät wurde vorübergehend gesperrt. Versuche es später erneut.", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(Login_Activity.this, ErrorMessage, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
                             }
-
-
                         }
                     }
                 });
