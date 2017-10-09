@@ -202,12 +202,13 @@
 
     <Button
         android:id="@+id/button22"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button16"
         android:layout_alignBottom="@+id/button16"
         android:layout_alignEnd="@+id/textView27"
         android:layout_alignRight="@+id/textView27"
+        android:background="@drawable/mybutton"
         android:text="logout" />
 
 </android.widget.RelativeLayout>
