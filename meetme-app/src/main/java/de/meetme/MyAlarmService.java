@@ -97,10 +97,11 @@ public class MyAlarmService extends Service {
         }else{         //-> hier evelt NotificationCompat??
             Notification notification;
             notification = new NotificationCompat.Builder(this.getApplicationContext() )
+                    .setDefaults(Notification.DEFAULT_ALL)
                     .setContentTitle("Photowalk beginnt!")
                     .setContentText(intent.getStringExtra("name")+" startet um "+intent.getStringExtra("uhrzeit")+" Uhr")
                     .setSmallIcon(R.drawable.camera)
-                    .setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400})
+                    //.setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400})
                     .setSound(soundUri)
                     .setPriority(4)
                     .addAction(0, "Details anzeigen", pendingNotificationIntent)
