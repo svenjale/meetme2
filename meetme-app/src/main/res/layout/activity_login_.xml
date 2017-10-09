@@ -15,7 +15,7 @@
         android:layout_centerVertical="true"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="275dp"
+        tools:layout_editor_absoluteY="1dp"
         android:id="@+id/linearLayout2">
 
     </LinearLayout>
@@ -70,15 +70,14 @@
             android:layout_below="@+id/buttonLogIn"
             android:layout_centerHorizontal="true" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/smapicons"
-        tools:layout_editor_absoluteX="165dp"
-        tools:layout_editor_absoluteY="240dp"
-        android:layout_above="@+id/editTextEmail"
-        android:layout_centerHorizontal="true" />
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imageView2"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        app:srcCompat="@drawable/ic_smap_logo"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp" />
 
     <ImageView
         android:id="@+id/imageView"

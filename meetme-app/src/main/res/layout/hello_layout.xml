@@ -16,40 +16,47 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="1dp"
-        android:id="@+id/linearLayout3">
+        android:id="@+id/linearLayout2">
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/smapicons"
-            android:layout_above="@+id/editTextPassword"
-            android:layout_centerHorizontal="true" />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/imageView2"
+            android:layout_width="200dp"
+            android:layout_height="250dp"
+            app:srcCompat="@drawable/ic_smap_logo"
+            android:layout_above="@+id/editTextEmail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp" />
 
 
 
-
-            <EditText
-                android:id="@+id/editTextEmail"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:hint="Email eingeben"
-                android:inputType="textEmailAddress"
-                android:layout_marginTop="11dp"
-                android:layout_below="@+id/linearLayout3"
-                android:layout_centerHorizontal="true" />
 
     <EditText
-                android:id="@+id/editTextPassword"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:hint="Passwort eingeben"
-                android:inputType="textPassword"
-                android:layout_alignBottom="@+id/linearLayout3"
-                android:layout_alignLeft="@+id/editTextEmail"
-                android:layout_alignStart="@+id/editTextEmail" />
+
+        android:id="@+id/editTextEmail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Email eingeben"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteY="295dp"
+        tools:layout_editor_absoluteX="44dp"
+        android:layout_alignBottom="@+id/linearLayout2"
+        android:layout_alignRight="@+id/editTextPassword"
+        android:layout_alignEnd="@+id/editTextPassword" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Passwort eingeben"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteY="232dp"
+        tools:layout_editor_absoluteX="44dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView" />
 
 
 
@@ -60,9 +67,10 @@
             android:layout_gravity="center"
             android:background="@drawable/mybutton"
             android:text="Benutzer registrieren"
-            android:layout_marginTop="27dp"
+            android:layout_marginTop="83dp"
             android:layout_below="@+id/editTextEmail"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            />
 
 
         <TextView
@@ -76,5 +84,28 @@
             android:layout_below="@+id/buttonRegister"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="12dp" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/lockicon"
+        android:layout_marginTop="7dp"
+        android:layout_alignTop="@+id/editTextPassword"
+        android:layout_alignLeft="@+id/linearLayout2"
+        android:layout_alignStart="@+id/linearLayout2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/usericon"
+        android:layout_marginTop="7dp"
+        android:layout_alignTop="@+id/editTextEmail"
+        android:layout_alignLeft="@+id/linearLayout2"
+        android:layout_alignStart="@+id/linearLayout2" />
+
+
 
 </android.widget.RelativeLayout>
