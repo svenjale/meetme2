@@ -27,15 +27,15 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button23"
         android:layout_width="65dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/mybutton"
-        android:text="wecker"
+        android:src="@drawable/alarmicon"
         android:layout_alignBaseline="@+id/textView19"
         android:layout_alignBottom="@+id/textView19"
         android:layout_toRightOf="@+id/textView17"
+        android:background="@drawable/mybutton"
         android:layout_toEndOf="@+id/textView17" />
 
     <Button

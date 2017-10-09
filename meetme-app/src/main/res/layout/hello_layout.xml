@@ -87,7 +87,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView3"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/lockicon"
@@ -97,7 +97,7 @@
         android:layout_alignStart="@+id/linearLayout2" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView4"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/usericon"
