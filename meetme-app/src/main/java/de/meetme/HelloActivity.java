@@ -98,6 +98,9 @@ public class HelloActivity extends Activity implements View.OnClickListener {
             Toast.makeText(this, "Bitte Passwort eintragen", Toast.LENGTH_SHORT).show();    //wenn Feld leer ist, wird Ausführung unterbrochen
             return;
         }
+        if (password.length() < 6) {
+            Toast.makeText(HelloActivity.this, "Bitte gebe ein Passwort mit mindestens 6 Zeichen ein", Toast.LENGTH_SHORT).show();
+        }
 
 
         firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -116,9 +119,7 @@ public class HelloActivity extends Activity implements View.OnClickListener {
                                 startActivity(regisintent);
 
                             } else {
-                                if (password.length() < 6) {
-                                    Toast.makeText(HelloActivity.this, "Bitte gebe ein Passwort mit mindestens 6 Zeichen ein", Toast.LENGTH_SHORT).show();
-                                }
+                                Toast.makeText(HelloActivity.this, "Benutzer konnte nicht registriert werden", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
