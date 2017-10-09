@@ -64,6 +64,17 @@ public class HelloActivity extends Activity implements View.OnClickListener {
         buttonRegister.setOnClickListener(this);
         textViewSignin.setOnClickListener(this);
 
+        try{
+            Intent intentregis = getIntent();
+            email=intentregis.getStringExtra("email").toString();
+            password=intentregis.getStringExtra("password").toString();
+            editTextEmail.setText(email);
+            editTextPassword.setText(password);
+        }catch (NullPointerException exception){
+
+        }
+
+
 
         Log.e(TAG, "run client");
 
@@ -109,6 +120,7 @@ public class HelloActivity extends Activity implements View.OnClickListener {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Person profil = new Person ("", "", "", "+49", firebaseAuth.getInstance().getCurrentUser().getUid());
                         databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
+                        profilansicht.aktuellerUser=profil;
                         if (task.isSuccessful()) {
                             Toast.makeText(HelloActivity.this, "Erfolgreich registriert", Toast.LENGTH_SHORT).show();
                             //Benutzer ist erfolgreich mit Email und Passwort registriert und eingeloggt, öffne Profil Aktivität

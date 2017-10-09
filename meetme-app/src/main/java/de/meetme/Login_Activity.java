@@ -97,6 +97,8 @@ public class Login_Activity extends Activity implements View.OnClickListener {
         }
         if (view == textViewRegister) {
             Intent switchregisintent = new Intent(Login_Activity.this, HelloActivity.class); //switch zur Registrierung
+            switchregisintent.putExtra("email", editTextEmail.getText().toString());
+            switchregisintent.putExtra("password", editTextPassword.getText().toString());
             startActivity(switchregisintent);
         }
     }
