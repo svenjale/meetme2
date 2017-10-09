@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,7 +52,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private Button button11;
     private Button button10;
     private Button button21;
-    private Button button23;
+    private ImageButton button23;
 
     private ValueEventListener eventListener;
 
@@ -91,7 +92,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button2 = (Button) findViewById(R.id.button2);
         button5 = (Button) findViewById(R.id.button5);
         button21 = (Button) findViewById(R.id.button21);
-        button23 = (Button) findViewById(R.id.button23);
+        button23 = (ImageButton) findViewById(R.id.button23);
 
         textView7 = (TextView) findViewById(R.id.textView7);
         textView31 = (TextView) findViewById(R.id.textView31);
