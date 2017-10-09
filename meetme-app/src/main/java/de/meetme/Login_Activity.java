@@ -13,6 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -21,6 +24,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class Login_Activity extends Activity implements View.OnClickListener {
+
+    private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
+
+    private Firebase databaseProfiles;
 
     private Button buttonLogIn;
     private EditText editTextEmail;
@@ -79,9 +86,24 @@ public class Login_Activity extends Activity implements View.OnClickListener {
                             finish();
                             //Intent ErfolgRegis = new Intent(Login_Activity.this, Profile_Activity.class);
                             //startActivity(ErfolgRegis);
-                            Toast.makeText(Login_Activity.this, "Erfolgreich eingeloggt", Toast.LENGTH_SHORT).show();
-                            Intent loginintent = new Intent(Login_Activity.this, profilansicht.class); //switch zum Profil
+                            Intent loginintent = new Intent(Login_Activity.this, Eventliste_activity.class); //switch zur Eventliste
                             startActivity(loginintent);
+                            Toast.makeText(Login_Activity.this, "Erfolgreich eingeloggt", Toast.LENGTH_SHORT).show();
+
+                            profilansicht.aktuelleUserID = firebaseAuth.getInstance().getCurrentUser().getUid();
+                            databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(profilansicht.aktuelleUserID);
+
+                            ValueEventListener profilListener = new ValueEventListener() {
+                                @Override
+                                public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
+                                    profilansicht.aktuellerUser = dataSnapshot.getValue(Person.class);
+                                }
+                                @Override
+                                public void onCancelled(FirebaseError firebaseError) {
+                                }
+                            };
+                            databaseProfiles.addValueEventListener(profilListener);
+
                         } else {
                             ErrorMessage = task.getException().getLocalizedMessage();
                             if (ErrorMessage.equals("There is no user record corresponding to this identifier. The user may have been deleted.")){
