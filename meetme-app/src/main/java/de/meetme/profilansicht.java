@@ -36,12 +36,14 @@ public class profilansicht extends Activity implements View.OnClickListener {
     private Button button20;
 
     public static Person aktuellerUser;
-    public String aktuelleUserID = firebaseAuth.getInstance().getCurrentUser().getUid();
+    public static String aktuelleUserID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profilansicht);
+
+        aktuelleUserID = firebaseAuth.getInstance().getCurrentUser().getUid();
 
         textView33 = (TextView) findViewById(R.id.textView33);
         textView37 = (TextView) findViewById(R.id.textView37);
