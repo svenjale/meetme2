@@ -87,7 +87,9 @@ public class Login_Activity extends Activity implements View.OnClickListener {
                             if (ErrorMessage.equals("There is no user record corresponding to this identifier. The user may have been deleted.")){
                                 Toast.makeText(Login_Activity.this, "Dieser Account wurde noch nicht angelegt. Bitte Account anlegen.", Toast.LENGTH_SHORT).show();
                             }
-                            Toast.makeText(Login_Activity.this, ErrorMessage, Toast.LENGTH_SHORT).show();
+                            else {
+                                Toast.makeText(Login_Activity.this, ErrorMessage, Toast.LENGTH_SHORT).show();
+                            }
 
 
                         }
