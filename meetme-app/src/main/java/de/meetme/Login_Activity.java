@@ -26,6 +26,7 @@ public class Login_Activity extends Activity implements View.OnClickListener {
     private EditText editTextEmail;
     private EditText editTextPassword;
     private TextView textViewRegister;
+    private String ErrorMessage;
 
     private FirebaseAuth firebaseAuth;
 
@@ -82,7 +83,11 @@ public class Login_Activity extends Activity implements View.OnClickListener {
                             Intent loginintent = new Intent(Login_Activity.this, profilansicht.class); //switch zum Profil
                             startActivity(loginintent);
                         } else {
-                            Toast.makeText(Login_Activity.this, "Es scheint etwas schief gelaufen zu sein.", Toast.LENGTH_SHORT).show();
+                            ErrorMessage = task.getException().getLocalizedMessage();
+                            if (ErrorMessage.equals("There is no user record corresponding to this identifier. The user may have been deleted.")){
+                                Toast.makeText(Login_Activity.this, "Dieser Account wurde noch nicht angelegt. Bitte Account anlegen.", Toast.LENGTH_SHORT).show();
+                            }
+                            Toast.makeText(Login_Activity.this, ErrorMessage, Toast.LENGTH_SHORT).show();
 
 
                         }

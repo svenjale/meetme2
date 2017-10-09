@@ -24,11 +24,12 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:layout_marginTop="24dp"
         android:background="@drawable/mybutton"
         android:text="Save"
+        android:layout_marginTop="35dp"
         android:layout_below="@+id/editText3"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/editText3"
+        android:layout_alignEnd="@+id/editText3" />
 
     <TextView
         android:id="@+id/textView2"
@@ -130,9 +131,21 @@
         android:layout_alignStart="@+id/checkBox3"
         android:layout_below="@+id/checkBox3"
         android:layout_marginTop="20dp"
-        android:text="Telefonnummer:"
+        android:text="Telefonnummer:*"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="* Pflichtfelder"
+        android:textAppearance="@android:style/TextAppearance.Holo"
+        android:textSize="17dp"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/editText3"
+        android:layout_alignRight="@+id/checkBox3"
+        android:layout_alignEnd="@+id/checkBox3" />
 
     <EditText
         android:id="@+id/editText3"
