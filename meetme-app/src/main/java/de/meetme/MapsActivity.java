@@ -1,11 +1,12 @@
 package de.meetme;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.*;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.Manifest;
-import android.location.Location;
 import android.support.annotation.NonNull;
 
 import com.google.android.gms.maps.*;
@@ -14,7 +15,9 @@ import com.google.android.gms.maps.model.*;
 import android.app.Activity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Toast;
+import android.location.Geocoder;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,23 +26,11 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.io.IOException;
+import java.util.List;
 //import com.google.android.gms.maps.OnMyLocationButtonClickListener;
 //import com.google.android.gms.maps.OnMyLocationClickListener;
-
-
-/*public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
-    private GoogleMap mMap;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-    }
 
 
     /**
@@ -83,20 +74,47 @@ public class MapsActivity extends  AppCompatActivity
         ActivityCompat.OnRequestPermissionsResultCallback
 {
 
+    //String location =  "Johannesstr.90, 70176 Stuttgart";
+
     private static final int LOCATION_PERMISSION_REQUEST_CODE =1;
 
     private boolean mPermissionDenied = false;
 
     private GoogleMap mMap;
 
+    private String eventID;
+    private String adresse;
+    private String eventname;
+    private Double lat;
+    private Double lon;
+
+    private Marker locationMarker;
+
+
+
+
+    Geocoder geocoder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        eventID = intent.getStringExtra("eventID");
+        adresse = intent.getStringExtra("Adresse");
+        eventname = intent.getStringExtra("Eventname");
+
+
         setContentView(R.layout.activity_maps);
         SupportMapFragment supportmapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         supportmapFragment.getMapAsync(this);
+
+
     }
+
+
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -105,13 +123,32 @@ public class MapsActivity extends  AppCompatActivity
         mMap.setOnMyLocationButtonClickListener(this);
         mMap.setOnMyLocationClickListener(this);
         enableMyLocation();
+        geoLocate(adresse);
 
-        /* Add a marker in Sydney, Australia, and move the camera.
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
+
+
     }
 
+    public void geoLocate (String location ) {
+
+        geocoder = new Geocoder(this);
+        //Toast.makeText(MapsActivity.this, "jhgfhjkjhg" + lat + lon, Toast.LENGTH_SHORT).show();
+        try {
+            List<Address> list = geocoder.getFromLocationName(location, 1);
+            lat = list.get(0).getLatitude(); //getting latitude
+            lon = list.get(0).getLongitude();//getting longitude
+
+            Toast.makeText(MapsActivity.this, "jhgfhjkjhg" + lat + lon, Toast.LENGTH_SHORT).show();
+            LatLng standort = new LatLng(lat, lon);
+            locationMarker = mMap.addMarker(new MarkerOptions()
+            .position(standort).title(eventname + ": " + location));
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
     private void enableMyLocation() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 !=PackageManager.PERMISSION_GRANTED) {
@@ -124,7 +161,7 @@ public class MapsActivity extends  AppCompatActivity
 
     @Override
     public boolean onMyLocationButtonClick() {
-        Toast.makeText(this, "Zeige meine Location an:", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Meine Location", Toast.LENGTH_SHORT).show();
         return false;
     }
 

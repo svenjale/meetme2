@@ -243,4 +243,14 @@
         android:layout_alignLeft="@+id/textView24"
         android:layout_alignStart="@+id/textView24" />
 
+    <Button
+        android:id="@+id/button24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button2"
+        android:layout_alignEnd="@+id/textView20"
+        android:layout_alignRight="@+id/textView20"
+        android:layout_marginBottom="18dp"
+        android:text="Map anzeigen" />
+
 </android.widget.RelativeLayout>
