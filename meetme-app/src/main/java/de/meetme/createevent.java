@@ -161,8 +161,9 @@ public class createevent extends FragmentActivity implements View.OnClickListene
             Event event = new Event(id, eventname, beschreibung, ort, datum, uhrzeit, organisatorID);
             databaseEvents.child(id).setValue(event);
             databaseEventteilnehmer.child(id).child(organisatorID).setValue(organisatorID); // Johann: wahrscheinlich Problem, sobald mehrere Teilnehmer --> prüfen, sobald Eventinfos getestet werden kann
-            databaseEventanwesende.child(id).child(organisatorID).setValue(organisatorID);
+            //databaseEventanwesende.child(id).child(organisatorID).setValue(organisatorID);
             databaseTeilnahmen.child(organisatorID).child(id).setValue(id);
+
             Toast.makeText(this, "Das Event wurde erstellt", Toast.LENGTH_LONG).show();
             IDuebergabe=id;
         }else return;

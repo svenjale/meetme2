@@ -6,30 +6,32 @@ package de.meetme;
 
 public class UserLocation {
 
-        float lat;
-        float lng;
-        String userID;
+    double lat;
+    double lng;
+    String userID;
 
-        public UserLocation(){};
+    public UserLocation(){};
 
-        public UserLocation(float lat, float lng, String userID) {
+    public UserLocation(double lat, double lng, String userID) {
 
-            this.lat = lat;
-            this.lng = lng;
-            this.userID = userID;
-        }
+        this.lat = lat;
+        this.lng = lng;
+        this.userID = userID;
 
-        public float getLat() {
+    }
+
+    public double getLat() {
             return lat;
         }
 
-        public float getLng() {
+    public double getLng() {
             return lng;
         }
 
-        public String getUserID() {
+    public String getUserID() {
             return userID;
         }
-    }
+
+}
 
 

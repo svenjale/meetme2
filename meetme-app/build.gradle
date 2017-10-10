@@ -57,7 +57,7 @@ android {
         applicationId 'de.meetme.meetme-app'
 
         // Defines the minimum API level required to run the app.
-        minSdkVersion 15
+        minSdkVersion 16
 
         // Specifies the API level used to test the app.
         targetSdkVersion 26
@@ -165,5 +165,7 @@ dependencies {
     compile 'com.firebase:firebase-client-android:2.5.0'
     compile 'com.android.support:support-v4:26.+'
     compile 'com.android.support:recyclerview-v7:26.+'
+    compile 'com.google.android.gms:play-services:11.4.0'
+
 }
 apply plugin: 'com.google.gms.google-services'      //Firebase DB
