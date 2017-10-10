@@ -3,14 +3,18 @@ package de.meetme;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -38,6 +42,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private Firebase databaseEventanwesende;
     private Firebase databaseTeilnahmen;
     private Firebase databaseProfiles;
+    private Firebase databaseLocations;
     private ImageButton button9;
     private ImageButton button5;
     private TextView textView7;
@@ -86,6 +91,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         databaseEventteilnehmer = new Firebase(FIREBASE_URL).child("eventteilnehmer");
         databaseEventanwesende = new Firebase(FIREBASE_URL).child("eventanwesende");
         databaseTeilnahmen = new Firebase(FIREBASE_URL).child("teilnahmen");
+        databaseLocations = new Firebase(FIREBASE_URL).child("locations");
 
         button9 = findViewById(R.id.button9);
         button11 = findViewById(R.id.button11);
@@ -186,6 +192,30 @@ public class eventinfos extends Activity implements View.OnClickListener{
             databaseEventteilnehmer.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
             databaseTeilnahmen.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
             // wenn anwesend, dann auch Teilnehmer
+            Toast.makeText(this, "Check-In erfolgreich. Viel Spaß beim Event!", Toast.LENGTH_LONG).show();
+            databaseEventanwesende.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            databaseEventteilnehmer.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            databaseTeilnahmen.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
+            // wenn anwesend, dann auch Teilnehmer
+
+            LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
+            Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            double longitude = location.getLongitude();
+            double latitude = location.getLatitude();
+            UserLocation loc = new UserLocation(latitude, longitude,FirebaseAuth.getInstance().getCurrentUser().getUid() );
+            //databaseLocations.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
+            databaseLocations.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
+
             Toast.makeText(this, "Check-In erfolgreich. Viel Spaß beim Event!", Toast.LENGTH_LONG).show();
         }
         if (view == button2) {
