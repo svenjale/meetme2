@@ -74,6 +74,8 @@ public class MapsActivity extends  AppCompatActivity
         ActivityCompat.OnRequestPermissionsResultCallback
 {
 
+    //String location =  "Johannesstr.90, 70176 Stuttgart";
+
     private static final int LOCATION_PERMISSION_REQUEST_CODE =1;
 
     private boolean mPermissionDenied = false;
@@ -87,6 +89,9 @@ public class MapsActivity extends  AppCompatActivity
     private Double lon;
 
     private Marker locationMarker;
+
+
+
 
     Geocoder geocoder;
 
@@ -105,7 +110,11 @@ public class MapsActivity extends  AppCompatActivity
                 .findFragmentById(R.id.map);
         supportmapFragment.getMapAsync(this);
 
+
     }
+
+
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -115,6 +124,8 @@ public class MapsActivity extends  AppCompatActivity
         mMap.setOnMyLocationClickListener(this);
         enableMyLocation();
         geoLocate(adresse);
+
+
 
     }
 
@@ -127,11 +138,10 @@ public class MapsActivity extends  AppCompatActivity
             lat = list.get(0).getLatitude(); //getting latitude
             lon = list.get(0).getLongitude();//getting longitude
 
-           // Toast.makeText(MapsActivity.this, "jhgfhjkjhg" + lat + lon, Toast.LENGTH_SHORT).show();
+            Toast.makeText(MapsActivity.this, "jhgfhjkjhg" + lat + lon, Toast.LENGTH_SHORT).show();
             LatLng standort = new LatLng(lat, lon);
             locationMarker = mMap.addMarker(new MarkerOptions()
             .position(standort).title(eventname + ": " + location));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationMarker.getPosition(), 14));
 
 
         } catch (IOException e) {
@@ -139,8 +149,6 @@ public class MapsActivity extends  AppCompatActivity
         }
 
     }
-
-
     private void enableMyLocation() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 !=PackageManager.PERMISSION_GRANTED) {
