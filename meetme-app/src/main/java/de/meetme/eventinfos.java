@@ -55,6 +55,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private ImageButton button21;
     private ImageButton button23;
     private ImageButton button14;
+    private Button button24;
 
 
     private ValueEventListener eventListener;
@@ -97,6 +98,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button21 = findViewById(R.id.button21);
         button23 = findViewById(R.id.button23);
         button14 = findViewById(R.id.button14);
+        button24 = findViewById(R.id.button24);
 
         textView7 = findViewById(R.id.textView7);
         textView31 = findViewById(R.id.textView31);
@@ -118,6 +120,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button5.setOnClickListener(this);
         button21.setOnClickListener(this);
         button23.setOnClickListener(this);
+        button24.setOnClickListener(this);
 
 
     }
@@ -237,6 +240,13 @@ public class eventinfos extends Activity implements View.OnClickListener{
             Toast.makeText(this, "Wir werden dich 15 Min. vor Beginn erinnern", Toast.LENGTH_SHORT).show();
 
         }
+        if (view == button24) {
+            Intent Map = new Intent(eventinfos.this, MapsActivity.class);
+            Map.putExtra("eventID", uebergebeneID);
+            Map.putExtra("Adresse", whatsappOrt);
+            Map.putExtra("Eventname", whatsappName);
+
+            startActivity(Map);}
 
 
     }
