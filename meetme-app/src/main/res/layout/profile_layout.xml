@@ -166,24 +166,27 @@
         android:id="@+id/button2"
         android:layout_width="94dp"
         android:layout_height="55dp"
-        android:background="#a1fffafa"
+        android:background="#21fffafa"
         android:text="Profil"
         android:textSize="13dp"
         android:drawableTop="@drawable/ic_person_black_24dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/checkBox"
+        android:layout_alignEnd="@+id/checkBox" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="92dp"
         android:layout_height="55dp"
-        android:background="#a1fffafa"
+        android:background="#21fffafa"
         android:text="Map"
         android:textSize="13dp"
         android:drawableTop="@drawable/ic_map_black_24dp"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/checkBox" />
+        android:layout_toEndOf="@+id/button2"
+        android:layout_toRightOf="@+id/button2" />
 
     <Button
         android:id="@+id/button6"
@@ -194,7 +197,7 @@
         android:layout_alignParentRight="true"
         android:textSize="13dp"
         android:drawableTop="@drawable/ic_people_black_24dp"
-        android:background="#a1fffafa"
+        android:background="#21fffafa"
         android:text="Kontakte"
      />
 
@@ -202,7 +205,7 @@
         android:id="@+id/button7"
         android:layout_width="92dp"
         android:layout_height="55dp"
-        android:background="#a1fffafa"
+        android:background="#21fffafa"
         android:text="Walks"
         android:textSize="13dp"
         android:drawableTop="@drawable/ic_directions_walk_black_24dp"
