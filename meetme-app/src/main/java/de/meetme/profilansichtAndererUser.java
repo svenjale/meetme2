@@ -40,9 +40,10 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
     private Button button3;
     private Button button6;
     private Button button4;
-    private Button button16;
     private Button button18;
     private Button button19;
+    private ImageButton button14;
+
 
 
     @Override
@@ -57,6 +58,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         textView37 = (TextView) findViewById(R.id.textView37);
         textView34 = (TextView) findViewById(R.id.textView34);
         textView39 = (TextView) findViewById(R.id.textView39);
+        button14 = findViewById(R.id.button14);
 
 
 
@@ -65,7 +67,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
-        button16 = (Button) findViewById(R.id.button16);
+
         button18 = (Button) findViewById(R.id.button18);
         button19 = (Button) findViewById(R.id.button19);
 
@@ -74,7 +76,8 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
-        button16.setOnClickListener(this);
+        button14.setOnClickListener(this);
+
         textView34.setOnClickListener(this);
         button18.setOnClickListener(this);
         button19.setOnClickListener(this);
@@ -130,10 +133,11 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
             Intent Kontakte = new Intent(profilansichtAndererUser.this, kontakte.class);
             startActivity(Kontakte);
         }
-        if (view == button16) {
-            Intent Hilfe = new Intent(profilansichtAndererUser.this, help.class);
-            startActivity(Hilfe);
+        if (view == button14) {
+            Intent gohelp = new Intent(profilansichtAndererUser.this, helpevent.class);
+            startActivity(gohelp);
         }
+
         if (view == button18) {
             mitWhatsAppTeilen(button18);
         }
