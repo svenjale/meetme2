@@ -20,6 +20,7 @@
             android:textAlignment="center"
             android:gravity="center"
             android:textColor="#000000"
+            android:background="#00000"
             android:textStyle="bold"
             android:text="Willkommen auf unserer Hilfe-Seite"
             >
@@ -35,32 +36,40 @@
 \n
 \n
 \n                            Registrierung
-\n Bitte füge hier deine Email Adresse und ein Wunschpasswort ein.
-\n Wenn du dich schon registriert hast, so gehe zurück auf die Login-Seite.
+\n
+\nBitte füge hier deine Email Adresse und ein Wunschpasswort ein.
+\nWenn du dich schon registriert hast, so gehe zurück auf die Login-Seite.
 \n
 \n                                Login
-\n Wenn du dich schon registriert hast, gebe bitte deine Email Adresse und dein Passwort ein.
-\n Du bist noch nicht registriert? Gehe zur Registrierungsseite.
+\n
+\nWenn du dich schon registriert hast, gebe bitte deine Email Adresse und dein Passwort ein.
+\nDu bist noch nicht registriert? Gehe zur Registrierungsseite.
 \n
 \n                                Profil
-\n Bitte gebe hier deinen Vor- und Nachnamen ein. Außerdem kannst du eine Rolle wählen (Mehrfachauswahl ist möglich). Im Feld Kontakt kannst du deine gewünschten Kontaktmöglichkeiten eingeben, damit andere Nutzer dich kontaktieren können, zum Beispiel Telefonnummer oder Email Adresse.
+\n
+\nBitte gebe hier deinen Vor- und Nachnamen ein. Außerdem kannst du eine Rolle wählen (Mehrfachauswahl ist möglich). Im Feld Kontakt kannst du deine gewünschten Kontaktmöglichkeiten eingeben, damit andere Nutzer dich kontaktieren können, zum Beispiel Telefonnummer oder Email Adresse.
 \n
 \n                            Event erstellen
-\n Hier kannst du ein Event erstellen. Dafür musst du einen Eventnamen, eine Beschreibung, einen Ort sowie Datum und Uhrzeit eingeben. Die Beschreibung sollte kurz, aber aussagekräftig sein, damit andere Nutzer sich gerne zu deinem Event anmelden.
+\n
+\nHier kannst du ein Event erstellen. Dafür musst du einen Eventnamen, eine Beschreibung, einen Ort sowie Datum und Uhrzeit eingeben. Die Beschreibung sollte kurz, aber aussagekräftig sein, damit andere Nutzer sich gerne zu deinem Event anmelden.
 \n
 \n                               Event-Liste
-\n Dies ist eine Übersicht über alle Events mit Ort und Datum. Wenn du mehr Informationen über ein Event erfahren möchtest, so klicke es einfach an. Dort findest du auch die Beschreibung.
+\n
+\nDies ist eine Übersicht über alle Events mit Ort und Datum. Wenn du mehr Informationen über ein Event erfahren möchtest, so klicke es einfach an. Dort findest du auch die Beschreibung.
 \n
 \n                                Event Infos
-\n Hier siehst du dein ausgewähltes Event und seine Beschreibung. Außerdem erfährst du hier wann und wo es stattfindet und wer es organisiert. Du kommst von hier auch zu den Teilnehmern und Anwesenden. Wenn dich das Event interessiert, kannst du dich hier dafür anmelden.
-\n Bist du schon vor Ort? Dann kannst du dies hier anderen mitteilen.
+\n
+\nHier siehst du dein ausgewähltes Event und seine Beschreibung. Außerdem erfährst du hier wann und wo es stattfindet und wer es organisiert. Du kommst von hier auch zu den Teilnehmern und Anwesenden. Wenn dich das Event interessiert, kannst du dich hier dafür anmelden.
+\nBist du schon vor Ort? Dann kannst du dies hier anderen mitteilen.
 \n
 \n                            Teilnehmer-Liste
-\n Dies ist eine Liste, in der du sehen kannst, wer alles plant an dem Event teilzunehmen.
-\n (Von hier kannst du auch Kontakte zu deiner Kontaktliste hinzufügen).
+\n
+\nDies ist eine Liste, in der du sehen kannst, wer alles plant an dem Event teilzunehmen.
+\n(Von hier kannst du auch Kontakte zu deiner Kontaktliste hinzufügen).
 \n
 \n                        Profil eines anderen Nutzers
-\n Hier findest du Informationen über einen anderen Nutzer, sowie seine Rolle und Kontaktdaten, über welche du ihn kontaktieren darfst.
+\n
+\nHier findest du Informationen über einen anderen Nutzer, sowie seine Rolle und Kontaktdaten, über welche du ihn kontaktieren darfst.
 "
         android:textAlignment="center"
         android:textSize="18dp"

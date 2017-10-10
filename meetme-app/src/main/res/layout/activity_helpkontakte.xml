@@ -8,16 +8,34 @@
     android:layout_height="match_parent"
     tools:context="de.meetme.help">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textSize="22dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:text="Willkommen auf unserer Hilfe-Seite"
+            >
+        </TextView>
+    </LinearLayout>
 
 
     <TextView
         android:id="@+id/textViewHelpLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#000000"
         android:text="
-        Willkommen auf unserer Hilfe - Seite
+\n
         \n
-        \n --Kontakt--
+        \n                          Kontakt
         \n
 \n Bitte füge hier deine Email Adresse und ein Wunschpasswort ein.
 \n Wenn du dich schon registriert hast, so gehe zurück auf die Login-Seite.
