@@ -9,7 +9,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,8 +20,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import de.meetme.Help_Pages.helplogin;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -37,7 +34,6 @@ public class Login_Activity extends Activity implements View.OnClickListener {
     private EditText editTextPassword;
     private TextView textViewRegister;
     private String ErrorMessage;
-    private ImageButton button14;
 
     private FirebaseAuth firebaseAuth;
 
@@ -54,11 +50,9 @@ public class Login_Activity extends Activity implements View.OnClickListener {
         editTextPassword.setGravity(Gravity.CENTER);
         buttonLogIn = (Button) findViewById(R.id.buttonLogIn);
         textViewRegister = (TextView) findViewById(R.id.textViewRegister);
-        button14 = findViewById(R.id.button14);
 
         buttonLogIn.setOnClickListener(this);
         textViewRegister.setOnClickListener(this);
-        button14.setOnClickListener(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -142,63 +136,5 @@ public class Login_Activity extends Activity implements View.OnClickListener {
             switchregisintent.putExtra("password", editTextPassword.getText().toString());
             startActivity(switchregisintent);
         }
-        if(view == button14) {
-            Intent LoginHelp = new Intent(Login_Activity.this, helplogin.class);
-            startActivity(LoginHelp);
-        }
-    }
-
-    /**
-     * Created by lebenhag on 26.09.2017.
-     */
-
-    public static class Event {
-
-        String eventname;
-        String beschreibung;
-        String ort;
-        String datum;
-        String uhrzeit;
-        String organisatorID;
-        String eventID;
-       // public int teilnehmerAnzahl=0;
-
-        public Event (){
-        }
-        public Event(String eventID, String eventname, String beschreibung, String ort, String datum, String uhrzeit, String organisatorID) {
-            this.eventname = eventname;
-            this.beschreibung = beschreibung;
-            this.ort = ort;
-            this.datum = datum;
-            this.uhrzeit = uhrzeit;
-            this.organisatorID = organisatorID;
-            this.eventID=eventID;
-        }
-
-        public String getEventname() {
-            return eventname;
-        }
-
-        public String getBeschreibung() {
-            return beschreibung;
-        }
-
-        public String getOrt() {
-            return ort;
-        }
-
-       public String getDatum() {
-            return datum;
-        }
-
-        public String getUhrzeit() {
-            return uhrzeit;
-        }
-
-        public String getOrganisatorID() {return organisatorID;}
-
-        public String getEventID() {return eventID;}
-
-      //  public int getTeilnehmerAnzahl () {return teilnehmerAnzahl;}
     }
 }

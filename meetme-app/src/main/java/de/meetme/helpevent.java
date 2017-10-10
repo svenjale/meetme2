@@ -1,14 +1,12 @@
-package de.meetme.Help_Pages;
+package de.meetme;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
-import de.meetme.R;
 
-
-public class help extends Activity {
+public class helpevent extends help {
 
     private TextView textViewHelpLogin;
 

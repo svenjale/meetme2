@@ -23,8 +23,6 @@ import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import de.meetme.Help_Pages.help;
-
 
 public class createevent extends FragmentActivity implements View.OnClickListener  {
 // implements View.OnClickListener wieder einfügen

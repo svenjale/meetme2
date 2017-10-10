@@ -17,8 +17,6 @@ import android.widget.EditText;
 
 import com.firebase.client.Firebase;
 
-import de.meetme.Help_Pages.help;
-
 
 public class Profile_Activity extends Activity implements View.OnClickListener {
 

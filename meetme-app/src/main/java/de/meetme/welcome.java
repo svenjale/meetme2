@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
-import de.meetme.Help_Pages.help;
 
 
 public class welcome extends Activity implements View.OnClickListener {
