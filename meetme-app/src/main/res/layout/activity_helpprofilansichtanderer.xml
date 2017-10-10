@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="de.meetme.help">
+
+
+
+    <TextView
+        android:id="@+id/textViewHelpLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="
+        Willkommen auf unserer Hilfe - Seite
+        \n
+        \n --Registrierung--
+        \n
+\n Bitte füge hier deine Email Adresse und ein Wunschpasswort ein.
+\n Wenn du dich schon registriert hast, so gehe zurück auf die Login-Seite.
+\n
+\n --Login--
+\n
+\n Wenn du dich schon registriert hast, gebe bitte deine Email Adresse und dein Passwort ein.
+\n Du bist noch nicht registriert? Gehe zur Registrierungsseite.
+\n
+"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:maxLines="40"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+
+
+
+</android.widget.RelativeLayout>
+

@@ -43,6 +43,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
     private Button button16;
     private Button button18;
     private Button button19;
+    private ImageButton button14;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,9 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         textView34 = (TextView) findViewById(R.id.textView34);
         textView39 = (TextView) findViewById(R.id.textView39);
 
+
+        button14 = findViewById(R.id.button14);
+        button14.setOnClickListener(this);
         button15 = (ImageButton) findViewById(R.id.button15);
         button7 = (Button) findViewById(R.id.button7);
         button3 = (Button) findViewById(R.id.button3);
@@ -111,6 +115,11 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         if (view == button15) {
+
+        }
+        if (view == button14) {
+            Intent gohelp = new Intent(profilansichtAndererUser.this, helpprofilansichtanderer.class); //switch zur Registrierung
+            startActivity(gohelp);
 
         }
         if (view == button2) {

@@ -194,10 +194,6 @@ public class eventinfos extends Activity implements View.OnClickListener{
             Intent Map = new Intent(eventinfos.this, MapsActivity.class);
             startActivity(Map);
         }
-        if(view == button14) {
-            Intent EventHelp = new Intent(eventinfos.this, helpevent.class);
-            startActivity(EventHelp);
-        }
         if (view == button6) {
             Intent Kontakte = new Intent(eventinfos.this, kontakte.class);
             startActivity(Kontakte);

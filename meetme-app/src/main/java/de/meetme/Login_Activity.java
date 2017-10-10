@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class Login_Activity extends Activity implements View.OnClickListener {
     private EditText editTextPassword;
     private TextView textViewRegister;
     private String ErrorMessage;
+    private ImageButton button14;
 
     private FirebaseAuth firebaseAuth;
 
@@ -44,6 +46,8 @@ public class Login_Activity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_login_);       //???
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        button14 = findViewById(R.id.button14);
+        button14.setOnClickListener(this);
 
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         editTextEmail.setGravity(Gravity.CENTER);
@@ -135,6 +139,11 @@ public class Login_Activity extends Activity implements View.OnClickListener {
             switchregisintent.putExtra("email", editTextEmail.getText().toString());
             switchregisintent.putExtra("password", editTextPassword.getText().toString());
             startActivity(switchregisintent);
+        }
+        if (view == button14) {
+            Intent gohelp = new Intent(Login_Activity.this, helplogin.class); //switch zur Registrierung
+            startActivity(gohelp);
+
         }
     }
 }

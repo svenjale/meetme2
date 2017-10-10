@@ -5,15 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 
 public class kontakte extends Activity implements View.OnClickListener {
 
-    private Button button14;
+
     private Button button2;
     private Button button7;
     private Button button3;
     private Button button6;
+    private ImageButton button14;
+
 
 
     @Override
@@ -21,7 +24,7 @@ public class kontakte extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kontakte);
 
-        button14 = (Button) findViewById(R.id.button14);
+        button14 = (ImageButton) findViewById(R.id.button14);
 
         button7 = (Button) findViewById(R.id.button7);
         button3 = (Button) findViewById(R.id.button3);

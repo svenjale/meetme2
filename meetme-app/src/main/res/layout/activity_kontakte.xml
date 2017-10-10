@@ -76,6 +76,17 @@
         android:textSize="22dp"
         android:textColor="#000000"
         android:textStyle="bold" />
+    <ImageButton
+        android:id="@+id/button14"
+        android:layout_width="40dp"
+        android:src="@drawable/helpicon"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/mybutton"
+        />
+
 
 
 </android.widget.RelativeLayout>

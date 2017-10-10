@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +34,7 @@ public class HelloActivity extends Activity implements View.OnClickListener {
     private EditText editTextEmail;
     private EditText editTextPassword;
     private TextView textViewSignin;
-
+    private ImageButton button14;
     private String email = "";
     private String password = "";
 
@@ -58,22 +59,24 @@ public class HelloActivity extends Activity implements View.OnClickListener {
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         editTextEmail.setGravity(Gravity.CENTER);
         editTextPassword.setGravity(Gravity.CENTER);
+        button14 = findViewById(R.id.button14);
+        button14.setOnClickListener(this);
+
 
         textViewSignin = (TextView) findViewById(R.id.textViewSignin);
 
         buttonRegister.setOnClickListener(this);
         textViewSignin.setOnClickListener(this);
 
-        try{
+        try {
             Intent intentregis = getIntent();
-            email=intentregis.getStringExtra("email").toString();
-            password=intentregis.getStringExtra("password").toString();
+            email = intentregis.getStringExtra("email").toString();
+            password = intentregis.getStringExtra("password").toString();
             editTextEmail.setText(email);
             editTextPassword.setText(password);
-        }catch (NullPointerException exception){
+        } catch (NullPointerException exception) {
 
         }
-
 
 
         Log.e(TAG, "run client");
@@ -118,9 +121,9 @@ public class HelloActivity extends Activity implements View.OnClickListener {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Person profil = new Person ("", "", "", "+49", firebaseAuth.getInstance().getCurrentUser().getUid());
+                        Person profil = new Person("", "", "", "+49", firebaseAuth.getInstance().getCurrentUser().getUid());
                         databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
-                        profilansicht.aktuellerUser=profil;
+                        profilansicht.aktuellerUser = profil;
                         if (task.isSuccessful()) {
                             Toast.makeText(HelloActivity.this, "Erfolgreich registriert", Toast.LENGTH_SHORT).show();
                             //Benutzer ist erfolgreich mit Email und Passwort registriert und eingeloggt, öffne Profil Aktivität
@@ -160,9 +163,20 @@ public class HelloActivity extends Activity implements View.OnClickListener {
         if (view == buttonRegister) {
             registerUser();
         }
+        if (view == button14) {
+            Intent gohelp = new Intent(HelloActivity.this, helpregister.class); //switch zur Registrierung
+            startActivity(gohelp);
+
+        }
+        if (view == textViewSignin) {
+            Intent switchregisintent = new Intent(HelloActivity.this, Login_Activity.class); //switch zur Registrierung
+            switchregisintent.putExtra("email", editTextEmail.getText().toString());
+            switchregisintent.putExtra("password", editTextPassword.getText().toString());
+            startActivity(switchregisintent);
+        }
+
+
     }
-
-
 }
 
 
