@@ -28,6 +28,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.StringTokenizer;
 
+import de.meetme.Help_Pages.helpevent;
+
 
 public class eventinfos extends Activity implements View.OnClickListener{
 

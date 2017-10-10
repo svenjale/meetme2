@@ -1,9 +1,10 @@
-package de.meetme;
+package de.meetme.Help_Pages;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
+
+import de.meetme.R;
 
 
 public class helplogin extends help {
@@ -14,7 +15,7 @@ public class helplogin extends help {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help);
+        setContentView(R.layout.activity_helplogin);
 
         textViewHelpLogin = (TextView) findViewById(R.id.textViewHelpLogin);
 
