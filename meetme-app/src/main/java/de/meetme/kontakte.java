@@ -44,8 +44,6 @@ public class kontakte extends Activity implements View.OnClickListener {
         if (view == button14) {
             Intent gohelp = new Intent(kontakte.this, helpkontakte.class); //switch zur Registrierung
             startActivity(gohelp);
-
-
             }
             if (view == button2) {
                 Intent Profil = new Intent(kontakte.this, profilansicht.class);

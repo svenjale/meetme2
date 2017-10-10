@@ -2,7 +2,6 @@ package de.meetme;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,10 +31,10 @@ public class profilansicht extends Activity implements View.OnClickListener {
     private Button button3;
     private Button button6;
     private Button button4;
-    private Button button16;
     private ImageButton button22;
     private Button button20;
     private ImageButton button14;
+
 
     public static Person aktuellerUser;
     public static String aktuelleUserID;
@@ -57,18 +56,19 @@ public class profilansicht extends Activity implements View.OnClickListener {
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
-        button16 = (Button) findViewById(R.id.button16);
+
         button22 = (ImageButton) findViewById(R.id.button22);
         button20 = (Button) findViewById(R.id.button20);
-        button14 = (ImageButton) findViewById(R.id.button14);
 
+        button14 = findViewById(R.id.button14);
         button14.setOnClickListener(this);
+
         button15.setOnClickListener(this);
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
-        button16.setOnClickListener(this);
+
         button22.setOnClickListener(this);
         button20.setOnClickListener(this);
 
@@ -104,10 +104,12 @@ public class profilansicht extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+
         if (view == button14) {
-            Intent gohelp = new Intent(profilansicht.this, helpprofilansicht.class);
+            Intent gohelp = new Intent(profilansicht.this, help_profil.class);
             startActivity(gohelp);
         }
+
         if (view == button15) {
             Intent switchregisintent = new Intent(profilansicht.this, Profile_Activity.class); //switch zur Registrierung
             startActivity(switchregisintent);
@@ -129,10 +131,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
             Intent Kontakte = new Intent(profilansicht.this, kontakte.class);
             startActivity(Kontakte);
         }
-        if (view == button16) {
-            Intent Hilfe = new Intent(profilansicht.this, help.class);
-            startActivity(Hilfe);
-        }
+
         if (view == button22) {
             Intent logout = new Intent(profilansicht.this, welcome.class);
             FirebaseAuth.getInstance().signOut();

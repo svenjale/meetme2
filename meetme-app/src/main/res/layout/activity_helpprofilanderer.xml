@@ -17,16 +17,11 @@
         android:text="
         Willkommen auf unserer Hilfe - Seite
         \n
-        \n --Registrierung--
+        \n --Kontakt--
         \n
 \n Bitte füge hier deine Email Adresse und ein Wunschpasswort ein.
 \n Wenn du dich schon registriert hast, so gehe zurück auf die Login-Seite.
-\n
-\n --Login--
-\n
-\n Wenn du dich schon registriert hast, gebe bitte deine Email Adresse und dein Passwort ein.
-\n Du bist noch nicht registriert? Gehe zur Registrierungsseite.
-\n
+
 "
         android:textAlignment="center"
         android:textSize="18dp"
@@ -39,4 +34,3 @@
 
 
 </android.widget.RelativeLayout>
-

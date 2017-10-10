@@ -11,6 +11,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +38,7 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
     private Button button3;
     private Button button6;
     private Button button13;
+    private ImageButton button14;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +52,15 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
         button13 = (Button) findViewById(R.id.button13);
+        button14 = findViewById(R.id.button14);
 
+        button14.setOnClickListener(this);
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
         button13.setOnClickListener(this);
+
     }
 
     @Override
@@ -113,6 +118,11 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
     }
 
     public void onClick(View view) {
+       if (view == button14) {
+           Intent help = new Intent (Eventliste_activity.this, helpevent.class);
+           startActivity(help);
+       }
+
         if (view == button2) {
             Intent Profil = new Intent(Eventliste_activity.this, profilansicht.class);
             startActivity(Profil);
