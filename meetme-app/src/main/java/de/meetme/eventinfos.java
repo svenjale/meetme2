@@ -55,7 +55,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private ImageButton button21;
     private ImageButton button23;
     private ImageButton button14;
-    private Button button24;
+    private ImageButton button24;
 
 
     private ValueEventListener eventListener;
