@@ -209,7 +209,7 @@ public class MapsActivity extends  AppCompatActivity
                                     Name = profil.getVorname() + " " + profil.getName();
                                     Rolle = profil.getRolle();
                                     mMap.addMarker(new MarkerOptions().position(location).title(Name).snippet(Rolle).
-                                            icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+                                            icon(BitmapDescriptorFactory.fromResource(R.drawable.faceicon)));
                                 }
 
                                 @Override
