@@ -75,13 +75,13 @@ public class MyAlarmService extends Service {
             mManager.createNotificationChannel(mChannel);
 
             //Notification.Action action = new Notification.Action( 0, "Details anzeigen",pendingNotificationIntent);
-            NotificationCompat.Action action = new NotificationCompat.Action.Builder(R.drawable.camera, "Details anzeigen", pendingNotificationIntent).build();
+            NotificationCompat.Action action = new NotificationCompat.Action.Builder(R.drawable.smapicons, "Details anzeigen", pendingNotificationIntent).build();
 
 
             notification = new NotificationCompat.Builder(this.getApplicationContext(), id)
                     .setContentTitle("Photowalk beginnt!")
                     .setContentText(intent.getStringExtra("name")+" startet um "+intent.getStringExtra("uhrzeit")+" Uhr")
-                    .setSmallIcon(R.drawable.camera)
+                    .setSmallIcon(R.drawable.smapicons)
                     .addAction(action)
                     .setContentIntent(pendingNotificationIntent);
 
@@ -100,7 +100,7 @@ public class MyAlarmService extends Service {
                     .setDefaults(Notification.DEFAULT_ALL)
                     .setContentTitle("Photowalk beginnt!")
                     .setContentText(intent.getStringExtra("name")+" startet um "+intent.getStringExtra("uhrzeit")+" Uhr")
-                    .setSmallIcon(R.drawable.camera)
+                    .setSmallIcon(R.drawable.smapicons)
                     //.setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400})
                     .setSound(soundUri)
                     .setPriority(4)
