@@ -17,8 +17,6 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
 
@@ -174,6 +172,7 @@ public class MapsActivity extends  AppCompatActivity
             //Toast.makeText(MapsActivity.this, "jhgfhjkjhg" + lat + lon, Toast.LENGTH_SHORT).show();
             LatLng standort = new LatLng(lat, lon);
             locationMarker = mMap.addMarker(new MarkerOptions().position(standort).title(eventname + ": " + location));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationMarker.getPosition(), 14));
             } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(MapsActivity.this, "Fehler beim Anzeigen des Event Standortes", Toast.LENGTH_SHORT).show();
@@ -187,9 +186,6 @@ public class MapsActivity extends  AppCompatActivity
 
 
     private void addUserMarkersToMap(GoogleMap map) {
-
-
-
 
         databaseEventanwesende.addValueEventListener(new ValueEventListener() {
             @Override
@@ -212,7 +208,8 @@ public class MapsActivity extends  AppCompatActivity
                                     Person profil = dataSnapshot3.getValue(Person.class);
                                     Name = profil.getVorname() + " " + profil.getName();
                                     Rolle = profil.getRolle();
-                                    mMap.addMarker(new MarkerOptions().position(location).title(Name).snippet(Rolle));
+                                    mMap.addMarker(new MarkerOptions().position(location).title(Name).snippet(Rolle).
+                                            icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
                                 }
 
                                 @Override
