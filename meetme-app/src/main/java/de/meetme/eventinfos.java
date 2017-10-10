@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -54,6 +55,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private ImageButton button21;
     private ImageButton button23;
     private ImageButton button14;
+
 
     private ValueEventListener eventListener;
 
@@ -105,6 +107,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
 
         textView17.setOnClickListener(this);
 
+        button14.setOnClickListener(this);
         button11.setOnClickListener(this);
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
@@ -189,6 +192,11 @@ public class eventinfos extends Activity implements View.OnClickListener{
         if (view == button7) {
             Intent Walk = new Intent(eventinfos.this, Eventliste_activity.class);
             startActivity(Walk);
+        }
+        if (view == button14) {
+            Intent gohelp = new Intent(eventinfos.this, helpevent.class);
+            startActivity(gohelp);
+
         }
         if (view == button3) {
             Intent Map = new Intent(eventinfos.this, MapsActivity.class);

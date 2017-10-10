@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import de.meetme.R;
 
-public class helpprofilansichtanderer extends AppCompatActivity {
+public class helpprofilansichtanderer extends help {
 
     private TextView textViewHelpLogin;
 

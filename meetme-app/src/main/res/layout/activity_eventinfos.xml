@@ -12,11 +12,10 @@
         android:layout_width="40dp"
         android:src="@drawable/helpicon"
         android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="8dp"
         android:background="@drawable/mybutton"
-         />
+        android:layout_alignBottom="@+id/textView7"
+        android:layout_toRightOf="@+id/textView31"
+        android:layout_toEndOf="@+id/textView31" />
 
     <ImageButton
         android:id="@+id/button21"

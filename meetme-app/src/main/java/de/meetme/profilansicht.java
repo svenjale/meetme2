@@ -2,6 +2,7 @@ package de.meetme;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +35,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
     private Button button16;
     private ImageButton button22;
     private Button button20;
+    private ImageButton button14;
 
     public static Person aktuellerUser;
     public static String aktuelleUserID;
@@ -58,8 +60,9 @@ public class profilansicht extends Activity implements View.OnClickListener {
         button16 = (Button) findViewById(R.id.button16);
         button22 = (ImageButton) findViewById(R.id.button22);
         button20 = (Button) findViewById(R.id.button20);
+        button14 = (ImageButton) findViewById(R.id.button14);
 
-
+        button14.setOnClickListener(this);
         button15.setOnClickListener(this);
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
@@ -101,6 +104,10 @@ public class profilansicht extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        if (view == button14) {
+            Intent gohelp = new Intent(profilansicht.this, helpprofilansicht.class);
+            startActivity(gohelp);
+        }
         if (view == button15) {
             Intent switchregisintent = new Intent(profilansicht.this, Profile_Activity.class); //switch zur Registrierung
             startActivity(switchregisintent);
