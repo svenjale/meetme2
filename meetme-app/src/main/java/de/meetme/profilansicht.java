@@ -106,7 +106,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
     public void onClick(View view) {
 
         if (view == button14) {
-            Intent gohelp = new Intent(profilansicht.this, help_profil.class);
+            Intent gohelp = new Intent(profilansicht.this, helpmain.class);
             startActivity(gohelp);
         }
 
