@@ -210,7 +210,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
                 return;
             }
             try {
-                Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                Location location = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                 double longitude = location.getLongitude();
                 double latitude = location.getLatitude();
                 UserLocation loc = new UserLocation(latitude, longitude, FirebaseAuth.getInstance().getCurrentUser().getUid());

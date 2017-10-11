@@ -88,6 +88,25 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="8dp" />
 
+    <ListView
+        android:id="@+id/@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="9dp" />
+
+    <ListView
+        android:id="@+id/@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="9dp" />
 
 
 </android.widget.RelativeLayout>

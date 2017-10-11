@@ -30,6 +30,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
 
     private FirebaseAuth firebaseAuth;
     private Firebase databaseProfiles;
+    private Firebase databaseKontakte;
     private TextView textView33;
     private TextView textView37;
     private TextView textView34;
@@ -86,6 +87,8 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
 
 
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(uebergebeneID);
+        databaseKontakte = new Firebase(FIREBASE_URL).child("kontakte").child(firebaseAuth.getInstance().getCurrentUser().getUid());
+
         //Test: Toast.makeText(profilansicht.this, databaseProfiles.getKey(), Toast.LENGTH_SHORT).show();
     }
 
@@ -161,6 +164,11 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
             intent.setData(Uri.parse("tel:"+whatsappKontakt));
             startActivity(intent);
             // hier evtl TELEFONANRUF implementieren
+        }
+        if (view==button15){
+            databaseKontakte.child(uebergebeneID).setValue(uebergebeneID);
+            Toast.makeText(profilansichtAndererUser.this, ""+aktuellerName+" wurde zu deinen Kontakten hinzugefügt.", Toast.LENGTH_SHORT).show();
+
         }
     }
 
