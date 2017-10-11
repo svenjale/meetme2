@@ -56,7 +56,7 @@ public class kontakte extends Activity implements View.OnClickListener {
             }
             if (view == button3) {
 
-                Intent Map = new Intent(kontakte.this, map.class);
+                Intent Map = new Intent(kontakte.this, MapsActivity.class);
                 startActivity(Map);
             }
             if (view == button6) {
