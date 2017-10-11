@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/schlossblurr"
     tools:context="de.meetme.help">
 
     <LinearLayout
@@ -35,18 +36,15 @@
         android:textColor="#000000"
         android:text="
         \n
-        \n
-        \n                      Profil
-        \n
-\n1.Willst du dich ausloggen?
-\nDu findest einen Log-out Button in der oberen linken Ecke. Drücke auf diesen um dich auszuloggen.
-\n
-\n2.Stimmen deine Profil-Daten nicht?
-\nDrücke auf den Bearbeiten Button um deine Profil-Infos zu ändern. Du wirst auf die Profil bearbeiten Seite weitergeleiter und kannst anschließend
-\nNachname,Vorname,Rollen und Telefonnummer verändern. Zuletzt musst du eine Eingaben durch das Drücken des Save Buttons bestätigen.
-\n
-\n3.Du willst wissen an welchen Photowalks du bereits teilgenommen hast beziehungsweise teilnehmen wirst?
-\nDrücke den Photowalk-Teilnahmen Button um deine künftigen und vergangenen Photowalks einzusehen.
+\n                               Dein Profil
+\nWenn du dich ausloggen möchtest, findest du den Log-Out Button in der oberen linken Ecke. Drücke auf diesen, um dich auszuloggen. Bis bald!
+\n                               Profildaten
+\nHier hast du die Möglichkeit, deine Informationen wie Nachname,Vorname,Rollen und Telefonnummer zu aktualisieren. Am Ende musst du eine Eingaben nur noch mithilfe des Speichern Buttons bestätigen. Du kannst jederzeit hierher zurückkehren und deine Informationen bearbeiten.
+\n                                Teilnahmen
+\nDu willst wissen, an welchen Photowalks du bereits teilgenommen hast oder zu welchen zukünftigen Walks du dich angemeldet hast?
+\nDrücke den Photowalk-Teilnahmen Button und schon kannst du deine künftigen und vergangenen Photowalks einzusehen.
+\n                         Profil eines anderen Users
+\nHier kannst du Informationen, wie Namen, Rolle und Kontaktdaten eines anderen Users einsehen. Du kannst ihn über die Sternchen Funktion zu deiner Kontaktliste hinzufügen, um später Kontakt zu ihm aufzunehmen. Ebenso kannst du aber auch schon hier per Anruf oder per Nachricht direkt mit dem User Kontakt aufnehmen.
 "
         android:textAlignment="center"
         android:textSize="18dp"

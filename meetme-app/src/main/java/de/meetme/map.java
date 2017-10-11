@@ -8,12 +8,13 @@ import android.view.View;
 import android.widget.Button;
 
 
-public class map extends Activity implements View.OnClickListener{
+public class map extends Activity implements View.OnClickListener {
 
     private Button button2;
     private Button button7;
     private Button button3;
     private Button button6;
+    private Button button4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +25,13 @@ public class map extends Activity implements View.OnClickListener{
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
-
-
+        button4 = (Button) findViewById(R.id.button4);
 
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
+        button4.setOnClickListener(this);
     }
 
     @Override
@@ -53,8 +54,11 @@ public class map extends Activity implements View.OnClickListener{
 
             Intent Kontakte = new Intent(map.this, kontakte.class);
             startActivity(Kontakte);
-
         }
+        if (view == button4) {
 
+            Intent Hilfe = new Intent(map.this, helpmap.class);
+            startActivity(Hilfe);
+        }
     }
 }

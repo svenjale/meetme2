@@ -28,24 +28,25 @@
     </LinearLayout>
 
 
+
     <TextView
         android:id="@+id/textViewHelpLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:maxLines="40"
+        android:textColor="#000000"
         android:text="
         \n
-        \n                              Registrierung
+\n                       Events in deiner Nähe
+\nAuf der Karte kannst du sehen, welche Events in deiner Nähe sind. Wenn du auf den Marker klickst, öffnet sich der Name, sowie der Ort des Events, unnd bei erneutem Klicken wirst du direkt zur Info-Seite des ausgewählten Events weitergeleitet. Dort findest du dann weitere Informationen, sowie die Möglichkeit, dich als Teilnehmer zu registrieren.
 
-\n Hier kannst du dich mit deiner Email und einem Wunschpasswort registrieren. Bitte achte darauf, dass dein Passwort länger als sechs Zeichen lang ist.
-\n
-\n Wenn du dich schon einmal registriert hast, kannst du dich auf der Login Seite einloggen.
 
 "
         android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:maxLines="40"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
 
 
 

@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/schlossblurr"
     tools:context="de.meetme.help">
 
     <LinearLayout
@@ -33,13 +34,12 @@
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:text="
-\n
-        \n
-        \n                          Kontakt
-        \n
-\n Bitte füge hier deine Email Adresse und ein Wunschpasswort ein.
-\n Wenn du dich schon registriert hast, so gehe zurück auf die Login-Seite.
 
+
+        \n                                 Kontakt
+
+ Hier kannst du deine Lieblingsfotografen, -models, -organisatoren und -visagisten einsehen.
+\n Ein Klick auf ihren Namen und du gelangst zum gewünschten Profil, wo du dann auch Kontakt aufnehmen kannst.
 "
         android:textAlignment="center"
         android:textSize="18dp"

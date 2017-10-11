@@ -155,7 +155,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
             startActivity(Kontakte);
         }
         if (view == button14) {
-            Intent gohelp = new Intent(profilansichtAndererUser.this, helpevent.class);
+            Intent gohelp = new Intent(profilansichtAndererUser.this, helpmain.class);
             startActivity(gohelp);
         }
 
