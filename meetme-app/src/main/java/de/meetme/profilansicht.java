@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -34,6 +36,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
     private ImageButton button22;
     private Button button20;
     private ImageButton button14;
+    private Animation animfadein;
 
 
     public static Person aktuellerUser;
@@ -63,6 +66,18 @@ public class profilansicht extends Activity implements View.OnClickListener {
         button14 = findViewById(R.id.button14);
         button14.setOnClickListener(this);
 
+        animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+// load the animation
+
+        button2.setVisibility(View.VISIBLE);
+        button2.setAnimation(animfadein);
+        button3.setVisibility(View.VISIBLE);
+        button3.setAnimation(animfadein);
+        button6.setVisibility(View.VISIBLE);
+        button6.setAnimation(animfadein);
+        button7.setVisibility(View.VISIBLE);
+        button7.setAnimation(animfadein);
+        
         button15.setOnClickListener(this);
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);

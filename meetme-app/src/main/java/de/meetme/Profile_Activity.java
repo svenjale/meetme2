@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -42,6 +44,7 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
     private CheckBox checkBox2;
     private CheckBox checkBox3;
     private CheckBox checkBox4;
+    private Animation animfadein;
 
 
 
@@ -68,6 +71,17 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
         checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
         checkBox3 = (CheckBox) findViewById(R.id.checkBox3);
         checkBox4 = (CheckBox) findViewById(R.id.checkBox4);
+
+        animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+// load the animation
+        button2.setVisibility(View.VISIBLE);
+        button2.setAnimation(animfadein);
+        button3.setVisibility(View.VISIBLE);
+        button3.setAnimation(animfadein);
+        button6.setVisibility(View.VISIBLE);
+        button6.setAnimation(animfadein);
+        button7.setVisibility(View.VISIBLE);
+        button7.setAnimation(animfadein);
 
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);

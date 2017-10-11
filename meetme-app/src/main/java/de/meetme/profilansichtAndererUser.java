@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -46,7 +48,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
     private Button button19;
     private ImageButton button14;
     private ImageButton imageButton3;
-
+    private Animation animfadein;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +75,18 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
-
         button18 = (ImageButton) findViewById(R.id.button18);
         button19 = (Button) findViewById(R.id.button19);
+        animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+// load the animation
+        button2.setVisibility(View.VISIBLE);
+        button2.setAnimation(animfadein);
+        button3.setVisibility(View.VISIBLE);
+        button3.setAnimation(animfadein);
+        button6.setVisibility(View.VISIBLE);
+        button6.setAnimation(animfadein);
+        button7.setVisibility(View.VISIBLE);
+        button7.setAnimation(animfadein);
 
         imageButton3.setOnClickListener(this);
         button15.setOnClickListener(this);

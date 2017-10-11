@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -61,6 +63,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private ImageButton button23;
     private ImageButton button14;
     private ImageButton button24;
+    private Animation animfadein;
 
 
     private ValueEventListener eventListener;
@@ -105,6 +108,17 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button23 = findViewById(R.id.button23);
         button14 = findViewById(R.id.button14);
         button24 = findViewById(R.id.button24);
+        animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+// load the animation
+
+        button2.setVisibility(View.VISIBLE);
+        button2.setAnimation(animfadein);
+        button3.setVisibility(View.VISIBLE);
+        button3.setAnimation(animfadein);
+        button6.setVisibility(View.VISIBLE);
+        button6.setAnimation(animfadein);
+        button7.setVisibility(View.VISIBLE);
+        button7.setAnimation(animfadein);
 
         textView7 = findViewById(R.id.textView7);
         textView31 = findViewById(R.id.textView31);

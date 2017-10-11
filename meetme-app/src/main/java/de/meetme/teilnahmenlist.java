@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -33,6 +35,7 @@ public class teilnahmenlist extends ListActivity implements View.OnClickListener
     private Button button3;
     private Button button6;
     private TextView titelView;
+    private Animation animfadein;
 
     private String uebergebeneID;
     String uebergebenerName;
@@ -55,7 +58,17 @@ public class teilnahmenlist extends ListActivity implements View.OnClickListener
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
         titelView = (TextView) findViewById(R.id.textView);
+        animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+// load the animation
 
+        button2.setVisibility(View.VISIBLE);
+        button2.setAnimation(animfadein);
+        button3.setVisibility(View.VISIBLE);
+        button3.setAnimation(animfadein);
+        button6.setVisibility(View.VISIBLE);
+        button6.setAnimation(animfadein);
+        button7.setVisibility(View.VISIBLE);
+        button7.setAnimation(animfadein);
 
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);

@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -39,6 +41,7 @@ public class kontakte extends ListActivity implements View.OnClickListener{
     private Button button6;
     private TextView titelView;
     private ImageButton button14;
+    private Animation animfadein;
 
     private String uebergebeneID;
     String uebergebenerName;
@@ -58,6 +61,17 @@ public class kontakte extends ListActivity implements View.OnClickListener{
         button2 = (Button) findViewById(R.id.button2);
         button14 = (ImageButton) findViewById(R.id.button14);
         titelView=(TextView) findViewById(R.id.textView);
+        animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+// load the animation
+
+        button2.setVisibility(View.VISIBLE);
+        button2.setAnimation(animfadein);
+        button3.setVisibility(View.VISIBLE);
+        button3.setAnimation(animfadein);
+        button6.setVisibility(View.VISIBLE);
+        button6.setAnimation(animfadein);
+        button7.setVisibility(View.VISIBLE);
+        button7.setAnimation(animfadein);
 
 
         button7.setOnClickListener(this);
