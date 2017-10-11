@@ -36,16 +36,17 @@
         android:text="
         \n
         \n
-        \n                      Registrierung
+        \n                      Profil
         \n
-\n Bitte füge hier deine Email Adresse und ein Wunschpasswort ein.
-\n Wenn du dich schon registriert hast, so gehe zurück auf die Login-Seite.
+\nWillst du dich ausloggen?
+\nDu findest einen Log-out Button in der oberen linken Ecke. Drücke auf diesen um dich auszuloggen.
 \n
-\n                                  Login
+\nStimmen deine Profil-Daten nicht?
+\nDrücke auf den Bearbeiten Button um deine Profil-Infos zu ändern. Du wirst auf die Profil bearbeiten Seite weitergeleiter und kannst anschließend
+\nNachname,Vorname,Rollen und Telefonnummer verändern. Zuletzt musst du eine Eingaben durch das Drücken des Save Buttons bestätigen.
 \n
-\n Wenn du dich schon registriert hast, gebe bitte deine Email Adresse und dein Passwort ein.
-\n Du bist noch nicht registriert? Gehe zur Registrierungsseite.
-\n
+\nDu willst wissen an welchen Photowalks du bereits teilgenommen hast beziehungsweise teilnehmen wirst?
+\nDrücke den Photowalk-Teilnahmen Button um deine künftigen und vergangenen Photowalks einzusehen.
 "
         android:textAlignment="center"
         android:textSize="18dp"
