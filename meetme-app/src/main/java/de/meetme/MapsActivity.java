@@ -43,7 +43,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 //import com.google.android.gms.maps.OnMyLocationButtonClickListener;
@@ -93,7 +95,12 @@ public class MapsActivity extends  AppCompatActivity
     private static final int LOCATION_PERMISSION_REQUEST_CODE =1;
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
 
-    private boolean mPermissionDenied = false;
+        private static Map<Marker, String> allPersonMap = new HashMap<Marker, String>();
+        private static Map<Marker, String> allEventMap = new HashMap<Marker, String>();
+
+
+
+        private boolean mPermissionDenied = false;
 
     private GoogleMap mMap;
 
@@ -186,7 +193,7 @@ public class MapsActivity extends  AppCompatActivity
 
         geocoder = new Geocoder(this);
 
-        if (geocoder.isPresent()){
+        if (Geocoder.isPresent()){
         databaseEvents.child(eventID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -195,6 +202,7 @@ public class MapsActivity extends  AppCompatActivity
                 String name = event2.getEventname();
                 String datum = event2.getDatum();
                 String uhrzeit = event2.getUhrzeit();
+                String id = event2.getEventID();
                 try {
                     List<Address> list = geocoder.getFromLocationName(location, 1);
                     lat = list.get(0).getLatitude(); //getting latitude
@@ -202,6 +210,11 @@ public class MapsActivity extends  AppCompatActivity
                     //Toast.makeText(MapsActivity.this, "jhgfhjkjhg" + lat + lon, Toast.LENGTH_SHORT).show();
                     LatLng standort = new LatLng(lat, lon);
                     locationMarker = mMap.addMarker(new MarkerOptions().position(standort).title(name).snippet("Am "+datum+" um "+uhrzeit+" Uhr").icon(BitmapDescriptorFactory.fromResource(R.drawable.smapicons_klein)));
+                    /*if(allEventMap.get(id)!=null){
+                        allEventMap.remove(locationMarker);
+                        Marker.remove
+                    }*/  // HIER CODE FÜR MARKER VERÄNDERN, z.B. Blick in Hashmap, gibt es bereits einen Marker mit der ID, wenn ja, Marker von Map und Hashmap entfernen und neuen hinzufügen zu beidem
+                    allEventMap.put(locationMarker, id);
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -247,11 +260,14 @@ public class MapsActivity extends  AppCompatActivity
                                     Person profil = dataSnapshot3.getValue(Person.class);
                                     Name = profil.getVorname() + " " + profil.getName();
                                     Rolle = profil.getRolle();
+                                    String id=profil.getPersonID();
                                     if (profil.getPersonID().equals(profilansicht.aktuelleUserID)) {
                                         return;
                                     }else{
                                             mMap.addMarker(new MarkerOptions().position(location).title(Name).snippet(Rolle).
                                             icon(BitmapDescriptorFactory.fromResource(R.drawable.faceicon)));
+                                            allPersonMap.put(locationMarker, id); // hier Code für Marker verschieben, z.B. Blick in Hashmap, gibt es bereits einen Marker mit der ID, wenn ja, Marker von Map und Hashmap entfernen und neuen hinzufügen zu beidem
+
                                     }
                                 }
 
@@ -426,7 +442,29 @@ public class MapsActivity extends  AppCompatActivity
 
     @Override
     public boolean onMarkerClick(Marker marker) {
+
         // hier onClick Profil öffnen mit Übergabe der ID an Intent Profilansicht anderer User
+
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+
+            @Override
+            public void onInfoWindowClick(Marker arg0) {
+                if (allEventMap.get(arg0)!=null){
+                    Intent event = new Intent (MapsActivity.this, eventinfos.class);
+                    event.putExtra("ID", allEventMap.get(arg0));
+                    startActivity(event);
+                }else{
+                    if (allPersonMap.get(arg0)!=null){
+                        Intent profile = new Intent(MapsActivity.this, profilansichtAndererUser.class);
+                        profile.putExtra("ID", allPersonMap.get(arg0));
+                        startActivity(profile);
+                    }
+                }
+
+            }
+        });
+
+
         return false;
     }
 }
