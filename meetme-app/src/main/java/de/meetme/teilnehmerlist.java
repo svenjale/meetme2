@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -35,6 +36,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
     private Button button3;
     private Button button6;
     private TextView titelView;
+    private ImageButton button14;
 
     private String uebergebeneID;
     String uebergebenerName;
@@ -57,12 +59,15 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
         titelView = (TextView) findViewById(R.id.textView);
+        button14 = (ImageButton) findViewById(R.id.button14);
+
 
 
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
+        button14.setOnClickListener(this);
     }
 
     public void onStart() {

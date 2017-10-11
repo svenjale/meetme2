@@ -49,10 +49,6 @@ public class kontakte extends ListActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teilnehmerlist);
 
-        Intent intent = getIntent();
-        uebergebeneID = intent.getStringExtra("ID");
-        uebergebenerName=intent.getStringExtra("Name");
-
         databaseKontakte = new Firebase(FIREBASE_URL).child("kontakte").child(firebaseAuth.getInstance().getCurrentUser().getUid());
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles");
 
@@ -60,7 +56,7 @@ public class kontakte extends ListActivity implements View.OnClickListener{
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
-      //  button14 = (ImageButton) findViewById(R.id.button14);
+        button14 = (ImageButton) findViewById(R.id.button14);
         titelView=(TextView) findViewById(R.id.textView);
 
 
@@ -68,7 +64,7 @@ public class kontakte extends ListActivity implements View.OnClickListener{
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
-//        button14.setOnClickListener(this);
+        button14.setOnClickListener(this);
     }
 
     public void onStart() {
@@ -142,14 +138,17 @@ public class kontakte extends ListActivity implements View.OnClickListener{
             startActivity(Walk);
         }
         if (view == button3) {
-            Intent Map = new Intent(kontakte.this, map.class);
+            Intent Map = new Intent(kontakte.this, MapsActivity.class);
             startActivity(Map);
         }
         if (view == button6) {
             Intent Kontakte = new Intent(kontakte.this, kontakte.class);
             startActivity(Kontakte);
         }
-
+        if (view == button14) {
+            Intent gohelp = new Intent(kontakte.this, helpkontakte.class); //switch zur Registrierung
+            startActivity(gohelp);
+        }
     }
 }
 /*

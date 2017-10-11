@@ -35,6 +35,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
     private TextView textView37;
     private TextView textView34;
     private TextView textView39;
+    private TextView textView21;
     private ImageButton button15;
     private Button button2;
     private Button button7;
@@ -60,6 +61,9 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         textView37 = (TextView) findViewById(R.id.textView37);
         textView34 = (TextView) findViewById(R.id.textView34);
         textView39 = (TextView) findViewById(R.id.textView39);
+        textView21 = (TextView) findViewById(R.id.textView21);
+
+
         button14 = findViewById(R.id.button14);
 
 
@@ -107,6 +111,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
                 ((TextView) findViewById(R.id.textView37)).setText(ansicht.getVorname());
                 ((TextView) findViewById(R.id.textView39)).setText(ansicht.getRolle().trim());
                 ((TextView) findViewById(R.id.textView34)).setText(ansicht.getKontakt());
+                ((TextView) findViewById(R.id.textView21)).setText("Profil von "+ansicht.getVorname());
                 whatsappKontakt = ansicht.getKontakt();
                 aktuellerName=ansicht.getVorname()+" "+ansicht.getName();
             }
