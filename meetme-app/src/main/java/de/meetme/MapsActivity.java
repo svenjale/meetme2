@@ -114,7 +114,7 @@ public class MapsActivity extends  AppCompatActivity
     ChildEventListener locationlistener;
     Firebase databaseLocations;
         Firebase databaseLocations2;
-
+        Firebase databaseEvents;
         Firebase databaseProfiles;
         Firebase databaseEventanwesende;
 
@@ -133,13 +133,15 @@ public class MapsActivity extends  AppCompatActivity
 
         //mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        Intent intent = getIntent();
-        eventID = intent.getStringExtra("eventID");
-        adresse = intent.getStringExtra("Adresse");
-        eventname = intent.getStringExtra("Eventname");
+        try {
+            Intent intent = getIntent();
+            eventID = intent.getStringExtra("eventID");
+            adresse = intent.getStringExtra("Adresse");
+            eventname = intent.getStringExtra("Eventname");
+        }catch (NullPointerException e){}
 
-        databaseEventanwesende= new Firebase(FIREBASE_URL).child("eventanwesende").child(eventID);
         databaseLocations2= new Firebase(FIREBASE_URL).child("locations");
+        databaseEvents= new Firebase(FIREBASE_URL).child("events");
 
 
         setContentView(R.layout.activity_maps);
@@ -156,29 +158,66 @@ public class MapsActivity extends  AppCompatActivity
         mMap.setOnMyLocationClickListener(this);
         mMap.setOnMarkerClickListener(this);
         enableMyLocation();
-        geoLocate(adresse);
-        addUserMarkersToMap(mMap);
 
+        if (eventID!=null){
+            geoLocate(eventID);
+            databaseEventanwesende= new Firebase(FIREBASE_URL).child("eventanwesende").child(eventID);
+            addUserMarkersToMap(mMap);
+        }else{
+            //Toast.makeText(MapsActivity.this, "XXX" + lat + lon, Toast.LENGTH_SHORT).show();
+            databaseEvents.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot4 : dataSnapshot.getChildren()){
+                        Event event = snapshot4.getValue(Event.class);
+                        geoLocate(event.getEventID());
+                    }
+                }
+
+                @Override
+                public void onCancelled(FirebaseError firebaseError) {
+
+                }
+            });
+        }
     }
 
-    public void geoLocate (String location ) {
+    public void geoLocate (String eventID ) {
 
         geocoder = new Geocoder(this);
+
         if (geocoder.isPresent()){
-            try {
-            List<Address> list = geocoder.getFromLocationName(location, 1);
-            lat = list.get(0).getLatitude(); //getting latitude
-            lon = list.get(0).getLongitude();//getting longitude
-            //Toast.makeText(MapsActivity.this, "jhgfhjkjhg" + lat + lon, Toast.LENGTH_SHORT).show();
-            LatLng standort = new LatLng(lat, lon);
-            locationMarker = mMap.addMarker(new MarkerOptions().position(standort).title(eventname + ": " + location));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationMarker.getPosition(), 14));
-            } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(MapsActivity.this, "Fehler beim Anzeigen des Event Standortes", Toast.LENGTH_SHORT).show();
+        databaseEvents.child(eventID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Event event2 = dataSnapshot.getValue(Event.class);
+                String location = event2.getOrt();
+                String name = event2.getEventname();
+                String datum = event2.getDatum();
+                String uhrzeit = event2.getUhrzeit();
+                try {
+                    List<Address> list = geocoder.getFromLocationName(location, 1);
+                    lat = list.get(0).getLatitude(); //getting latitude
+                    lon = list.get(0).getLongitude();//getting longitude
+                    //Toast.makeText(MapsActivity.this, "jhgfhjkjhg" + lat + lon, Toast.LENGTH_SHORT).show();
+                    LatLng standort = new LatLng(lat, lon);
+                    locationMarker = mMap.addMarker(new MarkerOptions().position(standort).title(name).snippet("Am "+datum+" um "+uhrzeit+" Uhr"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationMarker.getPosition(), 14));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(MapsActivity.this, "Fehler beim Anzeigen des Event Standortes", Toast.LENGTH_SHORT).show();
+                }
             }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
         }else {
-            String geoLocatingUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="+location+"&key=AIzaSyAgT2P8M0lPubru2ZbZjVepvYLsfbTsLn8";
+            // String geoLocatingUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="+location+"&key=AIzaSyAgT2P8M0lPubru2ZbZjVepvYLsfbTsLn8";
             // get lat long by geo api google url
             Toast.makeText(MapsActivity.this, "Geocoder Service nicht verfügbar", Toast.LENGTH_SHORT).show();
         }

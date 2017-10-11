@@ -187,7 +187,7 @@ public class anwesendelist extends ListActivity implements View.OnClickListener{
             startActivity(Walk);
         }
         if (view == button3) {
-            Intent Map = new Intent(anwesendelist.this, map.class);
+            Intent Map = new Intent(anwesendelist.this, MapsActivity.class);
             startActivity(Map);
         }
         if (view == button6) {

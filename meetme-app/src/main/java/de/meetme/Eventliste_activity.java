@@ -132,7 +132,7 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
             startActivity(Walk);
         }
         if (view == button3) {
-            Intent Map = new Intent(Eventliste_activity.this, map.class);
+            Intent Map = new Intent(Eventliste_activity.this, MapsActivity.class);
             startActivity(Map);
         }
         if (view == button6) {
