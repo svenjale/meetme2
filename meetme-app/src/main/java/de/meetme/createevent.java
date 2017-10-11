@@ -155,7 +155,7 @@ public class createevent extends FragmentActivity implements View.OnClickListene
             return;
         }
 
-        if (!TextUtils.isEmpty(eventname)){
+        if (!TextUtils.isEmpty(eventname)&&!TextUtils.isEmpty(beschreibung)&&!TextUtils.isEmpty(ort)&&!TextUtils.isEmpty(datum)&&!TextUtils.isEmpty(uhrzeit)){
 
             String id = databaseEvents.push().getKey();
             Event event = new Event(id, eventname, beschreibung, ort, datum, uhrzeit, organisatorID);
@@ -166,6 +166,11 @@ public class createevent extends FragmentActivity implements View.OnClickListene
 
             Toast.makeText(this, "Das Event wurde erstellt", Toast.LENGTH_LONG).show();
             IDuebergabe=id;
+            
+            Intent infointent = new Intent(createevent.this, eventinfos.class);
+            infointent.putExtra("ID", IDuebergabe);
+            startActivity(infointent);
+
         }else return;
     }
 
@@ -179,9 +184,7 @@ public class createevent extends FragmentActivity implements View.OnClickListene
         }
         if (view == button8) {
             createevent();
-            Intent infointent = new Intent(createevent.this, eventinfos.class);
-            infointent.putExtra("ID", IDuebergabe);
-            startActivity(infointent);
+
         }
         if (view==textView12){
             showTimePickerDialog(textView12);
