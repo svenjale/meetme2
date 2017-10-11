@@ -38,14 +38,14 @@
         \n
         \n                      Profil
         \n
-\nWillst du dich ausloggen?
+\n1.Willst du dich ausloggen?
 \nDu findest einen Log-out Button in der oberen linken Ecke. Drücke auf diesen um dich auszuloggen.
 \n
-\nStimmen deine Profil-Daten nicht?
+\n2.Stimmen deine Profil-Daten nicht?
 \nDrücke auf den Bearbeiten Button um deine Profil-Infos zu ändern. Du wirst auf die Profil bearbeiten Seite weitergeleiter und kannst anschließend
 \nNachname,Vorname,Rollen und Telefonnummer verändern. Zuletzt musst du eine Eingaben durch das Drücken des Save Buttons bestätigen.
 \n
-\nDu willst wissen an welchen Photowalks du bereits teilgenommen hast beziehungsweise teilnehmen wirst?
+\n3.Du willst wissen an welchen Photowalks du bereits teilgenommen hast beziehungsweise teilnehmen wirst?
 \nDrücke den Photowalk-Teilnahmen Button um deine künftigen und vergangenen Photowalks einzusehen.
 "
         android:textAlignment="center"
