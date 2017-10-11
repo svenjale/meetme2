@@ -90,8 +90,6 @@ public class MapsActivity extends  AppCompatActivity
         GoogleMap.OnMyLocationClickListener,
         ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnMarkerClickListener {
 
-    //String location =  "Johannesstr.90, 70176 Stuttgart";
-
     private static final int LOCATION_PERMISSION_REQUEST_CODE =1;
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
 
@@ -158,6 +156,8 @@ public class MapsActivity extends  AppCompatActivity
         mMap.setOnMyLocationClickListener(this);
         mMap.setOnMarkerClickListener(this);
         enableMyLocation();
+        LatLng stuttgart = new LatLng(48.7758459, 9.1829321);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(stuttgart, 12));
 
         if (eventID!=null){
             geoLocate(eventID);
@@ -202,7 +202,7 @@ public class MapsActivity extends  AppCompatActivity
                     //Toast.makeText(MapsActivity.this, "jhgfhjkjhg" + lat + lon, Toast.LENGTH_SHORT).show();
                     LatLng standort = new LatLng(lat, lon);
                     locationMarker = mMap.addMarker(new MarkerOptions().position(standort).title(name).snippet("Am "+datum+" um "+uhrzeit+" Uhr"));
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationMarker.getPosition(), 14));
+
                 } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(MapsActivity.this, "Fehler beim Anzeigen des Event Standortes", Toast.LENGTH_SHORT).show();
