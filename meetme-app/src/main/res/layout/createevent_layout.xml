@@ -5,9 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/schloss"
+    android:background="@drawable/schlossblurr"
     tools:context="de.meetme.createevent">
 
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Erstelle ein Event"
+        android:textSize="22dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/editText5"

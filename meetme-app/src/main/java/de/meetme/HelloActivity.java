@@ -8,9 +8,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +38,8 @@ public class HelloActivity extends Activity implements View.OnClickListener {
     private EditText editTextPassword;
     private TextView textViewSignin;
     private ImageButton button14;
+    private Animation animfadelangs;
+    private ImageView imageView2;
     private String email = "";
     private String password = "";
 
@@ -57,6 +62,13 @@ public class HelloActivity extends Activity implements View.OnClickListener {
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        imageView2 =findViewById(R.id.imageView2);
+        animfadelangs = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_langs);
+// load the animation
+
+        imageView2.setVisibility(View.VISIBLE);
+        imageView2.setAnimation(animfadelangs);
+
         editTextEmail.setGravity(Gravity.CENTER);
         editTextPassword.setGravity(Gravity.CENTER);
         button14 = findViewById(R.id.button14);

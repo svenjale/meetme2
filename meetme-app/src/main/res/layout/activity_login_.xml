@@ -51,7 +51,7 @@
             android:layout_gravity="center"
             android:hint="Passwort eingeben"
             android:inputType="textPassword"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
             android:layout_below="@+id/editTextEmail"
             android:layout_alignLeft="@+id/editTextEmail"
             android:layout_alignStart="@+id/editTextEmail" />
@@ -96,11 +96,11 @@
         android:layout_width="40dp"
         android:src="@drawable/helpicon"
         android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:background="@drawable/mybutton"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/linearLayout2"
-        android:layout_alignEnd="@+id/linearLayout2"
-        android:layout_marginTop="11dp" />
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp" />
 
 
 </android.widget.RelativeLayout>
