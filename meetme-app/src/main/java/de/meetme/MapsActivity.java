@@ -24,7 +24,9 @@ import android.app.Activity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.location.Geocoder;
@@ -90,7 +92,8 @@ public class MapsActivity extends  AppCompatActivity
         OnMapReadyCallback,
         GoogleMap.OnMyLocationButtonClickListener,
         GoogleMap.OnMyLocationClickListener,
-        ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnMarkerClickListener {
+        ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnMarkerClickListener, View.OnClickListener {
+
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE =1;
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
@@ -103,12 +106,19 @@ public class MapsActivity extends  AppCompatActivity
         private boolean mPermissionDenied = false;
 
     private GoogleMap mMap;
-
     private String eventID;
     private String adresse;
     private String eventname;
     private Double lat;
     private Double lon;
+
+        private TextView textView40;
+
+        private Button button2;
+        private Button button7;
+        private Button button3;
+        private Button button6;
+
 
         //BitmapDescriptor personicon = BitmapDescriptorFactory.fromResource(R.drawable.ic_person_black_24dp);
 
@@ -135,7 +145,9 @@ public class MapsActivity extends  AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_map);
+        SupportMapFragment supportmapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        supportmapFragment.getMapAsync(this);
         //mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         try {
@@ -148,10 +160,20 @@ public class MapsActivity extends  AppCompatActivity
         databaseLocations2= new Firebase(FIREBASE_URL).child("locations");
         databaseEvents= new Firebase(FIREBASE_URL).child("events");
 
+        textView40 = (TextView) findViewById(R.id.textView40); //WIESO findet er den nicht?? Null Pointer, Objekt nicht vorhanen???
 
-        setContentView(R.layout.activity_maps);
-        SupportMapFragment supportmapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        supportmapFragment.getMapAsync(this);
+        button3 = (Button) findViewById(R.id.button3);
+        button6 = (Button) findViewById(R.id.button6);
+        button2 = (Button) findViewById(R.id.button2);
+        button7 = (Button) findViewById(R.id.button7);
+
+        button7.setOnClickListener(this);
+        button3.setOnClickListener(this);
+        button6.setOnClickListener(this);
+        button2.setOnClickListener(this);
+
+
+
 
 
     }
@@ -166,12 +188,34 @@ public class MapsActivity extends  AppCompatActivity
         LatLng stuttgart = new LatLng(48.7758459, 9.1829321);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(stuttgart, 12));
 
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+
+            @Override
+            public void onInfoWindowClick(Marker arg0) {
+                if (allPersonMap.get(arg0)!=null){
+                    Intent profile = new Intent(MapsActivity.this, profilansichtAndererUser.class);
+                    profile.putExtra("ID", allPersonMap.get(arg0));
+                    startActivity(profile);
+                }
+                if (allEventMap.get(arg0)!=null){
+                    Intent event = new Intent (MapsActivity.this, eventinfos.class);
+                    event.putExtra("ID", allEventMap.get(arg0));
+                    startActivity(event);
+                }
+
+
+
+            }
+        });
+
         if (eventID!=null){
             geoLocate(eventID);
             databaseEventanwesende= new Firebase(FIREBASE_URL).child("eventanwesende").child(eventID);
             addUserMarkersToMap(mMap);
+            textView40.setText(eventname +" & Anwesende");
         }else{
             //Toast.makeText(MapsActivity.this, "XXX" + lat + lon, Toast.LENGTH_SHORT).show();
+            textView40.setText("In deiner Nähe");
             databaseEvents.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -453,12 +497,12 @@ public class MapsActivity extends  AppCompatActivity
                     Intent event = new Intent (MapsActivity.this, eventinfos.class);
                     event.putExtra("ID", allEventMap.get(arg0));
                     startActivity(event);
-                }else{
-                    if (allPersonMap.get(arg0)!=null){
+                }
+
+                if (allPersonMap.get(arg0)!=null){
                         Intent profile = new Intent(MapsActivity.this, profilansichtAndererUser.class);
                         profile.putExtra("ID", allPersonMap.get(arg0));
                         startActivity(profile);
-                    }
                 }
 
             }
@@ -467,4 +511,25 @@ public class MapsActivity extends  AppCompatActivity
 
         return false;
     }
-}
+
+        @Override
+        public void onClick(View view) {
+            if (view == button2) {
+                Intent Profil = new Intent(MapsActivity.this, profilansicht.class);
+                startActivity(Profil);
+            }
+            if (view == button7) {
+                Intent Walk = new Intent(MapsActivity.this, Eventliste_activity.class);
+                startActivity(Walk);
+            }
+            if (view == button3) {
+
+                Intent Map = new Intent(MapsActivity.this, MapsActivity.class);
+                startActivity(Map);
+            }
+            if (view == button6) {
+                Intent Kontakte = new Intent(MapsActivity.this, kontakte.class);
+                startActivity(Kontakte);
+            }
+        }
+    }
