@@ -201,7 +201,7 @@ public class MapsActivity extends  AppCompatActivity
                     lon = list.get(0).getLongitude();//getting longitude
                     //Toast.makeText(MapsActivity.this, "jhgfhjkjhg" + lat + lon, Toast.LENGTH_SHORT).show();
                     LatLng standort = new LatLng(lat, lon);
-                    locationMarker = mMap.addMarker(new MarkerOptions().position(standort).title(name).snippet("Am "+datum+" um "+uhrzeit+" Uhr"));
+                    locationMarker = mMap.addMarker(new MarkerOptions().position(standort).title(name).snippet("Am "+datum+" um "+uhrzeit+" Uhr").icon(BitmapDescriptorFactory.fromResource(R.drawable.smapicons_klein)));
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -247,8 +247,12 @@ public class MapsActivity extends  AppCompatActivity
                                     Person profil = dataSnapshot3.getValue(Person.class);
                                     Name = profil.getVorname() + " " + profil.getName();
                                     Rolle = profil.getRolle();
-                                    mMap.addMarker(new MarkerOptions().position(location).title(Name).snippet(Rolle).
+                                    if (profil.getPersonID().equals(profilansicht.aktuelleUserID)) {
+                                        return;
+                                    }else{
+                                            mMap.addMarker(new MarkerOptions().position(location).title(Name).snippet(Rolle).
                                             icon(BitmapDescriptorFactory.fromResource(R.drawable.faceicon)));
+                                    }
                                 }
 
                                 @Override
