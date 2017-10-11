@@ -209,13 +209,16 @@ public class eventinfos extends Activity implements View.OnClickListener{
                 // for ActivityCompat#requestPermissions for more details.
                 return;
             }
-            Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            double longitude = location.getLongitude();
-            double latitude = location.getLatitude();
-            UserLocation loc = new UserLocation(latitude, longitude,FirebaseAuth.getInstance().getCurrentUser().getUid() );
-            //databaseLocations.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
-            databaseLocations.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
-
+            try {
+                Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                double longitude = location.getLongitude();
+                double latitude = location.getLatitude();
+                UserLocation loc = new UserLocation(latitude, longitude, FirebaseAuth.getInstance().getCurrentUser().getUid());
+                //databaseLocations.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
+                databaseLocations.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
+            }catch (NullPointerException np){
+                Toast.makeText(this, "Deine Location ist nicht verfügbar", Toast.LENGTH_LONG).show();
+            }
             Toast.makeText(this, "Check-In erfolgreich. Viel Spaß beim Event!", Toast.LENGTH_LONG).show();
         }
         if (view == button2) {
