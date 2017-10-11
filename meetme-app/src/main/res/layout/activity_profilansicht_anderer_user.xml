@@ -29,8 +29,8 @@
         android:textSize="17dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="137dp"
-        android:layout_marginTop="61dp"
-        android:layout_below="@+id/button15"
+        android:layout_marginTop="127dp"
+        android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/imageView5"
         android:layout_toEndOf="@+id/imageView5" />
 
@@ -161,12 +161,11 @@
         android:id="@+id/button15"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="9dp"
         android:src="@drawable/zukontaktenicon"
         android:background="@drawable/mybutton"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/button18"
-        android:layout_toStartOf="@+id/button18" />
+        android:layout_alignTop="@+id/textView29"
+        android:layout_alignLeft="@+id/button14"
+        android:layout_alignStart="@+id/button14" />
 
 
     <TextView
@@ -179,16 +178,26 @@
         android:layout_toRightOf="@+id/imageView4"
         android:layout_toEndOf="@+id/imageView4" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button18"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/mybutton"
         android:text="Nachricht senden"
-        android:layout_marginTop="64dp"
-        android:layout_below="@+id/textView34"
-        android:layout_alignLeft="@+id/button19"
-        android:layout_alignStart="@+id/button19" />
+        android:src="@drawable/handymsg"
+        android:layout_below="@+id/textView39"
+        android:layout_toRightOf="@+id/textView37"
+        android:layout_toEndOf="@+id/textView37" />
+
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/phoneicon"
+        android:background="@drawable/mybutton"
+        android:id="@+id/imageButton3"
+        android:layout_below="@+id/textView39"
+        android:layout_alignLeft="@+id/button14"
+        android:layout_alignStart="@+id/button14" />
 
     <Button
         android:id="@+id/button19"
@@ -196,14 +205,15 @@
         android:layout_height="34dp"
         android:background="@drawable/mybutton"
         android:text="Photowalk teilnahmen"
-        android:layout_marginTop="13dp"
-        android:layout_below="@+id/button18"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/textView34"
         android:layout_centerHorizontal="true" />
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/roleicon"
+        android:layout_marginLeft="5dp"
         android:layout_above="@+id/textView39"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -211,7 +221,8 @@
         android:id="@+id/imageView4"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:background="@drawable/phoneicon"
+        android:background="@drawable/handy"
+        android:layout_marginLeft="5dp"
         android:layout_below="@+id/textView39"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -220,26 +231,21 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/faceicon"
+        android:layout_marginLeft="5dp"
         android:layout_alignBottom="@+id/textView28"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-    <TextView
-        android:layout_width="75dp"
-        android:layout_height="20dp"
-        android:text="Hinzufügen"
-        android:layout_alignTop="@+id/button15"
-        android:layout_toRightOf="@+id/button15"
-        android:layout_toEndOf="@+id/button15"
-        android:layout_marginTop="10dp" />
+
     <ImageButton
         android:id="@+id/button14"
         android:layout_width="40dp"
         android:src="@drawable/helpicon"
         android:layout_height="40dp"
         android:background="@drawable/mybutton"
-        android:layout_alignTop="@+id/button15"
-        android:layout_toRightOf="@+id/button18"
-        android:layout_toEndOf="@+id/button18" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button19"
+        android:layout_toEndOf="@+id/button19"
+        android:layout_marginTop="8dp" />
 
 
 

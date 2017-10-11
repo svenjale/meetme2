@@ -40,10 +40,10 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
     private Button button3;
     private Button button6;
     private Button button4;
-    private Button button18;
+    private ImageButton button18;
     private Button button19;
     private ImageButton button14;
-
+    private ImageButton imageButton3;
 
 
     @Override
@@ -54,6 +54,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         Intent intent = getIntent();
         uebergebeneID = intent.getStringExtra("ID");
 
+        imageButton3 = findViewById(R.id.imageButton3);
         textView33 = (TextView) findViewById(R.id.textView33);
         textView37 = (TextView) findViewById(R.id.textView37);
         textView34 = (TextView) findViewById(R.id.textView34);
@@ -68,9 +69,10 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
 
-        button18 = (Button) findViewById(R.id.button18);
+        button18 = (ImageButton) findViewById(R.id.button18);
         button19 = (Button) findViewById(R.id.button19);
 
+        imageButton3.setOnClickListener(this);
         button15.setOnClickListener(this);
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
@@ -153,7 +155,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
 
         }
 
-        if (view == textView34) {
+        if (view == imageButton3) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_DIAL);
             intent.setData(Uri.parse("tel:"+whatsappKontakt));
