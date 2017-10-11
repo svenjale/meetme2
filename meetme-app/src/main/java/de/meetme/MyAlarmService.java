@@ -82,8 +82,10 @@ public class MyAlarmService extends Service {
                     .setContentTitle("Photowalk beginnt!")
                     .setContentText(intent.getStringExtra("name")+" startet um "+intent.getStringExtra("uhrzeit")+" Uhr")
                     .setSmallIcon(R.drawable.smapicons)
-                    .addAction(action)
-                    .setContentIntent(pendingNotificationIntent);
+                    //.addAction(action) rausgenommen, da nach action klick nicht disappeared
+                    .setContentIntent(pendingNotificationIntent)
+                    .setAutoCancel(true)
+                    .setOnlyAlertOnce(true);
 
 
 
@@ -104,8 +106,10 @@ public class MyAlarmService extends Service {
                     //.setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400})
                     .setSound(soundUri)
                     .setPriority(4)
-                    .addAction(0, "Details anzeigen", pendingNotificationIntent)
+                    //.addAction(0, "Details anzeigen", pendingNotificationIntent) rausgenommen, da nach action klick nicht disappeared
                     .setContentIntent(pendingNotificationIntent)
+                    .setAutoCancel(true)
+                    .setOnlyAlertOnce(true)
                     .build();
 
             intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
