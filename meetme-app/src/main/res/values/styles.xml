@@ -5,7 +5,9 @@
         <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" >
             <!-- Customize your theme here. -->
 
-
+    <item name="colorControlNormal">#c5c5c5</item>
+    <item name="colorControlActivated">#FFFFFF</item>
+    <item name="colorControlHighlight">#FFFFFF</item>
       <!-->  <item name="android:background">@color/blue</item>
         <item name="android:windowBackground">@color/blue</item>
         <item name="android:colorBackground">@color/blue</item>
