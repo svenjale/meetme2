@@ -7,6 +7,8 @@ import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -39,6 +41,7 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
     private Button button6;
     private Button button13;
     private ImageButton button14;
+    private Animation animfadein;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,17 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
         button2 = (Button) findViewById(R.id.button2);
         button13 = (Button) findViewById(R.id.button13);
         button14 = findViewById(R.id.button14);
+        animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+// load the animation
+
+        button2.setVisibility(View.VISIBLE);
+        button2.setAnimation(animfadein);
+        button3.setVisibility(View.VISIBLE);
+        button3.setAnimation(animfadein);
+        button6.setVisibility(View.VISIBLE);
+        button6.setAnimation(animfadein);
+        button7.setVisibility(View.VISIBLE);
+        button7.setAnimation(animfadein);
 
         button14.setOnClickListener(this);
         button7.setOnClickListener(this);

@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +39,8 @@ public class Login_Activity extends Activity implements View.OnClickListener {
     private TextView textViewRegister;
     private String ErrorMessage;
     private ImageButton button14;
+    private Animation animfadelangs;
+    private ImageView imageView2;
 
     private FirebaseAuth firebaseAuth;
 
@@ -48,6 +53,12 @@ public class Login_Activity extends Activity implements View.OnClickListener {
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         button14 = findViewById(R.id.button14);
         button14.setOnClickListener(this);
+        imageView2 =findViewById(R.id.imageView2);
+        animfadelangs = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_langs);
+// load the animation
+
+        imageView2.setVisibility(View.VISIBLE);
+        imageView2.setAnimation(animfadelangs);
 
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         editTextEmail.setGravity(Gravity.CENTER);
