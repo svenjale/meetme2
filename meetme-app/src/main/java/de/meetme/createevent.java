@@ -32,7 +32,7 @@ public class createevent extends FragmentActivity implements View.OnClickListene
     private EditText editText10;            //Ort
     private EditText editText11;            //Datum
     private EditText editText13;//Uhrzeit
-    private Button button17;
+
     private TextView textView12;
     private TextView textView11;
 
@@ -67,7 +67,7 @@ public class createevent extends FragmentActivity implements View.OnClickListene
         editText11 = (EditText) findViewById(R.id.editText11);
         editText13 = (EditText) findViewById(R.id.editText13);
         button8 = (Button) findViewById(R.id.button8);
-        button17 = (Button) findViewById(R.id.button17);
+
         textView12=(TextView) findViewById(R.id.textView12);
         textView11=(TextView) findViewById(R.id.textView11);
 
@@ -108,7 +108,7 @@ public class createevent extends FragmentActivity implements View.OnClickListene
 
 
         button8.setOnClickListener(this);
-        button17.setOnClickListener(this);
+
         textView12.setOnClickListener(this);
         textView11.setOnClickListener(this);
 
@@ -177,11 +177,7 @@ public class createevent extends FragmentActivity implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-        if (view == button17) {
 
-            Intent Hilfe = new Intent(createevent.this, help.class);
-            startActivity(Hilfe);
-        }
         if (view == button8) {
             createevent();
 
