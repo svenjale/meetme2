@@ -118,6 +118,7 @@
         android:id="@+id/list_image"
         android:layout_width="50dip"
         android:layout_height="50dip"
+        android:paddingLeft="5dp"
         android:src="@drawable/smaplogo_klein"
         android:layout_below="@+id/thumbnail"
         android:layout_alignParentLeft="true"

@@ -15,6 +15,7 @@
         android:textAlignment="center"
         android:gravity="center"
         android:textColor="#000000"
+        android:paddingLeft="5dp"
         android:textStyle="bold"
         android:text="Willkommen auf unserer Hilfe-Seite"
         >
@@ -26,14 +27,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:paddingLeft="5dp"
         android:layout_alignParentTop="true"
         android:maxLines="40"
         android:text="
 \n
-\n                             Events in deiner Nähe
+\n                    Events in deiner Nähe
 \nHier kannst du sehen welche Events in deiner Nähe sind. Wenn du eins auswählst, wird dessen Name und Ort angezeigt. Ein erneutes Klicken leitet dich zur Informationsseite zu diesem Event weiter.
 \n
-\n                             Event und Anwesende
+\n                    Event und Anwesende
 \nHier siehst du, wo der Treffpunkt des Events ist. Außerdem kannst du hier herausfinden, wo sich andere Anwesende des Events befinden.
 "
         android:textAlignment="center"
