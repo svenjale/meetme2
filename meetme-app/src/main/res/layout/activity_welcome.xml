@@ -34,15 +34,26 @@
         android:layout_centerHorizontal="true" />
 
     <Button
+        android:id="@+id/buttonLogin3"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Einloggen via Facebook"
+        android:background="@drawable/mybutton"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignLeft="@+id/buttonLogin2"
+        android:layout_alignStart="@+id/buttonLogin2" />
+
+    <Button
         android:id="@+id/buttonRegis2"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="Registrieren"
         android:background="@drawable/mybutton"
-        android:layout_marginTop="27dp"
-        android:layout_below="@+id/linearLayout"
-        android:layout_alignLeft="@+id/buttonLogin2"
-        android:layout_alignStart="@+id/buttonLogin2" />
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/buttonLogin3"
+        android:layout_alignLeft="@+id/buttonLogin3"
+        android:layout_alignStart="@+id/buttonLogin3" />
 
     <Button
         android:id="@+id/button14"

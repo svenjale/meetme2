@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import static de.meetme.R.id.image;
 import static de.meetme.R.id.imageView;
@@ -17,6 +18,7 @@ import static de.meetme.R.id.imageView;
 public class welcome extends Activity implements View.OnClickListener {
 
     private Button buttonLogin2;
+    private Button buttonLogin3;
     private Button buttonRegis2;
     private Button button14;
     private Animation animfadelangs;
@@ -27,6 +29,7 @@ public class welcome extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_welcome);
 
       buttonLogin2 = (Button) findViewById(R.id.buttonLogin2);
+        buttonLogin3 = (Button) findViewById(R.id.buttonLogin3);
       buttonRegis2 = (Button) findViewById(R.id.buttonRegis2);
         button14 = (Button) findViewById(R.id.button14);
         imageView = findViewById(R.id.imageView);
@@ -35,6 +38,8 @@ public class welcome extends Activity implements View.OnClickListener {
 
         buttonLogin2.setVisibility(View.VISIBLE);
         buttonLogin2.setAnimation(animfadelangs);
+        buttonLogin3.setVisibility(View.VISIBLE);
+        buttonLogin3.setAnimation(animfadelangs);
         buttonRegis2.setVisibility(View.VISIBLE);
         buttonRegis2.setAnimation(animfadelangs);
         button14.setVisibility(View.VISIBLE);
@@ -47,6 +52,7 @@ public class welcome extends Activity implements View.OnClickListener {
         button14.setOnClickListener(this);
 
       buttonLogin2.setOnClickListener(this);
+        buttonLogin3.setOnClickListener(this);
       buttonRegis2.setOnClickListener(this);
     }
 
@@ -61,6 +67,9 @@ public class welcome extends Activity implements View.OnClickListener {
         if (view == buttonLogin2) {
             Intent Login2 = new Intent(welcome.this, Login_Activity.class);
             startActivity(Login2);
+        }
+        if (view == buttonLogin3) {
+            Toast.makeText(welcome.this, "Diese Funktion wird später implementiert", Toast.LENGTH_SHORT).show();
         }
         if (view == buttonRegis2) {
             Intent Regis2 = new Intent(welcome.this, HelloActivity.class);            //Plus = Hinzufügen Button
