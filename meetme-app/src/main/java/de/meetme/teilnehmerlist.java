@@ -153,7 +153,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
             startActivity(Walk);
         }
         if (view == button3) {
-            Intent Map = new Intent(teilnehmerlist.this, map.class);
+            Intent Map = new Intent(teilnehmerlist.this, MapsActivity.class);
             startActivity(Map);
         }
         if (view == button6) {
