@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,6 +35,7 @@ public class anwesendelist extends ListActivity implements View.OnClickListener{
     private Button button7;
     private Button button3;
     private Button button6;
+    private ImageButton button14;
     private TextView titelView;
     private Animation animfadein;
 
@@ -56,6 +58,7 @@ public class anwesendelist extends ListActivity implements View.OnClickListener{
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
+        button14 = (ImageButton) findViewById(R.id.button14);
         titelView = (TextView) findViewById(R.id.textView);
 
         animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
@@ -74,11 +77,12 @@ public class anwesendelist extends ListActivity implements View.OnClickListener{
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
+        button14.setOnClickListener(this);
     }
 
     public void onStart() {
         super.onStart();
-        titelView.setText(uebergebenerName+" - Anwesende");
+        titelView.setText(uebergebenerName+"\n - Anwesende");
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
         final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
@@ -207,6 +211,10 @@ public class anwesendelist extends ListActivity implements View.OnClickListener{
         if (view == button6) {
             Intent Kontakte = new Intent(anwesendelist.this, kontakte.class);
             startActivity(Kontakte);
+        }
+        if (view == button14) {
+            Intent Hilfe = new Intent (anwesendelist.this, helpevent.class);
+            startActivity(Hilfe);
         }
 
     }

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 
 public class map extends Activity implements View.OnClickListener {
@@ -15,6 +16,7 @@ public class map extends Activity implements View.OnClickListener {
     private Button button3;
     private Button button6;
     private Button button4;
+    private ImageButton imageButton4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +28,14 @@ public class map extends Activity implements View.OnClickListener {
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
         button4 = (Button) findViewById(R.id.button4);
+        imageButton4 = (ImageButton) findViewById(R.id.imageButton4);
 
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
         button4.setOnClickListener(this);
+        imageButton4.setOnClickListener(this);
     }
 
     @Override
@@ -55,10 +59,10 @@ public class map extends Activity implements View.OnClickListener {
             Intent Kontakte = new Intent(map.this, kontakte.class);
             startActivity(Kontakte);
         }
-        if (view == button4) {
+        if (view == imageButton4) {
 
-            Intent Hilfe = new Intent(map.this, helpmap.class);
-            startActivity(Hilfe);
+            Intent Help = new Intent(map.this, helpmap.class);
+            startActivity(Help);
         }
     }
 }

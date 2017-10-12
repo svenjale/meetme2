@@ -17,6 +17,7 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.google.android.gms.ads.formats.NativeAd;
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
 
@@ -27,6 +28,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.location.Geocoder;
@@ -118,6 +120,8 @@ public class MapsActivity extends  AppCompatActivity
         private Button button7;
         private Button button3;
         private Button button6;
+        private ImageButton imageButton4;
+       // private Button button4;
 
 
         //BitmapDescriptor personicon = BitmapDescriptorFactory.fromResource(R.drawable.ic_person_black_24dp);
@@ -166,11 +170,15 @@ public class MapsActivity extends  AppCompatActivity
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
         button7 = (Button) findViewById(R.id.button7);
+       // button4 = (Button) findViewById(R.id.button4);
+        imageButton4 = (ImageButton) findViewById(R.id.imageButton4);
 
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
+      //  button4.setOnClickListener(this);
+        imageButton4.setOnClickListener(this);
 
 
 
@@ -530,6 +538,10 @@ public class MapsActivity extends  AppCompatActivity
             if (view == button6) {
                 Intent Kontakte = new Intent(MapsActivity.this, kontakte.class);
                 startActivity(Kontakte);
+            }
+            if (view == imageButton4){
+                Intent Hilfe = new Intent(MapsActivity.this, maphelp.class);
+                startActivity(Hilfe);
             }
         }
     }

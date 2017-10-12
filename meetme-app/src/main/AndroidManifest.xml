@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="de.meetme">
     package="com.google.android.gms.location.sample.basiclocationsample" >
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -13,11 +12,10 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-
 
     <application
         android:name=".EventApplication"
@@ -49,9 +47,11 @@
         <activity android:name=".profilansichtAndererUser" />
         <activity android:name=".teilnahmenlist" />
 
-        <service android:name=".MyAlarmService"
-            android:enabled="true"></service>
-        <receiver  android:name=".MyReceiver"></receiver>
+        <service
+            android:name=".MyAlarmService"
+            android:enabled="true" />
+
+        <receiver android:name=".MyReceiver" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -62,7 +62,6 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/. 
         -->
 
-
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
@@ -70,12 +69,13 @@
         <activity android:name=".helpregister" />
         <activity android:name=".helpmain" />
         <activity android:name=".helpevent" />
-        <activity android:name=".helpkontakte"></activity>
+        <activity android:name=".helpkontakte" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAgT2P8M0lPubru2ZbZjVepvYLsfbTsLn8" />
 
+        <activity android:name=".maphelp"></activity>
     </application>
 
 </manifest>

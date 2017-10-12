@@ -84,7 +84,7 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
 
     public void onStart() {
         super.onStart();
-        titelView.setText(uebergebenerName+" - Teilnehmer");
+        titelView.setText(uebergebenerName +"\n - Teilnehmer");
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
         final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
@@ -159,6 +159,10 @@ public class teilnehmerlist extends ListActivity implements View.OnClickListener
         if (view == button6) {
             Intent Kontakte = new Intent(teilnehmerlist.this, kontakte.class);
             startActivity(Kontakte);
+        }
+        if (view == button14) {
+            Intent Hilfe = new Intent (teilnehmerlist.this, helpevent.class);
+            startActivity(Hilfe);
         }
 
     }

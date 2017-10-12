@@ -122,7 +122,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
                 ((TextView) findViewById(R.id.textView37)).setText(ansicht.getVorname());
                 ((TextView) findViewById(R.id.textView39)).setText(ansicht.getRolle().trim());
                 ((TextView) findViewById(R.id.textView34)).setText(ansicht.getKontakt());
-                ((TextView) findViewById(R.id.textView21)).setText("Profil von "+ansicht.getVorname());
+                ((TextView) findViewById(R.id.textView21)).setText("Profil von "+ansicht.getName());
                 whatsappKontakt = ansicht.getKontakt();
                 aktuellerName=ansicht.getVorname()+" "+ansicht.getName();
             }
