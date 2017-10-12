@@ -27,6 +27,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -121,6 +123,7 @@ public class MapsActivity extends  AppCompatActivity
         private Button button3;
         private Button button6;
         private ImageButton imageButton4;
+        private Animation animfadein;
        // private Button button4;
 
 
@@ -172,6 +175,16 @@ public class MapsActivity extends  AppCompatActivity
         button7 = (Button) findViewById(R.id.button7);
        // button4 = (Button) findViewById(R.id.button4);
         imageButton4 = (ImageButton) findViewById(R.id.imageButton4);
+        animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+// load the animation
+        button2.setVisibility(View.VISIBLE);
+        button2.setAnimation(animfadein);
+        button3.setVisibility(View.VISIBLE);
+        button3.setAnimation(animfadein);
+        button6.setVisibility(View.VISIBLE);
+        button6.setAnimation(animfadein);
+        button7.setVisibility(View.VISIBLE);
+        button7.setAnimation(animfadein);
 
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
