@@ -32,31 +32,31 @@
         android:hint="Gib deinem Event einen Titel"
         android:inputType="text" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="22dp"
-            android:layout_marginStart="22dp"
-            android:text="Eventname:"
-            android:textSize="17dp"
-            android:textAppearance="@android:style/TextAppearance.Holo"
-            android:layout_marginTop="62dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="62dp"
+        android:text="Eventname*:"
+        android:textAppearance="@android:style/TextAppearance.Holo"
+        android:textSize="17dp" />
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editText5"
-            android:layout_alignStart="@+id/editText5"
-            android:layout_below="@+id/editText5"
-            android:layout_marginTop="5dp"
-            android:text="Beschreibung:"
-            android:textSize="17dp"
-            android:textAppearance="@android:style/TextAppearance.Holo"/>
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText5"
+        android:layout_alignStart="@+id/editText5"
+        android:layout_below="@+id/editText5"
+        android:layout_marginTop="5dp"
+        android:text="Beschreibung*:"
+        android:textAppearance="@android:style/TextAppearance.Holo"
+        android:textSize="17dp" />
 
     <EditText
         android:id="@+id/editText8"
@@ -81,7 +81,7 @@
         android:layout_alignStart="@+id/editText8"
         android:layout_below="@+id/editText8"
         android:layout_marginTop="5dp"
-        android:text="Adresse:"
+        android:text="Adresse*:"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="17dp" />
 
@@ -96,16 +96,16 @@
         android:hint="Straße Nr., PLZ Ort"
         android:inputType="textPostalAddress" />
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editText10"
-            android:layout_alignStart="@+id/editText10"
-            android:layout_below="@+id/editText10"
-            android:layout_marginTop="5dp"
-            android:text="Datum:"
-            android:textAppearance="@android:style/TextAppearance.Holo"/>
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText10"
+        android:layout_alignStart="@+id/editText10"
+        android:layout_below="@+id/editText10"
+        android:layout_marginTop="5dp"
+        android:text="Datum*:"
+        android:textAppearance="@android:style/TextAppearance.Holo" />
     />
 
     <EditText
@@ -122,16 +122,16 @@
         android:singleLine="false"
         tools:layout_width="300dp" />
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editText11"
-            android:layout_alignStart="@+id/editText11"
-            android:layout_below="@+id/editText11"
-            android:layout_marginTop="5dp"
-            android:text="Uhrzeit:"
-            android:textAppearance="@android:style/TextAppearance.Holo"/>
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText11"
+        android:layout_alignStart="@+id/editText11"
+        android:layout_below="@+id/editText11"
+        android:layout_marginTop="5dp"
+        android:text="Uhrzeit*:"
+        android:textAppearance="@android:style/TextAppearance.Holo" />
     />
 
     <EditText
@@ -157,6 +157,16 @@
         android:text="SAVE"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText13"
+        android:layout_alignStart="@+id/editText13"
+        android:layout_below="@+id/editText13"
+        android:layout_marginTop="26dp"
+        android:text="* Pflichtfelder" />
 
 
 </android.widget.RelativeLayout>
