@@ -220,7 +220,7 @@ public class MapsActivity extends  AppCompatActivity
             geoLocate(eventID);
             databaseEventanwesende= new Firebase(FIREBASE_URL).child("eventanwesende").child(eventID);
             addUserMarkersToMap(mMap);
-            textView40.setText(eventname +" & Anwesende");
+            textView40.setText(eventname);
         }else{
             //Toast.makeText(MapsActivity.this, "XXX" + lat + lon, Toast.LENGTH_SHORT).show();
             textView40.setText("In deiner Nähe");
