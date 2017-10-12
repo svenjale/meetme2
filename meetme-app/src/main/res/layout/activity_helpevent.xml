@@ -10,21 +10,21 @@
     tools:context="de.meetme.help">
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22dp"
             android:layout_marginTop="7dp"
-            android:textAlignment="center"
             android:gravity="center"
-            android:textColor="#000000"
-            android:textStyle="bold"
             android:paddingLeft="5dp"
             android:text="Willkommen auf unserer Hilfe-Seite"
-            >
-        </TextView>
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="22dp"
+            android:textStyle="bold"></TextView>
     </LinearLayout>
 
     <TextView
@@ -57,9 +57,10 @@ Des Weiteren kannst du dich hier als Teilnehmer des Events zu registrieren und z
         android:textAlignment="center"
         android:textSize="18dp"
         android:maxLines="40"
+        android:layout_below="@id/linearLayout5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+      />
 
 
 

@@ -11,21 +11,21 @@
     
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout4">
 
         <TextView
+            android:id="@+id/textViewschrift"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            android:textSize="22dp"
-            android:textAlignment="center"
             android:gravity="center"
-            android:textColor="#000000"
-            android:textStyle="bold"
             android:paddingLeft="5dp"
             android:text="Willkommen auf unserer Hilfe-Seite"
-            >
-        </TextView>
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="22dp"
+            android:textStyle="bold"></TextView>
         </LinearLayout>
 
     <TextView
@@ -35,7 +35,6 @@
         android:textColor="#000000"
         android:paddingLeft="5dp"
         android:text="
-\n
 \n
 \n                            Registrierung
 \n
@@ -47,9 +46,9 @@
         android:textAlignment="center"
         android:textSize="18dp"
         android:maxLines="40"
+        android:layout_below="@+id/linearLayout4"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentStart="true" />
 
 
 
