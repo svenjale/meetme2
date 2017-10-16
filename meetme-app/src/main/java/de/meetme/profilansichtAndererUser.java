@@ -28,7 +28,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
     private String uebergebeneID;
     String whatsappKontakt = "";
-    String aktuellerName="";
+    String aktuellerName = "";
 
     private FirebaseAuth firebaseAuth;
     private Firebase databaseProfiles;
@@ -67,7 +67,6 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
 
 
         button14 = findViewById(R.id.button14);
-
 
 
         button15 = (ImageButton) findViewById(R.id.button15);
@@ -122,9 +121,9 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
                 ((TextView) findViewById(R.id.textView37)).setText(ansicht.getVorname());
                 ((TextView) findViewById(R.id.textView39)).setText(ansicht.getRolle().trim());
                 ((TextView) findViewById(R.id.textView34)).setText(ansicht.getKontakt());
-                ((TextView) findViewById(R.id.textView21)).setText("Profil von "+ansicht.getName());
+                ((TextView) findViewById(R.id.textView21)).setText("Profil von " + ansicht.getName());
                 whatsappKontakt = ansicht.getKontakt();
-                aktuellerName=ansicht.getVorname()+" "+ansicht.getName();
+                aktuellerName = ansicht.getVorname() + " " + ansicht.getName();
             }
 
             @Override
@@ -136,7 +135,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
     }
 
     @Override
-    public void onClick(View view)  {
+    public void onClick(View view) {
         if (view == button2) {
             Intent Profil = new Intent(profilansichtAndererUser.this, profilansicht.class);
             startActivity(Profil);
@@ -168,49 +167,58 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
                 teilnahmen.putExtra("Name", aktuellerName);
                 teilnahmen.putExtra("ID", uebergebeneID);
                 startActivity(teilnahmen);
-            }catch (NullPointerException exception) {
-                Toast.makeText(profilansichtAndererUser.this, aktuellerName+" hat bisher an keinen Photowalks teilgenommen.", Toast.LENGTH_SHORT).show();
+            } catch (NullPointerException exception) {
+                Toast.makeText(profilansichtAndererUser.this, aktuellerName + " hat bisher an keinen Photowalks teilgenommen.", Toast.LENGTH_SHORT).show();
             }
 
         }
 
         if (view == imageButton3) {
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_DIAL);
-            intent.setData(Uri.parse("tel:"+whatsappKontakt));
-            startActivity(intent);
-            // hier evtl TELEFONANRUF implementieren
+            if (whatsappKontakt.isEmpty()) {
+                Toast.makeText(profilansichtAndererUser.this, "Dieser Nutzer hat keine Telefonnummer hinterlegt und kann nicht kontaktiert werden.",
+                        Toast.LENGTH_LONG).show();
+            } else {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + whatsappKontakt));
+                startActivity(intent);
+                // hier evtl TELEFONANRUF implementieren
+            }
         }
-        if (view==button15){
+        if (view == button15) {
             databaseKontakte.child(uebergebeneID).setValue(uebergebeneID);
-            Toast.makeText(profilansichtAndererUser.this, ""+aktuellerName+" wurde zu deinen Kontakten hinzugefügt.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(profilansichtAndererUser.this, "" + aktuellerName + " wurde zu deinen Kontakten hinzugefügt.", Toast.LENGTH_SHORT).show();
 
         }
     }
 
     public void mitWhatsAppTeilen(View view) {
+        if (whatsappKontakt.isEmpty()) {
+            Toast.makeText(profilansichtAndererUser.this, "Dieser Nutzer hat keine Telefonnummer hinterlegt und kann nichtkontaktiert werden.",
+                    Toast.LENGTH_LONG).show();
+        } else {
+            PackageManager pm = getPackageManager();
+            try {
 
-        PackageManager pm = getPackageManager();
-        try {
+                Uri uri = Uri.parse("smsto:" + whatsappKontakt);
+                Intent waIntent = new Intent(Intent.ACTION_SENDTO, uri); // hier sendto eingefügt
+                //waIntent.setType("text/plain");
+                String text = "Gib hier deine Nachricht an" + aktuellerName + " ein.";
+                PackageInfo info = pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
+                //Check if package exists or not. If not then code
+                //in catch block will be called
+                waIntent.setPackage("com.whatsapp");
+                waIntent.putExtra("sms_body", text);
+                startActivity(Intent.createChooser(waIntent, uri.toString()));
 
-            Uri uri = Uri.parse("smsto:" + whatsappKontakt);
-            Intent waIntent = new Intent(Intent.ACTION_SENDTO, uri); // hier sendto eingefügt
-            //waIntent.setType("text/plain");
-            String text = "Gib hier deine Nachricht an"+aktuellerName+" ein.";
-            PackageInfo info = pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
-            //Check if package exists or not. If not then code
-            //in catch block will be called
-            waIntent.setPackage("com.whatsapp");
-            waIntent.putExtra("sms_body", text);
-            startActivity(Intent.createChooser(waIntent, uri.toString()));
+            } catch (PackageManager.NameNotFoundException e) {
+                Toast.makeText(this, "WhatsApp nicht installiert", Toast.LENGTH_SHORT).show();
+                Uri uri = Uri.parse("smsto:" + whatsappKontakt);
+                Intent it = new Intent(Intent.ACTION_SENDTO, uri);
+                it.putExtra("sms_body", "Gib hier deine Nachricht an " + aktuellerName + " ein.");
+                startActivity(it);
+            }
 
-        } catch (PackageManager.NameNotFoundException e) {
-            Toast.makeText(this, "WhatsApp nicht installiert", Toast.LENGTH_SHORT).show();
-            Uri uri = Uri.parse("smsto:"+whatsappKontakt);
-            Intent it = new Intent(Intent.ACTION_SENDTO, uri);
-            it.putExtra("sms_body", "Gib hier deine Nachricht an "+aktuellerName+" ein.");
-            startActivity(it);
         }
-
     }
 }

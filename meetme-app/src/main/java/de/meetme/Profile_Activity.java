@@ -127,11 +127,8 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
             Toast.makeText(this, "Wähle bitte mindestens eine Rolle", Toast.LENGTH_SHORT).show();     //wenn keine Rolle, wird Ausführung unterbrochen
             return;
         }
-        if (TextUtils.isEmpty(kontakt)||kontakt.equals("+49")) {                                                          //Eventname Textfeld ist leer
-            Toast.makeText(this, "Bitte gebe deine Telefonnummer an", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if ((!TextUtils.isEmpty(kontakt))&&(!TextUtils.isEmpty(vorname))&&(!TextUtils.isEmpty(name))&&!(kontakt.equals("+49"))&&(checkBox.isChecked()||checkBox2.isChecked()||checkBox3.isChecked()||checkBox4.isChecked())){
+
+        if ((!TextUtils.isEmpty(vorname))&&(!TextUtils.isEmpty(name))&&!(kontakt.equals("+49"))&&(checkBox.isChecked()||checkBox2.isChecked()||checkBox3.isChecked()||checkBox4.isChecked())){
             Person profil = new Person (name, vorname, rolle, kontakt,firebaseAuth.getInstance().getCurrentUser().getUid());
             databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
             Toast.makeText(this, "Profil wurde aktualisiert", Toast.LENGTH_LONG).show();
