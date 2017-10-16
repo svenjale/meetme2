@@ -146,12 +146,13 @@
         android:id="@+id/editText3"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:textColor="#000000"
-        android:inputType="text|number|phone"
-        android:layout_below="@+id/textView6"
         android:layout_alignLeft="@+id/textView6"
-        android:layout_alignStart="@+id/textView6" />
+        android:layout_alignStart="@+id/textView6"
+        android:layout_below="@+id/textView6"
+        android:ems="10"
+        android:inputType="text|number|phone"
+        android:text="Telefonnummer mit +49 beginnen"
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/button2"
