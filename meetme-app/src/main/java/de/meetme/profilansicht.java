@@ -150,7 +150,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
         if (view == button22) {
             Intent logout = new Intent(profilansicht.this, welcome.class);
             FirebaseAuth.getInstance().signOut();
-            aktuellerUser=new Person("","","","","+49");
+            aktuellerUser=new Person("","","","","");
             aktuelleUserID="";
             startActivity(logout);
         }
