@@ -1,5 +1,6 @@
 package de.meetme;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -11,14 +12,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
-
-import android.app.Activity;
-import android.widget.Toast;
 
 public class profilansichtAndererUser extends Activity implements View.OnClickListener {
 
@@ -126,12 +126,26 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
                 whatsappKontakt = ansicht.getKontakt();
                 aktuellerName = ansicht.getVorname() + " " + ansicht.getName();
 
+                databaseKontakte.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                            String kontakt = snapshot.getValue(String.class);
+                            if (kontakt.equals(uebergebeneID)) {
+                                button16.setVisibility(View.VISIBLE);
+                                button15.setVisibility(View.GONE);
+                                return;
+                            }else{
+                                button16.setVisibility(View.GONE);
+                                button15.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
 
-
-                if (databaseKontakte.child(uebergebeneID)!=null)
-                {button16.setVisibility(View.VISIBLE);
-                    button15.setVisibility(View.GONE);
-                };
+                    }
+                });
             }
 
             @Override

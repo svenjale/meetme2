@@ -20,10 +20,7 @@ import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-
-
-
-public class kontakte extends ListActivity implements View.OnClickListener{
+public class kontaktvorschlaege extends ListActivity implements View.OnClickListener{
 
 
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
@@ -38,9 +35,11 @@ public class kontakte extends ListActivity implements View.OnClickListener{
     private Button button7;
     private Button button3;
     private Button button6;
+    private Button button16;
     private TextView titelView;
     private ImageButton button14;
     private Animation animfadein;
+
 
     private String uebergebeneID;
     String uebergebenerName;
@@ -57,6 +56,7 @@ public class kontakte extends ListActivity implements View.OnClickListener{
         button7 = (Button) findViewById(R.id.button7);
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
+        button16 = (Button) findViewById (R.id.button16);
         button2 = (Button) findViewById(R.id.button2);
         button14 = (ImageButton) findViewById(R.id.button14);
         titelView=(TextView) findViewById(R.id.textView);
@@ -82,7 +82,8 @@ public class kontakte extends ListActivity implements View.OnClickListener{
 
     public void onStart() {
         super.onStart();
-        titelView.setText("Deine Kontakte");
+        titelView.setText("Kontaktvorschläge");
+        button16.setVisibility(View.GONE);
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
         final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
@@ -121,10 +122,10 @@ public class kontakte extends ListActivity implements View.OnClickListener{
                 // Get the selected item text from ListView
                 String item = (String) parent.getItemAtPosition(position);
                 if (item.equals(profilansicht.aktuellerUser.getPersonID())){
-                    Intent Profil = new Intent(kontakte.this, profilansicht.class);
+                    Intent Profil = new Intent(kontaktvorschlaege.this, profilansicht.class);
                     startActivity(Profil);
                 }else {
-                    Intent profile = new Intent(kontakte.this, profilansichtAndererUser.class);
+                    Intent profile = new Intent(kontaktvorschlaege.this, profilansichtAndererUser.class);
                     profile.putExtra("ID", item);
                     startActivity(profile);
                 }
@@ -143,23 +144,23 @@ public class kontakte extends ListActivity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if (view == button2) {
-            Intent Profil = new Intent(kontakte.this, profilansicht.class);
+            Intent Profil = new Intent(kontaktvorschlaege.this, profilansicht.class);
             startActivity(Profil);
         }
         if (view == button7) {
-            Intent Walk = new Intent(kontakte.this, Eventliste_activity.class);
+            Intent Walk = new Intent(kontaktvorschlaege.this, Eventliste_activity.class);
             startActivity(Walk);
         }
         if (view == button3) {
-            Intent Map = new Intent(kontakte.this, MapsActivity.class);
+            Intent Map = new Intent(kontaktvorschlaege.this, MapsActivity.class);
             startActivity(Map);
         }
         if (view == button6) {
-            Intent Kontakte = new Intent(kontakte.this, kontakte.class);
+            Intent Kontakte = new Intent(kontaktvorschlaege.this, kontaktvorschlaege.class);
             startActivity(Kontakte);
         }
         if (view == button14) {
-            Intent gohelp = new Intent(kontakte.this, helpkontakte.class); //switch zur Registrierung
+            Intent gohelp = new Intent(kontaktvorschlaege.this, helpkontakte.class); //switch zur Registrierung
             startActivity(gohelp);
         }
     }

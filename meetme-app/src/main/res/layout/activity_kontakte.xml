@@ -5,8 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/schlossblurr"
+    android:layout_alignParentLeft="true"
     tools:context="de.meetme.kontakte">
 
+    <ImageButton
+        android:id="@+id/button14"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/mybutton"
+        android:src="@drawable/helpicon" />
 
     <Button
         android:id="@+id/button2"
@@ -71,42 +83,32 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="23dp"
+
         android:text="Kontakte"
-        android:textSize="22dp"
         android:textColor="#000000"
+        android:textSize="22dp"
         android:textStyle="bold" />
-    <ImageButton
-        android:id="@+id/button14"
-        android:layout_width="40dp"
-        android:src="@drawable/helpicon"
+
+    <Button
+        android:id="@+id/button16"
+        android:layout_width="250dp"
         android:layout_height="40dp"
-        android:layout_marginRight="8dp"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
         android:background="@drawable/mybutton"
-        android:layout_alignBottom="@+id/textView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="8dp" />
+        android:text="Vorschläge finden" />
 
     <ListView
         android:id="@+id/@android:id/list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
-        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_above="@+id/button16"
+        android:layout_toStartOf="@+id/button14"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="9dp" />
-
-    <ListView
-        android:id="@+id/@android:id/list"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="9dp" />
-
+        android:layout_below="@+id/button14" />
 
 </android.widget.RelativeLayout>

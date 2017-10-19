@@ -38,6 +38,7 @@
         <activity android:name=".createevent" />
         <activity android:name=".eventinfos" />
         <activity android:name=".kontakte" />
+        <activity android:name=".kontaktvorschlaege" />
         <activity android:name=".teilnehmerlist" />
         <activity android:name=".anwesendelist" />
         <activity android:name=".profilansicht" />
