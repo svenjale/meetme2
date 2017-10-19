@@ -151,7 +151,7 @@
         android:layout_below="@+id/textView6"
         android:ems="10"
         android:inputType="text|number|phone"
-        android:text="Telefonnummer mit +49 beginnen"
+        android:text="Bitte mit +49 beginnen"
         android:textColor="#000000" />
 
     <Button

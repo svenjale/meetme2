@@ -3,21 +3,18 @@ package de.meetme;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-
-
-import android.text.TextUtils;
-import android.widget.EditText;
-
 import com.firebase.client.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class Profile_Activity extends Activity implements View.OnClickListener {
@@ -128,7 +125,7 @@ public class Profile_Activity extends Activity implements View.OnClickListener {
             return;
         }
 
-        if ((!TextUtils.isEmpty(vorname))&&(!TextUtils.isEmpty(name))&&!(kontakt.equals("+49"))&&(checkBox.isChecked()||checkBox2.isChecked()||checkBox3.isChecked()||checkBox4.isChecked())){
+        if ((!TextUtils.isEmpty(vorname))&&(!TextUtils.isEmpty(name))&&(checkBox.isChecked()||checkBox2.isChecked()||checkBox3.isChecked()||checkBox4.isChecked())){
             Person profil = new Person (name, vorname, rolle, kontakt,firebaseAuth.getInstance().getCurrentUser().getUid());
             databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
             Toast.makeText(this, "Profil wurde aktualisiert", Toast.LENGTH_LONG).show();
