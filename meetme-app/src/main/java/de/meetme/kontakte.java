@@ -59,7 +59,7 @@ public class kontakte extends ListActivity implements View.OnClickListener{
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
-        button2 = (Button) findViewById(R.id.button16);
+        button16 = (Button) findViewById(R.id.button16);
         button14 = (ImageButton) findViewById(R.id.button14);
         titelView=(TextView) findViewById(R.id.textView);
         animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
@@ -80,6 +80,7 @@ public class kontakte extends ListActivity implements View.OnClickListener{
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
         button14.setOnClickListener(this);
+        button16.setOnClickListener(this);
     }
 
     public void onStart() {

@@ -78,12 +78,15 @@ public class kontaktvorschlaege extends ListActivity implements View.OnClickList
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
         button14.setOnClickListener(this);
+        button16.setOnClickListener(this);
+
     }
 
     public void onStart() {
         super.onStart();
         titelView.setText("Kontaktvorschläge");
-        button16.setVisibility(View.GONE);
+        //button16.setVisibility(View.GONE);
+        button16.setText("Zurück zu Kontakten");
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
         final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
@@ -156,12 +159,16 @@ public class kontaktvorschlaege extends ListActivity implements View.OnClickList
             startActivity(Map);
         }
         if (view == button6) {
-            Intent Kontakte = new Intent(kontaktvorschlaege.this, kontaktvorschlaege.class);
+            Intent Kontakte = new Intent(kontaktvorschlaege.this, kontakte.class);
             startActivity(Kontakte);
         }
         if (view == button14) {
             Intent gohelp = new Intent(kontaktvorschlaege.this, helpkontakte.class); //switch zur Registrierung
             startActivity(gohelp);
+        }
+        if (view == button16) {
+            Intent Kontakte = new Intent(kontaktvorschlaege.this, kontakte.class);
+            startActivity(Kontakte);
         }
     }
 }
