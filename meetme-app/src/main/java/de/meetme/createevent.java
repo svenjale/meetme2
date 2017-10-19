@@ -1,6 +1,5 @@
 package de.meetme;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -12,16 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.google.firebase.auth.FirebaseAuth;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
-
-import java.text.DateFormat;
-import java.text.FieldPosition;
-import java.text.ParseException;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class createevent extends FragmentActivity implements View.OnClickListener  {
@@ -35,6 +29,7 @@ public class createevent extends FragmentActivity implements View.OnClickListene
 
     private TextView textView12;
     private TextView textView11;
+    private TextView textView18;
 
     private FirebaseAuth firebaseAuth;
     private Firebase databaseEvents;
@@ -45,7 +40,7 @@ public class createevent extends FragmentActivity implements View.OnClickListene
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
 
     private String IDuebergabe ="";
-
+    private String bearbeitenID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +65,7 @@ public class createevent extends FragmentActivity implements View.OnClickListene
 
         textView12=(TextView) findViewById(R.id.textView12);
         textView11=(TextView) findViewById(R.id.textView11);
-
-
+        textView18=(TextView) findViewById(R.id.textView18);
 
         /*editText13.setOnClickListener(new View.OnClickListener() {
 
@@ -112,6 +106,32 @@ public class createevent extends FragmentActivity implements View.OnClickListene
         textView12.setOnClickListener(this);
         textView11.setOnClickListener(this);
 
+
+    }
+
+    public void onStart(){
+        super.onStart();
+        try{
+            Intent intent = getIntent();
+            bearbeitenID = intent.getStringExtra("eventID");
+            textView18.setText("Event bearbeiten");
+            databaseEvents.child(bearbeitenID).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Event event = dataSnapshot.getValue(Event.class);
+                    if (event != null) {
+                        ((TextView) findViewById(R.id.editText5)).setText(event.getEventname());
+                        ((TextView) findViewById(R.id.editText8)).setText(event.getBeschreibung());
+                        ((TextView) findViewById(R.id.editText10)).setText(event.getOrt());
+                        ((TextView) findViewById(R.id.editText11)).setText(event.getDatum());
+                        ((TextView) findViewById(R.id.editText13)).setText(event.getUhrzeit());
+                    }
+                }
+                @Override
+                public void onCancelled(FirebaseError firebaseError) {
+                }
+            });
+        }catch (NullPointerException np){}
 
     }
 
@@ -157,14 +177,33 @@ public class createevent extends FragmentActivity implements View.OnClickListene
 
         if (!TextUtils.isEmpty(eventname)&&!TextUtils.isEmpty(beschreibung)&&!TextUtils.isEmpty(ort)&&!TextUtils.isEmpty(datum)&&!TextUtils.isEmpty(uhrzeit)){
 
-            String id = databaseEvents.push().getKey();
+
+            String id = databaseEvents.push().getKey().toString();
+
+            // Abfrage, falls ein Event bearbeitet werden soll, statt neu erstellen
+
+            /*try {
+                Intent intent2 = getIntent();
+                id = intent2.getStringExtra("eventID");
+            }
+            catch (NullPointerException np) {
+            }*/
+
+            if (bearbeitenID!=null){
+                id=bearbeitenID;
+            }
+
+            /*if(!bearbeitenID.equals("")){
+                id=bearbeitenID;
+            }*/
+
             Event event = new Event(id, eventname, beschreibung, ort, datum, uhrzeit, organisatorID);
             databaseEvents.child(id).setValue(event);
             databaseEventteilnehmer.child(id).child(organisatorID).setValue(organisatorID); // Johann: wahrscheinlich Problem, sobald mehrere Teilnehmer --> prüfen, sobald Eventinfos getestet werden kann
             //databaseEventanwesende.child(id).child(organisatorID).setValue(organisatorID);
             databaseTeilnahmen.child(organisatorID).child(id).setValue(id);
 
-            Toast.makeText(this, "Das Event wurde erstellt", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Dein Event wurde gespeichert", Toast.LENGTH_LONG).show();
             IDuebergabe=id;
             
             Intent infointent = new Intent(createevent.this, eventinfos.class);

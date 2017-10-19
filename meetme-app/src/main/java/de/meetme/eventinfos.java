@@ -10,11 +10,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
-import android.media.Image;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.view.animation.Animation;
@@ -24,17 +21,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.client.FirebaseError;
-import com.google.firebase.auth.FirebaseAuth;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.StringTokenizer;
 
 
 public class eventinfos extends Activity implements View.OnClickListener{
@@ -153,11 +145,12 @@ public class eventinfos extends Activity implements View.OnClickListener{
     @Override
     public void onStart(){
         super.onStart();
-
+       /*
         if (databaseEventteilnehmer.child(uebergebeneID).child(profilansicht.aktuelleUserID)!=null ){
             button26.setVisibility(View.VISIBLE);
         }
         else {button26.setVisibility(View.GONE);}
+        */
 
         //Event Laden
         ValueEventListener eventListener = new ValueEventListener() {
@@ -177,7 +170,9 @@ public class eventinfos extends Activity implements View.OnClickListener{
                     whatsappUhrzeit=event.getUhrzeit();
                     orgaID = event.getOrganisatorID();
                     if (orgaID.equals(profilansicht.aktuelleUserID)) {
-                        button26.setVisibility(View.GONE);}
+                        //button26.setVisibility(View.GONE);
+                        button26.setText("Event bearbeiten");
+                    }
 
                     //uebergebenerName=event.getEventname();
                     // Profil laden
@@ -309,13 +304,21 @@ public class eventinfos extends Activity implements View.OnClickListener{
             Map.putExtra("Eventname", whatsappName);
 
             startActivity(Map);}
+
         if (view==button26){
-            databaseEventteilnehmer.child(uebergebeneID).child(profilansicht.aktuelleUserID).removeValue(); //löschen
-            if (databaseEventanwesende.child(uebergebeneID).child(profilansicht.aktuelleUserID)!=null){
-                databaseEventanwesende.child(uebergebeneID).child(profilansicht.aktuelleUserID).removeValue();
-            };
-            Toast.makeText(eventinfos.this, "Du wurdest vom Event abgemeldet.", Toast.LENGTH_SHORT).show();
-            button26.setVisibility(View.GONE);
+            if (orgaID.equals(profilansicht.aktuelleUserID)){
+                Intent eventbearbeiten = new Intent (eventinfos.this, createevent.class);
+                eventbearbeiten.putExtra("eventID", uebergebeneID);
+                startActivity(eventbearbeiten);
+            }else {
+                databaseEventteilnehmer.child(uebergebeneID).child(profilansicht.aktuelleUserID).removeValue(); //löschen
+                if (databaseEventanwesende.child(uebergebeneID).child(profilansicht.aktuelleUserID) != null) {
+                    databaseEventanwesende.child(uebergebeneID).child(profilansicht.aktuelleUserID).removeValue();
+                }
+                ;
+                Toast.makeText(eventinfos.this, "Du wurdest vom Event abgemeldet.", Toast.LENGTH_SHORT).show();
+                button26.setVisibility(View.GONE);
+            }
         }
 
     }
