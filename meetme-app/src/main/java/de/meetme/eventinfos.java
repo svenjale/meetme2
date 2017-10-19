@@ -21,6 +21,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
@@ -145,12 +146,31 @@ public class eventinfos extends Activity implements View.OnClickListener{
     @Override
     public void onStart(){
         super.onStart();
-       /*
+
+        databaseEventteilnehmer.child(uebergebeneID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String teilnehmer = snapshot.getValue(String.class);
+                    if (teilnehmer.equals(profilansicht.aktuelleUserID)) {
+                        button26.setVisibility(View.VISIBLE);
+                        return;
+                    }else{
+                        button26.setVisibility(View.GONE);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
         if (databaseEventteilnehmer.child(uebergebeneID).child(profilansicht.aktuelleUserID)!=null ){
             button26.setVisibility(View.VISIBLE);
         }
         else {button26.setVisibility(View.GONE);}
-        */
+
 
         //Event Laden
         ValueEventListener eventListener = new ValueEventListener() {
@@ -315,6 +335,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
                 if (databaseEventanwesende.child(uebergebeneID).child(profilansicht.aktuelleUserID) != null) {
                     databaseEventanwesende.child(uebergebeneID).child(profilansicht.aktuelleUserID).removeValue();
                 }
+                databaseTeilnahmen.child(profilansicht.aktuelleUserID).child(uebergebeneID).removeValue();
                 ;
                 Toast.makeText(eventinfos.this, "Du wurdest vom Event abgemeldet.", Toast.LENGTH_SHORT).show();
                 button26.setVisibility(View.GONE);
