@@ -38,6 +38,7 @@ public class kontakte extends ListActivity implements View.OnClickListener{
     private Button button7;
     private Button button3;
     private Button button6;
+    private Button button16;
     private TextView titelView;
     private ImageButton button14;
     private Animation animfadein;
@@ -58,6 +59,7 @@ public class kontakte extends ListActivity implements View.OnClickListener{
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
         button2 = (Button) findViewById(R.id.button2);
+        button2 = (Button) findViewById(R.id.button16);
         button14 = (ImageButton) findViewById(R.id.button14);
         titelView=(TextView) findViewById(R.id.textView);
         animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
@@ -161,6 +163,10 @@ public class kontakte extends ListActivity implements View.OnClickListener{
         if (view == button14) {
             Intent gohelp = new Intent(kontakte.this, helpkontakte.class); //switch zur Registrierung
             startActivity(gohelp);
+        }
+        if (view == button16) {
+            Intent kontaktvorschlaege = new Intent(kontakte.this, kontaktvorschlaege.class); //switch zur Registrierung
+            startActivity(kontaktvorschlaege);
         }
     }
 }

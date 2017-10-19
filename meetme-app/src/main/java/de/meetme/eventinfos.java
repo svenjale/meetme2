@@ -12,6 +12,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.view.animation.Animation;
@@ -57,6 +58,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private ImageButton button23;
     private ImageButton button14;
     private ImageButton button24;
+    private Button button12;
     private Button button26;
     private Animation animfadein;
 
@@ -104,6 +106,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button14 = findViewById(R.id.button14);
         button24 = findViewById(R.id.button24);
         button26 = findViewById(R.id.button26);
+        button12 = findViewById(R.id.button12);
+
         animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
 // load the animation
 
@@ -138,9 +142,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button23.setOnClickListener(this);
         button24.setOnClickListener(this);
         button26.setOnClickListener(this);
-
-
-
+        button12.setOnClickListener(this);
     }
 
     @Override
@@ -341,10 +343,47 @@ public class eventinfos extends Activity implements View.OnClickListener{
                 button26.setVisibility(View.GONE);
             }
         }
+        if (view==button12){
+            kalendereintragErstellen(button12);
+
+        }
 
     }
 
+    public void kalendereintragErstellen(View view){
+        StringBuffer date = new StringBuffer(whatsappDatum);
+        int d = Integer.parseInt(date.substring(0,2));
+        int m = Integer.parseInt(date.substring(3,5));
+        int y = Integer.parseInt(date.substring(6,10));
+        StringBuffer time = new StringBuffer(whatsappUhrzeit);
+        int h =  Integer.parseInt(time.substring(0,2));
+        int mm =  Integer.parseInt(time.substring(3,5));
 
+        Calendar beginTime = Calendar.getInstance();
+        beginTime.set(Calendar.MONTH, m-1);
+        beginTime.set(Calendar.YEAR, y);
+        beginTime.set(Calendar.DAY_OF_MONTH, d);
+        beginTime.set(Calendar.HOUR_OF_DAY, h);
+        beginTime.set(Calendar.MINUTE, mm);
+        beginTime.set(Calendar.SECOND, 00);
+
+        /*Calendar endTime = beginTime;
+        endTime.add(Calendar.HOUR_OF_DAY, +3);*/
+
+        beginTime.set(Calendar.AM_PM, Calendar.PM);
+        //endTime.set(Calendar.AM_PM, Calendar.PM);
+
+        Intent intent = new Intent(Intent.ACTION_INSERT)
+                .setData(CalendarContract.Events.CONTENT_URI)
+                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
+                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, beginTime.getTimeInMillis()+10800000) // Standard Dauer 3 Stunden (in Milisekunden)
+                .putExtra(CalendarContract.Events.TITLE, "Smap: "+whatsappName)
+                .putExtra(CalendarContract.Events.DESCRIPTION, whatsappBeschreibung+"\n\n"+"Weitere Infos in deiner Smap App.")
+                .putExtra(CalendarContract.Events.EVENT_LOCATION, whatsappOrt)
+                .putExtra(CalendarContract.Events.HAS_ALARM, 0)
+                .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
+        startActivity(intent);
+    }
 
     public void mitWhatsAppTeilen(View view) {
 
