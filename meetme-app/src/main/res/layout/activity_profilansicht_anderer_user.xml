@@ -179,6 +179,16 @@
         android:layout_alignLeft="@+id/button14"
         android:layout_alignStart="@+id/button14" />
 
+    <ImageButton
+        android:id="@+id/button16"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_check_circle"
+        android:background="@drawable/mybutton"
+        android:layout_alignTop="@+id/textView37"
+        android:layout_alignRight="@+id/textView39"
+        android:layout_alignEnd="@+id/textView39" />
+
 
     <TextView
         android:id="@+id/textView39"
@@ -258,8 +268,6 @@
         android:layout_toRightOf="@+id/button19"
         android:layout_toEndOf="@+id/button19"
         android:layout_marginTop="8dp" />
-
-
 
 
 </android.widget.RelativeLayout>

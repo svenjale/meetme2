@@ -1,5 +1,6 @@
 package de.meetme;
 
+
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -63,6 +64,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private ImageButton button23;
     private ImageButton button14;
     private ImageButton button24;
+    private Button button26;
     private Animation animfadein;
 
 
@@ -108,6 +110,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button23 = findViewById(R.id.button23);
         button14 = findViewById(R.id.button14);
         button24 = findViewById(R.id.button24);
+        button26 = findViewById(R.id.button26);
         animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
 // load the animation
 
@@ -141,6 +144,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
         button21.setOnClickListener(this);
         button23.setOnClickListener(this);
         button24.setOnClickListener(this);
+        button26.setOnClickListener(this);
+
 
 
     }
@@ -148,6 +153,11 @@ public class eventinfos extends Activity implements View.OnClickListener{
     @Override
     public void onStart(){
         super.onStart();
+
+        if (databaseEventteilnehmer.child(uebergebeneID).child(profilansicht.aktuelleUserID)!=null ){
+            button26.setVisibility(View.VISIBLE);
+        }
+        else {button26.setVisibility(View.GONE);}
 
         //Event Laden
         ValueEventListener eventListener = new ValueEventListener() {
@@ -166,6 +176,9 @@ public class eventinfos extends Activity implements View.OnClickListener{
                     //((TextView) findViewById(R.id.textView21)).setText(event.getUhrzeit());
                     whatsappUhrzeit=event.getUhrzeit();
                     orgaID = event.getOrganisatorID();
+                    if (orgaID.equals(profilansicht.aktuelleUserID)) {
+                        button26.setVisibility(View.GONE);}
+
                     //uebergebenerName=event.getEventname();
                     // Profil laden
                     databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(orgaID);
@@ -200,12 +213,14 @@ public class eventinfos extends Activity implements View.OnClickListener{
             databaseEventteilnehmer.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
             databaseTeilnahmen.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
             Toast.makeText(this, "Erfolgreich angemeldet. Bis bald!", Toast.LENGTH_LONG).show();
+            button26.setVisibility(View.VISIBLE);
         }
         if (view == button5) {
             databaseEventanwesende.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
             databaseEventteilnehmer.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
             databaseTeilnahmen.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
             // wenn anwesend, dann auch Teilnehmer
+            button26.setVisibility(View.VISIBLE);
             Toast.makeText(this, "Check-In erfolgreich. Viel Spaß beim Event!", Toast.LENGTH_LONG).show();
             databaseEventanwesende.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
             databaseEventteilnehmer.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -294,7 +309,14 @@ public class eventinfos extends Activity implements View.OnClickListener{
             Map.putExtra("Eventname", whatsappName);
 
             startActivity(Map);}
-
+        if (view==button26){
+            databaseEventteilnehmer.child(uebergebeneID).child(profilansicht.aktuelleUserID).removeValue(); //löschen
+            if (databaseEventanwesende.child(uebergebeneID).child(profilansicht.aktuelleUserID)!=null){
+                databaseEventanwesende.child(uebergebeneID).child(profilansicht.aktuelleUserID).removeValue();
+            };
+            Toast.makeText(eventinfos.this, "Du wurdest vom Event abgemeldet.", Toast.LENGTH_SHORT).show();
+            button26.setVisibility(View.GONE);
+        }
 
     }
 

@@ -54,7 +54,7 @@ public class profilansicht extends Activity implements View.OnClickListener {
         textView34 = (TextView) findViewById(R.id.textView34);
         textView39 = (TextView) findViewById(R.id.textView39);
 
-        button15 = (Button) findViewById(R.id.button15);
+        button15 = (Button) findViewById(R.id.button16);
         button7 = (Button) findViewById(R.id.button7);
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);

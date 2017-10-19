@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -20,8 +19,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import android.app.Activity;
 import android.widget.Toast;
-
-import de.meetme.R;
 
 public class profilansichtAndererUser extends Activity implements View.OnClickListener {
 
@@ -39,6 +36,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
     private TextView textView39;
     private TextView textView21;
     private ImageButton button15;
+    private ImageButton button16;
     private Button button2;
     private Button button7;
     private Button button3;
@@ -70,6 +68,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
 
 
         button15 = (ImageButton) findViewById(R.id.button15);
+        button16 = (ImageButton) findViewById(R.id.button16);
         button7 = (Button) findViewById(R.id.button7);
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
@@ -89,6 +88,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
 
         imageButton3.setOnClickListener(this);
         button15.setOnClickListener(this);
+        button16.setOnClickListener(this);
         button7.setOnClickListener(this);
         button3.setOnClickListener(this);
         button6.setOnClickListener(this);
@@ -112,6 +112,7 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         ValueEventListener profilListener = new ValueEventListener() {
             @Override
             public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
+                button16.setVisibility(View.GONE);
                 Person ansicht = dataSnapshot.getValue(Person.class);//Toast.makeText(profilansicht.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
                 //textView33.setText(dataSnapshot.child("name").getValue().toString());
                 //textView37.setText(dataSnapshot.child("vorname").getValue().toString());
@@ -124,6 +125,13 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
                 ((TextView) findViewById(R.id.textView21)).setText("Profil von " + ansicht.getName());
                 whatsappKontakt = ansicht.getKontakt();
                 aktuellerName = ansicht.getVorname() + " " + ansicht.getName();
+
+
+
+                if (databaseKontakte.child(uebergebeneID)!=null)
+                {button16.setVisibility(View.VISIBLE);
+                    button15.setVisibility(View.GONE);
+                };
             }
 
             @Override
@@ -188,7 +196,14 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         if (view == button15) {
             databaseKontakte.child(uebergebeneID).setValue(uebergebeneID);
             Toast.makeText(profilansichtAndererUser.this, "" + aktuellerName + " wurde zu deinen Kontakten hinzugefügt.", Toast.LENGTH_SHORT).show();
-
+            button16.setVisibility(View.VISIBLE);
+            button15.setVisibility(View.GONE);
+        }
+        if (view == button16) {
+            databaseKontakte.child(uebergebeneID).removeValue(); //löschen
+            Toast.makeText(profilansichtAndererUser.this, "" + aktuellerName + " wurde aus deinen Kontakten entfernt.", Toast.LENGTH_SHORT).show();
+            button16.setVisibility(View.GONE);
+            button15.setVisibility(View.VISIBLE);
         }
     }
 

@@ -7,6 +7,17 @@
     android:background="@drawable/schlossblurr"
     tools:context="de.meetme.eventinfos">
 
+    <Button
+        android:id="@+id/button26"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/button2"
+        android:layout_alignLeft="@+id/button11"
+        android:layout_alignStart="@+id/button11"
+        android:layout_marginBottom="21dp"
+        android:background="@drawable/mybutton"
+        android:text="Von Event abmelden" />
+
     <ImageButton
         android:id="@+id/button14"
         android:layout_width="40dp"
@@ -230,12 +241,11 @@
         android:id="@+id/button10"
         android:layout_width="250dp"
         android:layout_height="40dp"
-        android:layout_marginTop="12dp"
         android:background="@drawable/mybutton"
         android:text="Anwesende"
-        android:layout_below="@+id/button11"
-        android:layout_alignLeft="@+id/button11"
-        android:layout_alignStart="@+id/button11" />
+        android:layout_alignTop="@+id/button5"
+        android:layout_alignLeft="@+id/button26"
+        android:layout_alignStart="@+id/button26" />
 
     <TextView
         android:id="@+id/textView17"
