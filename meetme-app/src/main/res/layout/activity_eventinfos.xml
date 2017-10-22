@@ -63,16 +63,18 @@
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button12"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:drawableStart="@drawable/advance-calendar-page-button-with-right"
-        android:drawableLeft="@drawable/advance-calendar-page-button-with-right"
         android:layout_above="@+id/button23"
+        android:src="@drawable/calendar"
+        android:scaleType="fitCenter"
+        android:padding="10dp"
         android:background="@drawable/mybutton"
         android:layout_alignRight="@+id/button21"
         android:layout_alignEnd="@+id/button21" />
+
 
     <Button
         android:id="@+id/button9"
