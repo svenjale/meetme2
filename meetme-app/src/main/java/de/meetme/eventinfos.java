@@ -4,16 +4,12 @@ package de.meetme;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
-import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -244,28 +240,15 @@ public class eventinfos extends Activity implements View.OnClickListener{
             databaseTeilnahmen.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
             // wenn anwesend, dann auch Teilnehmer
 
-            LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return;
-            }
-            try {
-                Location location = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                double longitude = location.getLongitude();
-                double latitude = location.getLatitude();
-                UserLocation loc = new UserLocation(latitude, longitude, FirebaseAuth.getInstance().getCurrentUser().getUid());
-                //databaseLocations.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
-                databaseLocations.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
-            }catch (NullPointerException np){
-                Toast.makeText(this, "Deine Location ist nicht verfügbar", Toast.LENGTH_LONG).show();
-            }
-            Toast.makeText(this, "Check-In erfolgreich. Viel Spaß beim Event!", Toast.LENGTH_LONG).show();
+            /*/AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            Intent intent = new Intent(this, LocationAlarmReceiver.class);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),3000, pendingIntent); //300000*/
+
+            Intent myIntent = new Intent(eventinfos.this, LocationAlarmReceiver.class);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(eventinfos.this, 0,myIntent, 0);
+            AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+            alarmManager.setRepeating(AlarmManager.RTC,System.currentTimeMillis(), 1000, pendingIntent);
         }
         if (view == button2) {
             Intent Profil = new Intent(eventinfos.this, profilansicht.class);

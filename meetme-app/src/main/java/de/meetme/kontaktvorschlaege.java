@@ -26,7 +26,7 @@ public class kontaktvorschlaege extends ListActivity implements View.OnClickList
     private static final String FIREBASE_URL = "https://smap-dhbw2.firebaseio.com";
 
     private FirebaseAuth firebaseAuth;
-    private Firebase databaseKontakte;
+    private Firebase databaseKontaktvorschlaege;
     private Firebase databaseProfiles;
 
     private ValueEventListener mConnectedListener;
@@ -50,7 +50,7 @@ public class kontaktvorschlaege extends ListActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kontakte);
 
-        databaseKontakte = new Firebase(FIREBASE_URL).child("kontakte").child(firebaseAuth.getInstance().getCurrentUser().getUid());
+        databaseKontaktvorschlaege = new Firebase(FIREBASE_URL).child("kontaktvorschlaege").child(firebaseAuth.getInstance().getCurrentUser().getUid());
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles");
 
         button7 = (Button) findViewById(R.id.button7);
@@ -90,7 +90,7 @@ public class kontaktvorschlaege extends ListActivity implements View.OnClickList
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
         final ListView listView = getListView();
         // Tell our list adapter that we only want 50 messages at a time
-        mTeilnehmerListAdapter = new PersonReferenzListAdapter(databaseKontakte.limit(50), this, R.layout.activity_teilnehmerlist_element);
+        mTeilnehmerListAdapter = new PersonReferenzListAdapter(databaseKontaktvorschlaege.limit(50), this, R.layout.activity_teilnehmerlist_element);
         listView.setAdapter(mTeilnehmerListAdapter);
         mTeilnehmerListAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
@@ -101,7 +101,7 @@ public class kontaktvorschlaege extends ListActivity implements View.OnClickList
         });
 
         // Finally, a little indication of connection status
-        mConnectedListener = databaseKontakte.getRoot().child(".info/connected").addValueEventListener(new ValueEventListener() {
+        mConnectedListener = databaseKontaktvorschlaege.getRoot().child(".info/connected").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 boolean connected = (Boolean) dataSnapshot.getValue();
@@ -140,7 +140,7 @@ public class kontaktvorschlaege extends ListActivity implements View.OnClickList
     @Override
     public void onStop() {
         super.onStop();
-        databaseKontakte.getRoot().child(".info/connected").removeEventListener(mConnectedListener);
+        databaseKontaktvorschlaege.getRoot().child(".info/connected").removeEventListener(mConnectedListener);
         mTeilnehmerListAdapter.cleanup();
     }
 
