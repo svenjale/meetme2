@@ -36,15 +36,15 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="127dp"
-        android:layout_toEndOf="@+id/imageView5"
-        android:layout_toRightOf="@+id/imageView5"
+        android:layout_marginTop="63dp"
         android:text="Vorname:"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="20dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="137dp" />
+        tools:layout_editor_absoluteY="137dp"
+        android:layout_below="@+id/button14"
+        android:layout_toRightOf="@+id/imageView5"
+        android:layout_toEndOf="@+id/imageView5" />
 
     <TextView
         android:id="@+id/textView29"
@@ -169,25 +169,32 @@
         android:layout_toLeftOf="@+id/button6"
         android:layout_toStartOf="@+id/button6" />
 
-    <ImageButton
+    <Button
         android:id="@+id/button15"
-        android:layout_width="40dp"
+        android:layout_width="150dp"
         android:layout_height="40dp"
-        android:src="@drawable/zukontaktenicon"
+        android:drawableLeft="@drawable/ic_star_black"
+        android:paddingLeft="5dp"
+        android:text="ZU KONTAKTEN"
         android:background="@drawable/mybutton"
-        android:layout_alignTop="@+id/textView29"
-        android:layout_alignLeft="@+id/button14"
-        android:layout_alignStart="@+id/button14" />
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/textView34"
+        android:layout_alignLeft="@+id/imageView4"
+        android:layout_alignStart="@+id/imageView4"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="12dp" />
 
-    <ImageButton
+    <Button
         android:id="@+id/button16"
-        android:layout_width="40dp"
+        android:layout_width="150dp"
         android:layout_height="40dp"
-        android:src="@drawable/ic_cancel_black_24dp"
+        android:drawableLeft="@drawable/ic_cancel_black_24dp"
+        android:paddingLeft="5dp"
+        android:text="ENTFERNEN"
         android:background="@drawable/mybutton"
-        android:layout_below="@+id/textView37"
-        android:layout_alignLeft="@+id/button15"
-        android:layout_alignStart="@+id/button15" />
+        android:layout_alignTop="@+id/button15"
+        android:layout_toRightOf="@+id/button3"
+        android:layout_toEndOf="@+id/button3" />
 
 
     <TextView
@@ -224,11 +231,11 @@
     <Button
         android:id="@+id/button19"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:background="@drawable/mybutton"
         android:text="Photowalk teilnahmen"
-        android:layout_marginTop="42dp"
-        android:layout_below="@+id/textView34"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/button15"
         android:layout_centerHorizontal="true" />
     <ImageView
         android:id="@+id/imageView3"
