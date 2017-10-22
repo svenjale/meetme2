@@ -1,12 +1,17 @@
 package de.meetme;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 
-public class help extends Activity {
+public class help extends Activity implements View.OnClickListener {
+
+    private Button button17;
 
     private TextView textViewHelpLogin;
 
@@ -16,8 +21,19 @@ public class help extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
+        button17 = (Button) findViewById(R.id.button17);
+        button17.setOnClickListener(this);
+
         textViewHelpLogin = (TextView) findViewById(R.id.textViewHelpLogin);
 
         textViewHelpLogin.setMovementMethod(new ScrollingMovementMethod());
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == button17) {
+            Intent back = new Intent(help.this, welcome.class); //switch zur Registrierung
+            startActivity(back);
+        }
     }
 }

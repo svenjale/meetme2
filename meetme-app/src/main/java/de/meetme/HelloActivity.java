@@ -126,6 +126,7 @@ public class HelloActivity extends Activity implements View.OnClickListener {
         }
         if (password.length() < 6) {
             Toast.makeText(HelloActivity.this, "Bitte gebe ein Passwort mit mindestens 6 Zeichen ein", Toast.LENGTH_SHORT).show();
+            return;
         }
 
 

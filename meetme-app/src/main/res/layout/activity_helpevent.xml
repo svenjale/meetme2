@@ -60,9 +60,18 @@ Des Weiteren kannst du dich hier als Teilnehmer des Events zu registrieren und z
         android:layout_below="@id/linearLayout5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-      />
+        android:layout_above="@+id/button17"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/mybutton"
+        android:text="Close" />
 
 
 </android.widget.RelativeLayout>
