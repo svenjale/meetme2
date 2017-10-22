@@ -64,5 +64,13 @@ public class LocationAlarmReceiver extends BroadcastReceiver {
                 return;
             }
         }
+
+        /* hier mit Listener und for Schleife die Location mit allen anderen Locations vergleichen
+        Problem: Location vor und nach Update? 2 oder mehr Location Tabellen? --> kompliziert
+
+        zunächst einfach in der for schleife des listeners: wenn location +5m Radius, dann zu Kontaktvorschlaege Tabelle hinzufügen
+
+        */
+
     }
 }

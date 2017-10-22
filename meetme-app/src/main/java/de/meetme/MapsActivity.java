@@ -1,31 +1,16 @@
 package de.meetme;
 
-import android.app.ProgressDialog;
-import android.content.Context;
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.*;
-import android.os.AsyncTask;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
-import android.Manifest;
 import android.support.annotation.NonNull;
-
-import com.firebase.client.ChildEventListener;
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
-import com.google.android.gms.ads.formats.NativeAd;
-import com.google.android.gms.maps.*;
-import com.google.android.gms.maps.model.*;
-
-import android.app.Activity;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -33,27 +18,26 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.location.Geocoder;
 
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.net.ssl.HttpsURLConnection;
 //import com.google.android.gms.maps.OnMyLocationButtonClickListener;
 //import com.google.android.gms.maps.OnMyLocationClickListener;
 
@@ -133,7 +117,8 @@ public class MapsActivity extends  AppCompatActivity
         String Rolle;
 
     private Marker locationMarker;
-    ChildEventListener locationlistener;
+        private Marker locationMarker2;
+        ChildEventListener locationlistener;
     Firebase databaseLocations;
         Firebase databaseLocations2;
         Firebase databaseEvents;
@@ -209,20 +194,23 @@ public class MapsActivity extends  AppCompatActivity
         LatLng stuttgart = new LatLng(48.7758459, 9.1829321);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(stuttgart, 12));
 
+
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
 
             @Override
             public void onInfoWindowClick(Marker arg0) {
-                if (allPersonMap.get(arg0)!=null){
-                    Intent profile = new Intent(MapsActivity.this, profilansichtAndererUser.class);
-                    profile.putExtra("ID", allPersonMap.get(arg0));
-                    startActivity(profile);
-                }
                 if (allEventMap.get(arg0)!=null){
                     Intent event = new Intent (MapsActivity.this, eventinfos.class);
                     event.putExtra("ID", allEventMap.get(arg0));
                     startActivity(event);
                 }
+                if (allPersonMap.get(arg0)!=null){
+                    Intent profile = new Intent(MapsActivity.this, profilansichtAndererUser.class);
+                    profile.putExtra("ID", allPersonMap.get(arg0));
+                    startActivity(profile);
+
+                }
+
 
 
 
@@ -329,10 +317,10 @@ public class MapsActivity extends  AppCompatActivity
                                     if (profil.getPersonID().equals(profilansicht.aktuelleUserID)) {
                                         return;
                                     }else{
-                                            mMap.addMarker(new MarkerOptions().position(location).title(Name).snippet(Rolle).
+                                            locationMarker2 = mMap.addMarker(new MarkerOptions().position(location).title(Name).snippet(Rolle).
                                             icon(BitmapDescriptorFactory.fromResource(R.drawable.faceicon)));
-                                            allPersonMap.put(locationMarker, id); // hier Code für Marker verschieben, z.B. Blick in Hashmap, gibt es bereits einen Marker mit der ID, wenn ja, Marker von Map und Hashmap entfernen und neuen hinzufügen zu beidem
-
+                                            allPersonMap.put(locationMarker2, id);
+                                        // hier Code für Marker verschieben, z.B. Blick in Hashmap, gibt es bereits einen Marker mit der ID, wenn ja, Marker von Map und Hashmap entfernen und neuen hinzufügen zu beidem
                                     }
                                 }
 
@@ -357,59 +345,6 @@ public class MapsActivity extends  AppCompatActivity
             }
         });
 
-/*
-        ValueEventListener anwesendeListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot da)
-                Person anwesend = dataSnapshot.getValue(Person.class);
-                String anwesendID = anwesend.getPersonID();
-
-                databaseLocations= new Firebase(FIREBASE_URL).child("locations").child(anwesendID);
-                ValueEventListener locationlistener = new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        UserLocation marker = dataSnapshot.getValue(UserLocation.class);
-                        String id = marker.getUserID();
-                        Double latitude = marker.getLat();
-                        Double longitude = marker.getLng();
-                        final LatLng location = new LatLng(latitude, longitude);
-
-                        databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(id);
-                        ValueEventListener profilListener = new ValueEventListener() {
-                            @Override
-                            public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
-                                Person person = dataSnapshot.getValue(Person.class);
-                                Name = person.getVorname() + " " + person.getName();
-                                Rolle = person.getRolle();
-                                mMap.addMarker(new MarkerOptions().position(location).title(Name).snippet(Rolle)); // hier Person Icon einfügen
-                            }
-
-                            @Override
-                            public void onCancelled(FirebaseError firebaseError) {
-                            }
-                        };
-                        databaseProfiles.addValueEventListener(profilListener);
-
-                    }
-
-                    @Override
-                    public void onCancelled(FirebaseError firebaseError) {
-
-                    }
-                };
-                databaseLocations.addValueEventListener(locationlistener);
-
-
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        };
-        databaseEventanwesende.addValueEventListener(anwesendeListener);
-    */
     }
 
     private void enableMyLocation() {
@@ -514,18 +449,16 @@ public class MapsActivity extends  AppCompatActivity
 
             @Override
             public void onInfoWindowClick(Marker arg0) {
+                if (allPersonMap.get(arg0)!=null){
+                    Intent profile = new Intent(MapsActivity.this, profilansichtAndererUser.class);
+                    profile.putExtra("ID", allPersonMap.get(arg0));
+                    startActivity(profile);
+                }
                 if (allEventMap.get(arg0)!=null){
                     Intent event = new Intent (MapsActivity.this, eventinfos.class);
                     event.putExtra("ID", allEventMap.get(arg0));
                     startActivity(event);
                 }
-
-                if (allPersonMap.get(arg0)!=null){
-                        Intent profile = new Intent(MapsActivity.this, profilansichtAndererUser.class);
-                        profile.putExtra("ID", allPersonMap.get(arg0));
-                        startActivity(profile);
-                }
-
             }
         });
 
