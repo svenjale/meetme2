@@ -11,12 +11,12 @@
         android:id="@+id/button26"
         android:layout_width="250dp"
         android:layout_height="40dp"
-        android:layout_above="@+id/button2"
-        android:layout_alignLeft="@+id/button11"
-        android:layout_alignStart="@+id/button11"
-        android:layout_marginBottom="21dp"
         android:background="@drawable/mybutton"
-        android:text="Von Event abmelden" />
+        android:text="Von Event abmelden"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/button5"
+        android:layout_alignLeft="@+id/button11"
+        android:layout_alignStart="@+id/button11" />
 
     <ImageButton
         android:id="@+id/button14"
@@ -53,36 +53,37 @@
 
     <Button
         android:id="@+id/button11"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:background="@drawable/mybutton"
         android:text="Teilnehmer"
         android:layout_below="@+id/textView17"
-        android:layout_toLeftOf="@+id/button6"
-        android:layout_toStartOf="@+id/button6"
-        android:layout_marginRight="12dp"
-        android:layout_marginEnd="12dp" />
+        android:layout_alignLeft="@+id/textView17"
+        android:layout_alignStart="@+id/textView17"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
 
     <Button
         android:id="@+id/button12"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/advance-calendar-page-button-with-right"
+        android:drawableLeft="@drawable/advance-calendar-page-button-with-right"
         android:layout_above="@+id/button23"
-        android:layout_alignLeft="@+id/button23"
-        android:layout_alignStart="@+id/button23"
-        android:layout_alignTop="@+id/textView19"
         android:background="@drawable/mybutton"
-        android:text="Kalender"
         android:layout_alignRight="@+id/button21"
         android:layout_alignEnd="@+id/button21" />
 
-    <ImageButton
+    <Button
         android:id="@+id/button9"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:background="@drawable/mybutton"
-        android:src="@drawable/personadd"
-        android:layout_alignTop="@+id/button11"
+        android:drawableLeft="@drawable/personadd"
+        android:drawableStart="@drawable/personadd"
+        android:layout_below="@+id/textView17"
+        android:text="TEILNEHMEN"
+        android:paddingLeft="5dp"
         android:layout_alignLeft="@+id/button5"
         android:layout_alignStart="@+id/button5" />
 
@@ -236,23 +237,25 @@
         android:layout_alignLeft="@+id/textView23"
         android:layout_alignStart="@+id/textView23" />
 
-    <ImageButton
+    <Button
         android:id="@+id/button5"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/personadd"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/personadd"
+        android:drawableLeft="@drawable/personadd"
         android:background="@drawable/mybutton"
+        android:text="ANWESEND"
+        android:paddingLeft="5dp"
         android:layout_marginLeft="11dp"
         android:layout_marginStart="11dp"
         android:layout_below="@+id/button9"
         android:layout_toRightOf="@+id/button10"
-        android:layout_toEndOf="@+id/button10"
         android:layout_marginTop="9dp" />
 
     <Button
         android:id="@+id/button10"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:background="@drawable/mybutton"
         android:text="Anwesende"
         android:layout_alignTop="@+id/button5"
