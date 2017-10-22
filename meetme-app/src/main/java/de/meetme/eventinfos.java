@@ -36,8 +36,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private Firebase databaseTeilnahmen;
     private Firebase databaseProfiles;
     private Firebase databaseLocations;
-    private ImageButton button9;
-    private ImageButton button5;
+    private Button button9;
+    private Button button5;
     private TextView textView7;
     private TextView textView31;
     private TextView textView24;
@@ -54,7 +54,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private ImageButton button23;
     private ImageButton button14;
     private ImageButton button24;
-    private Button button12;
+    private ImageButton button12;
     private Button button26;
     private Animation animfadein;
 
