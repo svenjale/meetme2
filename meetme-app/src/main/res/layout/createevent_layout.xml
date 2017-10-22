@@ -44,7 +44,7 @@
         android:layout_marginTop="62dp"
         android:text="Eventname*:"
         android:textAppearance="@android:style/TextAppearance.Holo"
-        android:textSize="17dp" />
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/textView9"
@@ -56,7 +56,7 @@
         android:layout_marginTop="5dp"
         android:text="Beschreibung*:"
         android:textAppearance="@android:style/TextAppearance.Holo"
-        android:textSize="17dp" />
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/editText8"
@@ -83,7 +83,7 @@
         android:layout_marginTop="5dp"
         android:text="Adresse*:"
         android:textAppearance="@android:style/TextAppearance.Holo"
-        android:textSize="17dp" />
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/editText10"
@@ -105,6 +105,7 @@
         android:layout_below="@+id/editText10"
         android:layout_marginTop="5dp"
         android:text="Datum*:"
+        android:textSize="20dp"
         android:textAppearance="@android:style/TextAppearance.Holo" />
     />
 
@@ -131,6 +132,7 @@
         android:layout_below="@+id/editText11"
         android:layout_marginTop="5dp"
         android:text="Uhrzeit*:"
+        android:textSize="20dp"
         android:textAppearance="@android:style/TextAppearance.Holo" />
     />
 
@@ -151,7 +153,7 @@
     <Button
         android:id="@+id/button8"
         android:layout_width="wrap_content"
-        android:layout_height="34dp"
+        android:layout_height="40dp"
         android:background="@drawable/mybutton"
         android:layout_marginBottom="42dp"
         android:text="SAVE"
