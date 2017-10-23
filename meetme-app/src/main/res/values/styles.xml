@@ -4,7 +4,6 @@
         <!-- Base application theme. -->
         <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" >
             <!-- Customize your theme here. -->
-    <item name="android:colorControlNormal">#e6b9b9b9</item>
     <item name="colorControlActivated">#e6bf94</item>
     <item name="colorControlHighlight">#e6bf94</item>
     <item name="android:colorPrimary">#e6bf94</item>
@@ -16,10 +15,7 @@
         <item name="android:colorBackground">@color/blue</item>
 <-->       
         </style>
-    <style name="AppThemeDatePicker" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorAccent">#000000</item>
-        <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
-    </style>
+
     
    <!--> <style name="DialogTheme" parent="android:style/Theme.Material.Dialog">
         <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
@@ -28,9 +24,6 @@
 
     <style name="MyDatePickerStyle" parent="android:style/Widget.Material.DatePicker">
         <item name="android:headerBackground">@drawable/schlossklien</item>
-        <item name="android:calendarTextColor">#FFFFFF</item>
-        <item name="android:dayOfWeekBackground">#fffafa</item>
-
     </style>
 
     <style name="MyTimePicker" parent="android:Widget.Material.Light.TimePicker">

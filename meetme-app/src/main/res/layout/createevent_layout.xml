@@ -118,8 +118,8 @@
         android:layout_below="@+id/textView11"
         android:ems="10"
         android:hint="dd.mm.yyyy"
-        android:inputType="date"
         android:selectAllOnFocus="false"
+        android:inputType="date"
         android:singleLine="false"
         tools:layout_width="300dp" />
 
@@ -146,6 +146,7 @@
         android:layout_marginTop="3dp"
         android:ems="10"
         android:hint="hh:mm"
+        android:selectAllOnFocus="false"
         android:inputType="time"
         tools:layout_width="300dp" />
 

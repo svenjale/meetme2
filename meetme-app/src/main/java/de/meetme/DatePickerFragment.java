@@ -34,7 +34,6 @@ public class DatePickerFragment extends DialogFragment
         // Do something with the date chosen by the user
         EditText tv1= (EditText) getActivity().findViewById(R.id.editText11);
         int d = view.getDayOfMonth();
-        tv1.setBackgroundColor(Color.GRAY);
         String da;
         if (d <10){
             da="0"+d;
