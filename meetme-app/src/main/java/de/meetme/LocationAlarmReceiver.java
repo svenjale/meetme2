@@ -49,7 +49,7 @@ public class LocationAlarmReceiver extends BroadcastReceiver {
             UserLocation loc = new UserLocation(latitude, longitude, FirebaseAuth.getInstance().getCurrentUser().getUid());
             //databaseLocations.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
             databaseLocations.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
-            Toast.makeText(context, "Network Location Update Test erfolgreich", Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, "Network Location Update Test erfolgreich", Toast.LENGTH_LONG).show();
         }catch (NullPointerException np){
             try {
                 Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -58,7 +58,7 @@ public class LocationAlarmReceiver extends BroadcastReceiver {
                 UserLocation loc = new UserLocation(latitude, longitude, FirebaseAuth.getInstance().getCurrentUser().getUid());
                 //databaseLocations.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
                 databaseLocations.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
-                Toast.makeText(context, "GPS Location Update Test erfolgreich", Toast.LENGTH_LONG).show();
+                //Toast.makeText(context, "GPS Location Update Test erfolgreich", Toast.LENGTH_LONG).show();
             }catch (NullPointerException np2){
                 Toast.makeText(context, "Deine Location ist nicht verfügbar", Toast.LENGTH_LONG).show();
                 return;

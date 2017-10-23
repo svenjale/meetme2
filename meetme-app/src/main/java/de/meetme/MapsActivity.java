@@ -411,7 +411,7 @@ public class MapsActivity extends  AppCompatActivity
     public void onMyLocationClick(@NonNull Location location) {
         standortInFirebaseAktualisieren(location);
         //Toast.makeText(this, "Jetziger Standort:\n"+ location, Toast.LENGTH_LONG).show();
-        Toast.makeText(this, profilansicht.aktuellerUser.getVorname()+" "+profilansicht.aktuellerUser.getName(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Das bist du, "+profilansicht.aktuellerUser.getVorname()+". :)", Toast.LENGTH_SHORT).show();
 
     }
 
