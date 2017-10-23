@@ -35,8 +35,8 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
     private TextView textView34;
     private TextView textView39;
     private TextView textView21;
-    private ImageButton button15;
-    private ImageButton button16;
+    private Button button15;
+    private Button button16;
     private Button button2;
     private Button button7;
     private Button button3;
@@ -67,8 +67,8 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         button14 = findViewById(R.id.button14);
 
 
-        button15 = (ImageButton) findViewById(R.id.button15);
-        button16 = (ImageButton) findViewById(R.id.button16);
+        button15 = (Button) findViewById(R.id.button15);
+        button16 = (Button) findViewById(R.id.button16);
         button7 = (Button) findViewById(R.id.button7);
         button3 = (Button) findViewById(R.id.button3);
         button6 = (Button) findViewById(R.id.button6);
