@@ -29,7 +29,7 @@ public class helpevent extends help {
     }
     public void onClick(View view) {
         if (view == button17) {
-            Intent back = new Intent(helpevent.this, welcome.class); //switch zur Registrierung
+            Intent back = new Intent(helpevent.this, eventinfos.class); //switch zur Registrierung
             startActivity(back);
         }
     }
