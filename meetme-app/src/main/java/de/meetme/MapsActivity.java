@@ -1,6 +1,8 @@
 package de.meetme;
 
 import android.Manifest;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -178,9 +180,10 @@ public class MapsActivity extends  AppCompatActivity
       //  button4.setOnClickListener(this);
         imageButton4.setOnClickListener(this);
 
-
-
-
+        Intent myIntent = new Intent(MapsActivity.this, LocationAlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(MapsActivity.this, 0,myIntent, 0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC,System.currentTimeMillis(), 10000, pendingIntent);
 
     }
 
@@ -208,11 +211,7 @@ public class MapsActivity extends  AppCompatActivity
                     Intent profile = new Intent(MapsActivity.this, profilansichtAndererUser.class);
                     profile.putExtra("ID", allPersonMap.get(arg0));
                     startActivity(profile);
-
                 }
-
-
-
 
             }
         });
@@ -295,49 +294,54 @@ public class MapsActivity extends  AppCompatActivity
         databaseEventanwesende.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    String anwesendID = snapshot.getValue(String.class);
-                    databaseLocations= new Firebase(FIREBASE_URL).child("locations").child(anwesendID);
-                    databaseLocations.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot2) {
-                            UserLocation loc = dataSnapshot2.getValue(UserLocation.class);
-                            String id = loc.getUserID();
-                            Double latitude = loc.getLat();
-                            Double longitude = loc.getLng();
-                            final LatLng location = new LatLng(latitude, longitude);
-                            databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(id);
-                            databaseProfiles.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot3) {
-                                    Person profil = dataSnapshot3.getValue(Person.class);
-                                    Name = profil.getVorname() + " " + profil.getName();
-                                    Rolle = profil.getRolle();
-                                    String id=profil.getPersonID();
-                                    if (profil.getPersonID().equals(profilansicht.aktuelleUserID)) {
-                                        return;
-                                    }else{
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    try {
+                        String anwesendID = snapshot.getValue(String.class);
+                        databaseLocations = new Firebase(FIREBASE_URL).child("locations").child(anwesendID);
+                        databaseLocations.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot2) {
+                                UserLocation loc = dataSnapshot2.getValue(UserLocation.class);
+                                String id = loc.getUserID();
+                                Double latitude = loc.getLat();
+                                Double longitude = loc.getLng();
+                                final LatLng location = new LatLng(latitude, longitude);
+                                databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(id);
+                                databaseProfiles.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot3) {
+                                        Person profil = dataSnapshot3.getValue(Person.class);
+                                        Name = profil.getVorname() + " " + profil.getName();
+                                        Rolle = profil.getRolle();
+                                        String id = profil.getPersonID();
+                                        if (profil.getPersonID().equals(profilansicht.aktuelleUserID)) {
+                                            return;
+                                        } else {
                                             locationMarker2 = mMap.addMarker(new MarkerOptions().position(location).title(Name).snippet(Rolle).
-                                            icon(BitmapDescriptorFactory.fromResource(R.drawable.faceicon)));
+                                                    icon(BitmapDescriptorFactory.fromResource(R.drawable.faceicon)));
                                             allPersonMap.put(locationMarker2, id);
-                                        // hier Code für Marker verschieben, z.B. Blick in Hashmap, gibt es bereits einen Marker mit der ID, wenn ja, Marker von Map und Hashmap entfernen und neuen hinzufügen zu beidem
+                                            // hier Code für Marker verschieben, z.B. Blick in Hashmap, gibt es bereits einen Marker mit der ID, wenn ja, Marker von Map und Hashmap entfernen und neuen hinzufügen zu beidem
+                                        }
                                     }
-                                }
 
-                                @Override
-                                public void onCancelled(FirebaseError firebaseError) {
+                                    @Override
+                                    public void onCancelled(FirebaseError firebaseError) {
 
-                                }
-                            });
-                        }
+                                    }
+                                });
+                            }
 
-                        @Override
-                        public void onCancelled(FirebaseError firebaseError) {
+                            @Override
+                            public void onCancelled(FirebaseError firebaseError) {
 
-                        }
-                    });
+                            }
+                        });
+                    }catch (NullPointerException npp){
+                        // User Location nicht verfügbar
+                    }
                 }
             }
+
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {

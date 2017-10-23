@@ -2,28 +2,21 @@ package de.meetme;
 
 import android.app.ListActivity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.DataSetObserver;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
-
-import java.util.Random;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Eventliste_activity extends ListActivity implements View.OnClickListener { // implements AdapterView.OnItemClickListener
 
@@ -34,6 +27,8 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
     private Firebase mFirebaseRef;
     private ValueEventListener mConnectedListener;
     private EventListAdapter mEventListAdapter;
+
+    private FirebaseAuth firebaseAuth;
 
     private Button button2;
     private Button button7;
@@ -74,6 +69,8 @@ public class Eventliste_activity extends ListActivity implements View.OnClickLis
         button6.setOnClickListener(this);
         button2.setOnClickListener(this);
         button13.setOnClickListener(this);
+
+        profilansicht.aktuelleUserID = firebaseAuth.getInstance().getCurrentUser().getUid();
 
     }
 

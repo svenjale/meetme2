@@ -36,6 +36,7 @@ public class eventinfos extends Activity implements View.OnClickListener{
     private Firebase databaseTeilnahmen;
     private Firebase databaseProfiles;
     private Firebase databaseLocations;
+    // private Firebase databaseLocationsSpeicher;
     private Button button9;
     private Button button5;
     private TextView textView7;
@@ -279,15 +280,23 @@ public class eventinfos extends Activity implements View.OnClickListener{
             databaseTeilnahmen.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
             // wenn anwesend, dann auch Teilnehmer
 
-            /*/AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
-            Intent intent = new Intent(this, LocationAlarmReceiver.class);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),3000, pendingIntent); //300000*/
+            //locationUpdateStarten(); // Funktionalität in Methode ausgelagert, s.u.
 
+            /*
             Intent myIntent = new Intent(eventinfos.this, LocationAlarmReceiver.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(eventinfos.this, 0,myIntent, 0);
             AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-            alarmManager.setRepeating(AlarmManager.RTC,System.currentTimeMillis(), 1000, pendingIntent);
+            alarmManager.setRepeating(AlarmManager.RTC,System.currentTimeMillis(), 10000, pendingIntent);
+            */
+
+            //locationVergleichStarten();
+
+            Intent myIntent2 = new Intent(eventinfos.this, KontaktVorschlagReceiver.class);
+            PendingIntent pendingIntent2 = PendingIntent.getBroadcast(eventinfos.this, 0,myIntent2, 0);
+            AlarmManager alarmManager2 = (AlarmManager) getSystemService(ALARM_SERVICE);
+            alarmManager2.setRepeating(AlarmManager.RTC,System.currentTimeMillis()+2000, 20000, pendingIntent2);
+
+
         }
         if (view == button2) {
             Intent Profil = new Intent(eventinfos.this, profilansicht.class);
@@ -476,4 +485,61 @@ public void alarmStellen (){
     AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
     alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
 }
+
+
+public void locationUpdateStarten(){
+    Intent myIntent = new Intent(eventinfos.this, LocationAlarmReceiver.class);
+    PendingIntent pendingIntent = PendingIntent.getBroadcast(eventinfos.this, 0,myIntent, 0);
+    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+    alarmManager.setRepeating(AlarmManager.RTC,System.currentTimeMillis(), 10000, pendingIntent);
+}
+
+public void locationVergleichStarten(){
+    Intent myIntent = new Intent(eventinfos.this, KontaktVorschlagReceiver.class);
+    PendingIntent pendingIntent = PendingIntent.getBroadcast(eventinfos.this, 0,myIntent, 0);
+    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+    alarmManager.setRepeating(AlarmManager.RTC,System.currentTimeMillis()+1000, 20000, pendingIntent);
+}
+
+
+// Methode, um einmalig die aktuelle Location in LocationDatabase und LocationSpeicherDatabase zu sichern --> evtl. ugeschickt?
+/*
+public void firstLocation(){
+    LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+    databaseLocations = new Firebase(FIREBASE_URL).child("locations");
+    databaseLocationsSpeicher = new Firebase(FIREBASE_URL).child("locationsSpeicher");
+
+    if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        // TODO: Consider calling
+        //    ActivityCompat#requestPermissions
+        // here to request the missing permissions, and then overriding
+        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+        //                                          int[] grantResults)
+        // to handle the case where the user grants the permission. See the documentation
+        // for ActivityCompat#requestPermissions for more details.
+        Toast.makeText(this, "Permission Error", Toast.LENGTH_LONG).show();
+        return;
+    }
+    try {
+        Location location = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        double longitude = location.getLongitude();
+        double latitude = location.getLatitude();
+        UserLocation loc = new UserLocation(latitude, longitude, FirebaseAuth.getInstance().getCurrentUser().getUid());
+        //databaseLocations.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
+        databaseLocations.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
+        databaseLocationsSpeicher.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
+    }catch (NullPointerException np){
+        try {
+            Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            double longitude = location.getLongitude();
+            double latitude = location.getLatitude();
+            UserLocation loc = new UserLocation(latitude, longitude, FirebaseAuth.getInstance().getCurrentUser().getUid());
+            //databaseLocations.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
+            databaseLocations.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
+            databaseLocationsSpeicher.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(loc);
+        }catch (NullPointerException np2){
+            return;
+        }
+    }
+}*/
 }

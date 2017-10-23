@@ -41,10 +41,14 @@ public class PersonReferenzListAdapter extends FirebaseListAdapter<String> {
         ValueEventListener profilListener = new ValueEventListener() {
             @Override
             public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
+                try{
                 aktuellerUser2 = dataSnapshot.getValue(Person.class);//Toast.makeText(profilansicht.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
                 ((TextView) view.findViewById(R.id.teilnehmervorname)).setText(aktuellerUser2.getVorname());
                 ((TextView) view.findViewById(R.id.teilnehmername)).setText(aktuellerUser2.getName());
-                ((TextView) view.findViewById(R.id.teilnehmerrolle)).setText(aktuellerUser2.getRolle());}
+                ((TextView) view.findViewById(R.id.teilnehmerrolle)).setText(aktuellerUser2.getRolle());
+                }catch (NullPointerException nppp) {
+                }
+            }
             @Override
             public void onCancelled(FirebaseError firebaseError) {
 

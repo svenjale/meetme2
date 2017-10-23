@@ -54,8 +54,11 @@
 
         <receiver android:name=".MyReceiver"
         android:enabled="true">
-    </receiver>
+        </receiver>
         <receiver android:name=".LocationAlarmReceiver"
+            android:enabled="true">
+        </receiver>
+        <receiver android:name=".KontaktVorschlagReceiver"
             android:enabled="true">
         </receiver>
 

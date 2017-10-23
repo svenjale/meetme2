@@ -22,9 +22,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
-import java.lang.Throwable;
-import java.lang.Object;
 
 
 
@@ -134,7 +131,7 @@ public class HelloActivity extends Activity implements View.OnClickListener {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Person profil = new Person("", "", "", "+49", firebaseAuth.getInstance().getCurrentUser().getUid());
+                        Person profil = new Person("", "", "", "", firebaseAuth.getInstance().getCurrentUser().getUid());
                         databaseProfiles.child(firebaseAuth.getInstance().getCurrentUser().getUid()).setValue(profil);
                         profilansicht.aktuellerUser = profil;
                         if (task.isSuccessful()) {
