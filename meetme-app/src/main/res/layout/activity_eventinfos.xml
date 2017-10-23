@@ -285,14 +285,12 @@
 
     <ImageButton
         android:id="@+id/button24"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@drawable/mybutton"
         android:src="@drawable/mapicon"
-        android:layout_marginRight="13dp"
-        android:layout_marginEnd="13dp"
-        android:layout_alignTop="@+id/button23"
-        android:layout_toLeftOf="@+id/button23"
-        android:layout_toStartOf="@+id/button23" />
+        android:layout_below="@+id/textView16"
+        android:layout_alignLeft="@+id/button12"
+        android:layout_alignStart="@+id/button12" />
 
 </android.widget.RelativeLayout>
