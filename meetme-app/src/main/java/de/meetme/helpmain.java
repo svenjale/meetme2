@@ -28,7 +28,7 @@ public class helpmain extends help {
     }
     public void onClick(View view) {
         if (view == button17) {
-            Intent back = new Intent(helpmain.this, Profile_Activity.class); //switch zur Registrierung
+            Intent back = new Intent(helpmain.this, profilansicht.class); //switch zur Registrierung
             startActivity(back);
         }
     }
