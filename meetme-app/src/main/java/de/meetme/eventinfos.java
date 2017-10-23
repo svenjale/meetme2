@@ -152,9 +152,40 @@ public class eventinfos extends Activity implements View.OnClickListener{
                     String teilnehmer = snapshot.getValue(String.class);
                     if (teilnehmer.equals(profilansicht.aktuelleUserID)) {
                         button26.setVisibility(View.VISIBLE);
+                        button9.setAlpha(.5f);
+                        button9.setClickable(false);
                         return;
                     }else{
                         button26.setVisibility(View.GONE);
+                        button9.setAlpha(1.0f);
+                        button9.setClickable(true);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        databaseEventanwesende.child(uebergebeneID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String teilnehmer = snapshot.getValue(String.class);
+                    if (teilnehmer.equals(profilansicht.aktuelleUserID)) {
+                        button26.setVisibility(View.VISIBLE);
+                        button9.setAlpha(.5f);
+                        button9.setClickable(false);
+                        button5.setAlpha(.5f);
+                        button5.setClickable(false);
+                        return;
+                    }else{
+                        button26.setVisibility(View.GONE);
+                        button9.setAlpha(1.0f);
+                        button9.setClickable(true);
+                        button5.setAlpha(1.0f);
+                        button5.setClickable(true);
                     }
                 }
             }
@@ -190,6 +221,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
                     if (orgaID.equals(profilansicht.aktuelleUserID)) {
                         //button26.setVisibility(View.GONE);
                         button26.setText("Event bearbeiten");
+                        button9.setAlpha(.5f);
+                        button9.setClickable(false);
                     }
 
                     //uebergebenerName=event.getEventname();
@@ -227,6 +260,8 @@ public class eventinfos extends Activity implements View.OnClickListener{
             databaseTeilnahmen.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
             Toast.makeText(this, "Erfolgreich angemeldet. Bis bald!", Toast.LENGTH_LONG).show();
             button26.setVisibility(View.VISIBLE);
+            button9.setAlpha(0.5f);
+            button9.setClickable(false);
         }
         if (view == button5) {
             databaseEventanwesende.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -234,6 +269,10 @@ public class eventinfos extends Activity implements View.OnClickListener{
             databaseTeilnahmen.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(uebergebeneID).setValue(uebergebeneID);
             // wenn anwesend, dann auch Teilnehmer
             button26.setVisibility(View.VISIBLE);
+            button9.setAlpha(0.5f);
+            button9.setClickable(false);
+            button5.setAlpha(0.5f);
+            button5.setClickable(false);
             Toast.makeText(this, "Check-In erfolgreich. Viel Spaß beim Event!", Toast.LENGTH_LONG).show();
             databaseEventanwesende.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
             databaseEventteilnehmer.child(uebergebeneID).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -324,6 +363,10 @@ public class eventinfos extends Activity implements View.OnClickListener{
                 ;
                 Toast.makeText(eventinfos.this, "Du wurdest vom Event abgemeldet.", Toast.LENGTH_SHORT).show();
                 button26.setVisibility(View.GONE);
+                button9.setAlpha(1.0f);
+                button9.setClickable(true);
+                button5.setAlpha(1.0f);
+                button5.setClickable(true);
             }
         }
         if (view==button12){

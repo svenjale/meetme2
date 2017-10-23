@@ -112,7 +112,9 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         ValueEventListener profilListener = new ValueEventListener() {
             @Override
             public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
-                button16.setVisibility(View.GONE);
+                //button16.setVisibility(View.GONE);
+                button16.setAlpha(.5f);
+                button16.setClickable(false);
                 Person ansicht = dataSnapshot.getValue(Person.class);//Toast.makeText(profilansicht.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
                 //textView33.setText(dataSnapshot.child("name").getValue().toString());
                 //textView37.setText(dataSnapshot.child("vorname").getValue().toString());
@@ -132,12 +134,20 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                             String kontakt = snapshot.getValue(String.class);
                             if (kontakt.equals(uebergebeneID)) {
-                                button16.setVisibility(View.VISIBLE);
-                                button15.setVisibility(View.GONE);
+                                //button16.setVisibility(View.VISIBLE);
+                                //button15.setVisibility(View.GONE);
+                                button16.setAlpha(1.0f);
+                                button16.setClickable(true);
+                                button15.setAlpha(.5f);
+                                button15.setClickable(false);
                                 return;
                             }else{
-                                button16.setVisibility(View.GONE);
-                                button15.setVisibility(View.VISIBLE);
+                                //button16.setVisibility(View.GONE);
+                                //button15.setVisibility(View.VISIBLE);
+                                button15.setAlpha(1.0f);
+                                button15.setClickable(true);
+                                button16.setAlpha(.5f);
+                                button16.setClickable(false);
                             }
                         }
                     }
@@ -210,14 +220,22 @@ public class profilansichtAndererUser extends Activity implements View.OnClickLi
         if (view == button15) {
             databaseKontakte.child(uebergebeneID).setValue(uebergebeneID);
             Toast.makeText(profilansichtAndererUser.this, "" + aktuellerName + " wurde zu deinen Kontakten hinzugefügt.", Toast.LENGTH_SHORT).show();
-            button16.setVisibility(View.VISIBLE);
-            button15.setVisibility(View.GONE);
+            //button16.setVisibility(View.VISIBLE);
+            //button15.setVisibility(View.GONE);
+            button16.setAlpha(1.0f);
+            button16.setClickable(true);
+            button15.setAlpha(.5f);
+            button15.setClickable(false);
         }
         if (view == button16) {
             databaseKontakte.child(uebergebeneID).removeValue(); //löschen
             Toast.makeText(profilansichtAndererUser.this, "" + aktuellerName + " wurde aus deinen Kontakten entfernt.", Toast.LENGTH_SHORT).show();
-            button16.setVisibility(View.GONE);
-            button15.setVisibility(View.VISIBLE);
+            //button16.setVisibility(View.GONE);
+            //button15.setVisibility(View.VISIBLE);
+            button15.setAlpha(1.0f);
+            button15.setClickable(true);
+            button16.setAlpha(.5f);
+            button16.setClickable(false);
         }
     }
 
