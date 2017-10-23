@@ -84,7 +84,7 @@ public class kontaktvorschlaege extends ListActivity implements View.OnClickList
 
     public void onStart() {
         super.onStart();
-        titelView.setText("Kontaktvorschläge");
+        titelView.setText("Vor kurzem interagiert");
         //button16.setVisibility(View.GONE);
         button16.setText("Zurück zu Kontakten");
         // Setup our view and list adapter. Ensure it scrolls to the bottom as data changes
