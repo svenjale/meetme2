@@ -34,22 +34,11 @@
         android:layout_height="50dp"
         android:src="@drawable/shareicon"
         android:background="@drawable/mybutton"
-        android:layout_alignTop="@+id/button23"
+        android:layout_centerVertical="true"
         android:layout_alignRight="@+id/button14"
         android:layout_alignEnd="@+id/button14" />
 
-    <ImageButton
-        android:id="@+id/button23"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/alarmicon"
-        android:background="@drawable/mybutton"
-        android:layout_marginTop="13dp"
-        android:layout_alignTop="@+id/textView30"
-        android:layout_toLeftOf="@+id/button21"
-        android:layout_toStartOf="@+id/button21"
-        android:layout_marginRight="15dp"
-        android:layout_marginEnd="15dp" />
+
 
     <Button
         android:id="@+id/button11"
@@ -67,13 +56,13 @@
         android:id="@+id/button12"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/button23"
         android:src="@drawable/calendar"
         android:scaleType="fitCenter"
         android:padding="10dp"
         android:background="@drawable/mybutton"
-        android:layout_alignRight="@+id/button21"
-        android:layout_alignEnd="@+id/button21" />
+        android:layout_alignTop="@+id/textView25"
+        android:layout_alignLeft="@+id/button21"
+        android:layout_alignStart="@+id/button21" />
 
 
     <Button
@@ -289,7 +278,7 @@
         android:layout_height="50dp"
         android:background="@drawable/mybutton"
         android:src="@drawable/mapicon"
-        android:layout_below="@+id/textView16"
+        android:layout_alignBottom="@+id/textView24"
         android:layout_alignLeft="@+id/button12"
         android:layout_alignStart="@+id/button12" />
 

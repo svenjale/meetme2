@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
-import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -46,7 +45,7 @@ public class KontaktVorschlagReceiver extends BroadcastReceiver {
         databaseLocations = new Firebase(FIREBASE_URL).child("locations");
         databaseKontaktvorschlaege = new Firebase(FIREBASE_URL).child("kontaktvorschlaege").child(firebaseAuth.getInstance().getCurrentUser().getUid());
 
-        Toast.makeText(context, "Testpunkt 1" ,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, "Testpunkt 1" ,Toast.LENGTH_SHORT).show();
 
 
         databaseLocations.child(profilansicht.aktuelleUserID).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -103,9 +102,9 @@ public class KontaktVorschlagReceiver extends BroadcastReceiver {
 
             }
         });
-        Toast.makeText(context, ""+distance ,Toast.LENGTH_SHORT).show();
-        Toast.makeText(context, " "+andereLocation.getLatitude()+" "+andereLocation.getLongitude() ,Toast.LENGTH_SHORT).show();
-        Toast.makeText(context, moeglicheKontakte.toString() ,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, ""+distance ,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, " "+andereLocation.getLatitude()+" "+andereLocation.getLongitude() ,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, moeglicheKontakte.toString() ,Toast.LENGTH_SHORT).show();
 
 
 
