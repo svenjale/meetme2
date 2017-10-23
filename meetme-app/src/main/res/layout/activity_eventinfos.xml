@@ -30,18 +30,18 @@
 
     <ImageButton
         android:id="@+id/button21"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/shareicon"
         android:background="@drawable/mybutton"
         android:layout_alignTop="@+id/button23"
-        android:layout_alignLeft="@+id/button14"
-        android:layout_alignStart="@+id/button14" />
+        android:layout_alignRight="@+id/button14"
+        android:layout_alignEnd="@+id/button14" />
 
     <ImageButton
         android:id="@+id/button23"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/alarmicon"
         android:background="@drawable/mybutton"
         android:layout_marginTop="13dp"
