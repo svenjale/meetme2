@@ -101,7 +101,7 @@
         android:text="Vorschläge finden" />
 
     <ListView
-        android:id="@+id/@android:id/list"
+        android:id="@+id/android:list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
