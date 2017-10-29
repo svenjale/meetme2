@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/schlossblurr"
+
+    tools:context="de.meetme.Help">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textSize="22dp"
+            android:paddingLeft="5dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:text="Willkommen auf unserer Hilfe-Seite"
+            ></TextView>
+
+    </LinearLayout>
+
+
+
+
+    <TextView
+        android:id="@+id/textViewHelpLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:textColor="#000000"
+        android:text="
+\n
+\n
+\n                                  Login
+\n Wenn du dich schon registriert hast, kannst du dich hier mit deiner Email Adresse und deinem Passwort einloggen.
+\n Du bist noch nicht registriert? Dann kannst du zur Registrierungsseite gehen und dich dort anmelden.
+\n
+\n
+"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:maxLines="40"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/mybutton"
+        android:text="Close" />
+
+
+</android.widget.RelativeLayout>

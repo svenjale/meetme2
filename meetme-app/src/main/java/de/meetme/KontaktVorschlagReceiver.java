@@ -43,12 +43,12 @@ public class KontaktVorschlagReceiver extends BroadcastReceiver {
 
         LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         databaseLocations = new Firebase(FIREBASE_URL).child("locations");
-        databaseKontaktvorschlaege = new Firebase(FIREBASE_URL).child("kontaktvorschlaege").child(firebaseAuth.getInstance().getCurrentUser().getUid());
+        databaseKontaktvorschlaege = new Firebase(FIREBASE_URL).child("KontaktvorschlaegeListe").child(firebaseAuth.getInstance().getCurrentUser().getUid());
 
         //Toast.makeText(context, "Testpunkt 1" ,Toast.LENGTH_SHORT).show();
 
 
-        databaseLocations.child(profilansicht.aktuelleUserID).addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseLocations.child(ProfilAnsichtEigenesProfil.aktuelleUserID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                     UserLocation ich = dataSnapshot.getValue(UserLocation.class);
@@ -70,7 +70,7 @@ public class KontaktVorschlagReceiver extends BroadcastReceiver {
                         UserLocation du = snapshot.getValue(UserLocation.class);
 
 
-                        if (du.getUserID().equals(profilansicht.aktuelleUserID)) {
+                        if (du.getUserID().equals(ProfilAnsichtEigenesProfil.aktuelleUserID)) {
                             return;
                         } else {
                             andereLocation.setLatitude(du.getLat());

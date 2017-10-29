@@ -23,7 +23,7 @@
         android:label="Smap"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".welcome"
+            android:name=".Willkommen"
             android:label="Smap"
             android:largeHeap="true">
             <intent-filter>
@@ -32,21 +32,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login_Activity" />
-        <activity android:name=".HelloActivity" />
-        <activity android:name=".Profile_Activity" />
-        <activity android:name=".createevent" />
-        <activity android:name=".eventinfos" />
-        <activity android:name=".kontakte" />
-        <activity android:name=".kontaktvorschlaege" />
-        <activity android:name=".teilnehmerlist" />
-        <activity android:name=".anwesendelist" />
-        <activity android:name=".profilansicht" />
-        <activity android:name=".map" />
-        <activity android:name=".help" />
-        <activity android:name=".Eventliste_activity" />
-        <activity android:name=".profilansichtAndererUser" />
-        <activity android:name=".teilnahmenlist" />
+        <activity android:name=".Login" />
+        <activity android:name=".Registrierung" />
+        <activity android:name=".ProfilAktualisieren" />
+        <activity android:name=".EventErstellen" />
+        <activity android:name=".EventInfos" />
+        <activity android:name=".KontakteListe" />
+        <activity android:name=".KontaktvorschlaegeListe" />
+        <activity android:name=".TeilnehmerListe" />
+        <activity android:name=".AnwesendeListe" />
+        <activity android:name=".ProfilAnsichtEigenesProfil" />
+        <activity android:name=".Help" />
+        <activity android:name=".EventListe" />
+        <activity android:name=".ProfilAnsichtAndererUser" />
+        <activity android:name=".EventteilnahmenListe" />
 
         <service
             android:name=".MyAlarmService"
@@ -72,19 +71,19 @@
         -->
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".Map"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".helplogin" />
-        <activity android:name=".helpregister" />
-        <activity android:name=".helpmain" />
-        <activity android:name=".helpevent" />
-        <activity android:name=".helpkontakte" />
+        <activity android:name=".HelpLogin" />
+        <activity android:name=".HelpRegistrierung" />
+        <activity android:name=".HelpMain" />
+        <activity android:name=".HelpEvent" />
+        <activity android:name=".HelpKontakte" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAgT2P8M0lPubru2ZbZjVepvYLsfbTsLn8" />
 
-        <activity android:name=".maphelp"></activity>
+        <activity android:name=".HelpMap2"></activity>
     </application>
 
 </manifest>

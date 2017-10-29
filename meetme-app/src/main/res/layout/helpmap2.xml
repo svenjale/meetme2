@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/schlossblurr"
+    tools:context="de.meetme.HelpMap2">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:layout_marginTop="7dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:paddingLeft="5dp"
+        android:textStyle="bold"
+        android:text="Willkommen auf unserer Hilfe-Seite"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="5dp"
+        android:layout_alignParentTop="true"
+        android:maxLines="40"
+        android:text="
+\n
+\n                    Events in deiner Nähe
+\nHier kannst du sehen welche Events in deiner Nähe sind. Wenn du eins auswählst, wird dessen Name und Ort angezeigt. Ein erneutes Klicken leitet dich zur Informationsseite zu diesem Event weiter.
+\n
+\n                    Event und Anwesende
+\nHier siehst du, wo der Treffpunkt des Events ist. Außerdem kannst du hier herausfinden, wo sich andere Anwesende des Events befinden.
+"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp" />
+</android.support.constraint.ConstraintLayout>

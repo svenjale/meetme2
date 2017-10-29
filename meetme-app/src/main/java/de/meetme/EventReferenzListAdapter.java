@@ -41,7 +41,7 @@ public class EventReferenzListAdapter extends FirebaseListAdapter<String> {
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
-                aktuellesEvent = dataSnapshot.getValue(Event.class);//Toast.makeText(profilansicht.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
+                aktuellesEvent = dataSnapshot.getValue(Event.class);//Toast.makeText(ProfilAnsichtEigenesProfil.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
                 ((TextView) view.findViewById(R.id.eventname)).setText(aktuellesEvent.getEventname());
                 ((TextView) view.findViewById(R.id.eventort)).setText(aktuellesEvent.getDatum());
                 ((TextView) view.findViewById(R.id.eventdatum)).setText(aktuellesEvent.getOrt());}

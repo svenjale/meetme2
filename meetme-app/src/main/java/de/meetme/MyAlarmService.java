@@ -3,7 +3,6 @@ package de.meetme;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.Notification.Builder;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
@@ -43,7 +42,7 @@ public class MyAlarmService extends Service {
         super.onStartCommand(intent, flags, startId);
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         mManager = (NotificationManager) this.getApplicationContext().getSystemService(this.getApplicationContext().NOTIFICATION_SERVICE);
-        Intent intent1 = new Intent(this.getApplicationContext(), eventinfos.class);
+        Intent intent1 = new Intent(this.getApplicationContext(), EventInfos.class);
         intent1.putExtra("ID",intent.getStringExtra("ID"));
         PendingIntent pendingNotificationIntent = PendingIntent.getActivity(this.getApplicationContext(), 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/schlossblurr"
+    tools:context="de.meetme.Help">
+
+    <LinearLayout
+        android:id="@id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:textSize="22dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:text="Willkommen auf unserer Hilfe-Seite"
+            ></TextView>
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/textViewHelpLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:paddingLeft="5dp"
+        android:text="
+        \n
+\n                             Dein Profil
+\nWenn du dich ausloggen möchtest, findest du den Log-Out Button in der oberen linken Ecke. Drücke auf diesen, um dich auszuloggen. Bis bald!
+\n
+\n                             Profildaten
+\nHier hast du die Möglichkeit, deine Informationen wie Nachname, Vorname, Rollen und Telefonnummer zu aktualisieren. Hierbei ist es wichtig, dass deine Telefonnummer mit der deutschen Vorwahl +49 beginnt. Am Ende musst du eine Eingaben nur noch mithilfe des Speichern Buttons bestätigen. Du kannst jederzeit hierher zurückkehren und deine Informationen bearbeiten.
+\n
+\n                              Teilnahmen
+\nDu willst wissen, an welchen Photowalks du bereits teilgenommen hast oder zu welchen zukünftigen Walks du dich angemeldet hast?
+\nDrücke den Photowalk-Teilnahmen Button und schon kannst du deine künftigen und vergangenen Photowalks einzusehen.
+\n
+\n                         Profil eines anderen Users
+\nHier kannst du Informationen, wie Namen, Rolle und Kontaktdaten eines anderen Users einsehen. Du kannst ihn über die Sternchen Funktion zu deiner Kontaktliste hinzufügen, um später Kontakt zu ihm aufzunehmen. Ebenso kannst du aber auch schon hier per Anruf oder per Nachricht direkt mit dem User Kontakt aufnehmen.
+"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:maxLines="40"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/linearLayout5"
+        android:layout_above="@+id/button17"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/mybutton"
+        android:text="Close" />
+
+
+</android.widget.RelativeLayout>
