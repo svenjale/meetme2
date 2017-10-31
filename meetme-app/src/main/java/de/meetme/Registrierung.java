@@ -108,6 +108,7 @@ public class Registrierung extends Activity implements View.OnClickListener {
 
     }
 
+
     private void registerUser() {
         email = editTextEmail.getText().toString().trim();        //Email wird aus Editfeld geholt
         password = editTextPassword.getText().toString().trim();  //Passwort wird aus Editfeld geholt

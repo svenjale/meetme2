@@ -49,4 +49,24 @@ public class Person {
         // ***Code zur DB Abfrage***
         return person;
     }
+
+    public void setVorname(String vorname) {
+        this.vorname = vorname;
+    }
+
+    public void setKontakt(String kontakt) {
+        this.kontakt = kontakt;
+    }
+
+    public void setRolle(String rolle) {
+        this.rolle = rolle;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPersonID(String personID) {
+        this.personID = personID;
+    }
 }

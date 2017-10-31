@@ -34,26 +34,14 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/buttonLogin3"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="Einloggen via Facebook"
-        android:background="@drawable/mybutton"
-        android:layout_marginTop="11dp"
-        android:layout_below="@+id/linearLayout"
-        android:layout_alignLeft="@+id/buttonLogin2"
-        android:layout_alignStart="@+id/buttonLogin2" />
-
-    <Button
         android:id="@+id/buttonRegis2"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:text="Registrieren"
+        android:layout_alignStart="@+id/buttonLogin2"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="18dp"
         android:background="@drawable/mybutton"
-        android:layout_marginTop="11dp"
-        android:layout_below="@+id/buttonLogin3"
-        android:layout_alignLeft="@+id/buttonLogin3"
-        android:layout_alignStart="@+id/buttonLogin3" />
+        android:text="Registrieren" />
 
     <Button
         android:id="@+id/button14"
@@ -73,5 +61,15 @@
         android:layout_marginBottom="9dp"
         android:layout_above="@+id/buttonLogin2"
         android:layout_centerHorizontal="true" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonRegis2"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="19dp" />
+
 
 </android.widget.RelativeLayout>

@@ -142,6 +142,10 @@ android {
  * only specifies dependencies required to build the module itself.
  */
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
 //    compile project(":lib")
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -173,5 +177,8 @@ dependencies {
     compile 'com.android.support:support-v4:26.+'
     compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.google.android.gms:play-services:11.4.0'
+
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+
 }
 apply plugin: 'com.google.gms.google-services'      //Firebase DB

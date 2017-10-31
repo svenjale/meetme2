@@ -11,10 +11,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.client.FirebaseError;
-import com.google.firebase.auth.FirebaseAuth;
+import com.facebook.login.LoginManager;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClickListener {
@@ -47,7 +48,12 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profilansicht_eigenesprofil);
 
-        aktuelleUserID = firebaseAuth.getInstance().getCurrentUser().getUid();
+        //try {
+          //  Intent intent = getIntent();
+          //  aktuelleUserID=intent.getStringExtra("ID");
+       // }catch (NullPointerException npp)        {
+            aktuelleUserID = firebaseAuth.getInstance().getCurrentUser().getUid();
+      //  }
 
         textView33 = (TextView) findViewById(R.id.textView33);
         textView37 = (TextView) findViewById(R.id.textView37);
@@ -150,6 +156,7 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
         if (view == button22) {
             Intent logout = new Intent(ProfilAnsichtEigenesProfil.this, Willkommen.class);
             FirebaseAuth.getInstance().signOut();
+            LoginManager.getInstance().logOut();
             aktuellerUser=new Person("","","","","");
             aktuelleUserID="";
             startActivity(logout);
