@@ -232,5 +232,40 @@
         android:layout_alignEnd="@+id/textView5"
         android:layout_marginTop="15dp" />
 
+    <ImageView
+        android:id="@+id/ProfilBild"
+        android:layout_width="130dp"
+        android:layout_height="140dp"
+        android:layout_alignBottom="@+id/editText2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"></ImageView>
+
+    <Button
+        android:id="@+id/upload"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:background="@drawable/mybutton"
+        android:backgroundTint="#fffafa"
+        android:text="upload"
+        android:layout_above="@+id/checkBox2"
+        android:layout_alignLeft="@+id/ProfilBild"
+        android:layout_alignStart="@+id/ProfilBild" />
+
+    <Button
+        android:id="@+id/change"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:background="@drawable/mybutton"
+        android:backgroundTint="#fffafa"
+        android:text="ändern"
+        android:layout_above="@+id/checkBox2"
+        android:layout_alignRight="@+id/ProfilBild"
+        android:layout_alignEnd="@+id/ProfilBild"
+        android:layout_marginRight="7dp"
+        android:layout_marginEnd="7dp" />
+
+
 
 </android.widget.RelativeLayout>

@@ -313,7 +313,7 @@ public class EventInfos extends Activity implements View.OnClickListener{
 
         }
         if (view == button3) {
-            Intent Map = new Intent(EventInfos.this, de.meetme.Map.class);
+            Intent Map = new Intent(EventInfos.this, de.meetme.map.class);
             startActivity(Map);
         }
         if (view == button6) {
@@ -352,7 +352,7 @@ public class EventInfos extends Activity implements View.OnClickListener{
 
         }*/
         if (view == button24) {
-            Intent Map = new Intent(EventInfos.this, de.meetme.Map.class);
+            Intent Map = new Intent(EventInfos.this, de.meetme.map.class);
             Map.putExtra("eventID", uebergebeneID);
             Map.putExtra("Adresse", whatsappOrt);
             Map.putExtra("Eventname", whatsappName);

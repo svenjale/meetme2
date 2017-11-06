@@ -154,7 +154,7 @@ public class KontakteListe extends ListActivity implements View.OnClickListener{
             startActivity(Walk);
         }
         if (view == button3) {
-            Intent Map = new Intent(KontakteListe.this, de.meetme.Map.class);
+            Intent Map = new Intent(KontakteListe.this, de.meetme.map.class);
             startActivity(Map);
         }
         if (view == button6) {

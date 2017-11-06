@@ -2,6 +2,7 @@
 <android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/EigenesProfilbild"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/schlossblurr"
@@ -11,22 +12,22 @@
         android:id="@+id/textView34"
         android:layout_width="300dp"
         android:layout_height="31dp"
-        android:layout_marginTop="9dp"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="247dp"
         android:layout_below="@+id/imageView4"
+        android:layout_marginTop="9dp"
+        android:layout_toEndOf="@+id/imageView4"
         android:layout_toRightOf="@+id/imageView4"
-        android:layout_toEndOf="@+id/imageView4" />
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="247dp" />
 
     <TextView
         android:id="@+id/textView27"
         android:layout_width="300dp"
         android:layout_height="31dp"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="41dp"
-        android:layout_below="@+id/textView37"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView37"
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="41dp" />
 
     <TextView
         android:id="@+id/textView28"
@@ -62,40 +63,40 @@
         android:id="@+id/textView33"
         android:layout_width="100dp"
         android:layout_height="31dp"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="166dp"
-        android:layout_below="@+id/textView29"
         android:layout_alignLeft="@+id/textView29"
-        android:layout_alignStart="@+id/textView29" />
+        android:layout_alignStart="@+id/textView29"
+        android:layout_below="@+id/textView29"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="166dp" />
 
     <TextView
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:layout_above="@+id/textView39"
+        android:layout_toEndOf="@+id/imageView3"
+        android:layout_toRightOf="@+id/imageView3"
         android:text="Rolle:"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="20dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="299dp"
-        android:layout_above="@+id/textView39"
-        android:layout_toRightOf="@+id/imageView3"
-        android:layout_toEndOf="@+id/imageView3" />
+        tools:layout_editor_absoluteY="299dp" />
 
     <TextView
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:layout_below="@+id/textView39"
         android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/imageView3"
+        android:layout_toRightOf="@+id/imageView3"
         android:text="Telefonnummer:"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="20dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="383dp"
-        android:layout_below="@+id/textView39"
-        android:layout_toRightOf="@+id/imageView3"
-        android:layout_toEndOf="@+id/imageView3" />
+        tools:layout_editor_absoluteY="383dp" />
 
     <TextView
         android:id="@+id/textView37"
@@ -107,33 +108,34 @@
         android:layout_toRightOf="@+id/imageView5"
         tools:layout_editor_absoluteX="14dp"
         tools:layout_editor_absoluteY="413dp" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="94dp"
         android:layout_height="58dp"
-        android:background="#21fffafa"
-        android:text="Profil"
-        android:textSize="13dp"
-        android:drawableTop="@drawable/ic_person_black_24dp"
-        android:paddingTop="7dp"
+        android:layout_alignEnd="@+id/checkBox"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/checkBox"
-        android:layout_alignEnd="@+id/checkBox" />
+        android:background="#21fffafa"
+        android:drawableTop="@drawable/ic_person_black_24dp"
+        android:paddingTop="7dp"
+        android:text="Profil"
+        android:textSize="13dp" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="92dp"
         android:layout_height="58dp"
-        android:background="#21fffafa"
-        android:text="Map"
-        android:textSize="13dp"
-        android:drawableTop="@drawable/ic_map_black_24dp"
-        android:paddingTop="7dp"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/button2"
-        android:layout_toRightOf="@+id/button2" />
+        android:layout_toRightOf="@+id/button2"
+        android:background="#21fffafa"
+        android:drawableTop="@drawable/ic_map_black_24dp"
+        android:paddingTop="7dp"
+        android:text="Map"
+        android:textSize="13dp" />
 
     <Button
         android:id="@+id/button6"
@@ -142,53 +144,54 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:textSize="13dp"
+        android:background="#21fffafa"
         android:drawableTop="@drawable/ic_people_black_24dp"
         android:paddingTop="7dp"
-        android:background="#21fffafa"
         android:text="Kontakte"
-        />
+        android:textSize="13dp" />
 
     <Button
         android:id="@+id/button7"
         android:layout_width="92dp"
         android:layout_height="58dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/button6"
+        android:layout_toRightOf="@+id/button3"
+        android:layout_toStartOf="@+id/button6"
         android:background="#21fffafa"
-        android:text="Walks"
-        android:textSize="13dp"
         android:drawableTop="@drawable/ic_directions_walk_black_24dp"
         android:paddingTop="7dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/button3"
-        android:layout_toLeftOf="@+id/button6"
-        android:layout_toStartOf="@+id/button6" />
+        android:text="Walks"
+        android:textSize="13dp" />
+
     <Button
         android:id="@+id/button16"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:layout_marginTop="50dp"
-        android:text="Bearbeiten"
-        android:background="@drawable/mybutton"
         android:layout_below="@+id/textView34"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/mybutton"
+        android:text="Bearbeiten" />
 
     <ImageButton
         android:id="@+id/button14"
         android:layout_width="40dp"
-        android:src="@drawable/helpicon"
         android:layout_height="40dp"
-        android:background="@drawable/mybutton"
         android:layout_alignTop="@+id/button22"
+        android:layout_toEndOf="@+id/button16"
         android:layout_toRightOf="@+id/button16"
-        android:layout_toEndOf="@+id/button16" />
+        android:background="@drawable/mybutton"
+        android:src="@drawable/helpicon" />
+
     <TextView
         android:id="@+id/textView39"
         android:layout_width="300dp"
         android:layout_height="31dp"
-        android:layout_marginTop="9dp"
         android:layout_below="@+id/textView27"
-        android:layout_toRightOf="@+id/imageView4"
-        android:layout_toEndOf="@+id/imageView4" />
+        android:layout_marginTop="9dp"
+        android:layout_toEndOf="@+id/imageView4"
+        android:layout_toRightOf="@+id/imageView4" />
 
     <Button
         android:id="@+id/button20"
@@ -205,54 +208,79 @@
 
     <ImageButton
         android:id="@+id/button22"
-        android:src="@drawable/logouticon"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/mybutton"
-        android:text="logout"
-        android:layout_marginTop="8dp"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="8dp"
         android:layout_toLeftOf="@+id/button16"
-        android:layout_toStartOf="@+id/button16" />
+        android:layout_toStartOf="@+id/button16"
+        android:background="@drawable/mybutton"
+        android:src="@drawable/logouticon"
+        android:text="logout" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:paddingLeft="5dp"
-        android:background="@drawable/roleicon"
         android:layout_above="@+id/textView39"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/roleicon"
+        android:paddingLeft="5dp" />
+
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:paddingLeft="5dp"
-        android:background="@drawable/phoneicon"
-        android:layout_below="@+id/textView39"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView39"
+        android:background="@drawable/phoneicon"
+        android:paddingLeft="5dp" />
+
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:paddingLeft="5dp"
-        android:background="@drawable/faceicon"
         android:layout_above="@+id/textView33"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/faceicon"
+        android:paddingLeft="5dp" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dein Profil"
-        android:textSize="22dp"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:layout_marginTop="15dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Dein Profil"
+        android:textColor="#000000"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/EigenesProfilBild"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignEnd="@+id/textView39"
+        android:layout_below="@+id/button14"
+        android:layout_marginTop="20dp"></ImageView>
+
+    <ImageButton
+        android:id="@+id/imageZoom"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignEnd="@+id/textView39"
+        android:layout_below="@+id/button14"
+        android:layout_marginTop="20dp"
+        android:background="@null"/>
+
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/photo_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 
 </android.widget.RelativeLayout>
