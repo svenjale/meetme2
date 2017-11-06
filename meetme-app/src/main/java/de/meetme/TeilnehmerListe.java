@@ -153,7 +153,7 @@ public class TeilnehmerListe extends ListActivity implements View.OnClickListene
             startActivity(Walk);
         }
         if (view == button3) {
-            Intent Map = new Intent(TeilnehmerListe.this, de.meetme.map.class);
+            Intent Map = new Intent(TeilnehmerListe.this, de.meetme.Map.class);
             startActivity(Map);
         }
         if (view == button6) {

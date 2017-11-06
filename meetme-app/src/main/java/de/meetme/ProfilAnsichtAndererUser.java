@@ -178,7 +178,7 @@ public class ProfilAnsichtAndererUser extends Activity implements View.OnClickLi
         }
         if (view == button3) {
 
-            Intent Map = new Intent(ProfilAnsichtAndererUser.this, de.meetme.map.class);
+            Intent Map = new Intent(ProfilAnsichtAndererUser.this, de.meetme.Map.class);
             startActivity(Map);
         }
         if (view == button6) {

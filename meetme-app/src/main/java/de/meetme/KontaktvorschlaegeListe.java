@@ -155,7 +155,7 @@ public class KontaktvorschlaegeListe extends ListActivity implements View.OnClic
             startActivity(Walk);
         }
         if (view == button3) {
-            Intent Map = new Intent(KontaktvorschlaegeListe.this, de.meetme.map.class);
+            Intent Map = new Intent(KontaktvorschlaegeListe.this, de.meetme.Map.class);
             startActivity(Map);
         }
         if (view == button6) {

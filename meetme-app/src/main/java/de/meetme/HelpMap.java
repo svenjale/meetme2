@@ -28,7 +28,7 @@ public class HelpMap extends Help {
     }
     public void onClick(View view) {
         if (view == button17) {
-            Intent back = new Intent(HelpMap.this, map.class); //switch zur Registrierung
+            Intent back = new Intent(HelpMap.this, Map.class); //switch zur Registrierung
             startActivity(back);
         }
     }

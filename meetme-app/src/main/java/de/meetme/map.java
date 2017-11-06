@@ -76,7 +76,7 @@ import java.util.List;
 }
 */
 
-public class map extends  AppCompatActivity
+public class Map extends  AppCompatActivity
         implements
         OnMapReadyCallback,
         GoogleMap.OnMyLocationButtonClickListener,
@@ -179,8 +179,8 @@ public class map extends  AppCompatActivity
       //  button4.setOnClickListener(this);
         imageButton4.setOnClickListener(this);
 
-        Intent myIntent = new Intent(map.this, LocationAlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(map.this, 0,myIntent, 0);
+        Intent myIntent = new Intent(Map.this, LocationAlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(Map.this, 0,myIntent, 0);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.setRepeating(AlarmManager.RTC,System.currentTimeMillis(), 10000, pendingIntent);
 
@@ -202,12 +202,12 @@ public class map extends  AppCompatActivity
             @Override
             public void onInfoWindowClick(Marker arg0) {
                 if (allEventMap.get(arg0)!=null){
-                    Intent event = new Intent (map.this, EventInfos.class);
+                    Intent event = new Intent (Map.this, EventInfos.class);
                     event.putExtra("ID", allEventMap.get(arg0).toString());
                     startActivity(event);
                 }
                 if (allPersonMap.get(arg0)!=null){
-                    Intent profile = new Intent(map.this, ProfilAnsichtAndererUser.class);
+                    Intent profile = new Intent(Map.this, ProfilAnsichtAndererUser.class);
                     profile.putExtra("ID", allPersonMap.get(arg0).toString());
                     startActivity(profile);
                 }
@@ -269,7 +269,7 @@ public class map extends  AppCompatActivity
 
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Toast.makeText(map.this, "Fehler beim Anzeigen des Event Standortes", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Map.this, "Fehler beim Anzeigen des Event Standortes", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -283,7 +283,7 @@ public class map extends  AppCompatActivity
         }else {
             // String geoLocatingUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="+location+"&key=AIzaSyAgT2P8M0lPubru2ZbZjVepvYLsfbTsLn8";
             // get lat long by geo api google url
-            Toast.makeText(map.this, "Geocoder Service nicht verfügbar", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Map.this, "Geocoder Service nicht verfügbar", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -453,12 +453,12 @@ public class map extends  AppCompatActivity
             @Override
             public void onInfoWindowClick(Marker arg0) {
                 if (allPersonMap.get(arg0)!=null){
-                    Intent profile = new Intent(map.this, ProfilAnsichtAndererUser.class);
+                    Intent profile = new Intent(Map.this, ProfilAnsichtAndererUser.class);
                     profile.putExtra("ID", allPersonMap.get(arg0).toString());
                     startActivity(profile);
                 }
                 if (allEventMap.get(arg0)!=null){
-                    Intent event = new Intent (map.this, EventInfos.class);
+                    Intent event = new Intent (Map.this, EventInfos.class);
                     event.putExtra("ID", allEventMap.get(arg0).toString());
                     startActivity(event);
                 }
@@ -472,24 +472,24 @@ public class map extends  AppCompatActivity
         @Override
         public void onClick(View view) {
             if (view == button2) {
-                Intent Profil = new Intent(map.this, ProfilAnsichtEigenesProfil.class);
+                Intent Profil = new Intent(Map.this, ProfilAnsichtEigenesProfil.class);
                 startActivity(Profil);
             }
             if (view == button7) {
-                Intent Walk = new Intent(map.this, EventListe.class);
+                Intent Walk = new Intent(Map.this, EventListe.class);
                 startActivity(Walk);
             }
             if (view == button3) {
 
-                Intent Map = new Intent(de.meetme.map.this, de.meetme.map.class);
+                Intent Map = new Intent(de.meetme.Map.this, de.meetme.Map.class);
                 startActivity(Map);
             }
             if (view == button6) {
-                Intent Kontakte = new Intent(map.this, KontakteListe.class);
+                Intent Kontakte = new Intent(Map.this, KontakteListe.class);
                 startActivity(Kontakte);
             }
             if (view == imageButton4){
-                Intent Hilfe = new Intent(map.this, HelpMap2.class);
+                Intent Hilfe = new Intent(Map.this, HelpMap2.class);
                 startActivity(Hilfe);
             }
         }

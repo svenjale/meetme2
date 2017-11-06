@@ -205,7 +205,7 @@ public class AnwesendeListe extends ListActivity implements View.OnClickListener
             startActivity(Walk);
         }
         if (view == button3) {
-            Intent Map = new Intent(AnwesendeListe.this, de.meetme.map.class);
+            Intent Map = new Intent(AnwesendeListe.this, de.meetme.Map.class);
             startActivity(Map);
         }
         if (view == button6) {

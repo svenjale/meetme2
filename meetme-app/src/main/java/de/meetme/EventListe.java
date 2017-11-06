@@ -143,7 +143,7 @@ public class EventListe extends ListActivity implements View.OnClickListener { /
             startActivity(Walk);
         }
         if (view == button3) {
-            Intent Map = new Intent(EventListe.this, de.meetme.map.class);
+            Intent Map = new Intent(EventListe.this, de.meetme.Map.class);
             startActivity(Map);
         }
         if (view == button6) {
