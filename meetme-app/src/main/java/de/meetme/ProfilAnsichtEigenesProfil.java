@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -61,7 +60,7 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
     private ImageView EigenesProfilBild;
     private ImageButton imageZoom;
     private StorageReference storageReference;
-    private Uri downloadUrl;
+    private String downloadUrl ="";
     private Bitmap Profilbild;
     private Bitmap bitmap;
     FirebaseStorage storage;
@@ -142,14 +141,11 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
         ValueEventListener profilListener = new ValueEventListener() {
             @Override
             public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
-                aktuellerUser = dataSnapshot.getValue(Person.class);//Toast.makeText(ProfilAnsichtEigenesProfil.this, dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
-                //textView33.setText(dataSnapshot.child("name").getValue().toString());
-                //textView37.setText(dataSnapshot.child("vorname").getValue().toString());
-                //textView39.setText(dataSnapshot.child("rolle").getValue().toString().trim());
-                //textView34.setText(dataSnapshot.child("kontakt").getValue().toString());
-                ((TextView) findViewById(R.id.textView33)).setText(aktuellerUser.getName());
-                ((TextView) findViewById(R.id.textView37)).setText(aktuellerUser.getVorname());
-                ((TextView) findViewById(R.id.textView39)).setText(aktuellerUser.getRolle().trim());
+                aktuellerUser = dataSnapshot.getValue(Person.class);
+
+                ((TextView) findViewById(R.id.textView39)).setText(aktuellerUser.getVorname()+" "+aktuellerUser.getName());
+               // ((TextView) findViewById(R.id.textView37)).setText(aktuellerUser.getVorname());
+                ((TextView) findViewById(R.id.textView37)).setText(aktuellerUser.getRolle().trim());
                 ((TextView) findViewById(R.id.textView34)).setText(aktuellerUser.getKontakt());
 
             }
@@ -160,6 +156,9 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
             }
         };
         databaseProfiles.addValueEventListener(profilListener);
+
+        profilbildAnzeigen();
+
         //loadImage();
         //displayEigenesProfilbild();
     }
@@ -224,22 +223,58 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
         }
     }
 
+    public void profilbildAnzeigen (){
+
+            databaseProfilbilder.child(aktuelleUserID).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    downloadUrl = dataSnapshot.getValue(String.class);
+                    try {
+                        if (downloadUrl.isEmpty() || downloadUrl.equals("")) {
+                            downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F13547334191038217.png.13058c9590e23a9de3feeaa55d725724.png?alt=media&token=9b3886c8-deac-4b25-8f26-838a98e9dfb4";
+                        }
+                    }catch (NullPointerException np){
+                        downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F13547334191038217.png.13058c9590e23a9de3feeaa55d725724.png?alt=media&token=9b3886c8-deac-4b25-8f26-838a98e9dfb4";
+                    }
+                    StorageReference storageReference = storage.getInstance().getReferenceFromUrl(downloadUrl);
+                    Glide.with(ProfilAnsichtEigenesProfil.this)
+                            .using(new FirebaseImageLoader())
+                            .load(storageReference)
+                            .into(EigenesProfilBild);
+                }
+                @Override
+                public void onCancelled(FirebaseError firebaseError) {
+
+                }
+            });
+    }
+
+
+    // alte Ansätze wg. Profilbild anzeigen:
+
+
     public void displayEigenesProfilbild () {
 
-        aktuelleUserID = firebaseAuth.getInstance().getCurrentUser().getUid();
+        /*
 
-        databaseProfilbilder.addValueEventListener(new ValueEventListener() {
+        databaseProfilbilder.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                downloadUrl = dataSnapshot.getValue(Profilbild.class).downloadUrl;
+                downloadUrl = dataSnapshot.getValue(String.class);
             }
             @Override
             public void onCancelled(FirebaseError firebaseError) {
             }
         });
+        */
 
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReferenceFromUrl(String.valueOf(downloadUrl)).child("android.jpg");
+
+        downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F37?alt=media&token=9d046aa6-71fa-41a1-9f9a-7b58577c3d71";
+
+        //FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getInstance().getReferenceFromUrl(downloadUrl).child("android.jpg");
+
+        //DatabaseReference ref = FirebaseDatabase.getInstance().getReferenceFromUrl("https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images");
 
         try {
             final File localFile = File.createTempFile("images", "jpg");
@@ -263,36 +298,6 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
         }
     }
 
-    public void loadImage(){ /*
-
-        ValueEventListener bildListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
-                String url = dataSnapshot.getValue(String.class);
 
 
-
-// Create a reference from an HTTPS URL
-// Note that in the URL, characters are URL escaped!
-                storage = FirebaseStorage.getInstance();
-                storageReference = storage.getReferenceFromUrl(url);
-
-            }
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-                Toast.makeText(ProfilAnsichtEigenesProfil.this, "Fehler beim Laden des Bildes.", Toast.LENGTH_SHORT).show();
-            }
-
-        };
-        databaseProfilbilder.addValueEventListener(bildListener); */
-
-
-
-
-
-        Glide.with(this)
-          .using(new FirebaseImageLoader())
-              .load(storageReference)
-                .into(EigenesProfilBild);
-    }
 }

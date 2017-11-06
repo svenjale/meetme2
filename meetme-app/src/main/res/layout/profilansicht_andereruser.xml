@@ -36,29 +36,15 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="63dp"
-        android:text="Vorname:"
-        android:textAppearance="@android:style/TextAppearance.Holo"
-        android:textSize="20dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="137dp"
         android:layout_below="@+id/button14"
+        android:layout_marginTop="63dp"
+        android:layout_toEndOf="@+id/imageView5"
         android:layout_toRightOf="@+id/imageView5"
-        android:layout_toEndOf="@+id/imageView5" />
-
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView28"
-        android:layout_alignBottom="@+id/textView28"
-        android:layout_alignLeft="@+id/textView37"
-        android:layout_alignStart="@+id/textView37"
-        android:text="Nachname"
+        android:text="Name:"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="20dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="216dp" />
+        tools:layout_editor_absoluteY="137dp" />
 
     <TextView
         android:id="@+id/textView33"
@@ -105,13 +91,19 @@
         android:id="@+id/textView37"
         android:layout_width="100dp"
         android:layout_height="31dp"
-        android:textColor="#000000"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="413dp"
         android:layout_alignBaseline="@+id/textView33"
         android:layout_alignBottom="@+id/textView33"
-        android:layout_toRightOf="@+id/textView36"
-        android:layout_toEndOf="@+id/textView36" />
+        android:layout_toEndOf="@+id/textView36"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="413dp" />
+
+    <ImageView
+        android:id="@+id/profilBild"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_above="@+id/textView39"
+        android:layout_toEndOf="@+id/textView21"></ImageView>
 
     <Button
         android:id="@+id/button2"

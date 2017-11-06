@@ -13,70 +13,30 @@
         android:layout_width="300dp"
         android:layout_height="31dp"
         android:layout_below="@+id/imageView4"
-        android:layout_marginTop="9dp"
         android:layout_toEndOf="@+id/imageView4"
-        android:layout_toRightOf="@+id/imageView4"
         tools:layout_editor_absoluteX="14dp"
         tools:layout_editor_absoluteY="247dp" />
-
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="300dp"
-        android:layout_height="31dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView37"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="41dp" />
 
     <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button22"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="58dp"
         android:layout_toEndOf="@+id/imageView5"
-        android:layout_toRightOf="@+id/imageView5"
-        android:text="Vorname:"
+        android:text="Name:"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="20dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="137dp" />
 
     <TextView
-        android:id="@+id/textView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView28"
-        android:layout_alignBottom="@+id/textView28"
-        android:layout_marginEnd="13dp"
-        android:layout_marginRight="13dp"
-        android:layout_toLeftOf="@+id/button6"
-        android:layout_toStartOf="@+id/button6"
-        android:text="Nachname:"
-        android:textAppearance="@android:style/TextAppearance.Holo"
-        android:textSize="20dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="216dp" />
-
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="100dp"
-        android:layout_height="31dp"
-        android:layout_alignLeft="@+id/textView29"
-        android:layout_alignStart="@+id/textView29"
-        android:layout_below="@+id/textView29"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="166dp" />
-
-    <TextView
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_above="@+id/textView39"
+        android:layout_above="@+id/textView37"
         android:layout_toEndOf="@+id/imageView3"
-        android:layout_toRightOf="@+id/imageView3"
         android:text="Rolle:"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="20dp"
@@ -88,10 +48,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_below="@+id/textView39"
-        android:layout_marginTop="8dp"
-        android:layout_toEndOf="@+id/imageView3"
-        android:layout_toRightOf="@+id/imageView3"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_toEndOf="@+id/imageView4"
         android:text="Telefonnummer:"
         android:textAppearance="@android:style/TextAppearance.Holo"
         android:textSize="20dp"
@@ -102,10 +60,9 @@
         android:id="@+id/textView37"
         android:layout_width="100dp"
         android:layout_height="31dp"
-        android:layout_alignBaseline="@+id/textView33"
-        android:layout_alignBottom="@+id/textView33"
-        android:layout_toEndOf="@+id/imageView5"
-        android:layout_toRightOf="@+id/imageView5"
+        android:layout_below="@+id/imageView3"
+        android:layout_toEndOf="@+id/imageView3"
+        android:layout_toStartOf="@+id/button7"
         tools:layout_editor_absoluteX="14dp"
         tools:layout_editor_absoluteY="413dp" />
 
@@ -170,7 +127,7 @@
         android:layout_height="34dp"
         android:layout_below="@+id/textView34"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="41dp"
         android:background="@drawable/mybutton"
         android:text="Bearbeiten" />
 
@@ -188,21 +145,17 @@
         android:id="@+id/textView39"
         android:layout_width="300dp"
         android:layout_height="31dp"
-        android:layout_below="@+id/textView27"
-        android:layout_marginTop="9dp"
-        android:layout_toEndOf="@+id/imageView4"
-        android:layout_toRightOf="@+id/imageView4" />
+        android:layout_below="@+id/imageView5"
+        android:layout_toEndOf="@+id/imageView5"
+        android:layout_toStartOf="@+id/EigenesProfilBild" />
 
     <Button
         android:id="@+id/button20"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:layout_alignEnd="@+id/button16"
-        android:layout_alignLeft="@+id/button16"
-        android:layout_alignRight="@+id/button16"
         android:layout_alignStart="@+id/button16"
         android:layout_below="@+id/button16"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/mybutton"
         android:text="Photowalk teilnahmen" />
 
@@ -222,9 +175,9 @@
         android:id="@+id/imageView3"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_above="@+id/textView39"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView28"
+        android:layout_marginTop="36dp"
         android:background="@drawable/roleicon"
         android:paddingLeft="5dp" />
 
@@ -232,9 +185,8 @@
         android:id="@+id/imageView4"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView39"
+        android:layout_below="@+id/textView37"
         android:background="@drawable/phoneicon"
         android:paddingLeft="5dp" />
 
@@ -242,9 +194,8 @@
         android:id="@+id/imageView5"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_above="@+id/textView33"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/textView28"
         android:background="@drawable/faceicon"
         android:paddingLeft="5dp" />
 
@@ -264,18 +215,21 @@
         android:id="@+id/EigenesProfilBild"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:layout_alignEnd="@+id/textView39"
-        android:layout_below="@+id/button14"
-        android:layout_marginTop="20dp"></ImageView>
+        android:layout_alignBottom="@+id/textView37"
+        android:layout_alignTop="@+id/imageZoom"
+        android:layout_toEndOf="@+id/textView36"
+        android:layout_toStartOf="@+id/button14"></ImageView>
 
     <ImageButton
         android:id="@+id/imageZoom"
         android:layout_width="130dp"
         android:layout_height="130dp"
+        android:layout_alignBottom="@+id/textView35"
         android:layout_alignEnd="@+id/textView39"
         android:layout_below="@+id/button14"
         android:layout_marginTop="20dp"
-        android:background="@null"/>
+        android:layout_toEndOf="@+id/textView37"
+        android:background="@null" />
 
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/photo_view"

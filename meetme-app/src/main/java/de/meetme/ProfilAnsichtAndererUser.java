@@ -11,14 +11,19 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class ProfilAnsichtAndererUser extends Activity implements View.OnClickListener {
 
@@ -30,8 +35,8 @@ public class ProfilAnsichtAndererUser extends Activity implements View.OnClickLi
     private FirebaseAuth firebaseAuth;
     private Firebase databaseProfiles;
     private Firebase databaseKontakte;
+    private Firebase databaseProfilbilder;
     private TextView textView33;
-    private TextView textView37;
     private TextView textView34;
     private TextView textView39;
     private TextView textView21;
@@ -47,6 +52,9 @@ public class ProfilAnsichtAndererUser extends Activity implements View.OnClickLi
     private ImageButton button14;
     private ImageButton imageButton3;
     private Animation animfadein;
+    String downloadUrl;
+    FirebaseStorage storage;
+    ImageView profilBild;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +66,11 @@ public class ProfilAnsichtAndererUser extends Activity implements View.OnClickLi
 
         imageButton3 = findViewById(R.id.imageButton3);
         textView33 = (TextView) findViewById(R.id.textView33);
-        textView37 = (TextView) findViewById(R.id.textView37);
         textView34 = (TextView) findViewById(R.id.textView34);
         textView39 = (TextView) findViewById(R.id.textView39);
         textView21 = (TextView) findViewById(R.id.textView21);
+        profilBild = findViewById(R.id.profilBild);
+
 
 
         button14 = findViewById(R.id.button14);
@@ -102,6 +111,7 @@ public class ProfilAnsichtAndererUser extends Activity implements View.OnClickLi
 
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(uebergebeneID);
         databaseKontakte = new Firebase(FIREBASE_URL).child("KontakteListe").child(firebaseAuth.getInstance().getCurrentUser().getUid());
+        databaseProfilbilder = new Firebase(FIREBASE_URL).child("profilbilder");
 
         //Test: Toast.makeText(ProfilAnsichtEigenesProfil.this, databaseProfiles.getKey(), Toast.LENGTH_SHORT).show();
     }
@@ -120,8 +130,7 @@ public class ProfilAnsichtAndererUser extends Activity implements View.OnClickLi
                 //textView37.setText(dataSnapshot.child("vorname").getValue().toString());
                 //textView39.setText(dataSnapshot.child("rolle").getValue().toString().trim());
                 //textView34.setText(dataSnapshot.child("kontakt").getValue().toString());
-                ((TextView) findViewById(R.id.textView33)).setText(ansicht.getName());
-                ((TextView) findViewById(R.id.textView37)).setText(ansicht.getVorname());
+                ((TextView) findViewById(R.id.textView33)).setText(ansicht.getVorname()+" "+ansicht.getName());
                 ((TextView) findViewById(R.id.textView39)).setText(ansicht.getRolle().trim());
                 ((TextView) findViewById(R.id.textView34)).setText(ansicht.getKontakt());
                 ((TextView) findViewById(R.id.textView21)).setText("Profil von " + ansicht.getName());
@@ -164,6 +173,8 @@ public class ProfilAnsichtAndererUser extends Activity implements View.OnClickLi
             }
         };
         databaseProfiles.addValueEventListener(profilListener);
+
+        profilbildAnzeigen();
     }
 
     @Override
@@ -267,6 +278,33 @@ public class ProfilAnsichtAndererUser extends Activity implements View.OnClickLi
             }
 
         }
+    }
+
+    public void profilbildAnzeigen () {
+
+        databaseProfilbilder.child(uebergebeneID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                downloadUrl = dataSnapshot.getValue(String.class);
+                try {
+                    if (downloadUrl.isEmpty() || downloadUrl.equals("")) {
+                        downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F13547334191038217.png.13058c9590e23a9de3feeaa55d725724.png?alt=media&token=9b3886c8-deac-4b25-8f26-838a98e9dfb4";
+                    }
+                }catch (NullPointerException np){
+                    downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F13547334191038217.png.13058c9590e23a9de3feeaa55d725724.png?alt=media&token=9b3886c8-deac-4b25-8f26-838a98e9dfb4";
+                }
+                StorageReference storageReference = storage.getInstance().getReferenceFromUrl(downloadUrl);
+                Glide.with(ProfilAnsichtAndererUser.this)
+                        .using(new FirebaseImageLoader())
+                        .load(storageReference)
+                        .into(profilBild);
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
     }
 }
 
