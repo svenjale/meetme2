@@ -243,17 +243,6 @@
         android:layout_marginRight="11dp"></ImageView>
 
     <Button
-        android:id="@+id/upload"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:background="@drawable/mybutton"
-        android:backgroundTint="#fffafa"
-        android:text="upload"
-        android:layout_above="@+id/checkBox2"
-        android:layout_alignLeft="@+id/ProfilBild"
-        android:layout_alignStart="@+id/ProfilBild" />
-
-    <Button
         android:id="@+id/change"
         android:layout_width="60dp"
         android:layout_height="40dp"

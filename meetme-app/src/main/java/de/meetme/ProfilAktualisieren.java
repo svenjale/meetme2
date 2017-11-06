@@ -17,7 +17,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -68,6 +73,7 @@ public class ProfilAktualisieren extends Activity implements View.OnClickListene
     ProgressDialog progressDialog;
     UploadTask uploadTask;
     public static String aktuelleUserID;
+    private String downloadUrl ="";
 
     private String url ="";
 
@@ -101,7 +107,6 @@ public class ProfilAktualisieren extends Activity implements View.OnClickListene
 
         change = (Button)findViewById(R.id.change);
         ProfilBild = (ImageView) findViewById(R.id.ProfilBild);
-        upload = (Button)findViewById(R.id.upload);
 
         animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
 // load the animation
@@ -121,8 +126,6 @@ public class ProfilAktualisieren extends Activity implements View.OnClickListene
         button4.setOnClickListener(this);
 
         change.setOnClickListener(this);
-        upload.setOnClickListener(this);
-
 
     }
 
@@ -135,6 +138,8 @@ public class ProfilAktualisieren extends Activity implements View.OnClickListene
         if (ProfilAnsichtEigenesProfil.aktuellerUser.getRolle().contains("Fotograf")) checkBox2.setChecked(true);
         if (ProfilAnsichtEigenesProfil.aktuellerUser.getRolle().contains("Organisator")) checkBox3.setChecked(true);
         if (ProfilAnsichtEigenesProfil.aktuellerUser.getRolle().contains("Visagist")) checkBox4.setChecked(true);
+
+        profilbildAnzeigen();
     }
 
     public void saveprofile(){
@@ -195,6 +200,7 @@ public class ProfilAktualisieren extends Activity implements View.OnClickListene
             startActivity(Kontakte);
         }
         if (view == button4) {
+            uploadImage(view);
             saveprofile();
 
         }
@@ -213,11 +219,6 @@ public class ProfilAktualisieren extends Activity implements View.OnClickListene
             //displayPicture();
         }
 
-        if (view == upload) {
-            Toast.makeText(ProfilAktualisieren.this, "Button wurde geklickt", Toast.LENGTH_SHORT).show();
-
-            uploadImage(view);
-        }
     }
 
     public void selectImage(View view) {
@@ -289,5 +290,31 @@ public class ProfilAktualisieren extends Activity implements View.OnClickListene
 
         });
     }
+    public void profilbildAnzeigen (){
+
+        databaseProfilbilder.child(aktuelleUserID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                downloadUrl = dataSnapshot.getValue(String.class);
+                try {
+                    if (downloadUrl.isEmpty() || downloadUrl.equals("")) {
+                        downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F13547334191038217.png.13058c9590e23a9de3feeaa55d725724.png?alt=media&token=9b3886c8-deac-4b25-8f26-838a98e9dfb4";
+                    }
+                }catch (NullPointerException np){
+                    downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F13547334191038217.png.13058c9590e23a9de3feeaa55d725724.png?alt=media&token=9b3886c8-deac-4b25-8f26-838a98e9dfb4";
+                }
+                StorageReference storageReference = storage.getInstance().getReferenceFromUrl(downloadUrl);
+                Glide.with(ProfilAktualisieren.this)
+                        .using(new FirebaseImageLoader())
+                        .load(storageReference)
+                        .into(ProfilBild);
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+    }
 }
+
 
