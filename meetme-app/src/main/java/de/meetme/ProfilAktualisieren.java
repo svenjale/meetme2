@@ -75,6 +75,8 @@ public class ProfilAktualisieren extends Activity implements View.OnClickListene
     public static String aktuelleUserID;
     private String downloadUrl ="";
 
+    private Boolean changed = false;
+
     private String url ="";
 
 
@@ -200,7 +202,10 @@ public class ProfilAktualisieren extends Activity implements View.OnClickListene
             startActivity(Kontakte);
         }
         if (view == button4) {
-            uploadImage(view);
+
+            if (changed == true) {
+            uploadImage(view); }
+
             saveprofile();
 
         }
@@ -233,10 +238,12 @@ public class ProfilAktualisieren extends Activity implements View.OnClickListene
         switch (requestCode) {
             case SELECT_PHOTO:
                 if (resultCode == RESULT_OK) {
-                    Toast.makeText(ProfilAktualisieren.this,"Bild ausgewählt, bitte upload drücken",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ProfilAktualisieren.this,"Bild ausgewählt, bitte upload drücken",Toast.LENGTH_SHORT).show();
                     selectedImage = imageReturnedIntent.getData();
                     // uploadTask = imageRef.putFile(selectedImage); fehler hier
                     Picasso.with(ProfilAktualisieren.this).load(selectedImage).into(ProfilBild);
+
+                    changed = true;
                 }
         }
     }
@@ -292,29 +299,30 @@ public class ProfilAktualisieren extends Activity implements View.OnClickListene
     }
     public void profilbildAnzeigen (){
 
-        databaseProfilbilder.child(aktuelleUserID).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                downloadUrl = dataSnapshot.getValue(String.class);
-                try {
-                    if (downloadUrl.isEmpty() || downloadUrl.equals("")) {
+            databaseProfilbilder.child(aktuelleUserID).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    downloadUrl = dataSnapshot.getValue(String.class);
+                    try {
+                        if (downloadUrl.isEmpty() || downloadUrl.equals("")) {
+                            downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F13547334191038217.png.13058c9590e23a9de3feeaa55d725724.png?alt=media&token=9b3886c8-deac-4b25-8f26-838a98e9dfb4";
+                        }
+                    } catch (NullPointerException np) {
                         downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F13547334191038217.png.13058c9590e23a9de3feeaa55d725724.png?alt=media&token=9b3886c8-deac-4b25-8f26-838a98e9dfb4";
                     }
-                }catch (NullPointerException np){
-                    downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F13547334191038217.png.13058c9590e23a9de3feeaa55d725724.png?alt=media&token=9b3886c8-deac-4b25-8f26-838a98e9dfb4";
+                    StorageReference storageReference = storage.getInstance().getReferenceFromUrl(downloadUrl);
+                    Glide.with(ProfilAktualisieren.this)
+                            .using(new FirebaseImageLoader())
+                            .load(storageReference)
+                            .into(ProfilBild);
                 }
-                StorageReference storageReference = storage.getInstance().getReferenceFromUrl(downloadUrl);
-                Glide.with(ProfilAktualisieren.this)
-                        .using(new FirebaseImageLoader())
-                        .load(storageReference)
-                        .into(ProfilBild);
-            }
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
 
-            }
-        });
+                @Override
+                public void onCancelled(FirebaseError firebaseError) {
+
+                }
+            });
+        }
     }
-}
 
 
