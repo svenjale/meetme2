@@ -52,7 +52,7 @@ public class KontakteListe extends ListActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kontakteliste);
 
-        databaseKontakte = new Firebase(FIREBASE_URL).child("KontakteListe").child(firebaseAuth.getInstance().getCurrentUser().getUid());
+        databaseKontakte = new Firebase(FIREBASE_URL).child("kontakte").child(firebaseAuth.getInstance().getCurrentUser().getUid());
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles");
 
         button7 = (Button) findViewById(R.id.button7);
@@ -123,7 +123,7 @@ public class KontakteListe extends ListActivity implements View.OnClickListener{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Get the selected item text from ListView
                 String item = (String) parent.getItemAtPosition(position);
-                if (item.equals(ProfilAnsichtEigenesProfil.aktuellerUser.getPersonID())){
+                if (item.equals(ProfilAnsichtEigenesProfil.aktuelleUserID)){
                     Intent Profil = new Intent(KontakteListe.this, ProfilAnsichtEigenesProfil.class);
                     startActivity(Profil);
                 }else {

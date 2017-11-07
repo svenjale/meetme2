@@ -261,7 +261,7 @@ public class ProfilAnsichtAndererUser extends Activity implements View.OnClickLi
 
     public void mitWhatsAppTeilen(View view) {
         if (whatsappKontakt.isEmpty()) {
-            Toast.makeText(ProfilAnsichtAndererUser.this, "Dieser Nutzer hat keine Telefonnummer hinterlegt und kann nichtkontaktiert werden.",
+            Toast.makeText(ProfilAnsichtAndererUser.this, "Dieser Nutzer hat keine Telefonnummer hinterlegt und kann nicht kontaktiert werden.",
                     Toast.LENGTH_LONG).show();
         } else {
             PackageManager pm = getPackageManager();

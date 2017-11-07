@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.facebook.login.LoginManager;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -201,7 +202,7 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
         if (view == button22) {
             Intent logout = new Intent(ProfilAnsichtEigenesProfil.this, Willkommen.class);
             FirebaseAuth.getInstance().signOut();
-            //LoginManager.getInstance().logOut();
+            LoginManager.getInstance().logOut();
             aktuellerUser=new Person("","","","","");
             aktuelleUserID="";
             startActivity(logout);
