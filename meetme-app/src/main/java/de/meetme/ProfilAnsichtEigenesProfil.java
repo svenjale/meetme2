@@ -108,7 +108,7 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
         button14.setOnClickListener(this);
 
         EigenesProfilBild = (ImageView) findViewById(R.id.EigenesProfilBild);
-        imageZoom = (ImageButton)findViewById(R.id.imageZoom);
+        //imageZoom = (ImageButton)findViewById(R.id.imageZoom);
 
         animfadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
 // load the animation
@@ -131,7 +131,7 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
         button22.setOnClickListener(this);
         button20.setOnClickListener(this);
 
-        imageZoom.setOnClickListener(this);
+//        imageZoom.setOnClickListener(this);
 
 
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(aktuelleUserID);
@@ -219,14 +219,14 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
 
         }
 
-        if (view == imageZoom) {
+        //if (view == imageZoom) {
 
-            PhotoView photoView = (PhotoView) findViewById(R.id.photo_view);
+            //PhotoView photoView = (PhotoView) findViewById(R.id.photo_view);
 
            // photoView.
             Picasso.with(ProfilAnsichtEigenesProfil.this).load(String.valueOf(bitmap)).into(EigenesProfilBild);
 
-        }
+       // }
     }
 
     public void profilbildAnzeigen (){
