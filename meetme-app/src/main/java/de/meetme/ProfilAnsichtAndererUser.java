@@ -110,7 +110,7 @@ public class ProfilAnsichtAndererUser extends Activity implements View.OnClickLi
 
 
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles").child(uebergebeneID);
-        databaseKontakte = new Firebase(FIREBASE_URL).child("KontakteListe").child(firebaseAuth.getInstance().getCurrentUser().getUid());
+        databaseKontakte = new Firebase(FIREBASE_URL).child("kontakte").child(firebaseAuth.getInstance().getCurrentUser().getUid());
         databaseProfilbilder = new Firebase(FIREBASE_URL).child("profilbilder");
 
         //Test: Toast.makeText(ProfilAnsichtEigenesProfil.this, databaseProfiles.getKey(), Toast.LENGTH_SHORT).show();
