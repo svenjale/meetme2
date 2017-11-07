@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.animation.Animation;
@@ -32,6 +33,10 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 
 public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClickListener {
@@ -236,11 +241,28 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
                     }catch (NullPointerException np){
                         downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F13547334191038217.png.13058c9590e23a9de3feeaa55d725724.png?alt=media&token=9b3886c8-deac-4b25-8f26-838a98e9dfb4";
                     }
-                    StorageReference storageReference = storage.getInstance().getReferenceFromUrl(downloadUrl);
-                    Glide.with(ProfilAnsichtEigenesProfil.this)
-                            .using(new FirebaseImageLoader())
-                            .load(storageReference)
-                            .into(EigenesProfilBild);
+                    if (downloadUrl.contains("scontent")){
+                        try {
+                            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                            StrictMode.setThreadPolicy(policy);
+
+                            URL url = new URL(downloadUrl);
+                            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+                            connection.setDoInput(true);
+                            connection.connect();
+                            InputStream input = connection.getInputStream();
+                            Bitmap profilePic = BitmapFactory.decodeStream(input);
+                            EigenesProfilBild.setImageBitmap(profilePic);
+                        } catch (IOException e) {
+                        }
+                    }
+                    else {
+                        StorageReference storageReference = storage.getInstance().getReferenceFromUrl(downloadUrl);
+                        Glide.with(ProfilAnsichtEigenesProfil.this)
+                                .using(new FirebaseImageLoader())
+                                .load(storageReference)
+                                .into(EigenesProfilBild);
+                    }
                 }
                 @Override
                 public void onCancelled(FirebaseError firebaseError) {
@@ -297,7 +319,5 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
             e.printStackTrace();
         }
     }
-
-
 
 }

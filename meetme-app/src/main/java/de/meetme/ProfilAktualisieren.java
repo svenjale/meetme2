@@ -3,8 +3,11 @@ package de.meetme;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
@@ -33,6 +36,11 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 
 public class ProfilAktualisieren extends Activity implements View.OnClickListener {
@@ -310,13 +318,28 @@ public class ProfilAktualisieren extends Activity implements View.OnClickListene
                     } catch (NullPointerException np) {
                         downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F13547334191038217.png.13058c9590e23a9de3feeaa55d725724.png?alt=media&token=9b3886c8-deac-4b25-8f26-838a98e9dfb4";
                     }
-                    StorageReference storageReference = storage.getInstance().getReferenceFromUrl(downloadUrl);
-                    Glide.with(ProfilAktualisieren.this)
-                            .using(new FirebaseImageLoader())
-                            .load(storageReference)
-                            .into(ProfilBild);
-                }
+                    if (downloadUrl.contains("scontent")) {
+                        try {
+                            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                            StrictMode.setThreadPolicy(policy);
 
+                            URL url = new URL(downloadUrl);
+                            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+                            connection.setDoInput(true);
+                            connection.connect();
+                            InputStream input = connection.getInputStream();
+                            Bitmap profilePic = BitmapFactory.decodeStream(input);
+                            ProfilBild.setImageBitmap(profilePic);
+                        } catch (IOException e) {
+                        }
+                    } else {
+                        StorageReference storageReference = storage.getInstance().getReferenceFromUrl(downloadUrl);
+                        Glide.with(ProfilAktualisieren.this)
+                                .using(new FirebaseImageLoader())
+                                .load(storageReference)
+                                .into(ProfilBild);
+                    }
+                }
                 @Override
                 public void onCancelled(FirebaseError firebaseError) {
 

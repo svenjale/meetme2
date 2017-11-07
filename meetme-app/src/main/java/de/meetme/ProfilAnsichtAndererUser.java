@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -24,6 +27,12 @@ import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class ProfilAnsichtAndererUser extends Activity implements View.OnClickListener {
 
@@ -290,14 +299,30 @@ public class ProfilAnsichtAndererUser extends Activity implements View.OnClickLi
                     if (downloadUrl.isEmpty() || downloadUrl.equals("")) {
                         downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F13547334191038217.png.13058c9590e23a9de3feeaa55d725724.png?alt=media&token=9b3886c8-deac-4b25-8f26-838a98e9dfb4";
                     }
-                }catch (NullPointerException np){
+                } catch (NullPointerException np) {
                     downloadUrl = "https://firebasestorage.googleapis.com/v0/b/smap-dhbw2.appspot.com/o/images%2F13547334191038217.png.13058c9590e23a9de3feeaa55d725724.png?alt=media&token=9b3886c8-deac-4b25-8f26-838a98e9dfb4";
                 }
-                StorageReference storageReference = storage.getInstance().getReferenceFromUrl(downloadUrl);
-                Glide.with(ProfilAnsichtAndererUser.this)
-                        .using(new FirebaseImageLoader())
-                        .load(storageReference)
-                        .into(profilBild);
+                if (downloadUrl.contains("scontent")) {
+                    try {
+                        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                        StrictMode.setThreadPolicy(policy);
+
+                        URL url = new URL(downloadUrl);
+                        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+                        connection.setDoInput(true);
+                        connection.connect();
+                        InputStream input = connection.getInputStream();
+                        Bitmap profilePic = BitmapFactory.decodeStream(input);
+                        profilBild.setImageBitmap(profilePic);
+                    } catch (IOException e) {
+                    }
+                } else {
+                    StorageReference storageReference = storage.getInstance().getReferenceFromUrl(downloadUrl);
+                    Glide.with(ProfilAnsichtAndererUser.this)
+                            .using(new FirebaseImageLoader())
+                            .load(storageReference)
+                            .into(profilBild);
+                }
             }
             @Override
             public void onCancelled(FirebaseError firebaseError) {

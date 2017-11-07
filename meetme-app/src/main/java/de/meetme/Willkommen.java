@@ -43,6 +43,7 @@ public class Willkommen extends Activity implements View.OnClickListener {
     private Firebase myFirebaseRef;
     private FirebaseAuth firebaseAuth;
     private Firebase databaseProfiles;
+    private Firebase databaseProfilbilder;
     private Button buttonLogin2;
     private Button buttonRegis2;
     private Button button14;
@@ -61,6 +62,7 @@ public class Willkommen extends Activity implements View.OnClickListener {
 
         myFirebaseRef = new Firebase (FIREBASE_URL);
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles");
+        databaseProfilbilder = new Firebase(FIREBASE_URL).child("profilbilder");
         firebaseAuth = FirebaseAuth.getInstance();
 
         profil = new Person("", "", "", "", "");
@@ -180,9 +182,10 @@ public class Willkommen extends Activity implements View.OnClickListener {
                                 profil.setName(lastName);
                                 profil.setVorname(firstName+" "+middleName.trim());
 
-                                String image=task.getResult().getUser().getPhotoUrl().toString();
 
-                                // hier URL des Profilbildes entprechend in Database speichern
+                            String image =  task.getResult().getUser().getProviderData().get(0).getPhotoUrl().toString();
+                            //String image=task.getResult().getUser().getPhotoUrl().toString();
+                            databaseProfilbilder.child(task.getResult().getUser().getUid()).setValue(image);
 
                             databaseProfiles.child(task.getResult().getUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
@@ -203,6 +206,7 @@ public class Willkommen extends Activity implements View.OnClickListener {
 
                                         // hier ebenfalls ggf. Zugriff auf Facebook Infos, die sich geändert haben könnten, z.B. Bild URL, hinzufügen
 
+
                                     } catch (NullPointerException np) {
                                         ProfilAnsichtEigenesProfil.aktuellerUser=profil;
                                         databaseProfiles.child(uid).setValue(profil);
@@ -219,7 +223,6 @@ public class Willkommen extends Activity implements View.OnClickListener {
 
                                 }
                             });
-
 
                         }
                         }
