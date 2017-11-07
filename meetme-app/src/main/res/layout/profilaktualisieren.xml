@@ -222,13 +222,12 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profil"
+        android:text="Dein Profil"
         android:textSize="22dp"
         android:textColor="#000000"
         android:textStyle="bold"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_alignEnd="@+id/textView5"
         android:layout_marginTop="15dp" />
 
     <ImageView
@@ -241,16 +240,15 @@
 
     <Button
         android:id="@+id/change"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="40dp"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_toEndOf="@+id/textView18"
+        android:textSize="12dp"
         android:background="@drawable/mybutton"
         android:backgroundTint="#fffafa"
-        android:text="ändern"
-        android:layout_above="@+id/checkBox2"
-        android:layout_alignRight="@+id/ProfilBild"
-        android:layout_alignEnd="@+id/ProfilBild"
-        android:layout_marginRight="7dp"
-        android:layout_marginEnd="7dp" />
+        android:text="ändern" />
 
 
 

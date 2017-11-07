@@ -84,7 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-
+        android:layout_marginTop="15dp"
         android:text="Kontakte"
         android:textColor="#000000"
         android:textSize="22dp"
