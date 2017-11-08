@@ -43,7 +43,7 @@ public class KontaktVorschlagReceiver extends BroadcastReceiver {
 
         LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         databaseLocations = new Firebase(FIREBASE_URL).child("locations");
-        databaseKontaktvorschlaege = new Firebase(FIREBASE_URL).child("KontaktvorschlaegeListe").child(firebaseAuth.getInstance().getCurrentUser().getUid());
+        databaseKontaktvorschlaege = new Firebase(FIREBASE_URL).child("kontaktvorschlaege").child(firebaseAuth.getInstance().getCurrentUser().getUid());
 
         //Toast.makeText(context, "Testpunkt 1" ,Toast.LENGTH_SHORT).show();
 

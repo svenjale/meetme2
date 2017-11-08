@@ -50,7 +50,7 @@ public class KontaktvorschlaegeListe extends ListActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kontakteliste);
 
-        databaseKontaktvorschlaege = new Firebase(FIREBASE_URL).child("KontaktvorschlaegeListe").child(firebaseAuth.getInstance().getCurrentUser().getUid());
+        databaseKontaktvorschlaege = new Firebase(FIREBASE_URL).child("kontaktvorschlaege").child(firebaseAuth.getInstance().getCurrentUser().getUid());
         databaseProfiles = new Firebase(FIREBASE_URL).child("profiles");
 
         button7 = (Button) findViewById(R.id.button7);
