@@ -23,7 +23,6 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
-import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -201,11 +200,16 @@ public class ProfilAnsichtEigenesProfil extends Activity implements View.OnClick
 
         if (view == button22) {
             Intent logout = new Intent(ProfilAnsichtEigenesProfil.this, Willkommen.class);
+            logout.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            logout.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             FirebaseAuth.getInstance().signOut();
             LoginManager.getInstance().logOut();
             aktuellerUser=new Person("","","","","");
             aktuelleUserID="";
             startActivity(logout);
+            finish();
+
         }
         if (view == button20) {
             try {

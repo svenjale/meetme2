@@ -121,6 +121,10 @@ public class Willkommen extends Activity implements View.OnClickListener {
             }
         });
 
+        FirebaseAuth.getInstance().signOut();
+        LoginManager.getInstance().logOut();
+        ProfilAnsichtEigenesProfil.aktuellerUser=new Person("","","","","");
+        ProfilAnsichtEigenesProfil.aktuelleUserID="";
 
     }
 
