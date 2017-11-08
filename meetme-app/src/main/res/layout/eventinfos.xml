@@ -32,11 +32,11 @@
         android:id="@+id/button21"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/shareicon"
+        android:layout_alignEnd="@+id/button14"
+        android:layout_alignTop="@+id/textView30"
+        android:layout_marginTop="15dp"
         android:background="@drawable/mybutton"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/button14"
-         />
+        android:src="@drawable/shareicon" />
 
 
 
@@ -57,10 +57,11 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/calendar"
+        android:layout_below="@id/button24"
         android:scaleType="fitCenter"
         android:padding="10dp"
-        android:layout_marginTop="197dp"
         android:layout_marginLeft="300dp"
+        android:layout_marginTop="22dp"
         android:background="@drawable/mybutton"/>
 
 
@@ -275,8 +276,7 @@
         android:layout_height="50dp"
         android:background="@drawable/mybutton"
         android:src="@drawable/mapicon"
-        android:layout_alignBottom="@+id/textView24"
-        android:layout_alignLeft="@+id/button12"
-        android:layout_alignStart="@+id/button12" />
+        android:layout_below="@+id/textView16"
+        android:layout_alignLeft="@+id/button12" />
 
 </android.widget.RelativeLayout>
